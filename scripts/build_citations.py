@@ -21,11 +21,11 @@ HARBOR = {  # canonical: (status, harbor_name)
  "cybench":("false_positive","legacy-bench"),
 }
 # ---- TWO orthogonal axes ----
-# TYPE = how it's run (static Q&A/exam vs agentic tool/environment task). 
+# TYPE = how it's run (chat = one-shot Q&A/exam vs agentic tool/environment task). Harbor prefers agentic.
 # DOMAIN = subject matter. Do NOT conflate the two.
 AGENTIC = set("swe-bench-verified swe-bench-pro swe-bench-multilingual swe-bench-multimodal terminal-bench frontiercode frontier-swe programbench cursorbench aider-polyglot expert-swe spreadsheetbench minimal-linuxbench vibench osworld webarena screenspot-pro online-mind2web automationbench toolathlon mcp-atlas mcp-mark-verified bfcl tau2-bench vending-bench-2 browsecomp deepsearchqa draco gdpval-aa finance-agent real-world-finance legal-agent-benchmark officeqa apex-agents benchcad cybergym cve-bench cybench cyscenariobench exploitbench exploitgym paperbench mle-bench agentharm shade-arena petri makemesay impossiblebench genebench bixbench".split())
 def type_of(c):
-    return "agentic" if c in AGENTIC else "static"
+    return "agentic" if c in AGENTIC else "chat"
 
 DOMAIN = {
  "coding": "swe-bench-verified swe-bench-pro swe-bench-multilingual swe-bench-multimodal terminal-bench frontiercode frontier-swe programbench cursorbench vibench livecodebench aider-polyglot codeforces ojbench expert-swe spreadsheetbench minimal-linuxbench".split(),
@@ -332,46 +332,6 @@ NEWMETHOD={
  ("fableblog","frontiercode"):"headline blog; main comparison table is an IMAGE (numbers live in the system card, not text) - blog prose headlines FrontierCode/CyberGym/CyScenarioBench + partner evals CursorBench/ViBench/FrontierBench",
 }
 METHOD.update(NEWMETHOD)
-
-# ============================================================================
-# FORWARD RUN 2026-07-04: human-promoted candidates from the daily discovery+diff
-# run (crawled every labs.yaml source_index_urls, diffed vs the 35 prior docs).
-# Promoted set: (1) Claude Sonnet 5 LAUNCH BLOG - a separate blog_headliner doc from
-# the already-tracked Sonnet 5 system card (AGENTS.md: every headline blog is its own
-# doc); (2) OpenAI GeneBench-Pro benchmark-release blog.
-# SCOPE POLICY (2026-07-04): a lab's benchmark-release / benchmark-shout-out blog is
-# tracked as an ordinary blog_headliner citation - Option 1, no new schema fields,
-# revisit later. Only verbatim text-extractable numbers are recorded; image/chart-only
-# scores are left score_pending and NEVER guessed. Registering GeneBench also resolves
-# the previously-unmatched GeneBench rows on the GPT-5.5 / GPT-5.6 Sol docs (part of #8).
-# ============================================================================
-EXTRA.update({
- "genebench":"genebench", "genebench-pro":"genebench-pro", "genebench pro":"genebench-pro",
-})
-AGENTIC.add("genebench-pro")     # GeneBench-Pro: agentic comp-bio benchmark (sibling of genebench)
-DOM["genebench-pro"]="science"   # subject domain = computational biology
-FWD_0704={
- "sonnet5blog":dict(lab="anthropic",model="Claude Sonnet 5",dt="blog_headliner",date="2026-06-30",
-   url="https://www.anthropic.com/news/claude-sonnet-5",prom="headline",
-   head=["BrowseComp","OSWorld-Verified"],
-   b=["BrowseComp","OSWorld-Verified"]),
- "genebenchpro":dict(lab="openai",model="GPT-5.6 Sol",dt="blog_headliner",date="2026-06-30",
-   url="https://openai.com/index/introducing-genebench-pro/",prom="headline",
-   head=["GeneBench-Pro"],
-   b=["GeneBench-Pro"]),
-}
-DOCS.update(FWD_0704)
-FWD_0704_SCORES={
- ("genebenchpro","genebench-pro"):(28.7,"percent","GPT-5.6 Sol (highest reasoning; 31.5 Pro mode)"),
- # sonnet5blog BrowseComp/OSWorld-Verified: Sonnet 5 numbers are chart/image-only -> score_pending.
-}
-SCORES.update(FWD_0704_SCORES)
-FWD_0704_METHOD={
- ("sonnet5blog","browsecomp"):"headline agentic-search eval on the Sonnet 5 launch blog; Sonnet 5 shown only as a cost-performance curve (chart-only, no single text value) -> score_pending; standard methodology = 10M-token budget with compaction + programmatic tool calling (per blog changelog); the full comparison table is image-only, cross-ref the archived Sonnet 5 system card",
- ("sonnet5blog","osworld"):"headline computer-use eval (OSWorld-Verified) on the Sonnet 5 launch blog; Sonnet 5 chart-only -> score_pending; blog restates Sonnet 4.6 to 78.5% (OSWorld-Verified) and HLE to 34.6%/46.8% (no-tools/with-tools) after grader/eval-run changes",
- ("genebenchpro","genebench-pro"):"OpenAI self-authored benchmark-release blog (bioRxiv); 129 synthetic, deterministically-graded computational-biology agent tasks; GPT-5.6 Sol 28.7% (highest reasoning), 31.5% (Pro mode); earlier GeneBench: GPT-5 <5% at launch; 10 questions open-sourced on HF + 50-question subset to Artificial Analysis; authors expect saturation by end of 2026; vendor_proprietary (partially open)",
-}
-METHOD.update(FWD_0704_METHOD)
 
 R=[]; unmatched=set()
 for did,d in DOCS.items():
