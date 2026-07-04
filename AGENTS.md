@@ -94,8 +94,9 @@ apply (use judgment). Prefer bullets over paragraphs.
 - Backfill (9 docs) + forward run 2026-07-03 (25 promoted docs) → **514 citations, 97
   benchmarks, 35 docs**. Prominence weighting is live: headline blogs = their own citation
   lines (3×); deep system-card rows discounted by `table_total`.
-- Dashboard built at `docs/index.html` (the `regenerate` Action also rebuilds it).
-  **GitHub Pages not yet enabled** — Settings → Pages → `main` `/docs`.
+- Dashboard **live at https://autobenchmark.ai** — apex A-records → GitHub Pages; `docs/CNAME`
+  pins the domain (the `regenerate` Action only re-adds `docs/index.html`, so the domain survives).
+  Optional: add a `www` CNAME → `christicode.github.io` to clear GitHub's www advisory.
 - Review queue (all in the house-style format above): #1 Mistral chart-only, #2 Fable/Mythos
   `model_config`, #3 Muse Spark PDF extract, #4 Harbor (name,version) collisions, #6
   aggregator→primary, #7 Meta scope, #8 register 29 new aliases, #9 extract 5 unreadable
