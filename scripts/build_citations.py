@@ -21,7 +21,7 @@ HARBOR = {  # canonical: (status, harbor_name)
  "cybench":("false_positive","legacy-bench"),
 }
 # ---- TWO orthogonal axes ----
-# TYPE = how it's run (static Q&A/exam vs agentic tool/environment task). Harbor prefers agentic.
+# TYPE = how it's run (static Q&A/exam vs agentic tool/environment task). 
 # DOMAIN = subject matter. Do NOT conflate the two.
 AGENTIC = set("swe-bench-verified swe-bench-pro swe-bench-multilingual swe-bench-multimodal terminal-bench frontiercode frontier-swe programbench cursorbench aider-polyglot expert-swe spreadsheetbench minimal-linuxbench vibench osworld webarena screenspot-pro online-mind2web automationbench toolathlon mcp-atlas mcp-mark-verified bfcl tau2-bench vending-bench-2 browsecomp deepsearchqa draco gdpval-aa finance-agent real-world-finance legal-agent-benchmark officeqa apex-agents benchcad cybergym cve-bench cybench cyscenariobench exploitbench exploitgym paperbench mle-bench agentharm shade-arena petri makemesay impossiblebench genebench bixbench".split())
 def type_of(c):
