@@ -1,0 +1,390 @@
+# aliases_generated.yaml - AUTO-GENERATED from citations.jsonl. DO NOT EDIT.
+# Curated core + collision flags live in aliases.yaml.
+schema_version: 1
+benchmarks:
+  - canonical: aa-omniscience
+    axis: safety
+    aliases: ["AA-Omniscience"]
+    harbor_status: not_in_harbor
+  - canonical: abstentionbench
+    axis: static
+    aliases: ["AbstentionBench"]
+    harbor_status: not_in_harbor
+  - canonical: agentharm
+    axis: safety
+    aliases: ["AgentHarm"]
+    harbor_status: not_in_harbor
+  - canonical: aider-polyglot
+    axis: agentic
+    aliases: ["Aider"]
+    harbor_status: not_in_harbor
+  - canonical: aime
+    axis: static
+    aliases: ["AIME"]
+    harbor_status: needs_review
+    harbor_match: {name: aime}
+  - canonical: arc-agi-2
+    axis: static
+    aliases: ["ARC-AGI", "ARC-AGI-2"]
+    harbor_status: confirmed
+    harbor_match: {name: arc_agi_2}
+  - canonical: arxivmath
+    axis: static
+    aliases: ["ArxivMath"]
+    harbor_status: not_in_harbor
+  - canonical: automationbench
+    axis: agentic
+    aliases: ["AutomationBench"]
+    harbor_status: not_in_harbor
+  - canonical: bbq
+    axis: safety
+    aliases: ["BBQ"]
+    harbor_status: not_in_harbor
+  - canonical: benchcad
+    axis: agentic
+    aliases: ["BenchCAD"]
+    harbor_status: not_in_harbor
+  - canonical: biolp-bench
+    axis: safety
+    aliases: ["BioLP"]
+    harbor_status: not_in_harbor
+  - canonical: biomysterybench
+    axis: safety
+    aliases: ["BioMysteryBench"]
+    harbor_status: not_in_harbor
+  - canonical: biotier
+    axis: safety
+    aliases: ["BioTIER"]
+    harbor_status: not_in_harbor
+  - canonical: blueprint-bench-2
+    axis: multimodal
+    aliases: ["Blueprint-Bench 2"]
+    harbor_status: not_in_harbor
+  - canonical: browsecomp
+    axis: agentic
+    aliases: ["BrowseComp"]
+    harbor_status: not_in_harbor
+  - canonical: chartmuseum
+    axis: multimodal
+    aliases: ["ChartMuseum"]
+    harbor_status: not_in_harbor
+  - canonical: chartqapro
+    axis: multimodal
+    aliases: ["ChartQAPro"]
+    harbor_status: not_in_harbor
+  - canonical: charxiv
+    axis: multimodal
+    aliases: ["CharXiv"]
+    harbor_status: not_in_harbor
+  - canonical: cloning-scenarios
+    axis: safety
+    aliases: ["Cloning", "CloningScenarios"]
+    harbor_status: not_in_harbor
+  - canonical: codeforces
+    axis: static
+    aliases: ["Codeforces"]
+    harbor_status: not_in_harbor
+  - canonical: creative-writing-v3
+    axis: safety
+    aliases: ["Creative Writing"]
+    harbor_status: not_in_harbor
+  - canonical: critpt
+    axis: static
+    aliases: ["CritPt"]
+    harbor_status: not_in_harbor
+  - canonical: cursorbench
+    axis: agentic
+    aliases: ["CursorBench"]
+    harbor_status: not_in_harbor
+  - canonical: cve-bench
+    axis: agentic
+    aliases: ["CVE-Bench"]
+    harbor_status: not_in_harbor
+  - canonical: cybench
+    axis: agentic
+    aliases: ["Cybench"]
+    harbor_status: false_positive
+    harbor_match: {name: legacy-bench}
+  - canonical: cybergym
+    axis: agentic
+    aliases: ["CyberGym"]
+    harbor_status: not_in_harbor
+  - canonical: cybersec-eval
+    axis: safety
+    aliases: ["CyberSecEval"]
+    harbor_status: not_in_harbor
+  - canonical: cyscenariobench
+    axis: agentic
+    aliases: ["CyScenarioBench"]
+    harbor_status: not_in_harbor
+  - canonical: deceptionbench
+    axis: safety
+    aliases: ["DeceptionBench"]
+    harbor_status: not_in_harbor
+  - canonical: deepsearchqa
+    axis: agentic
+    aliases: ["DeepSearchQA"]
+    harbor_status: not_in_harbor
+  - canonical: draco
+    axis: agentic
+    aliases: ["DRACO"]
+    harbor_status: not_in_harbor
+  - canonical: exploitbench
+    axis: agentic
+    aliases: ["ExploitBench"]
+    harbor_status: not_in_harbor
+  - canonical: figqa
+    axis: multimodal
+    aliases: ["FigQA"]
+    harbor_status: not_in_harbor
+  - canonical: finance-agent
+    axis: agentic
+    aliases: ["Finance Agent"]
+    harbor_status: confirmed
+    harbor_match: {name: financeagent}
+  - canonical: frontier-swe
+    axis: agentic
+    aliases: ["Frontier SWE"]
+    harbor_status: not_in_harbor
+  - canonical: frontiercode
+    axis: agentic
+    aliases: ["FrontierCode"]
+    harbor_status: not_in_harbor
+  - canonical: gdp-pdf
+    axis: multimodal
+    aliases: ["GDP.pdf"]
+    harbor_status: not_in_harbor
+  - canonical: gdpval-aa
+    axis: agentic
+    aliases: ["GDPval-AA"]
+    harbor_status: not_in_harbor
+  - canonical: gpqa-diamond
+    axis: static
+    aliases: ["GPQA", "GPQA Diamond"]
+    harbor_status: confirmed
+    harbor_match: {name: gpqa-diamond}
+  - canonical: graphwalks
+    axis: static
+    aliases: ["GraphWalks"]
+    harbor_status: not_in_harbor
+  - canonical: harmbench
+    axis: safety
+    aliases: ["Harmbench"]
+    harbor_status: not_in_harbor
+  - canonical: healthadminbench
+    axis: static
+    aliases: ["HealthAdminBench"]
+    harbor_status: not_in_harbor
+  - canonical: healthbench
+    axis: static
+    aliases: ["HealthBench"]
+    harbor_status: not_in_harbor
+  - canonical: hmmt
+    axis: static
+    aliases: ["HMMT"]
+    harbor_status: not_in_harbor
+  - canonical: humanitys-last-exam
+    axis: static
+    aliases: ["HLE"]
+    harbor_status: not_in_harbor
+  - canonical: iheval
+    axis: static
+    aliases: ["IHEval"]
+    harbor_status: not_in_harbor
+  - canonical: imoanswerbench
+    axis: static
+    aliases: ["IMOAnswerBench"]
+    harbor_status: not_in_harbor
+  - canonical: impossiblebench
+    axis: safety
+    aliases: ["ImpossibleBench"]
+    harbor_status: not_in_harbor
+  - canonical: lab-bench
+    axis: safety
+    aliases: ["LAB-Bench", "LAB-Bench FigQA"]
+    harbor_status: needs_review
+    harbor_match: {name: labbench}
+  - canonical: legal-agent-benchmark
+    axis: agentic
+    aliases: ["Legal Agent Benchmark"]
+    harbor_status: not_in_harbor
+  - canonical: livecodebench
+    axis: agentic
+    aliases: ["LiveCodeBench"]
+    harbor_status: needs_review
+    harbor_match: {name: livecodebench}
+  - canonical: makemesay
+    axis: safety
+    aliases: ["MakeMeSay"]
+    harbor_status: not_in_harbor
+  - canonical: mask
+    axis: safety
+    aliases: ["MASK"]
+    harbor_status: not_in_harbor
+  - canonical: matharena-apex
+    axis: static
+    aliases: ["MathArena"]
+    harbor_status: not_in_harbor
+  - canonical: mcp-atlas
+    axis: agentic
+    aliases: ["MCP Atlas", "MCP-Atlas"]
+    harbor_status: not_in_harbor
+  - canonical: minimal-linuxbench
+    axis: safety
+    aliases: ["Minimal-LinuxBench"]
+    harbor_status: not_in_harbor
+  - canonical: mmlu
+    axis: static
+    aliases: ["MMLU"]
+    harbor_status: not_in_harbor
+  - canonical: mmlu-pro
+    axis: static
+    aliases: ["MMLU-Pro"]
+    harbor_status: not_in_harbor
+  - canonical: mmmlu
+    axis: static
+    aliases: ["MMMLU"]
+    harbor_status: confirmed
+    harbor_match: {name: mmmlu}
+  - canonical: mmmu
+    axis: multimodal
+    aliases: ["MMMU"]
+    harbor_status: not_in_harbor
+  - canonical: mmmu-pro
+    axis: multimodal
+    aliases: ["MMMU-Pro"]
+    harbor_status: not_in_harbor
+  - canonical: mrcr
+    axis: agentic
+    aliases: ["MRCR"]
+    harbor_status: not_in_harbor
+  - canonical: officeqa
+    axis: agentic
+    aliases: ["OfficeQA"]
+    harbor_status: not_in_harbor
+  - canonical: or-bench
+    axis: safety
+    aliases: ["OR-Bench"]
+    harbor_status: not_in_harbor
+  - canonical: osworld
+    axis: agentic
+    aliases: ["OSWorld", "OSWorld-Verified"]
+    harbor_status: not_in_harbor
+  - canonical: paperbench
+    axis: safety
+    aliases: ["PaperBench"]
+    harbor_status: not_in_harbor
+  - canonical: petri
+    axis: safety
+    aliases: ["Petri"]
+    harbor_status: not_in_harbor
+  - canonical: programbench
+    axis: agentic
+    aliases: ["ProgramBench"]
+    harbor_status: not_in_harbor
+  - canonical: propensitybench
+    axis: safety
+    aliases: ["PropensityBench"]
+    harbor_status: not_in_harbor
+  - canonical: proteingym
+    axis: safety
+    aliases: ["ProteinGym"]
+    harbor_status: not_in_harbor
+  - canonical: protocolqa
+    axis: safety
+    aliases: ["ProtocolQA"]
+    harbor_status: not_in_harbor
+  - canonical: real-world-finance
+    axis: agentic
+    aliases: ["Real-World Finance"]
+    harbor_status: not_in_harbor
+  - canonical: riemannbench
+    axis: static
+    aliases: ["RiemannBench"]
+    harbor_status: not_in_harbor
+  - canonical: screenspot-pro
+    axis: agentic
+    aliases: ["ScreenSpot-Pro"]
+    harbor_status: not_in_harbor
+  - canonical: seqqa
+    axis: safety
+    aliases: ["SeqQA"]
+    harbor_status: not_in_harbor
+  - canonical: shade-arena
+    axis: safety
+    aliases: ["SHADE"]
+    harbor_status: not_in_harbor
+  - canonical: simpleqa
+    axis: static
+    aliases: ["SimpleQA"]
+    harbor_status: needs_review
+    harbor_match: {name: simpleqa}
+  - canonical: singlecellbench
+    axis: safety
+    aliases: ["SingleCellBench"]
+    harbor_status: not_in_harbor
+  - canonical: spatialbench
+    axis: safety
+    aliases: ["SpatialBench"]
+    harbor_status: not_in_harbor
+  - canonical: strongreject
+    axis: agentic
+    aliases: ["StrongReject"]
+    harbor_status: confirmed
+    harbor_match: {name: strongreject}
+  - canonical: swe-bench-multilingual
+    axis: agentic
+    aliases: ["SWE-bench Multilingual"]
+    harbor_status: confirmed
+    harbor_match: {name: swebench_multilingual}
+  - canonical: swe-bench-multimodal
+    axis: agentic
+    aliases: ["SWE-bench Multimodal"]
+    harbor_status: not_in_harbor
+  - canonical: swe-bench-pro
+    axis: agentic
+    aliases: ["SWE-bench Pro"]
+    harbor_status: confirmed
+    harbor_match: {name: swebenchpro}
+  - canonical: swe-bench-verified
+    axis: agentic
+    aliases: ["SWE-Bench", "SWE-bench Verified"]
+    harbor_status: confirmed
+    harbor_match: {name: swebench-verified}
+  - canonical: tau2-bench
+    axis: agentic
+    aliases: ["tau2"]
+    harbor_status: not_in_harbor
+  - canonical: terminal-bench
+    axis: agentic
+    aliases: ["Terminal-Bench", "Terminal-Bench 2.1"]
+    harbor_status: needs_review
+    harbor_match: {name: terminal-bench}
+  - canonical: toolathlon
+    axis: agentic
+    aliases: ["Toolathlon"]
+    harbor_status: not_in_harbor
+  - canonical: troubleshootingbench
+    axis: safety
+    aliases: ["TroubleshootingBench"]
+    harbor_status: not_in_harbor
+  - canonical: usamo-2026
+    axis: static
+    aliases: ["USAMO", "USAMO 2026"]
+    harbor_status: not_in_harbor
+  - canonical: vending-bench-2
+    axis: agentic
+    aliases: ["Vending-Bench", "Vending-Bench 2"]
+    harbor_status: not_in_harbor
+  - canonical: video-mmmu
+    axis: multimodal
+    aliases: ["Video-MMMU"]
+    harbor_status: not_in_harbor
+  - canonical: webarena
+    axis: agentic
+    aliases: ["WebArena"]
+    harbor_status: not_in_harbor
+  - canonical: wmdp
+    axis: safety
+    aliases: ["WMDP"]
+    harbor_status: not_in_harbor
