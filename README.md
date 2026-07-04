@@ -2,6 +2,8 @@
 
 Tracks **benchmark citations** across the LLM ecosystem: for each benchmark we track how often it's cited, where it's cited, by which labs/models, and with what methodology deviations.
 
+📊 **Live dashboard:** <https://autobenchmark.ai> — benchmarks with rising citation usage, rising saturation, and the current top Harbor-conversion candidates + a one-line "why now" each. Regenerated on every data change.
+
 ## Scope
 - Backfilled to 2025-08, then forward continuously. 
 - Labs: Big (Anthropic, OpenAI, Google DeepMind, Meta, xAI) + open-weight leaders
