@@ -15,13 +15,9 @@ Tracks **benchmark citations** across the LLM ecosystem: for each benchmark we t
 3. **Normalize** names via [`data/aliases.yaml`](data/aliases.yaml). Anything unmatched is **flagged for human review as a GitHub issue**. 
 4. **Rank** adapter candidates with [`scripts/rank.py`](scripts/rank.py):usage + saturation headroom. Benchmarks already in Harbor are excluded.
 
-Details: 
-Harbor cross-reference: Harbor's `registry.json` is fetched live from `main` each run
-(`harbor-framework/harbor`). 
+**Details:**
 
-Issues are created for human review: E.g. Mistral publishes evals as chart-only cards; human review helps ensure accurate extraction from charts. 
-
-Raw source archive: The raw source PDFs live in the companion private repo
-[`benchmark-citations-sources`](https://github.com/christicode/benchmark-citations-sources)(Git LFS). 
-
-Guardrails: Publishing (repo creation, push, dashboard, issues) always requires explicit human confirmation. Never fabricate a citation or methodology detail.
+1. Cross-reference Harbor's `registry.json` from `main` each run (`harbor-framework/harbor`) for canonical view of Harbor-supported benchmarks. 
+2. Issues are created for human review: E.g. Mistral publishes evals as chart-only cards; human review helps ensure accurate extraction from charts. 
+3. Raw source archive: The raw source PDFs live in the companion private repo [`benchmark-citations-sources`](https://github.com/christicode/benchmark-citations-sources)(Git LFS). 
+4. Guardrails: Publishing (repo creation, push, dashboard, issues) always requires explicit human confirmation. Never fabricate a citation or methodology detail.
