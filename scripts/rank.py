@@ -7,7 +7,9 @@ Live-fetches Harbor registry.json from main only to report size + sanity-check d
 Score (type/domain kept SEPARATE, surfaced not folded in):
   usage    = prominence-weighted citations * lab-diversity multiplier
   headroom = saturation headroom (lower max reported solve rate => longer half-life)
-Excludes benchmarks already in Harbor (on_harbor); down-ranks needs_review / vendor.
+Excludes benchmarks already in Harbor -- confirmed (on_harbor) and needs_review alike
+(needs_review = in Harbor by name, only the version is unconfirmed, #4). Keeps not_in_harbor
++ false_positive (genuinely no adapter) as candidates; down-ranks false_positive slightly.
 """
 from __future__ import annotations
 import json, sys, urllib.request, pathlib, collections
@@ -65,12 +67,16 @@ def main() -> None:
 
     rows = []
     for canon, a in agg.items():
-        if a["on"]:
+        # Already in Harbor => not a conversion candidate. confirmed = on_harbor;
+        # needs_review = present in Harbor by name, only the (name,version) is unconfirmed (#4) --
+        # it still has an adapter, so exclude it too (e.g. terminal-bench, livecodebench, aime).
+        # false_positive = the auto-match was wrong => genuinely NOT in Harbor => keep as candidate.
+        if a["on"] or a["status"] in ("confirmed", "needs_review"):
             continue
         diversity = 1 + 0.5 * (len(a["labs"]) - 1)
         usage = a["usage"] * diversity
         headroom = (1 - max(a["solve"])) if a["solve"] else 0.5
-        penalty = 0.6 if a["status"] in ("needs_review", "false_positive") else 1.0
+        penalty = 0.6 if a["status"] == "false_positive" else 1.0  # collided name; down-rank a touch
         priority = (usage * 0.6 + headroom * 4 * 0.4) * penalty
         rows.append((priority, canon, a["type"], a["domain"], usage, headroom, len(a["labs"]), a["docs"], a["status"]))
 

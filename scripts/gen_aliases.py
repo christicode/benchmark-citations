@@ -3,7 +3,7 @@
 
 The curated core + collision flags live in aliases.yaml (hand-maintained). This file
 holds every canonical seen in the citation graph so extract.py can normalize them.
-Each canonical carries its two orthogonal axes: type (agentic|static) and domain.
+Each canonical carries its two orthogonal axes: type (agentic|chat) and domain.
 """
 import json, collections, pathlib
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -24,7 +24,7 @@ for line in open(ROOT / "data" / "citations.jsonl"):
     a["hs"] = c.get("harbor_status", "not_in_harbor"); a["hn"] = c.get("harbor_name")
 out = ["# aliases_generated.yaml - AUTO-GENERATED from citations.jsonl. DO NOT EDIT.",
        "# Curated core + collision flags live in aliases.yaml.",
-       "# type = agentic|static (Harbor prefers agentic); domain = subject (kept orthogonal).",
+       "# type = agentic|chat (Harbor prefers agentic); domain = subject (kept orthogonal).",
        "schema_version: 2", "benchmarks:"]
 for c, v in sorted(agg.items()):
     out.append(f"  - canonical: {c}")
