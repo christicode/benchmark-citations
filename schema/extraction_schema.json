@@ -1,9 +1,9 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "BenchmarkCitation",
-  "description": "One (benchmark x citing document) record. Topline entity is the BENCHMARK.",
+  "description": "One (benchmark x citing document) record. Topline entity is the BENCHMARK. ALL benchmarks are tracked regardless of Harbor status; on_harbor is just a flag.",
   "type": "object",
-  "required": ["benchmark_canonical", "benchmark_raw", "source_doc", "citing_lab", "prominence", "needs_review"],
+  "required": ["benchmark_canonical", "benchmark_raw", "source_doc", "citing_lab", "prominence", "on_harbor", "harbor_status", "needs_review"],
   "properties": {
     "benchmark_canonical": {"type": ["string", "null"], "description": "Normalized via aliases.yaml. null if unmatched (=> needs_review true)."},
     "benchmark_raw": {"type": "string", "description": "Verbatim benchmark name as written in the doc."},
@@ -16,7 +16,7 @@
         "doc_type": {"enum": ["blog_headliner", "model_card", "system_card"]},
         "url": {"type": "string"},
         "pub_date": {"type": ["string", "null"], "format": "date"},
-        "primary": {"type": "boolean", "description": "true only for 1st-party lab docs (incl. HF README for open-weight)."}
+        "primary": {"type": "boolean"}
       }
     },
     "citing_lab": {"type": "string"},
@@ -38,15 +38,20 @@
         "unit": {"enum": ["percent", "elo", "score", "rank", "usd", "other", null]},
         "with_tools": {"type": ["boolean", "null"]},
         "effort": {"type": ["string", "null"]},
-        "harness": {"type": ["string", "null"], "description": "e.g. Terminus 1/2, Claude Code, RooCode, Codex xhigh"},
+        "harness": {"type": ["string", "null"]},
         "n_samples": {"type": ["integer", "null"]},
         "scaffold": {"type": ["string", "null"]},
         "model_config": {"type": ["string", "null"], "description": "e.g. Fable 5 (classifiers on) vs Mythos 5 (unblocked)"}
       }
     },
+    "axis": {"enum": ["agentic", "static", "multimodal", "safety"], "description": "SEPARATE axis, surfaced not folded into priority score."},
+    "on_harbor": {"type": "boolean", "description": "true iff this benchmark is already a confirmed Harbor (name,version) entry."},
+    "harbor_status": {"enum": ["confirmed", "needs_review", "false_positive", "not_in_harbor"]},
+    "harbor_name": {"type": ["string", "null"], "description": "matched Harbor entry name, if any."},
     "methodology_deviations": {"type": "array", "items": {"type": "string"}},
-    "needs_review": {"type": "boolean"},
+    "score_pending": {"type": "boolean", "description": "true = benchmark cited but numeric score not yet extracted from primary (tracked, not a human-decision)."},
+    "needs_review": {"type": "boolean", "description": "true = genuine HUMAN decision needed (unmatched name / Harbor collision / config-dependent / chart-only). Surfaced as a GitHub issue."},
     "review_reason": {"type": ["string", "null"]},
-    "review_issue": {"type": ["integer", "null"], "description": "GitHub issue # tracking this flag, if opened."}
+    "review_issue": {"type": ["integer", "null"], "description": "GitHub issue # (in benchmark-citations) tracking this flag. Issues are the source of truth for the review queue."}
   }
 }
