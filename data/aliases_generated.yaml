@@ -4,12 +4,12 @@
 schema_version: 2
 benchmarks:
   - canonical: aa-omniscience
-    type: static
+    type: chat
     domain: knowledge
     aliases: ["AA-Omniscience"]
     harbor_status: not_in_harbor
   - canonical: abstentionbench
-    type: static
+    type: chat
     domain: knowledge
     aliases: ["AbstentionBench"]
     harbor_status: not_in_harbor
@@ -24,24 +24,24 @@ benchmarks:
     aliases: ["Aider"]
     harbor_status: not_in_harbor
   - canonical: aime
-    type: static
+    type: chat
     domain: math
     aliases: ["AIME"]
     harbor_status: needs_review
     harbor_match: {name: aime}
   - canonical: arc-agi-1
-    type: static
+    type: chat
     domain: knowledge
     aliases: ["ARC-AGI-1"]
     harbor_status: not_in_harbor
   - canonical: arc-agi-2
-    type: static
+    type: chat
     domain: knowledge
     aliases: ["ARC-AGI", "ARC-AGI-2"]
     harbor_status: confirmed
     harbor_match: {name: arc_agi_2}
   - canonical: arxivmath
-    type: static
+    type: chat
     domain: math
     aliases: ["ArxivMath"]
     harbor_status: not_in_harbor
@@ -51,7 +51,7 @@ benchmarks:
     aliases: ["AutomationBench"]
     harbor_status: not_in_harbor
   - canonical: bbq
-    type: static
+    type: chat
     domain: safety
     aliases: ["BBQ"]
     harbor_status: not_in_harbor
@@ -67,22 +67,22 @@ benchmarks:
     harbor_status: needs_review
     harbor_match: {name: bfcl}
   - canonical: biolp-bench
-    type: static
+    type: chat
     domain: science
     aliases: ["BioLP"]
     harbor_status: not_in_harbor
   - canonical: biomysterybench
-    type: static
+    type: chat
     domain: science
     aliases: ["BioMysteryBench"]
     harbor_status: not_in_harbor
   - canonical: biotier
-    type: static
+    type: chat
     domain: science
     aliases: ["BioTIER"]
     harbor_status: not_in_harbor
   - canonical: blueprint-bench-2
-    type: static
+    type: chat
     domain: multimodal
     aliases: ["Blueprint-Bench 2"]
     harbor_status: not_in_harbor
@@ -92,37 +92,37 @@ benchmarks:
     aliases: ["BrowseComp"]
     harbor_status: not_in_harbor
   - canonical: chartmuseum
-    type: static
+    type: chat
     domain: multimodal
     aliases: ["ChartMuseum"]
     harbor_status: not_in_harbor
   - canonical: chartqapro
-    type: static
+    type: chat
     domain: multimodal
     aliases: ["ChartQAPro"]
     harbor_status: not_in_harbor
   - canonical: charxiv
-    type: static
+    type: chat
     domain: multimodal
     aliases: ["CharXiv"]
     harbor_status: not_in_harbor
   - canonical: cloning-scenarios
-    type: static
+    type: chat
     domain: science
     aliases: ["Cloning", "CloningScenarios"]
     harbor_status: not_in_harbor
   - canonical: codeforces
-    type: static
+    type: chat
     domain: coding
     aliases: ["Codeforces"]
     harbor_status: not_in_harbor
   - canonical: creative-writing-v3
-    type: static
+    type: chat
     domain: knowledge
     aliases: ["Creative Writing"]
     harbor_status: not_in_harbor
   - canonical: critpt
-    type: static
+    type: chat
     domain: science
     aliases: ["CritPt"]
     harbor_status: not_in_harbor
@@ -148,7 +148,7 @@ benchmarks:
     aliases: ["CyberGym"]
     harbor_status: not_in_harbor
   - canonical: cybersec-eval
-    type: static
+    type: chat
     domain: cyber
     aliases: ["CyberSecEval"]
     harbor_status: not_in_harbor
@@ -158,7 +158,7 @@ benchmarks:
     aliases: ["CyScenarioBench"]
     harbor_status: not_in_harbor
   - canonical: deceptionbench
-    type: static
+    type: chat
     domain: safety
     aliases: ["DeceptionBench"]
     harbor_status: not_in_harbor
@@ -178,7 +178,7 @@ benchmarks:
     aliases: ["ExploitBench"]
     harbor_status: not_in_harbor
   - canonical: figqa
-    type: static
+    type: chat
     domain: multimodal
     aliases: ["FigQA"]
     harbor_status: not_in_harbor
@@ -199,7 +199,7 @@ benchmarks:
     aliases: ["FrontierCode"]
     harbor_status: not_in_harbor
   - canonical: gdp-pdf
-    type: static
+    type: chat
     domain: multimodal
     aliases: ["GDP.pdf"]
     harbor_status: not_in_harbor
@@ -208,59 +208,49 @@ benchmarks:
     domain: professional
     aliases: ["GDPval-AA"]
     harbor_status: not_in_harbor
-  - canonical: genebench
-    type: agentic
-    domain: science
-    aliases: ["GeneBench"]
-    harbor_status: not_in_harbor
-  - canonical: genebench-pro
-    type: agentic
-    domain: science
-    aliases: ["GeneBench-Pro"]
-    harbor_status: not_in_harbor
   - canonical: gpqa-diamond
-    type: static
+    type: chat
     domain: science
     aliases: ["GPQA", "GPQA Diamond"]
     harbor_status: confirmed
     harbor_match: {name: gpqa-diamond}
   - canonical: graphwalks
-    type: static
+    type: chat
     domain: knowledge
     aliases: ["GraphWalks", "Graphwalks"]
     harbor_status: not_in_harbor
   - canonical: harmbench
-    type: static
+    type: chat
     domain: safety
     aliases: ["Harmbench"]
     harbor_status: not_in_harbor
   - canonical: healthadminbench
-    type: static
+    type: chat
     domain: health
     aliases: ["HealthAdminBench"]
     harbor_status: not_in_harbor
   - canonical: healthbench
-    type: static
+    type: chat
     domain: health
     aliases: ["HealthBench"]
     harbor_status: not_in_harbor
   - canonical: hmmt
-    type: static
+    type: chat
     domain: math
     aliases: ["HMMT"]
     harbor_status: not_in_harbor
   - canonical: humanitys-last-exam
-    type: static
+    type: chat
     domain: knowledge
     aliases: ["HLE"]
     harbor_status: not_in_harbor
   - canonical: iheval
-    type: static
+    type: chat
     domain: knowledge
     aliases: ["IHEval"]
     harbor_status: not_in_harbor
   - canonical: imoanswerbench
-    type: static
+    type: chat
     domain: math
     aliases: ["IMO-AnswerBench", "IMOAnswerBench"]
     harbor_status: not_in_harbor
@@ -270,7 +260,7 @@ benchmarks:
     aliases: ["ImpossibleBench"]
     harbor_status: not_in_harbor
   - canonical: lab-bench
-    type: static
+    type: chat
     domain: science
     aliases: ["LAB-Bench", "LAB-Bench FigQA"]
     harbor_status: needs_review
@@ -281,7 +271,7 @@ benchmarks:
     aliases: ["Legal Agent Benchmark"]
     harbor_status: not_in_harbor
   - canonical: livecodebench
-    type: static
+    type: chat
     domain: coding
     aliases: ["LiveCodeBench"]
     harbor_status: needs_review
@@ -292,12 +282,12 @@ benchmarks:
     aliases: ["MakeMeSay"]
     harbor_status: not_in_harbor
   - canonical: mask
-    type: static
+    type: chat
     domain: safety
     aliases: ["MASK"]
     harbor_status: not_in_harbor
   - canonical: matharena-apex
-    type: static
+    type: chat
     domain: math
     aliases: ["MathArena"]
     harbor_status: not_in_harbor
@@ -312,33 +302,33 @@ benchmarks:
     aliases: ["Minimal-LinuxBench"]
     harbor_status: not_in_harbor
   - canonical: mmlu
-    type: static
+    type: chat
     domain: knowledge
     aliases: ["MMLU"]
     harbor_status: not_in_harbor
   - canonical: mmlu-pro
-    type: static
+    type: chat
     domain: knowledge
     aliases: ["MMLU-Pro"]
     harbor_status: not_in_harbor
   - canonical: mmmlu
-    type: static
+    type: chat
     domain: knowledge
     aliases: ["MMMLU"]
     harbor_status: confirmed
     harbor_match: {name: mmmlu}
   - canonical: mmmu
-    type: static
+    type: chat
     domain: multimodal
     aliases: ["MMMU"]
     harbor_status: not_in_harbor
   - canonical: mmmu-pro
-    type: static
+    type: chat
     domain: multimodal
     aliases: ["MMMU-Pro"]
     harbor_status: not_in_harbor
   - canonical: mrcr
-    type: static
+    type: chat
     domain: knowledge
     aliases: ["MRCR"]
     harbor_status: not_in_harbor
@@ -348,7 +338,7 @@ benchmarks:
     aliases: ["OfficeQA"]
     harbor_status: not_in_harbor
   - canonical: or-bench
-    type: static
+    type: chat
     domain: safety
     aliases: ["OR-Bench"]
     harbor_status: not_in_harbor
@@ -373,17 +363,17 @@ benchmarks:
     aliases: ["ProgramBench"]
     harbor_status: not_in_harbor
   - canonical: propensitybench
-    type: static
+    type: chat
     domain: safety
     aliases: ["PropensityBench"]
     harbor_status: not_in_harbor
   - canonical: proteingym
-    type: static
+    type: chat
     domain: science
     aliases: ["ProteinGym"]
     harbor_status: not_in_harbor
   - canonical: protocolqa
-    type: static
+    type: chat
     domain: science
     aliases: ["ProtocolQA"]
     harbor_status: not_in_harbor
@@ -393,7 +383,7 @@ benchmarks:
     aliases: ["Real-World Finance"]
     harbor_status: not_in_harbor
   - canonical: riemannbench
-    type: static
+    type: chat
     domain: math
     aliases: ["RiemannBench"]
     harbor_status: not_in_harbor
@@ -403,7 +393,7 @@ benchmarks:
     aliases: ["ScreenSpot-Pro"]
     harbor_status: not_in_harbor
   - canonical: seqqa
-    type: static
+    type: chat
     domain: science
     aliases: ["SeqQA"]
     harbor_status: not_in_harbor
@@ -413,18 +403,18 @@ benchmarks:
     aliases: ["SHADE"]
     harbor_status: not_in_harbor
   - canonical: simpleqa
-    type: static
+    type: chat
     domain: knowledge
     aliases: ["SimpleQA"]
     harbor_status: needs_review
     harbor_match: {name: simpleqa}
   - canonical: singlecellbench
-    type: static
+    type: chat
     domain: science
     aliases: ["SingleCellBench"]
     harbor_status: not_in_harbor
   - canonical: spatialbench
-    type: static
+    type: chat
     domain: science
     aliases: ["SpatialBench"]
     harbor_status: not_in_harbor
@@ -435,7 +425,7 @@ benchmarks:
     harbor_status: needs_review
     harbor_match: {name: spreadsheetbench-verified}
   - canonical: strongreject
-    type: static
+    type: chat
     domain: safety
     aliases: ["StrongReject"]
     harbor_status: confirmed
@@ -480,12 +470,12 @@ benchmarks:
     aliases: ["Toolathlon"]
     harbor_status: not_in_harbor
   - canonical: troubleshootingbench
-    type: static
+    type: chat
     domain: science
     aliases: ["TroubleshootingBench"]
     harbor_status: not_in_harbor
   - canonical: usamo-2026
-    type: static
+    type: chat
     domain: math
     aliases: ["USAMO", "USAMO 2026"]
     harbor_status: not_in_harbor
@@ -500,7 +490,7 @@ benchmarks:
     aliases: ["ViBench"]
     harbor_status: not_in_harbor
   - canonical: video-mmmu
-    type: static
+    type: chat
     domain: multimodal
     aliases: ["Video-MMMU"]
     harbor_status: not_in_harbor
@@ -510,7 +500,7 @@ benchmarks:
     aliases: ["WebArena", "WebArena-Verified"]
     harbor_status: not_in_harbor
   - canonical: wmdp
-    type: static
+    type: chat
     domain: safety
     aliases: ["WMDP"]
     harbor_status: not_in_harbor
