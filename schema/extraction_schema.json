@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BenchmarkCitation",
+  "description": "One (benchmark x citing document) record. Topline entity is the BENCHMARK.",
+  "type": "object",
+  "required": ["benchmark_canonical", "benchmark_raw", "source_doc", "citing_lab", "prominence", "needs_review"],
+  "properties": {
+    "benchmark_canonical": {"type": ["string", "null"], "description": "Normalized via aliases.yaml. null if unmatched (=> needs_review true)."},
+    "benchmark_raw": {"type": "string", "description": "Verbatim benchmark name as written in the doc."},
+    "source_doc": {
+      "type": "object",
+      "required": ["lab", "doc_type", "url", "primary"],
+      "properties": {
+        "lab": {"type": "string"},
+        "model": {"type": ["string", "null"]},
+        "doc_type": {"enum": ["blog_headliner", "model_card", "system_card"]},
+        "url": {"type": "string"},
+        "pub_date": {"type": ["string", "null"], "format": "date"},
+        "primary": {"type": "boolean", "description": "true only for 1st-party lab docs (incl. HF README for open-weight)."}
+      }
+    },
+    "citing_lab": {"type": "string"},
+    "citing_model": {"type": ["string", "null"]},
+    "prominence": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {"enum": ["headline", "table_row", "footnote", "prose"]},
+        "table_row_n": {"type": ["integer", "null"]},
+        "table_total": {"type": ["integer", "null"]}
+      }
+    },
+    "reported": {
+      "type": "object",
+      "description": "Only fill fields actually stated in the doc. Never infer.",
+      "properties": {
+        "value": {"type": ["number", "string", "null"]},
+        "unit": {"enum": ["percent", "elo", "score", "rank", "usd", "other", null]},
+        "with_tools": {"type": ["boolean", "null"]},
+        "effort": {"type": ["string", "null"]},
+        "harness": {"type": ["string", "null"], "description": "e.g. Terminus 1/2, Claude Code, RooCode, Codex xhigh"},
+        "n_samples": {"type": ["integer", "null"]},
+        "scaffold": {"type": ["string", "null"]},
+        "model_config": {"type": ["string", "null"], "description": "e.g. Fable 5 (classifiers on) vs Mythos 5 (unblocked)"}
+      }
+    },
+    "methodology_deviations": {"type": "array", "items": {"type": "string"}},
+    "needs_review": {"type": "boolean"},
+    "review_reason": {"type": ["string", "null"]},
+    "review_issue": {"type": ["integer", "null"], "description": "GitHub issue # tracking this flag, if opened."}
+  }
+}
