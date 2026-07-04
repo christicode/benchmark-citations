@@ -76,7 +76,7 @@ def main():
     news_cut = (ad - datetime.timedelta(days=7)).isoformat()
 
     def blank():
-        return {"w": 0.0, "docs": set(), "labs": set(), "type": "?", "domain": "?", "status": "not_in_harbor",
+        return {"w": 0.0, "cites": 0, "docs": set(), "labs": set(), "type": "?", "domain": "?", "status": "not_in_harbor",
                 "on": False, "first": None, "recent": 0, "model_pct": {}, "method": False}
     agg = collections.defaultdict(blank)
     cov = {k: {"wt": 0.0, "won": 0.0, "wrev": 0.0, "n": 0, "non": 0,
@@ -105,7 +105,7 @@ def main():
             unresolved += 1
             continue
         a = agg[c]
-        a["w"] += w; a["docs"].add(url); a["labs"].add(lab)
+        a["w"] += w; a["cites"] += 1; a["docs"].add(url); a["labs"].add(lab)
         a["type"] = typ or "?"; a["domain"] = dom or "?"; a["status"] = st; a["on"] = a["on"] or on
         if r.get("methodology_deviations"):
             a["method"] = True
@@ -140,9 +140,6 @@ def main():
                     key=lambda kv: (len(kv[1]["docs"]), kv[1]["first"]), reverse=True)
     satur = sorted([(c, a) for c, a in agg.items() if len(sat_models(a)) >= 2],
                    key=lambda kv: (len(sat_models(kv[1])), maxpct(kv[1]) or 0), reverse=True)
-    type_w = collections.Counter()
-    for c, a in agg.items():
-        type_w[a["type"]] += a["w"]
     news = sorted([n for n in NEWS if n[0] >= news_cut], reverse=True)
     e = html.escape
 
@@ -163,8 +160,6 @@ def main():
             return "<span class=on>\u2713 harbor</span>"
         if st == "needs_review":
             return "<span class=rev>\u25d0 review</span>"
-        if st == "false_positive":
-            return "<span class=off>\u2717 none*</span>"
         return "<span class=off>\u2717 none</span>"
     def pct(v):
         return EMDASH if v is None else f"{v:.0f}%"
@@ -188,6 +183,7 @@ def main():
     .kpi{background:var(--panel);border:1px solid var(--b);border-radius:6px;padding:8px 12px;min-width:118px}
     .kpi b{font-size:18px;display:block;color:var(--emph)}.kpi.big b{color:var(--green)}
     .note{color:var(--mut);font-size:12px;margin:3px 0 8px}
+    .legend,.foot{color:var(--mut);font-size:11.5px;margin:16px 0 0}.legend{margin-top:26px}
     table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--b);border-radius:6px;overflow:hidden}
     th,td{padding:5px 9px;text-align:left;border-bottom:1px solid var(--b);vertical-align:top}
     th{color:var(--mut);font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.02em}
@@ -211,19 +207,10 @@ def main():
     # header
     T.append("<h1>PaperTrail</h1>")
     T.append("<p class=context>Tracks benchmark citations in the LLM ecosystem.</p>")
-    T.append(f"<p class=asof>updated {asof} \u00b7 prominence-weighted (headline blog = 3\u00d7 a deep table row) \u00b7 "
-             "click any benchmark to see its citation records on GitHub</p>")
+    T.append(f"<p class=asof>Updated {asof}. Citations are prominence-weighted \u2014 a headline blog mention "
+             "counts 3\u00d7 a deep system-card table row. Click any benchmark for its underlying records.</p>")
 
-    cov_conf = cov['all']['won'] / cov['all']['wt'] if cov['all']['wt'] else 0
     ag_all = cov['all']['ag_o'] / cov['all']['ag_t'] if cov['all']['ag_t'] else 0
-    T.append("<div class=cards>")
-    for lab, val, big in [("citations", len(rows), 0), ("benchmarks", len(agg), 0),
-                          ("source docs", len({r['source_doc']['url'] for r in rows}), 0),
-                          ("agentic / chat", f"{type_w['agentic']:.0f} / {type_w['chat']:.0f}", 0),
-                          ("on Harbor (wtd)", f"{cov_conf*100:.0f}%", 0),
-                          ("AGENTIC on Harbor", f"{ag_all*100:.0f}%", 1)]:
-        T.append(f"<div class='kpi{' big' if big else ''}'><b>{val}</b>{lab}</div>")
-    T.append("</div>")
 
     # What's new
     if news:
@@ -236,18 +223,16 @@ def main():
 
     # 1/ Top cited benchmarks
     T.append(sec("1/ TOP CITED BENCHMARKS \u00b7 regardless of Harbor status"))
-    T.append("<table><tr><th>#</th><th>benchmark</th><th>type</th><th>domain</th><th class=r>wtd cites</th>"
-             "<th class=r>docs</th><th class=r>labs</th><th class=r>max</th><th>harbor</th></tr>")
+    T.append("<table><tr><th>#</th><th>benchmark</th><th>type</th><th>domain</th><th class=r>citations</th>"
+             "<th class=r>weighted</th><th class=r>labs</th><th class=r>max</th><th>harbor</th></tr>")
     for i, (c, a) in enumerate(ranked[:30], 1):
         T.append(f"<tr><td>{i}</td><td>{bname(c, gear(a))}</td><td>{tspan(a['type'])}</td><td>{dspan(a['domain'])}</td>"
-                 f"<td class=r>{a['w']:.1f}</td><td class=r>{len(a['docs'])}</td><td class=r>{len(a['labs'])}</td>"
+                 f"<td class=r>{a['cites']}</td><td class=r>{a['w']:.1f}</td><td class=r>{len(a['labs'])}</td>"
                  f"<td class=r>{pct(maxpct(a))}</td><td>{hspan(a['status'])}</td></tr>")
-    T.append(f"</table><p class=note># {GEAR} = harness/config-sensitive (methodology deviations on record). "
-             f"Click any benchmark to open its citation records on GitHub. {len(ranked)} benchmarks; top 30 shown.</p>")
+    T.append("</table>")
 
     # 2/ Harbor coverage
     T.append(sec("2/ HARBOR COVERAGE \u00b7 share of citations runnable today"))
-    T.append("<p class=note># prominence-weighted; split by type because Harbor prefers agentic \u2014 the agentic column is the one that matters.</p>")
     T.append("<table><tr><th>window</th><th class=r>citations</th><th class=r>overall</th>"
              "<th class=r>agentic</th><th class=r>chat</th><th class=r>if \u25d0 confirmed</th></tr>")
     lw = {"all": "all-time", "180": "last 6 months", "90": "last 90 days"}
@@ -262,35 +247,26 @@ def main():
                  f"<td class=r><span class=bar><i style='width:{int(ag)}%'></i></span>{ag:.0f}%</td>"
                  f"<td class=r>{stt:.0f}%</td><td class=r>{cp:.0f}%</td></tr>")
     T.append("</table>")
-    tr90 = (cov['90']['ag_o']/cov['90']['ag_t'] if cov['90']['ag_t'] else 0) - (cov['all']['ag_o']/cov['all']['ag_t'] if cov['all']['ag_t'] else 0)
-    msg = ("agentic coverage is holding." if tr90 >= 0 else
-           "agentic coverage is <b>lower on recent citations</b> \u2014 new agentic benchmarks are outrunning Harbor; see Top Harbor conversions.")
-    T.append(f"<p class=note># {msg} \u25d0 = in Harbor by name, (name,version) unconfirmed (#4). "
-             f"{unresolved} citations excluded (unidentified / needs-review names \u2014 #8, #9).</p>")
 
     # 3/ Top Harbor conversions
     T.append(sec("3/ TOP HARBOR CONVERSIONS \u00b7 most-cited, no adapter yet"))
-    T.append("<p class=note># adapter shortlist \u2014 high citation demand, genuinely NOT in Harbor. "
-             "Already-in-Harbor benchmarks (confirmed <span class=on>\u2713</span> and version-unconfirmed "
-             "<span class=rev>\u25d0</span>, e.g. terminal-bench) are excluded. * = an earlier auto-match was a false positive.</p>")
-    T.append("<table><tr><th>#</th><th>benchmark</th><th>type</th><th>domain</th><th class=r>wtd cites</th>"
-             "<th class=r>docs</th><th class=r>labs</th><th class=r>max</th><th>harbor</th><th>why now</th></tr>")
+    T.append("<table><tr><th>#</th><th>benchmark</th><th>type</th><th>domain</th><th class=r>citations</th>"
+             "<th class=r>weighted</th><th class=r>labs</th><th class=r>max</th><th>harbor</th><th>why now</th></tr>")
     for i, (c, a) in enumerate(build_next[:15], 1):
-        mx = maxpct(a); why = ["rising" if a["recent"] >= 2 else f"{len(a['docs'])} docs"]
+        mx = maxpct(a); why = ["rising" if a["recent"] >= 2 else f"{a['cites']} citations"]
         if mx is not None and mx >= SAT: why.append(f"saturating {mx:.0f}%")
         elif mx is not None: why.append(f"headroom (max {mx:.0f}%)")
         else: why.append("no score yet")
         if a["type"] == "agentic": why.append("agentic \u2605")
         if a["status"] == "false_positive": why.append("name collides w/ Harbor entry")
         T.append(f"<tr><td>{i}</td><td>{bname(c, gear(a))}</td><td>{tspan(a['type'])}</td><td>{dspan(a['domain'])}</td>"
-                 f"<td class=r>{a['w']:.1f}</td><td class=r>{len(a['docs'])}</td><td class=r>{len(a['labs'])}</td>"
+                 f"<td class=r>{a['cites']}</td><td class=r>{a['w']:.1f}</td><td class=r>{len(a['labs'])}</td>"
                  f"<td class=r>{pct(mx)}</td><td>{hspan(a['status'])}</td><td class=why>{e('; '.join(why))}</td></tr>")
-    T.append(f"</table><p class=note># {len(build_next)} benchmarks not in Harbor; top 15 by prominence-weighted demand.</p>")
+    T.append("</table>")
 
     # 4/ Rising citations
     T.append(sec("4/ RISING CITATIONS \u00b7 new entrants gaining citations"))
-    T.append(f"<p class=note># first cited since {w180}, already in \u22652 docs. <span class=warn>\u26a0</span> = not yet in the alias registry (#8).</p>")
-    T.append("<table><tr><th>benchmark</th><th>type</th><th>domain</th><th class=r>docs</th><th class=r>labs</th>"
+    T.append("<table><tr><th>benchmark</th><th>type</th><th>domain</th><th class=r>citations</th><th class=r>labs</th>"
              "<th>first seen</th><th>harbor</th></tr>")
     for k, v in rising[:20]:
         name = k[1:] if k.startswith("~") else k
@@ -306,7 +282,6 @@ def main():
 
     # 5/ Rising saturation
     T.append(sec("5/ RISING SATURATION \u00b7 climbing toward ceiling"))
-    T.append(f"<p class=note># \u22652 distinct models report \u2265{SAT:.0f}% (percent-metric only). high saturation = shorter useful life.</p>")
     T.append("<table><tr><th>benchmark</th><th>type</th><th>domain</th><th class=r>models \u226580%</th>"
              "<th class=r>max</th><th>harbor</th><th>models</th></tr>")
     for c, a in satur[:20]:
@@ -318,39 +293,30 @@ def main():
 
     # 6/ Rising agentic vs chat
     T.append(sec("6/ RISING AGENTIC VS CHAT \u00b7 citation mix over time"))
-    T.append("<p class=note># prominence-weighted share of classified citations that are agentic vs chat. "
-             "Harbor prefers agentic, so a rising agentic share is a leading signal for adapter demand.</p>")
-    T.append("<table><tr><th>window</th><th class=r>citations</th><th class=r>agentic</th><th class=r>chat</th>"
-             "<th class=r>agentic share</th></tr>")
-    def share(b):
-        tot = b["ag_t"] + b["st_t"]
-        return (b["ag_t"] / tot * 100 if tot else 0)
+    T.append("<table><tr><th>window</th><th class=r>citations</th><th class=r>agentic</th><th class=r>chat</th></tr>")
+    def ag_share(b):
+        tot = b["ag_n"] + b["st_n"]
+        return (b["ag_n"] / tot * 100 if tot else 0)
     for k in ("all", "180", "90"):
-        b = cov[k]; sh = share(b)
-        T.append(f"<tr><td>{lw[k]}</td><td class=r>{b['ag_n'] + b['st_n']}</td>"
-                 f"<td class=r>{b['ag_n']} <span class=t-ag>({b['ag_t']:.0f} wtd)</span></td>"
-                 f"<td class=r>{b['st_n']} <span class=t-st>({b['st_t']:.0f} wtd)</span></td>"
-                 f"<td class=r><span class=bar><i style='width:{int(sh)}%'></i></span>{sh:.0f}%</td></tr>")
+        b = cov[k]; tot = b["ag_n"] + b["st_n"]; ags = ag_share(b); chs = 100 - ags if tot else 0
+        T.append(f"<tr><td>{lw[k]}</td><td class=r>{tot}</td>"
+                 f"<td class=r><span class=bar><i style='width:{int(ags)}%'></i></span>{ags:.0f}%</td>"
+                 f"<td class=r>{chs:.0f}%</td></tr>")
     T.append("</table>")
-    sh_all, sh_90 = share(cov['all']), share(cov['90'])
-    delta = sh_90 - sh_all
-    if abs(delta) < 1:
-        smsg = f"agentic share is holding near {sh_all:.0f}% (90-day {sh_90:.0f}% vs all-time {sh_all:.0f}%)."
-    elif delta > 0:
-        smsg = f"agentic share is <b>rising</b>: {sh_90:.0f}% of the last 90 days vs {sh_all:.0f}% all-time \u2014 the labs are citing more agentic evals."
-    else:
-        smsg = f"agentic share is <b>falling</b>: {sh_90:.0f}% of the last 90 days vs {sh_all:.0f}% all-time."
-    T.append(f"<p class=note># {smsg}</p>")
 
-    T.append("<p class=note style='margin-top:24px'># source of truth: <code>christicode/benchmark-citations</code> (git) + GitHub Issues. "
-             "Harbor cross-referenced live from <code>harbor-framework/harbor</code>. Rebuilt on every data change.</p>")
+    T.append("<p class=legend>Key: <span class=gear>\u2699</span> methodology-sensitive (differing harness/scaffold) \u00b7 "
+             "<span class=on>\u2713</span> on Harbor \u00b7 <span class=rev>\u25d0</span> in Harbor, version unconfirmed \u00b7 "
+             "<span class=off>\u2717</span> not in Harbor \u00b7 <b>citations</b> = raw count \u00b7 "
+             "<b>weighted</b> up-scores headline-blog mentions (3\u00d7) and discounts deep table rows.</p>")
+    T.append("<p class=foot>christicode/benchmark-citations \u00b7 Harbor cross-referenced live \u00b7 rebuilt on every data change</p>")
     T.append("</div></body></html>")
 
     out = ROOT / "docs" / "index.html"
     out.parent.mkdir(exist_ok=True)
     out.write_text("\n".join(T))
+    ags_all = ag_share(cov['all']); ags_90 = ag_share(cov['90'])
     print(f"wrote {out} | {len(rows)} cites, {len(agg)} benchmarks | news {len(news)} | conversions {len(build_next)}, "
-          f"rising {len(rising)}, saturating {len(satur)} | agentic Harbor cov = {ag_all*100:.0f}% | agentic share all/90 = {sh_all:.0f}%/{sh_90:.0f}%")
+          f"rising {len(rising)}, saturating {len(satur)} | agentic Harbor cov = {ag_all*100:.0f}% | agentic citation share all/90 = {ags_all:.0f}%/{ags_90:.0f}%")
 
 
 if __name__ == "__main__":
