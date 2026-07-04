@@ -1,0 +1,122 @@
+# labs.yaml — IN-SCOPE LABS/ORGS (CONFIG, NOT CODE)
+# Onboarding a new lab = add an entry here. No code change required.
+# `source_index_urls` are the canonical index pages the watcher CRAWLS to
+# DISCOVER documents (model cards / system cards / headline blogs). We enumerate
+# from these indexes and diff against already-extracted docs — we never rely on a
+# guessed list of model names. (This is what caused the Mythos/Fable miss.)
+
+schema_version: 1
+window:
+  start: "2025-09-01"   # backfill window start
+  # GPT-5 system card (2025-08-13) is INCLUDED as a comparison anchor (see below),
+  # even though it predates the window, because later cards cite it constantly.
+  anchors_before_window:
+    - lab: openai
+      doc: "GPT-5 System Card"
+      date: "2025-08-13"
+      reason: "referenced as baseline across later OpenAI/Anthropic/Google cards"
+
+doc_types: [blog_headliner, model_card, system_card]
+
+labs:
+  # ---------- Big-5 ----------
+  - id: anthropic
+    display_name: Anthropic
+    category: big5
+    in_scope: true
+    source_index_urls:
+      - https://www.anthropic.com/news            # headline release blogs
+      - https://www.anthropic.com/transparency     # system/model cards index
+    notes: >-
+      Model lines observed in-window: Claude Sonnet 4.5/4.6/5, Opus 4.5/4.6/4.7/4.8,
+      Haiku 4.5, and the new Mythos-class (Mythos 5 / Fable 5). DISCOVER BY INDEX —
+      new class names (Mythos/Fable) will not appear under old family-name searches.
+
+  - id: openai
+    display_name: OpenAI
+    category: big5
+    in_scope: true
+    source_index_urls:
+      - https://openai.com/news/
+      - https://openai.com/safety/                 # system cards
+      - https://deploymentsafety.openai.com/        # deployment safety hub (per-model cards)
+    notes: "GPT-5 (anchor), 5.1, 5.2, 5.4, 5.5 + Codex variants."
+
+  - id: google_deepmind
+    display_name: Google DeepMind
+    category: big5
+    in_scope: true
+    source_index_urls:
+      - https://deepmind.google/models/            # model cards index
+      - https://blog.google/technology/google-deepmind/
+    notes: "Gemini 3 Pro / 3 Deep Think (blog-only, NO system card) / 3.1 Pro / 3.5 Flash."
+
+  - id: meta
+    display_name: Meta (Meta Superintelligence Labs)
+    category: big5
+    in_scope: true
+    source_index_urls:
+      - https://ai.meta.com/blog/
+      - https://ai.meta.com/research/publications/   # Safety & Preparedness Reports
+    notes: >-
+      In-window first-party doc is the Muse Spark 'Safety & Preparedness Report'
+      (NOT titled 'System Card' but is 1st-party and cites benchmarks). Llama 4 (Apr
+      2025) is pre-window. Muse Spark Contemplating is a follow-up report.
+
+  - id: xai
+    display_name: xAI
+    category: big5
+    in_scope: true
+    source_index_urls:
+      - https://x.ai/news
+      - https://data.x.ai/                          # model card PDFs
+    notes: "Grok 4.1 (safety-focused card), 4.2/4.3. Cards lean safety; blogs carry capability evals."
+
+  # ---------- Open-weight leaders ----------
+  - id: deepseek
+    display_name: DeepSeek
+    category: open_weight_leader
+    in_scope: true
+    source_index_urls:
+      - https://api-docs.deepseek.com/news/
+      - https://huggingface.co/deepseek-ai
+    notes: "V3.2-Exp / V3.2 / V3.2-Speciale tech reports (arXiv). For open weights, HF README serves as card."
+
+  - id: qwen
+    display_name: Qwen (Alibaba)
+    category: open_weight_leader
+    in_scope: true
+    source_index_urls:
+      - https://qwenlm.github.io/blog/
+      - https://huggingface.co/Qwen
+    notes: "Qwen3-Max (Sep 2025) + 3.6/3.7-Max. NOTE: 3.6-Max+ shipped closed-weights."
+
+  - id: mistral
+    display_name: Mistral AI
+    category: open_weight_leader
+    in_scope: true
+    source_index_urls:
+      - https://mistral.ai/news/
+      - https://huggingface.co/mistralai
+    notes: >-
+      Open-weight → HF README is the accepted card equivalent. Large 3 (2512) card
+      presents benchmarks as CHART IMAGES ONLY (no text scores) — needs OCR/blog.
+
+  - id: moonshot
+    display_name: Moonshot AI
+    category: open_weight_leader
+    in_scope: true
+    source_index_urls:
+      - https://www.kimi.com/blog
+      - https://huggingface.co/moonshotai
+    notes: "Kimi K2.5 / K2.6 / K2.7-Code. Many headline evals are Moonshot-proprietary benchmarks."
+
+  - id: zai
+    display_name: Z.ai (Zhipu AI)
+    category: open_weight_leader
+    in_scope: true
+    source_index_urls:
+      - https://docs.z.ai/release-notes/new-released
+      - https://z.ai/blog
+      - https://huggingface.co/zai-org
+    notes: "GLM-4.6 (Sep 2025), GLM-5 / 5.1 / 5.2, GLM-4.7."

@@ -1,0 +1,7 @@
+# Harbor registry is fetched LIVE each run — never commit the cache (13MB, goes stale).
+harbor_registry.json
+../harbor_registry.json
+__pycache__/
+*.pyc
+.venv/
+.uv/
