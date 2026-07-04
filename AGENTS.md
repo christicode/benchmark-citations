@@ -17,8 +17,9 @@ lab/model, methodology deviations, and whether it's already in Harbor.
   - `data/aliases.yaml` (+ `aliases_generated.yaml`) — deterministic normalization registry.
   - `schema/extraction_schema.json` — citation record shape.
   - `scripts/extract.py` — **discovery**: doc → detected benchmarks → normalized (flags unmatched).
-  - `scripts/build_citations.py` — curated backfill dataset (embeds human-verified extraction).
+  - `scripts/build_citations.py` — curated dataset (embeds human-verified extraction).
   - `scripts/rank.py` — conversion-candidate ranking (live Harbor cross-ref).
+  - `scripts/build_dashboard.py` — static GitHub Pages dashboard (`docs/index.html`).
   - `scripts/review_queue.py` — live view of open `needs-human-review` issues.
 - `christicode/benchmark-citations-sources` — raw source PDFs (Git LFS) + `manifest.yaml`
   (source_url + sha256 per doc). Rehydrate with `scripts/fetch_sources.py`.
@@ -44,9 +45,16 @@ Issues: write**, All repositories. Network access for crawling + `curl` PDF fetc
    `manifest.yaml` with sha256); run `scripts/extract.py` to discover benchmarks; read
    exact scores from tables (curated, reviewed); add records to `data/citations.jsonl`.
    Any unmatched name → open a `needs-human-review` issue; never guess.
+   **Every headline release blog is its own doc** (`doc_type: blog_headliner`,
+   `prominence: headline`) — a blog that features a few of a card's 50+ benchmarks makes
+   *those* count more than a deep system-card table row.
 5. **Rank.** Run `scripts/rank.py` (live Harbor cross-ref) → refresh conversion candidates.
-6. **Dashboard.** Regenerate `docs/` (GitHub Pages) — rising usage, rising saturation, top
-   candidates + one-line "why now". Commit.
+6. **Dashboard.** Regenerate `docs/` via `scripts/build_dashboard.py` — rising usage,
+   rising saturation, top candidates + one-line "why now". Commit.
+
+Data files (`citations.jsonl`, `aliases_generated.yaml`, `docs/index.html`) are regenerated
+**server-side** by the `regenerate` Action on push to the scripts — don't hand-push the big
+generated files through the MCP file API.
 
 ## Guardrails (hard rules)
 - **Never** `git push`, create a repo, open/close issues, or publish the dashboard without
@@ -54,21 +62,44 @@ Issues: write**, All repositories. Network access for crawling + `curl` PDF fetc
 - **Never fabricate** a citation or methodology detail. If a doc is ambiguous or a card is
   image-only, **flag for review** (GitHub issue) — don't guess.
 
+## Writing GitHub issues (review queue) — house style
+Terse, human, actionable — NOT AI-prose. Use these sections in order; omit any that don't
+apply (use judgment). Prefer bullets over paragraphs.
+1. **Problem** — what needs solving (1–3 lines).
+2. **Impact** — what breaks / stays wrong if we don't do it.
+3. **Options & Tradeoffs** — the real choices, each with a pro/con.
+4. **Recommendation** — what Claude thinks we should do.
+5. **AI instruction** — concrete steps for an agent to fix it (files/commands), where an
+   agent actually *can* fix it.
+- Judgment: for pure-human tasks (e.g. reading chart-image scores — see #1, #9) keep only
+  **Problem / Impact / Recommendation**; drop Options and AI-instruction.
+- Always stamp the opened issue's number onto the flagged citation's `review_issue` field.
+
 ## Known gotchas
-- Some cards present benchmarks as **images only** (Mistral Large 3, Gemini 3 Pro model
-  card) → numbers must come from OCR or the blog; flag, don't invent.
+- Some cards present benchmarks as **images only** (Mistral Large 3, Gemini 3 Pro/3 Flash
+  model cards) → numbers must come from OCR or the blog; flag, don't invent.
+- Some blogs/cards are **JS-rendered or gated** (Kimi K2.x pages, gated HF repos) → `curl`
+  returns no scores; flag for headless render / human extraction, don't guess.
 - **Config-dependent scores**: Fable 5 reroutes cyber/bio to Opus 4.8 (0.0%); headline
   numbers are the unblocked Mythos 5 — always record `model_config`.
-- **Harness matters**: Terminal-Bench via Terminus 1 vs Terminus 2 vs Claude Code gives
-  different scores — capture it.
+- **Harness matters**: Terminal-Bench via Terminus 1 vs Terminus 2 vs Claude Code vs Codex
+  gives different scores — capture it; cross-lab table columns often use different harnesses.
+- **Multi-column tables**: confirm which column is the citing model before recording a score.
 - **HLE / SWE-bench** etc. get restated after grader/scaffold changes — a sha256 mismatch in
   `manifest.yaml` means the upstream doc changed; re-review.
 - **Large/binary files can't go through the MCP file API** — use the `regenerate` and
   `archive-sources` Actions (server-side) or a local `git`/`git-lfs` push.
 
-## Current status (2026-07)
-- Backfill: 9 primary docs extracted → **212 citations, 93 benchmarks** (85 not in Harbor).
-- Scores filled where tables were read; most are `score_pending` (issue #6).
-- Open review issues: #1 Mistral chart-only, #2 Fable/Mythos config, #3 Muse Spark,
-  #4 alias/Harbor collisions, #5 Gemini Deep Think (no card), #6 secondary→primary, #7 Meta scope.
-- **Not yet built:** the GitHub Pages dashboard; a cron `watch` workflow for step 1–3.
+## Current status (2026-07-04)
+- Backfill (9 docs) + forward run 2026-07-03 (25 promoted docs) → **514 citations, 97
+  benchmarks, 35 docs**. Prominence weighting is live: headline blogs = their own citation
+  lines (3×); deep system-card rows discounted by `table_total`.
+- Dashboard built at `docs/index.html` (the `regenerate` Action also rebuilds it).
+  **GitHub Pages not yet enabled** — Settings → Pages → `main` `/docs`.
+- Review queue (all in the house-style format above): #1 Mistral chart-only, #2 Fable/Mythos
+  `model_config`, #3 Muse Spark PDF extract, #4 Harbor (name,version) collisions, #6
+  aggregator→primary, #7 Meta scope, #8 register 29 new aliases, #9 extract 5 unreadable
+  docs, #10 fix Qwen/DeepSeek feeds, #11 verify column attributions. **#5 CLOSED** (blog-only
+  eligibility — resolved by the headline-blog policy).
+- **Still not built:** raw-PDF archival for the 25 new docs → `manifest.yaml` (needs the
+  archive-sources Action / git-lfs); a cron `watch` workflow for steps 1–3.
