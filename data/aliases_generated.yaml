@@ -4,503 +4,513 @@
 schema_version: 2
 benchmarks:
   - canonical: aa-omniscience
-    type: static
-    domain: knowledge
+    type: None
+    domain: None
     aliases: ["AA-Omniscience"]
     harbor_status: not_in_harbor
   - canonical: abstentionbench
-    type: static
-    domain: knowledge
+    type: None
+    domain: None
     aliases: ["AbstentionBench"]
     harbor_status: not_in_harbor
   - canonical: agentharm
-    type: agentic
-    domain: safety
+    type: None
+    domain: None
     aliases: ["AgentHarm"]
     harbor_status: not_in_harbor
   - canonical: aider-polyglot
-    type: agentic
-    domain: coding
+    type: None
+    domain: None
     aliases: ["Aider"]
     harbor_status: not_in_harbor
   - canonical: aime
-    type: static
-    domain: math
+    type: None
+    domain: None
     aliases: ["AIME"]
     harbor_status: needs_review
     harbor_match: {name: aime}
   - canonical: arc-agi-1
-    type: static
-    domain: knowledge
+    type: None
+    domain: None
     aliases: ["ARC-AGI-1"]
     harbor_status: not_in_harbor
   - canonical: arc-agi-2
-    type: static
-    domain: knowledge
+    type: None
+    domain: None
     aliases: ["ARC-AGI", "ARC-AGI-2"]
     harbor_status: confirmed
     harbor_match: {name: arc_agi_2}
   - canonical: arxivmath
-    type: static
-    domain: math
+    type: None
+    domain: None
     aliases: ["ArxivMath"]
     harbor_status: not_in_harbor
   - canonical: automationbench
-    type: agentic
-    domain: computer-use
+    type: None
+    domain: None
     aliases: ["AutomationBench"]
     harbor_status: not_in_harbor
   - canonical: bbq
-    type: static
-    domain: safety
+    type: None
+    domain: None
     aliases: ["BBQ"]
     harbor_status: not_in_harbor
   - canonical: benchcad
-    type: agentic
-    domain: professional
+    type: None
+    domain: None
     aliases: ["BenchCAD"]
     harbor_status: not_in_harbor
   - canonical: bfcl
-    type: agentic
-    domain: computer-use
+    type: None
+    domain: None
     aliases: ["BFCL"]
     harbor_status: needs_review
     harbor_match: {name: bfcl}
   - canonical: biolp-bench
-    type: static
-    domain: science
+    type: None
+    domain: None
     aliases: ["BioLP"]
     harbor_status: not_in_harbor
   - canonical: biomysterybench
-    type: static
-    domain: science
+    type: None
+    domain: None
     aliases: ["BioMysteryBench"]
     harbor_status: not_in_harbor
   - canonical: biotier
-    type: static
-    domain: science
+    type: None
+    domain: None
     aliases: ["BioTIER"]
     harbor_status: not_in_harbor
   - canonical: blueprint-bench-2
-    type: static
-    domain: multimodal
+    type: None
+    domain: None
     aliases: ["Blueprint-Bench 2"]
     harbor_status: not_in_harbor
   - canonical: browsecomp
-    type: agentic
-    domain: knowledge
+    type: None
+    domain: None
     aliases: ["BrowseComp"]
     harbor_status: not_in_harbor
   - canonical: chartmuseum
-    type: static
-    domain: multimodal
+    type: None
+    domain: None
     aliases: ["ChartMuseum"]
     harbor_status: not_in_harbor
   - canonical: chartqapro
-    type: static
-    domain: multimodal
+    type: None
+    domain: None
     aliases: ["ChartQAPro"]
     harbor_status: not_in_harbor
   - canonical: charxiv
-    type: static
-    domain: multimodal
+    type: None
+    domain: None
     aliases: ["CharXiv"]
     harbor_status: not_in_harbor
   - canonical: cloning-scenarios
-    type: static
-    domain: science
+    type: None
+    domain: None
     aliases: ["Cloning", "CloningScenarios"]
     harbor_status: not_in_harbor
   - canonical: codeforces
-    type: static
-    domain: coding
+    type: None
+    domain: None
     aliases: ["Codeforces"]
     harbor_status: not_in_harbor
   - canonical: creative-writing-v3
-    type: static
-    domain: knowledge
+    type: None
+    domain: None
     aliases: ["Creative Writing"]
     harbor_status: not_in_harbor
   - canonical: critpt
-    type: static
-    domain: science
+    type: None
+    domain: None
     aliases: ["CritPt"]
     harbor_status: not_in_harbor
   - canonical: cursorbench
-    type: agentic
-    domain: coding
+    type: None
+    domain: None
     aliases: ["CursorBench"]
     harbor_status: not_in_harbor
   - canonical: cve-bench
-    type: agentic
-    domain: cyber
+    type: None
+    domain: None
     aliases: ["CVE-Bench"]
     harbor_status: not_in_harbor
   - canonical: cybench
-    type: agentic
-    domain: cyber
+    type: None
+    domain: None
     aliases: ["Cybench"]
     harbor_status: false_positive
     harbor_match: {name: legacy-bench}
   - canonical: cybergym
-    type: agentic
-    domain: cyber
+    type: None
+    domain: None
     aliases: ["CyberGym"]
     harbor_status: not_in_harbor
   - canonical: cybersec-eval
-    type: static
-    domain: cyber
+    type: None
+    domain: None
     aliases: ["CyberSecEval"]
     harbor_status: not_in_harbor
   - canonical: cyscenariobench
-    type: agentic
-    domain: cyber
+    type: None
+    domain: None
     aliases: ["CyScenarioBench"]
     harbor_status: not_in_harbor
   - canonical: deceptionbench
-    type: static
-    domain: safety
+    type: None
+    domain: None
     aliases: ["DeceptionBench"]
     harbor_status: not_in_harbor
   - canonical: deepsearchqa
-    type: agentic
-    domain: knowledge
+    type: None
+    domain: None
     aliases: ["DeepSearchQA"]
     harbor_status: not_in_harbor
   - canonical: draco
-    type: agentic
-    domain: knowledge
+    type: None
+    domain: None
     aliases: ["DRACO"]
     harbor_status: not_in_harbor
   - canonical: exploitbench
-    type: agentic
-    domain: cyber
+    type: None
+    domain: None
     aliases: ["ExploitBench"]
     harbor_status: not_in_harbor
   - canonical: figqa
-    type: static
-    domain: multimodal
+    type: None
+    domain: None
     aliases: ["FigQA"]
     harbor_status: not_in_harbor
   - canonical: finance-agent
-    type: agentic
-    domain: professional
+    type: None
+    domain: None
     aliases: ["Finance Agent"]
     harbor_status: confirmed
     harbor_match: {name: financeagent}
   - canonical: frontier-swe
-    type: agentic
-    domain: coding
+    type: None
+    domain: None
     aliases: ["Frontier SWE"]
     harbor_status: not_in_harbor
   - canonical: frontiercode
-    type: agentic
-    domain: coding
+    type: None
+    domain: None
     aliases: ["FrontierCode"]
     harbor_status: not_in_harbor
   - canonical: gdp-pdf
-    type: static
-    domain: multimodal
+    type: None
+    domain: None
     aliases: ["GDP.pdf"]
     harbor_status: not_in_harbor
   - canonical: gdpval-aa
-    type: agentic
-    domain: professional
+    type: None
+    domain: None
     aliases: ["GDPval-AA"]
     harbor_status: not_in_harbor
+  - canonical: genebench
+    type: None
+    domain: None
+    aliases: ["GeneBench"]
+    harbor_status: not_in_harbor
+  - canonical: genebench-pro
+    type: None
+    domain: None
+    aliases: ["GeneBench-Pro"]
+    harbor_status: not_in_harbor
   - canonical: gpqa-diamond
-    type: static
-    domain: science
+    type: None
+    domain: None
     aliases: ["GPQA", "GPQA Diamond"]
     harbor_status: confirmed
     harbor_match: {name: gpqa-diamond}
   - canonical: graphwalks
-    type: static
-    domain: knowledge
+    type: None
+    domain: None
     aliases: ["GraphWalks", "Graphwalks"]
     harbor_status: not_in_harbor
   - canonical: harmbench
-    type: static
-    domain: safety
+    type: None
+    domain: None
     aliases: ["Harmbench"]
     harbor_status: not_in_harbor
   - canonical: healthadminbench
-    type: static
-    domain: health
+    type: None
+    domain: None
     aliases: ["HealthAdminBench"]
     harbor_status: not_in_harbor
   - canonical: healthbench
-    type: static
-    domain: health
+    type: None
+    domain: None
     aliases: ["HealthBench"]
     harbor_status: not_in_harbor
   - canonical: hmmt
-    type: static
-    domain: math
+    type: None
+    domain: None
     aliases: ["HMMT"]
     harbor_status: not_in_harbor
   - canonical: humanitys-last-exam
-    type: static
-    domain: knowledge
+    type: None
+    domain: None
     aliases: ["HLE"]
     harbor_status: not_in_harbor
   - canonical: iheval
-    type: static
-    domain: knowledge
+    type: None
+    domain: None
     aliases: ["IHEval"]
     harbor_status: not_in_harbor
   - canonical: imoanswerbench
-    type: static
-    domain: math
+    type: None
+    domain: None
     aliases: ["IMO-AnswerBench", "IMOAnswerBench"]
     harbor_status: not_in_harbor
   - canonical: impossiblebench
-    type: agentic
-    domain: safety
+    type: None
+    domain: None
     aliases: ["ImpossibleBench"]
     harbor_status: not_in_harbor
   - canonical: lab-bench
-    type: static
-    domain: science
+    type: None
+    domain: None
     aliases: ["LAB-Bench", "LAB-Bench FigQA"]
     harbor_status: needs_review
     harbor_match: {name: labbench}
   - canonical: legal-agent-benchmark
-    type: agentic
-    domain: professional
+    type: None
+    domain: None
     aliases: ["Legal Agent Benchmark"]
     harbor_status: not_in_harbor
   - canonical: livecodebench
-    type: static
-    domain: coding
+    type: None
+    domain: None
     aliases: ["LiveCodeBench"]
     harbor_status: needs_review
     harbor_match: {name: livecodebench}
   - canonical: makemesay
-    type: agentic
-    domain: safety
+    type: None
+    domain: None
     aliases: ["MakeMeSay"]
     harbor_status: not_in_harbor
   - canonical: mask
-    type: static
-    domain: safety
+    type: None
+    domain: None
     aliases: ["MASK"]
     harbor_status: not_in_harbor
   - canonical: matharena-apex
-    type: static
-    domain: math
+    type: None
+    domain: None
     aliases: ["MathArena"]
     harbor_status: not_in_harbor
   - canonical: mcp-atlas
-    type: agentic
-    domain: computer-use
+    type: None
+    domain: None
     aliases: ["MCP Atlas", "MCP-Atlas"]
     harbor_status: not_in_harbor
   - canonical: minimal-linuxbench
-    type: agentic
-    domain: coding
+    type: None
+    domain: None
     aliases: ["Minimal-LinuxBench"]
     harbor_status: not_in_harbor
   - canonical: mmlu
-    type: static
-    domain: knowledge
+    type: None
+    domain: None
     aliases: ["MMLU"]
     harbor_status: not_in_harbor
   - canonical: mmlu-pro
-    type: static
-    domain: knowledge
+    type: None
+    domain: None
     aliases: ["MMLU-Pro"]
     harbor_status: not_in_harbor
   - canonical: mmmlu
-    type: static
-    domain: knowledge
+    type: None
+    domain: None
     aliases: ["MMMLU"]
     harbor_status: confirmed
     harbor_match: {name: mmmlu}
   - canonical: mmmu
-    type: static
-    domain: multimodal
+    type: None
+    domain: None
     aliases: ["MMMU"]
     harbor_status: not_in_harbor
   - canonical: mmmu-pro
-    type: static
-    domain: multimodal
+    type: None
+    domain: None
     aliases: ["MMMU-Pro"]
     harbor_status: not_in_harbor
   - canonical: mrcr
-    type: static
-    domain: knowledge
+    type: None
+    domain: None
     aliases: ["MRCR"]
     harbor_status: not_in_harbor
   - canonical: officeqa
-    type: agentic
-    domain: professional
+    type: None
+    domain: None
     aliases: ["OfficeQA"]
     harbor_status: not_in_harbor
   - canonical: or-bench
-    type: static
-    domain: safety
+    type: None
+    domain: None
     aliases: ["OR-Bench"]
     harbor_status: not_in_harbor
   - canonical: osworld
-    type: agentic
-    domain: computer-use
+    type: None
+    domain: None
     aliases: ["OSWorld", "OSWorld-Verified"]
     harbor_status: not_in_harbor
   - canonical: paperbench
-    type: agentic
-    domain: science
+    type: None
+    domain: None
     aliases: ["PaperBench"]
     harbor_status: not_in_harbor
   - canonical: petri
-    type: agentic
-    domain: safety
+    type: None
+    domain: None
     aliases: ["Petri"]
     harbor_status: not_in_harbor
   - canonical: programbench
-    type: agentic
-    domain: coding
+    type: None
+    domain: None
     aliases: ["ProgramBench"]
     harbor_status: not_in_harbor
   - canonical: propensitybench
-    type: static
-    domain: safety
+    type: None
+    domain: None
     aliases: ["PropensityBench"]
     harbor_status: not_in_harbor
   - canonical: proteingym
-    type: static
-    domain: science
+    type: None
+    domain: None
     aliases: ["ProteinGym"]
     harbor_status: not_in_harbor
   - canonical: protocolqa
-    type: static
-    domain: science
+    type: None
+    domain: None
     aliases: ["ProtocolQA"]
     harbor_status: not_in_harbor
   - canonical: real-world-finance
-    type: agentic
-    domain: professional
+    type: None
+    domain: None
     aliases: ["Real-World Finance"]
     harbor_status: not_in_harbor
   - canonical: riemannbench
-    type: static
-    domain: math
+    type: None
+    domain: None
     aliases: ["RiemannBench"]
     harbor_status: not_in_harbor
   - canonical: screenspot-pro
-    type: agentic
-    domain: computer-use
+    type: None
+    domain: None
     aliases: ["ScreenSpot-Pro"]
     harbor_status: not_in_harbor
   - canonical: seqqa
-    type: static
-    domain: science
+    type: None
+    domain: None
     aliases: ["SeqQA"]
     harbor_status: not_in_harbor
   - canonical: shade-arena
-    type: agentic
-    domain: safety
+    type: None
+    domain: None
     aliases: ["SHADE"]
     harbor_status: not_in_harbor
   - canonical: simpleqa
-    type: static
-    domain: knowledge
+    type: None
+    domain: None
     aliases: ["SimpleQA"]
     harbor_status: needs_review
     harbor_match: {name: simpleqa}
   - canonical: singlecellbench
-    type: static
-    domain: science
+    type: None
+    domain: None
     aliases: ["SingleCellBench"]
     harbor_status: not_in_harbor
   - canonical: spatialbench
-    type: static
-    domain: science
+    type: None
+    domain: None
     aliases: ["SpatialBench"]
     harbor_status: not_in_harbor
   - canonical: spreadsheetbench
-    type: agentic
-    domain: coding
+    type: None
+    domain: None
     aliases: ["SpreadSheetBench"]
     harbor_status: needs_review
     harbor_match: {name: spreadsheetbench-verified}
   - canonical: strongreject
-    type: static
-    domain: safety
+    type: None
+    domain: None
     aliases: ["StrongReject"]
     harbor_status: confirmed
     harbor_match: {name: strongreject}
   - canonical: swe-bench-multilingual
-    type: agentic
-    domain: coding
+    type: None
+    domain: None
     aliases: ["SWE-bench Multilingual"]
     harbor_status: confirmed
     harbor_match: {name: swebench_multilingual}
   - canonical: swe-bench-multimodal
-    type: agentic
-    domain: coding
+    type: None
+    domain: None
     aliases: ["SWE-bench Multimodal"]
     harbor_status: not_in_harbor
   - canonical: swe-bench-pro
-    type: agentic
-    domain: coding
+    type: None
+    domain: None
     aliases: ["SWE-bench Pro"]
     harbor_status: confirmed
     harbor_match: {name: swebenchpro}
   - canonical: swe-bench-verified
-    type: agentic
-    domain: coding
+    type: None
+    domain: None
     aliases: ["SWE-Bench", "SWE-bench Verified"]
     harbor_status: confirmed
     harbor_match: {name: swebench-verified}
   - canonical: tau2-bench
-    type: agentic
-    domain: computer-use
+    type: None
+    domain: None
     aliases: ["tau2", "tau2-bench"]
     harbor_status: not_in_harbor
   - canonical: terminal-bench
-    type: agentic
-    domain: coding
+    type: None
+    domain: None
     aliases: ["Terminal-Bench", "Terminal-Bench 2.1"]
     harbor_status: needs_review
     harbor_match: {name: terminal-bench}
   - canonical: toolathlon
-    type: agentic
-    domain: computer-use
+    type: None
+    domain: None
     aliases: ["Toolathlon"]
     harbor_status: not_in_harbor
   - canonical: troubleshootingbench
-    type: static
-    domain: science
+    type: None
+    domain: None
     aliases: ["TroubleshootingBench"]
     harbor_status: not_in_harbor
   - canonical: usamo-2026
-    type: static
-    domain: math
+    type: None
+    domain: None
     aliases: ["USAMO", "USAMO 2026"]
     harbor_status: not_in_harbor
   - canonical: vending-bench-2
-    type: agentic
-    domain: computer-use
+    type: None
+    domain: None
     aliases: ["Vending-Bench", "Vending-Bench 2"]
     harbor_status: not_in_harbor
   - canonical: vibench
-    type: agentic
-    domain: coding
+    type: None
+    domain: None
     aliases: ["ViBench"]
     harbor_status: not_in_harbor
   - canonical: video-mmmu
-    type: static
-    domain: multimodal
+    type: None
+    domain: None
     aliases: ["Video-MMMU"]
     harbor_status: not_in_harbor
   - canonical: webarena
-    type: agentic
-    domain: computer-use
+    type: None
+    domain: None
     aliases: ["WebArena", "WebArena-Verified"]
     harbor_status: not_in_harbor
   - canonical: wmdp
-    type: static
-    domain: safety
+    type: None
+    domain: None
     aliases: ["WMDP"]
     harbor_status: not_in_harbor
