@@ -20,14 +20,33 @@ HARBOR = {  # canonical: (status, harbor_name)
  "spreadsheetbench":("needs_review","spreadsheetbench-verified"),
  "cybench":("false_positive","legacy-bench"),
 }
-AXIS = {"agentic":set("swe-bench-verified swe-bench-pro swe-bench-multilingual swe-bench-multimodal terminal-bench frontiercode frontier-swe programbench cursorbench browsecomp deepsearchqa draco gdpval-aa mcp-atlas mcp-mark-verified osworld toolathlon automationbench vending-bench-2 finance-agent real-world-finance legal-agent-benchmark officeqa cybergym cve-bench cybench exploitbench tau2-bench bfcl livecodebench spreadsheetbench aider-polyglot webarena screenspot-pro benchcad".split()),
- "static":set("gpqa-diamond arc-agi-2 arc-agi-1 humanitys-last-exam matharena-apex aime usamo-2026 hmmt arxivmath critpt riemannbench graphwalks mmlu mmlu-pro mmmlu simpleqa healthbench healthadminbench codeforces imoanswerbench abstentionbench iheval".split()),
- "multimodal":set("mmmu mmmu-pro video-mmmu charxiv chartqapro chartmuseum gdp-pdf blueprint-bench-2 figqa".split()),
- "safety":set("wmdp lab-bench protocolqa seqqa or-bench agentharm bbq shade-arena mask petri biomysterybench proteingym biolp-bench cloning-scenarios makemesay biotier cybersec-eval harmbench deceptionbench propensitybench impossiblebench aa-omniscience spatialbench singlecellbench minimal-linuxbench troubleshootingbench paperbench creative-writing-v3 secure-bio-evals".split())}
-def axis_of(c):
-    for a,s in AXIS.items():
-        if c in s: return a
-    return "agentic"
+# ---- TWO orthogonal axes ----
+# TYPE = how it's run (static Q&A/exam vs agentic tool/environment task). Harbor prefers agentic.
+# DOMAIN = subject matter. Do NOT conflate the two.
+AGENTIC = set("swe-bench-verified swe-bench-pro swe-bench-multilingual swe-bench-multimodal terminal-bench frontiercode frontier-swe programbench cursorbench aider-polyglot expert-swe spreadsheetbench minimal-linuxbench vibench osworld webarena screenspot-pro online-mind2web automationbench toolathlon mcp-atlas mcp-mark-verified bfcl tau2-bench vending-bench-2 browsecomp deepsearchqa draco gdpval-aa finance-agent real-world-finance legal-agent-benchmark officeqa apex-agents benchcad cybergym cve-bench cybench cyscenariobench exploitbench exploitgym paperbench mle-bench agentharm shade-arena petri makemesay impossiblebench genebench bixbench".split())
+def type_of(c):
+    return "agentic" if c in AGENTIC else "static"
+
+DOMAIN = {
+ "coding": "swe-bench-verified swe-bench-pro swe-bench-multilingual swe-bench-multimodal terminal-bench frontiercode frontier-swe programbench cursorbench vibench livecodebench aider-polyglot codeforces ojbench expert-swe spreadsheetbench minimal-linuxbench".split(),
+ "math": "aime hmmt matharena-apex usamo-2026 arxivmath riemannbench imoanswerbench frontiermath".split(),
+ "science": "gpqa-diamond critpt scicode proteingym biomysterybench biopipelinebench lab-bench protocolqa seqqa biolp-bench cloning-scenarios singlecellbench spatialbench genebench bixbench biotier secure-bio-evals paperbench troubleshootingbench".split(),
+ "knowledge": "mmlu mmlu-pro mmmlu humanitys-last-exam simpleqa arc-agi-1 arc-agi-2 graphwalks mrcr aa-omniscience iheval abstentionbench browsecomp deepsearchqa draco creative-writing-v3".split(),
+ "health": "healthbench healthadminbench".split(),
+ "safety": "wmdp agentharm or-bench strongreject mask shade-arena petri bbq deceptionbench propensitybench impossiblebench makemesay harmbench".split(),
+ "cyber": "cybench cybergym cve-bench cyscenariobench cybersec-eval exploitbench exploitgym".split(),
+ "computer-use": "osworld webarena screenspot-pro online-mind2web automationbench toolathlon mcp-atlas mcp-mark-verified bfcl tau2-bench vending-bench-2".split(),
+ "professional": "gdpval-aa finance-agent real-world-finance legal-agent-benchmark officeqa apex-agents benchcad".split(),
+ "multimodal": "mmmu mmmu-pro video-mmmu charxiv chartqapro chartmuseum gdp-pdf blueprint-bench-2 figqa mathvision babyvision zerobench longvideobench worldvqa omnidocbench".split(),
+}
+DOM = {c: d for d, cs in DOMAIN.items() for c in cs}
+UNCLASSIFIED = set()
+def domain_of(c):
+    d = DOM.get(c)
+    if d is None:
+        UNCLASSIFIED.add(c)
+        return "knowledge"  # safe default; unclassified canonicals are surfaced for taxonomy review
+    return d
 
 # ---- deterministic normalization: raw token -> canonical slug ----
 EXTRA = {}  # exact aliases registered during forward runs (deterministic lookup, never fuzzy)
@@ -329,6 +348,8 @@ METHOD.update(NEWMETHOD)
 EXTRA.update({
  "genebench":"genebench", "genebench-pro":"genebench-pro", "genebench pro":"genebench-pro",
 })
+AGENTIC.add("genebench-pro")     # GeneBench-Pro: agentic comp-bio benchmark (sibling of genebench)
+DOM["genebench-pro"]="science"   # subject domain = computational biology
 FWD_0704={
  "sonnet5blog":dict(lab="anthropic",model="Claude Sonnet 5",dt="blog_headliner",date="2026-06-30",
    url="https://www.anthropic.com/news/claude-sonnet-5",prom="headline",
@@ -362,7 +383,7 @@ for did,d in DOCS.items():
               "source_doc":{"lab":d["lab"],"model":d["model"],"doc_type":d["dt"],"url":d["url"],"pub_date":d["date"],"primary":True},
               "citing_lab":d["lab"],"citing_model":d["model"],"prominence":{"type":"prose"},
               "reported":{"value":None,"unit":None,"model_config":None},
-              "axis":"agentic","on_harbor":False,"harbor_status":"not_in_harbor","harbor_name":None,
+              "type":None,"domain":None,"on_harbor":False,"harbor_status":"not_in_harbor","harbor_name":None,
               "methodology_deviations":[],"score_pending":False,
               "needs_review":True,"review_reason":d.get("reason"),"review_issue":d.get("issue")})
             continue
@@ -388,7 +409,7 @@ for did,d in DOCS.items():
           "citing_lab":d["lab"],"citing_model":d["model"],
           "prominence":{"type":("headline" if raw.strip().lower() in _head else d.get("prom","table_row")),"table_row_n":None,"table_total":_M},
           "reported":{"value":val,"unit":unit,"model_config":cfg},
-          "axis":axis_of(cc) if cc else "agentic","on_harbor":on,"harbor_status":hs,"harbor_name":hn,
+          "type":type_of(cc) if cc else None,"domain":domain_of(cc) if cc else None,"on_harbor":on,"harbor_status":hs,"harbor_name":hn,
           "methodology_deviations":meth,"score_pending":score_pending,
           "needs_review":nr,"review_reason":reason,"review_issue":issue})
 
@@ -401,3 +422,4 @@ print("on_harbor=True        :", sum(1 for r in R if r['on_harbor']))
 print("needs_review          :", sum(1 for r in R if r['needs_review']))
 print("with a score          :", sum(1 for r in R if r['reported']['value'] is not None))
 print("unmatched raw names   :", sorted(unmatched))
+print("UNCLASSIFIED domain   :", sorted(UNCLASSIFIED))
