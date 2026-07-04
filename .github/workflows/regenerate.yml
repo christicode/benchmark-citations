@@ -6,6 +6,7 @@ on:
     paths:
       - scripts/build_citations.py
       - scripts/gen_aliases.py
+      - scripts/build_dashboard.py
       - .github/workflows/regenerate.yml
 concurrency:
   group: regenerate
@@ -20,13 +21,15 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - run: pip install pyyaml
       - run: python scripts/build_citations.py
       - run: python scripts/gen_aliases.py
-      - name: Commit regenerated data (race-safe)
+      - run: python scripts/build_dashboard.py
+      - name: Commit regenerated data + dashboard (race-safe)
         run: |
           git config user.name "regen-bot"
           git config user.email "regen-bot@users.noreply.github.com"
-          git add data/citations.jsonl data/aliases_generated.yaml
-          git commit -m "regen: citations.jsonl + aliases_generated.yaml [skip ci]" || { echo "no changes"; exit 0; }
+          git add data/citations.jsonl data/aliases_generated.yaml docs/index.html
+          git commit -m "regen: citations.jsonl + aliases_generated.yaml + dashboard [skip ci]" || { echo "no changes"; exit 0; }
           git pull --rebase origin main
           git push
