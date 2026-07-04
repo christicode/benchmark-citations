@@ -20,11 +20,11 @@ TABLE_NORM = 12.0  # benchmark in a <=12-row table = full table_row weight; deep
 
 
 def pweight(p):
-    """Prominence weight: a blog HEADLINE (3.0) outweighs a row in a big system-card table.
+    """Prominence weight: a blog HEADLINE (2.0) outweighs a row in a big system-card table.
     A table_row is discounted by table size so 'row 47 of 50' counts far less than a focused table."""
     t = p.get("type")
     if t == "headline":
-        return 3.0
+        return 2.0
     if t in ("footnote", "prose"):
         return 0.5
     return min(1.0, TABLE_NORM / max(p.get("table_total") or 1, 1))

@@ -93,7 +93,7 @@ apply (use judgment). Prefer bullets over paragraphs.
 ## Current status (2026-07-04)
 - Backfill (9 docs) + forward run 2026-07-03 (25 promoted docs) → **514 citations, 97
   benchmarks, 35 docs**. Prominence weighting is live: headline blogs = their own citation
-  lines (3×); deep system-card rows discounted by `table_total`.
+  lines (2×); deep system-card rows discounted by `table_total`.
 - Dashboard **live at https://autobenchmark.ai** — apex A-records → GitHub Pages; `docs/CNAME`
   pins the domain (the `regenerate` Action only re-adds `docs/index.html`, so the domain survives).
   Optional: add a `www` CNAME → `christicode.github.io` to clear GitHub's www advisory.
