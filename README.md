@@ -1,4 +1,5 @@
-# PaperTrail <https://autobenchmark.ai> 
+# PaperTrail
+<https://autobenchmark.ai> 
 
 Tracks **benchmark citations** across the LLM ecosystem: for each benchmark we track how often it's cited, where it's cited, by which labs/models, and with what methodology deviations.
 
