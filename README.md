@@ -3,10 +3,9 @@
 Tracks **benchmark citations** across the LLM ecosystem: for each benchmark we track how often it's cited, where it's cited, by which labs/models, and with what methodology deviations.
 
 ## Scope
-- Backfilled to **2025-08**, then forward continuously. 
+- Backfilled to 2025-08, then forward continuously. 
 - Labs: Big (Anthropic, OpenAI, Google DeepMind, Meta, xAI) + open-weight leaders
-  (DeepSeek, Qwen, Mistral, Moonshot, Z.ai). **Labs are config, not code** — see
-  [`labs.yaml`](labs.yaml). Onboard a lab by editing that file only.
+  (DeepSeek, Qwen, Mistral, Moonshot, Z.ai). Onboard a lab by editing [`labs.yaml`](labs.yaml)
 - Sources: Primary sources (Headline release blogs > Model cards/System cards). For open-weight models the **Hugging Face README** is accepted. 
 
 ## How it works
@@ -22,7 +21,7 @@ Tracks **benchmark citations** across the LLM ecosystem: for each benchmark we t
    Harbor are excluded.
 
 ## Harbor cross-reference
-Harbor's `registry.json` is fetched **live from `main`** each run
+Harbor's `registry.json` is fetched live from `main` each run
 (`harbor-framework/harbor`). 
 
 ## Issues are created for human review 
