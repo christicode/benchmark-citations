@@ -10,15 +10,10 @@ Tracks **benchmark citations** across the LLM ecosystem: for each benchmark we t
 
 ## How it works
 
-1. **Discover** docs by crawling each lab's `source_index_urls` and checking against
-   what's already been extracted. 
-2. **Extract** verbatim benchmark mentions + methodology (scaffold, harness, n,
-   effort, tools, model config) per [`schema/extraction_schema.json`](schema/extraction_schema.json).
-3. **Normalize** names via [`data/aliases.yaml`](data/aliases.yaml).
-   Anything unmatched is **flagged for human review as a GitHub issue**. 
-4. **Rank** conversion candidates with [`scripts/rank.py`](scripts/rank.py):
-   usage (prominence-weighted × lab diversity) + saturation headroom. Benchmarks already in
-   Harbor are excluded.
+1. **Discover** docs by crawling each lab's `source_index_urls` and checking against what's already been extracted. 
+2. **Extract** verbatim benchmark mentions + methodology (scaffold, harness, n, effort, tools, model config) per [`schema/extraction_schema.json`](schema/extraction_schema.json).
+3. **Normalize** names via [`data/aliases.yaml`](data/aliases.yaml). Anything unmatched is **flagged for human review as a GitHub issue**. 
+4. **Rank** adapter candidates with [`scripts/rank.py`](scripts/rank.py):usage + saturation headroom. Benchmarks already in Harbor are excluded.
 
 Details: 
 Harbor cross-reference: Harbor's `registry.json` is fetched live from `main` each run
