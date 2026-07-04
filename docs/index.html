@@ -1,0 +1,104 @@
+<!doctype html><html lang=en><head><meta charset=utf-8>
+<meta name=viewport content='width=device-width,initial-scale=1'>
+<title>Benchmark Citations - Trends & Harbor Candidates</title>
+<style>
+    :root{--bg:#0d1117;--card:#161b22;--b:#30363d;--fg:#e6edf3;--mut:#8b949e;--ac:#58a6ff;--ag:#3fb950;--sa:#d29922}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.5 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    .wrap{max-width:1120px;margin:0 auto;padding:24px}
+    h1{font-size:22px;margin:0 0 4px}h2{font-size:16px;margin:26px 0 10px;border-bottom:1px solid var(--b);padding-bottom:6px}
+    .sub{color:var(--mut);margin:0 0 18px}
+    .cards{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
+    .kpi{background:var(--card);border:1px solid var(--b);border-radius:8px;padding:10px 14px;min-width:120px}
+    .kpi b{font-size:20px;display:block}
+    table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--b);border-radius:8px;overflow:hidden}
+    th,td{padding:7px 10px;text-align:left;border-bottom:1px solid var(--b);vertical-align:top}
+    th{color:var(--mut);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+    tr:last-child td{border-bottom:0}
+    code{background:#010409;padding:1px 5px;border-radius:4px;color:var(--ac)}
+    .ag{color:var(--ag)}.st{color:var(--ac)}.sa{color:var(--sa)}.mut{color:var(--mut)}
+    .pill{font-size:11px;padding:1px 7px;border-radius:10px;border:1px solid var(--b);color:var(--mut)}
+    .why{color:var(--mut);font-size:13px}
+    a{color:var(--ac)}
+    </style></head><body><div class=wrap>
+<h1>Benchmark Citations - Trends &amp; Harbor Conversion Candidates</h1>
+<p class=sub>Topline entity = the <b>benchmark</b>. Generated 2026-07-04 04:07 UTC from <code>data/citations.jsonl</code>. Harbor status is a live-cross-referenced flag; axis (agentic/static/multimodal/safety) is surfaced separately, never folded into the score.</p>
+<div class=cards>
+<div class=kpi><b>514</b>citations</div>
+<div class=kpi><b>97</b>benchmarks</div>
+<div class=kpi><b>35</b>source docs</div>
+<div class=kpi><b>89</b>not in Harbor</div>
+<div class=kpi><b>117</b>needs review</div>
+<div class=kpi><b>119</b>scores read</div>
+</div>
+<h2>Top Harbor-conversion candidates &mdash; &ldquo;why now&rdquo;</h2>
+<table><tr><th>#</th><th>Benchmark</th><th>Axis</th><th>Priority</th><th>Usage</th><th>Headroom</th><th>Why now</th></tr>
+<tr><td>1</td><td><code>humanitys-last-exam</code></td><td><span class='pill st'>static</span></td><td>34.53</td><td>56.5</td><td>0.41</td><td class=why>19 docs / 7 labs; max solve 59% (headroom 0.41); usage rising</td></tr>
+<tr><td>2</td><td><code>browsecomp</code></td><td><span class='pill ag'>agentic</span></td><td>32.39</td><td>53.6</td><td>0.14</td><td class=why>17 docs / 6 labs; max solve 86% (headroom 0.14); usage rising</td></tr>
+<tr><td>3</td><td><code>terminal-bench</code></td><td><span class='pill ag'>agentic</span></td><td>27.82</td><td>76.9</td><td>0.16</td><td class=why>20 docs / 7 labs; max solve 84% (headroom 0.16); usage rising; Harbor status: needs_review</td></tr>
+<tr><td>4</td><td><code>cybergym</code></td><td><span class='pill ag'>agentic</span></td><td>23.58</td><td>38.8</td><td>0.18</td><td class=why>14 docs / 5 labs; max solve 82% (headroom 0.18); usage rising</td></tr>
+<tr><td>5</td><td><code>charxiv</code></td><td><span class='pill sa'>multimodal</span></td><td>19.04</td><td>31.2</td><td>0.20</td><td class=why>14 docs / 5 labs; max solve 80% (headroom 0.20); usage rising</td></tr>
+<tr><td>6</td><td><code>osworld</code></td><td><span class='pill ag'>agentic</span></td><td>16.74</td><td>27.5</td><td>0.15</td><td class=why>12 docs / 4 labs; max solve 85% (headroom 0.15); usage rising</td></tr>
+<tr><td>7</td><td><code>toolathlon</code></td><td><span class='pill ag'>agentic</span></td><td>16.40</td><td>26.1</td><td>0.44</td><td class=why>7 docs / 5 labs; max solve 56% (headroom 0.44); usage rising</td></tr>
+<tr><td>8</td><td><code>mmlu</code></td><td><span class='pill st'>static</span></td><td>15.14</td><td>23.9</td><td>0.50</td><td class=why>14 docs / 5 labs; no solved-rate yet (assume long half-life); usage rising</td></tr>
+<tr><td>9</td><td><code>aime</code></td><td><span class='pill st'>static</span></td><td>12.52</td><td>34.7</td><td>0.04</td><td class=why>15 docs / 5 labs; max solve 96% (headroom 0.04); usage rising; Harbor status: needs_review</td></tr>
+<tr><td>10</td><td><code>mmmu-pro</code></td><td><span class='pill sa'>multimodal</span></td><td>12.51</td><td>20.4</td><td>0.19</td><td class=why>10 docs / 4 labs; max solve 81% (headroom 0.19); usage rising</td></tr>
+<tr><td>11</td><td><code>protocolqa</code></td><td><span class='pill sa'>safety</span></td><td>11.73</td><td>18.2</td><td>0.50</td><td class=why>9 docs / 4 labs; no solved-rate yet (assume long half-life)</td></tr>
+<tr><td>12</td><td><code>gdpval-aa</code></td><td><span class='pill ag'>agentic</span></td><td>9.59</td><td>14.7</td><td>0.50</td><td class=why>9 docs / 3 labs; no solved-rate yet (assume long half-life); usage rising</td></tr>
+<tr><td>13</td><td><code>livecodebench</code></td><td><span class='pill ag'>agentic</span></td><td>8.46</td><td>23.3</td><td>0.06</td><td class=why>8 docs / 5 labs; max solve 94% (headroom 0.06); Harbor status: needs_review</td></tr>
+<tr><td>14</td><td><code>tau2-bench</code></td><td><span class='pill ag'>agentic</span></td><td>8.19</td><td>13.6</td><td>0.01</td><td class=why>5 docs / 4 labs; max solve 99% (headroom 0.01); usage rising</td></tr>
+<tr><td>15</td><td><code>simpleqa</code></td><td><span class='pill st'>static</span></td><td>7.65</td><td>20.5</td><td>0.28</td><td class=why>8 docs / 5 labs; max solve 72% (headroom 0.28); Harbor status: needs_review</td></tr>
+<tr><td>16</td><td><code>hmmt</code></td><td><span class='pill st'>static</span></td><td>6.80</td><td>11.2</td><td>0.03</td><td class=why>7 docs / 3 labs; max solve 97% (headroom 0.03); usage rising</td></tr>
+<tr><td>17</td><td><code>mmlu-pro</code></td><td><span class='pill st'>static</span></td><td>5.85</td><td>8.4</td><td>0.50</td><td class=why>5 docs / 4 labs; no solved-rate yet (assume long half-life); usage rising</td></tr>
+<tr><td>18</td><td><code>vending-bench-2</code></td><td><span class='pill ag'>agentic</span></td><td>5.84</td><td>8.4</td><td>0.50</td><td class=why>7 docs / 2 labs; no solved-rate yet (assume long half-life); usage rising</td></tr>
+<tr><td>19</td><td><code>shade-arena</code></td><td><span class='pill sa'>safety</span></td><td>5.61</td><td>8.0</td><td>0.50</td><td class=why>10 docs / 2 labs; no solved-rate yet (assume long half-life); usage rising</td></tr>
+<tr><td>20</td><td><code>mmmu</code></td><td><span class='pill sa'>multimodal</span></td><td>5.59</td><td>8.0</td><td>0.50</td><td class=why>7 docs / 3 labs; no solved-rate yet (assume long half-life); usage rising</td></tr>
+</table>
+<h2>Rising citation usage <span class=mut>(velocity: docs since 2026-01 vs before)</span></h2>
+<table><tr><th>Benchmark</th><th>Axis</th><th>&Delta;</th><th>recent</th><th>prior</th><th>by quarter</th></tr>
+<tr><td><code>humanitys-last-exam</code></td><td class=mut>static</td><td class=ag>+11</td><td>15</td><td>4</td><td class=mut>2025Q4:3 2026Q1:6 2026Q2:9</td></tr>
+<tr><td><code>terminal-bench</code></td><td class=mut>agentic</td><td class=ag>+10</td><td>15</td><td>5</td><td class=mut>2025Q4:3 2026Q1:6 2026Q2:9</td></tr>
+<tr><td><code>cybergym</code></td><td class=mut>agentic</td><td class=ag>+10</td><td>12</td><td>2</td><td class=mut>2025Q4:2 2026Q1:4 2026Q2:8</td></tr>
+<tr><td><code>osworld</code></td><td class=mut>agentic</td><td class=ag>+10</td><td>11</td><td>1</td><td class=mut>2025Q4:1 2026Q1:4 2026Q2:7</td></tr>
+<tr><td><code>gpqa-diamond</code></td><td class=mut>static</td><td class=ag>+9</td><td>14</td><td>5</td><td class=mut>2025Q4:4 2026Q1:6 2026Q2:8</td></tr>
+<tr><td><code>browsecomp</code></td><td class=mut>agentic</td><td class=ag>+9</td><td>13</td><td>4</td><td class=mut>2025Q4:3 2026Q1:6 2026Q2:7</td></tr>
+<tr><td><code>mmmu-pro</code></td><td class=mut>multimodal</td><td class=ag>+8</td><td>9</td><td>1</td><td class=mut>2025Q4:1 2026Q1:5 2026Q2:4</td></tr>
+<tr><td><code>swe-bench-pro</code></td><td class=mut>agentic</td><td class=ag>+7</td><td>7</td><td>0</td><td class=mut>2026Q1:2 2026Q2:5</td></tr>
+<tr><td><code>charxiv</code></td><td class=mut>multimodal</td><td class=ag>+6</td><td>10</td><td>4</td><td class=mut>2025Q3:1 2025Q4:2 2026Q1:3 2026Q2:7</td></tr>
+<tr><td><code>deepsearchqa</code></td><td class=mut>agentic</td><td class=ag>+6</td><td>6</td><td>0</td><td class=mut>2026Q1:3 2026Q2:3</td></tr>
+<tr><td><code>swe-bench-verified</code></td><td class=mut>agentic</td><td class=ag>+5</td><td>11</td><td>6</td><td class=mut>2025Q3:1 2025Q4:4 2026Q1:4 2026Q2:7</td></tr>
+<tr><td><code>aime</code></td><td class=mut>static</td><td class=ag>+5</td><td>10</td><td>5</td><td class=mut>2025Q4:4 2026Q1:4 2026Q2:6</td></tr>
+<tr><td><code>gdpval-aa</code></td><td class=mut>agentic</td><td class=ag>+5</td><td>7</td><td>2</td><td class=mut>2026Q1:3 2026Q2:4</td></tr>
+<tr><td><code>arc-agi-2</code></td><td class=mut>static</td><td class=ag>+5</td><td>7</td><td>2</td><td class=mut>2025Q4:2 2026Q1:4 2026Q2:3</td></tr>
+<tr><td><code>toolathlon</code></td><td class=mut>agentic</td><td class=ag>+5</td><td>6</td><td>1</td><td class=mut>2026Q1:1 2026Q2:5</td></tr>
+<tr><td><code>swe-bench-multilingual</code></td><td class=mut>agentic</td><td class=ag>+5</td><td>6</td><td>1</td><td class=mut>2025Q4:1 2026Q1:3 2026Q2:3</td></tr>
+<tr><td><code>mmmu</code></td><td class=mut>multimodal</td><td class=ag>+5</td><td>6</td><td>1</td><td class=mut>2025Q4:1 2026Q1:3 2026Q2:3</td></tr>
+<tr><td><code>mcp-atlas</code></td><td class=mut>agentic</td><td class=ag>+5</td><td>5</td><td>0</td><td class=mut>2026Q1:3 2026Q2:2</td></tr>
+</table>
+<h2>Rising saturation <span class=mut>(avg reported solve rate climbing toward ceiling)</span></h2>
+<table><tr><th>Benchmark</th><th>Axis</th><th>&Delta; avg</th><th>recent avg</th><th>prior avg</th></tr>
+<tr><td><code>arc-agi-2</code></td><td class=mut>static</td><td class=sa>+47.4pp</td><td>78.5%</td><td>31.1%</td></tr>
+<tr><td><code>terminal-bench</code></td><td class=mut>agentic</td><td class=sa>+17.7pp</td><td>69.5%</td><td>51.8%</td></tr>
+<tr><td><code>healthbench</code></td><td class=mut>static</td><td class=sa>+15.4pp</td><td>61.6%</td><td>46.2%</td></tr>
+<tr><td><code>osworld</code></td><td class=mut>agentic</td><td class=sa>+11.7pp</td><td>78.0%</td><td>66.3%</td></tr>
+<tr><td><code>browsecomp</code></td><td class=mut>agentic</td><td class=sa>+10.2pp</td><td>77.9%</td><td>67.7%</td></tr>
+<tr><td><code>swe-bench-verified</code></td><td class=mut>agentic</td><td class=sa>+8.8pp</td><td>82.6%</td><td>73.8%</td></tr>
+<tr><td><code>swe-bench-multilingual</code></td><td class=mut>agentic</td><td class=sa>+8.6pp</td><td>75.3%</td><td>66.7%</td></tr>
+<tr><td><code>humanitys-last-exam</code></td><td class=mut>static</td><td class=sa>+6.8pp</td><td>40.1%</td><td>33.3%</td></tr>
+<tr><td><code>tau2-bench</code></td><td class=mut>agentic</td><td class=sa>+2.5pp</td><td>98.7%</td><td>96.2%</td></tr>
+</table>
+<h2>Signals surfaced separately</h2>
+<p><b>Agentic vs static (vs multimodal/safety)</b> &mdash; kept as a distinct axis for human weighting:<br>
+<span class=pill>agentic: 38</span> &nbsp; <span class=pill>safety: 28</span> &nbsp; <span class=pill>static: 22</span> &nbsp; <span class=pill>multimodal: 9</span></p>
+<p><b>Human review queue</b> (needs_review reasons):</p><table><tr><th>reason</th><th>citations</th></tr>
+<tr><td>Harbor variant/version unconfirmed</td><td>62</td></tr>
+<tr><td>unmatched benchmark name - register in aliases</td><td>39</td></tr>
+<tr><td>Harbor auto-match is false positive</td><td>10</td></tr>
+<tr><td>Gemini 3 Flash model card benchmark table is image-based (no text-extractable scores) - OCR/blog needed</td><td>1</td></tr>
+<tr><td>Kimi K2 Thinking blog is JS-rendered; benchmark scores not in served HTML (curl) - needs headless render/human extraction</td><td>1</td></tr>
+<tr><td>Kimi K2.7-Code page is JS-rendered; benchmark scores not in served HTML (curl) - needs headless render/human extraction</td><td>1</td></tr>
+<tr><td>GLM-4.6 HF README has no text-extractable benchmark table; scores live on z.ai blog (not archived) - human extraction needed</td><td>1</td></tr>
+<tr><td>Mistral Large 3 card benchmarks are chart images only (issue #1); only AIME appears as text</td><td>1</td></tr>
+<tr><td>Qwen3-Max primary source not retrievable: HF repo gated (401) and qwenlm blog 404; Qwen source_index_urls need updating (feed relocated to qwen.ai)</td><td>1</td></tr>
+</table>
+<p class=sub style='margin-top:26px'>Source of truth: git (<code>data/citations.jsonl</code>) + GitHub Issues (<code>needs-human-review</code>). Harbor registry cross-referenced live from <code>harbor-framework/harbor</code> main.</p>
+</div></body></html>

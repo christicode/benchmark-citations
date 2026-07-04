@@ -23,6 +23,10 @@ benchmarks:
     aliases: ["AIME"]
     harbor_status: needs_review
     harbor_match: {name: aime}
+  - canonical: arc-agi-1
+    axis: static
+    aliases: ["ARC-AGI-1"]
+    harbor_status: not_in_harbor
   - canonical: arc-agi-2
     axis: static
     aliases: ["ARC-AGI", "ARC-AGI-2"]
@@ -44,6 +48,11 @@ benchmarks:
     axis: agentic
     aliases: ["BenchCAD"]
     harbor_status: not_in_harbor
+  - canonical: bfcl
+    axis: agentic
+    aliases: ["BFCL"]
+    harbor_status: needs_review
+    harbor_match: {name: bfcl}
   - canonical: biolp-bench
     axis: safety
     aliases: ["BioLP"]
@@ -165,7 +174,7 @@ benchmarks:
     harbor_match: {name: gpqa-diamond}
   - canonical: graphwalks
     axis: static
-    aliases: ["GraphWalks"]
+    aliases: ["GraphWalks", "Graphwalks"]
     harbor_status: not_in_harbor
   - canonical: harmbench
     axis: safety
@@ -193,7 +202,7 @@ benchmarks:
     harbor_status: not_in_harbor
   - canonical: imoanswerbench
     axis: static
-    aliases: ["IMOAnswerBench"]
+    aliases: ["IMO-AnswerBench", "IMOAnswerBench"]
     harbor_status: not_in_harbor
   - canonical: impossiblebench
     axis: safety
@@ -327,6 +336,11 @@ benchmarks:
     axis: safety
     aliases: ["SpatialBench"]
     harbor_status: not_in_harbor
+  - canonical: spreadsheetbench
+    axis: agentic
+    aliases: ["SpreadSheetBench"]
+    harbor_status: needs_review
+    harbor_match: {name: spreadsheetbench-verified}
   - canonical: strongreject
     axis: agentic
     aliases: ["StrongReject"]
@@ -353,7 +367,7 @@ benchmarks:
     harbor_match: {name: swebench-verified}
   - canonical: tau2-bench
     axis: agentic
-    aliases: ["tau2"]
+    aliases: ["tau2", "tau2-bench"]
     harbor_status: not_in_harbor
   - canonical: terminal-bench
     axis: agentic
@@ -376,13 +390,17 @@ benchmarks:
     axis: agentic
     aliases: ["Vending-Bench", "Vending-Bench 2"]
     harbor_status: not_in_harbor
+  - canonical: vibench
+    axis: agentic
+    aliases: ["ViBench"]
+    harbor_status: not_in_harbor
   - canonical: video-mmmu
     axis: multimodal
     aliases: ["Video-MMMU"]
     harbor_status: not_in_harbor
   - canonical: webarena
     axis: agentic
-    aliases: ["WebArena"]
+    aliases: ["WebArena", "WebArena-Verified"]
     harbor_status: not_in_harbor
   - canonical: wmdp
     axis: safety
