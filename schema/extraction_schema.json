@@ -25,9 +25,9 @@
       "type": "object",
       "required": ["type"],
       "properties": {
-        "type": {"enum": ["headline", "table_row", "footnote", "prose"]},
+        "type": {"enum": ["headline", "table_row", "footnote", "prose"], "description": "Within-document prominence. Headline (blog hero) weighs 3x; table_row is discounted by table_total so a row in a 50-benchmark table counts far less."},
         "table_row_n": {"type": ["integer", "null"]},
-        "table_total": {"type": ["integer", "null"]}
+        "table_total": {"type": ["integer", "null"], "description": "Number of benchmarks in the doc; used to discount deep table rows."}
       }
     },
     "reported": {
@@ -44,7 +44,8 @@
         "model_config": {"type": ["string", "null"], "description": "e.g. Fable 5 (classifiers on) vs Mythos 5 (unblocked)"}
       }
     },
-    "axis": {"enum": ["agentic", "static", "multimodal", "safety"], "description": "SEPARATE axis, surfaced not folded into priority score."},
+    "type": {"enum": ["agentic", "static", null], "description": "HOW the benchmark is run: agentic (tools / environment / multi-step) vs static (one-shot Q&A / exam). Harbor prefers agentic. Kept ORTHOGONAL to domain. Surfaced separately, never folded into the priority score. null if benchmark unresolved."},
+    "domain": {"enum": ["coding", "math", "science", "knowledge", "health", "safety", "cyber", "computer-use", "professional", "multimodal", null], "description": "Subject matter of the benchmark. Do NOT conflate with type (a coding benchmark can be static or agentic). null if unresolved."},
     "on_harbor": {"type": "boolean", "description": "true iff this benchmark is already a confirmed Harbor (name,version) entry."},
     "harbor_status": {"enum": ["confirmed", "needs_review", "false_positive", "not_in_harbor"]},
     "harbor_name": {"type": ["string", "null"], "description": "matched Harbor entry name, if any."},
