@@ -222,6 +222,19 @@ benchmarks:
     aliases: ["FrontierCode", "Cognition FrontierCode"]
     harbor_status: not_in_harbor
     vendor_proprietary: true
+  - canonical: genebench
+    axis: agentic
+    aliases: ["GeneBench"]
+    harbor_status: not_in_harbor
+    vendor_proprietary: true   # OpenAI comp-bio agent benchmark (bioRxiv); cited on GPT-5.5 / GPT-5.6 Sol blogs
+    method_note: "Distinct from the harder GeneBench-Pro. GPT-5 <5% at launch."
+  - canonical: genebench-pro
+    axis: agentic
+    aliases: ["GeneBench-Pro", "GeneBench Pro"]
+    harbor_status: not_in_harbor
+    vendor_proprietary: true   # OpenAI; partially open (10Q on HF + 50Q to Artificial Analysis)
+    method_fields: [reasoning_level, pro_mode]
+    method_note: "129 synthetic, deterministically-graded comp-bio agent tasks. GPT-5.6 Sol 28.7% (highest reasoning) / 31.5% (Pro). Expected saturation ~EOY2026."
 
 # Collisions surfaced by the first-pass matcher — ALL require human sign-off
 # before harbor_status flips to confirmed. Documented so nothing is silently guessed.
