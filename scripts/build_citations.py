@@ -210,25 +210,25 @@ NEWDOCS={
  "glm51":dict(lab="zai",model="GLM-5.1",dt="model_card",date="2026-04-07",
    url="https://huggingface.co/zai-org/GLM-5.1",
    b=["HLE","AIME","GPQA","SWE-bench Pro","Terminal-Bench","CyberGym","BrowseComp","HMMT"]),
- # ---------- Unreadable / gated / image-only -> FLAGGED for human extraction ----------
+ # ---------- Unreadable / gated / image-only -> FLAGGED for human extraction (issue #9) ----------
  "gemini3flash":dict(lab="google_deepmind",model="Gemini 3 Flash",dt="model_card",date="2025-12-17",
    url="https://deepmind.google/models/model-cards/gemini-3-flash/",b=["__UNREADABLE__"],
-   reason="Gemini 3 Flash model card benchmark table is image-based (no text-extractable scores) - OCR/blog needed",issue=5),
+   reason="Gemini 3 Flash model card benchmark table is image-based (no text-extractable scores) - OCR/blog needed",issue=9),
  "k2think":dict(lab="moonshot",model="Kimi K2 Thinking",dt="model_card",date="2025-11-06",
    url="https://www.kimi.com/blog/kimi-k2-thinking",b=["__UNREADABLE__"],
-   reason="Kimi K2 Thinking blog is JS-rendered; benchmark scores not in served HTML (curl) - needs headless render/human extraction"),
+   reason="Kimi K2 Thinking blog is JS-rendered; benchmark scores not in served HTML (curl) - needs headless render/human extraction",issue=9),
  "k27code":dict(lab="moonshot",model="Kimi K2.7-Code",dt="model_card",date=None,
    url="https://www.kimi.com/resources/kimi-k2-7-code",b=["__UNREADABLE__"],
-   reason="Kimi K2.7-Code page is JS-rendered; benchmark scores not in served HTML (curl) - needs headless render/human extraction"),
+   reason="Kimi K2.7-Code page is JS-rendered; benchmark scores not in served HTML (curl) - needs headless render/human extraction",issue=9),
  "glm46":dict(lab="zai",model="GLM-4.6",dt="model_card",date="2025-09-30",
    url="https://huggingface.co/zai-org/GLM-4.6",b=["__UNREADABLE__"],
-   reason="GLM-4.6 HF README has no text-extractable benchmark table; scores live on z.ai blog (not archived) - human extraction needed"),
+   reason="GLM-4.6 HF README has no text-extractable benchmark table; scores live on z.ai blog (not archived) - human extraction needed",issue=9),
  "mistral3":dict(lab="mistral",model="Mistral Large 3",dt="model_card",date="2025-12-02",
    url="https://huggingface.co/mistralai/Mistral-Large-3-675B-Instruct-2512",b=["__UNREADABLE__"],
    reason="Mistral Large 3 card benchmarks are chart images only (issue #1); only AIME appears as text",issue=1),
  "qwen3max":dict(lab="qwen",model="Qwen3-Max",dt="blog_headliner",date=None,
    url="https://huggingface.co/Qwen/Qwen3-Max",b=["__UNREADABLE__"],
-   reason="Qwen3-Max primary source not retrievable: HF repo gated (401) and qwenlm blog 404; Qwen source_index_urls need updating (feed relocated to qwen.ai)"),
+   reason="Qwen3-Max primary source not retrievable: HF repo gated (401) and qwenlm blog 404; Qwen source_index_urls need updating (feed relocated to qwen.ai)",issue=9),
 }
 DOCS.update(NEWDOCS)
 
@@ -339,7 +339,7 @@ for did,d in DOCS.items():
         # needs_review = genuine HUMAN decision only (unmatched / harbor collision / config-dependent).
         # A missing score is a to-extract state -> score_pending, NOT needs_review.
         nr=False; reason=None; issue=None
-        if not cc: nr=True; reason="unmatched benchmark name - register in aliases"; issue=4
+        if not cc: nr=True; reason="unmatched benchmark name - register in aliases"; issue=8
         elif hs=="false_positive": nr=True; reason="Harbor auto-match is false positive"; issue=4
         elif hs=="needs_review": nr=True; reason="Harbor variant/version unconfirmed"; issue=ISSUE.get(cc,4)
         score_pending = val is None
