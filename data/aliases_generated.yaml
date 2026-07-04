@@ -1,6 +1,6 @@
 # aliases_generated.yaml - AUTO-GENERATED from citations.jsonl. DO NOT EDIT.
 # Curated core + collision flags live in aliases.yaml.
-# type = agentic|static (Harbor prefers agentic); domain = subject (kept orthogonal).
+# type = agentic|chat (Harbor prefers agentic); domain = subject (kept orthogonal).
 schema_version: 2
 benchmarks:
   - canonical: aa-omniscience
