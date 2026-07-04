@@ -1,0 +1,75 @@
+# review_queue.yaml — DRAFT GitHub issues (the human-review queue).
+# Filed as issues (assigned to repo owner, label 'needs-human-review').
+schema_version: 1
+default_labels: [needs-human-review]
+assignee: christicode
+
+issues:
+  - key: mistral-large-3-chart-only
+    title: "Mistral Large 3 card: benchmarks are chart-images only (needs human interpretation)"
+    labels: [needs-human-review, data-quality, lab:mistral]
+    body: |
+      The primary card (HF README for the open-weight model) presents its
+      "Benchmark Results" section as **three PNG chart images with no
+      text-extractable scores**. We will NOT fabricate values from pixels.
+      Action needed: either (a) human reads the charts and enters values, or
+      (b) we extract from the linked blog (mistral.ai/news/mistral-3), or
+      (c) we OCR the PNGs and you verify.
+      Source: https://huggingface.co/mistralai/Mistral-Large-3-675B-Instruct-2512
+
+  - key: anthropic-fable-mythos-card
+    title: "Anthropic Fable 5 / Mythos 5: config-dependent scores (archived, extraction pending)"
+    labels: [needs-human-review, methodology, lab:anthropic]
+    body: |
+      PDF now archived in benchmark-citations-sources (curl succeeded where web_fetch failed).
+      Extraction pending. Key methodology flag: Fable 5 reroutes cyber/bio/chem/distillation
+      to Opus 4.8, so headline cyber/bio scores come from the *unblocked Mythos 5* while
+      Fable-5-with-classifiers scores 0.0%. Every citation must record `model_config`.
+
+  - key: muse-spark-report-too-large
+    title: "Meta Muse Spark S&P Report: 160pp HTML; use archived arXiv PDF; capture eval deviations"
+    labels: [needs-human-review, data-quality, lab:meta]
+    body: |
+      HTML resource is 160pp (>fetch limit); arXiv PDF (2606.12429) is archived in
+      benchmark-citations-sources. Record non-comparability deviations it states:
+      - Cybench: Anthropic ran 37/40 challenges; Muse Spark ran full 40.
+      - CyScenarioBench: GPT-5.4 vs 11 scenarios (older ver) vs Muse Spark 10.
+      Also note eval-awareness signal (19.8% public vs 2.0% internal).
+
+  - key: alias-harbor-collisions
+    title: "Alias registry: confirm/deny Harbor (name,version) matches before flipping to 'confirmed'"
+    labels: [needs-human-review, alias-registry]
+    body: |
+      First-pass substring matcher produced matches needing human sign-off:
+      - **cybench -> legacy-bench: FALSE POSITIVE** (collision on 'bench'); Cybench NOT in Harbor.
+      - terminal-bench 2.0/2.1 vs Harbor terminal-bench / terminal-bench-pro (version?).
+      - LiveCodeBench Pro vs base livecodebench.
+      - SimpleQA Verified vs base simpleqa.
+      - AIME 2025/2026 vs Harbor aime.
+      - BFCL-V4 vs bfcl / bfcl_parity.
+      - SpreadSheetBench vs spreadsheetbench-verified.
+      - OSWorld vs OSWorld-Verified — same benchmark?
+      Decisions update data/aliases.yaml harbor_status.
+
+  - key: gemini-3-deep-think-no-card
+    title: "Gemini 3 Deep Think: blog-only, no system card — decide treatment"
+    labels: [needs-human-review, lab:google_deepmind]
+    body: |
+      Gemini 3 Deep Think posts frontier jumps (HLE 48.4%, ARC-AGI-2 84.6%) via blog only,
+      no system card. Decide whether blog-only capability claims are citation-eligible.
+
+  - key: secondary-only-scores
+    title: "Tracking: numeric scores captured via secondary aggregators pending primary verification"
+    labels: [needs-human-review, data-quality]
+    body: |
+      Some backfill numbers (GPT-5.5 ARC-AGI-2 85.0, Muse Spark GDPval-AA 1444, Sonnet 4.5
+      SWE-bench 77.2) trace to secondary aggregators. Marked needs_review until confirmed
+      against the primary card/blog (now archived). This issue tracks closing that gap.
+
+  - key: meta-scope-window
+    title: "Confirm Meta in-window scope (Llama 4 pre-window; Muse Spark is the in-window doc)"
+    labels: [needs-human-review, scope]
+    body: |
+      Llama 4 (Apr 2025) predates the window. In-window Meta first-party doc is the Muse
+      Spark S&P Report (+ Contemplating). Confirm Meta stays in scope; confirm whether
+      Muse Spark Contemplating is a separate doc row.
