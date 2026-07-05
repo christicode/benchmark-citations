@@ -29,7 +29,7 @@ jobs:
         run: |
           git config user.name "regen-bot"
           git config user.email "regen-bot@users.noreply.github.com"
-          git add data/citations.jsonl data/aliases_generated.yaml docs/index.html
+          git add data/citations.jsonl data/aliases_generated.yaml docs/index.html docs/coverage.html
           git commit -m "regen: citations.jsonl + aliases_generated.yaml + dashboard" || { echo "no changes"; exit 0; }
           git pull --rebase origin main
           git push
