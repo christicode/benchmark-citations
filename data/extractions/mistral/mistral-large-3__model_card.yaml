@@ -1,5 +1,22 @@
 # mistral-large-3__model_card
 doc: mistral-large-3__model_card
-unreadable:
-  reason: "Mistral Large 3 card benchmarks are chart images only (issue #1); only AIME appears as text"
-  review_issue: 1
+mentions:
+- raw: MMLU
+  value: 85.5
+  unit: percent
+  model_config: 8-lang average
+- raw: GPQA Diamond
+  value: 43.9
+  unit: percent
+  model_config: 5-shot, no CoT
+- raw: SimpleQA
+  value: 23.8
+  unit: percent
+  model_config: exact match
+- raw: AMC
+  value: 52.0
+  unit: percent
+- raw: LiveCodeBench
+  value: 34.4
+  unit: percent
+  model_config: no CoT

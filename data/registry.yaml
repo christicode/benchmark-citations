@@ -563,3 +563,124 @@ benchmarks:
     type: chat
     domain: multimodal
     aliases: ["ZeroBench"]
+  # --- manual backfill (2026-07-05): benchmarks newly cited in the backfill batch ---
+  - canonical: amc
+    type: chat
+    domain: math
+    aliases: ["AMC"]
+  - canonical: biorisk-tacit-knowledge
+    type: chat
+    domain: science
+    aliases: ["Biorisk Tacit Knowledge"]
+    notes: "OpenAI unpublished bio-risk tacit-knowledge eval."
+  - canonical: blueprint-bench
+    type: chat
+    domain: multimodal
+    aliases: ["Blueprint-Bench"]
+    notes: "v1; 'Blueprint-Bench 2' is a separate entry."
+  - canonical: facts
+    type: chat
+    domain: knowledge
+    aliases: ["FACTS Benchmark Suite", "FACTS"]
+  - canonical: finsearchcomp
+    type: agentic
+    domain: professional
+    aliases: ["FinSearchComp-T3", "FinSearchComp"]
+  - canonical: frames
+    type: chat
+    domain: knowledge
+    aliases: ["Frames"]
+  - canonical: frontier-swe
+    type: agentic
+    domain: coding
+    aliases: ["FrontierSWE", "Frontier SWE"]
+  - canonical: gmmlu
+    type: chat
+    domain: knowledge
+    aliases: ["GMMLU", "Global MMLU"]
+  - canonical: global-piqa
+    type: chat
+    domain: knowledge
+    aliases: ["Global PIQA"]
+  - canonical: include
+    type: chat
+    domain: knowledge
+    aliases: ["INCLUDE"]
+  - canonical: kimi-claw-bench
+    type: agentic
+    domain: computer-use
+    aliases: ["Kimi Claw 24/7 Bench"]
+  - canonical: kimi-code-bench
+    type: agentic
+    domain: coding
+    aliases: ["Kimi Code Bench v2", "Kimi Code Bench"]
+  - canonical: latchbio
+    type: agentic
+    domain: science
+    aliases: ["LatchBio"]
+  - canonical: milu
+    type: chat
+    domain: knowledge
+    aliases: ["MILU"]
+  - canonical: mls-bench
+    type: agentic
+    domain: coding
+    aliases: ["MLS Bench Lite", "MLS Bench"]
+  - canonical: mmlu-redux
+    type: chat
+    domain: knowledge
+    aliases: ["MMLU-Redux"]
+  - canonical: multi-swe-bench
+    type: agentic
+    domain: coding
+    aliases: ["Multi-SWE-bench"]
+  - canonical: multi-agent-browsecomp
+    type: agentic
+    domain: knowledge
+    aliases: ["Multi-agent BrowseComp"]
+  - canonical: multi-agent-programbench
+    type: agentic
+    domain: coding
+    aliases: ["Multi-agent ProgramBench"]
+  - canonical: nl2repo
+    type: agentic
+    domain: coding
+    aliases: ["NL2Repo"]
+  - canonical: oj-bench
+    type: chat
+    domain: coding
+    aliases: ["OJ-Bench"]
+  - canonical: opqa
+    type: chat
+    domain: professional
+    aliases: ["OPQA"]
+    notes: "OpenAI internal research/eng-bottleneck QA."
+  - canonical: openai-proofqa
+    type: chat
+    domain: math
+    aliases: ["OpenAI-ProofQA"]
+  - canonical: swe-lancer
+    type: agentic
+    domain: coding
+    aliases: ["SWE-Lancer", "SWE-lancer"]
+  - canonical: seal-0
+    type: agentic
+    domain: knowledge
+    aliases: ["Seal-0", "SEAL-0"]
+  - canonical: securebio
+    type: chat
+    domain: science
+    aliases: ["SecureBio"]
+  - canonical: terminal-bench-hard
+    type: agentic
+    domain: coding
+    aliases: ["Terminal-Bench Hard"]
+  - canonical: vct
+    type: chat
+    domain: science
+    aliases: ["VCT"]
+    notes: "Virology Capabilities Test (a.k.a. VMQA/VCT)."
+  - canonical: tau3-bench
+    type: agentic
+    domain: computer-use
+    aliases: ["tau3-bench", "Tau3 Bench", "Tau3-bench"]

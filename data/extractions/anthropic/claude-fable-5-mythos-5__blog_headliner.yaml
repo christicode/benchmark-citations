@@ -1,12 +1,52 @@
 # claude-fable-5-mythos-5__blog_headliner
 doc: claude-fable-5-mythos-5__blog_headliner
 mentions:
-  - raw: "FrontierCode"
-    weight_class: blog_headliner
-    methodology:
-      - "headline blog; main comparison table is an IMAGE (numbers live in the system card, not text) - blog prose headlines FrontierCode/CyberGym/CyScenarioBench + partner evals CursorBench/ViBench/FrontierBench"
-  - raw: "CyberGym"
-  - raw: "CyScenarioBench"
-  - raw: "CursorBench"
-  - raw: "ViBench"
-  - raw: "FrontierBench"
+- raw: FrontierCode
+  weight_class: blog_headliner
+  value: 29.3
+  unit: percent
+  model_config: Diamond
+- raw: SWE-bench Pro
+  weight_class: blog_headliner
+  value: 80.3
+  unit: percent
+- raw: GDPval-AA
+  value: 1932
+  unit: elo
+- raw: GDP.pdf
+  value: 29.8
+  unit: percent
+  model_config: no tools
+- raw: Blueprint-Bench 2
+  value: 38.6
+  unit: percent
+- raw: AutomationBench
+  value: 17.4
+  unit: percent
+- raw: OSWorld-Verified
+  value: 85.0
+  unit: percent
+- raw: Legal Agent Benchmark
+  value: 13.3
+  unit: percent
+  methodology:
+  - Harvey Law 'Legal Agent Benchmark'
+- raw: HLE
+  value: 64.5
+  unit: percent
+  model_config: with tools
+- raw: BioMysteryBench
+  value: 46.1
+  unit: percent
+  model_config: hard
+  methodology:
+  - human-solved subset 83.9
+- raw: Terminal-Bench 2.1
+  value: 88.0
+  unit: percent
+- raw: ExploitBench
+  value: 78.0
+  unit: percent
+- raw: HealthBench Professional
+  value: 66.0
+  unit: percent

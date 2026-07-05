@@ -1,0 +1,20 @@
+# gemini-3-5-flash__blog_headliner
+doc: gemini-3-5-flash__blog_headliner
+mentions:
+- raw: Terminal-Bench 2.1
+  weight_class: blog_headliner
+  value: 76.2
+  unit: percent
+- raw: GDPval-AA
+  weight_class: blog_headliner
+  value: 1656
+  unit: elo
+- raw: MCP Atlas
+  weight_class: blog_headliner
+  value: 83.6
+  unit: percent
+- raw: CharXiv
+  weight_class: blog_headliner
+  value: 84.2
+  unit: percent
+  model_config: Reasoning

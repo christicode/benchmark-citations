@@ -1,38 +1,132 @@
 # claude-opus-4-6__system_card
 doc: claude-opus-4-6__system_card
 mentions:
-  - raw: "SWE-bench Verified"
-  - raw: "SWE-bench Multilingual"
-  - raw: "Terminal-Bench"
-  - raw: "ARC-AGI"
-  - raw: "GPQA"
-  - raw: "AIME"
-  - raw: "MMLU"
-  - raw: "MMMLU"
-  - raw: "MMMU"
-  - raw: "MMMU-Pro"
-  - raw: "MRCR"
-  - raw: "BrowseComp"
-  - raw: "HLE"
-  - raw: "DeepSearchQA"
-  - raw: "GDPval-AA"
-  - raw: "MCP-Atlas"
-  - raw: "OSWorld"
-  - raw: "Vending-Bench"
-  - raw: "Finance Agent"
-  - raw: "Real-World Finance"
-  - raw: "WebArena"
-  - raw: "CharXiv"
-  - raw: "LAB-Bench"
-  - raw: "FigQA"
-  - raw: "ProtocolQA"
-  - raw: "Cybench"
-  - raw: "CyberGym"
-  - raw: "BioMysteryBench"
-  - raw: "SHADE"
-  - raw: "Petri"
-  - raw: "BBQ"
-  - raw: "AA-Omniscience"
-  - raw: "GraphWalks"
-  - raw: "Cloning"
-  - raw: "tau2"
+- raw: AA-Omniscience
+  value: 45.0
+  unit: percent
+  model_config: 100Q-Hard
+- raw: AIME
+  value: 99.79
+  unit: percent
+- raw: ARC-AGI-1
+  value: 94.0
+  unit: percent
+- raw: ARC-AGI-2
+  weight_class: model_card
+  value: 69.17
+  unit: percent
+- raw: BBQ
+  value: 0.14
+  unit: other
+- raw: BrowseComp
+  value: 84.0
+  unit: percent
+- raw: CharXiv
+  value: 68.5
+  unit: percent
+- raw: CloningScenarios
+  value: 60.0
+  unit: percent
+  methodology:
+  - about 60%
+- raw: Cybench
+  value: 93.0
+  unit: percent
+  model_config: pass@1
+- raw: CyberGym
+  value: 66.6
+  unit: percent
+- raw: DeepSearchQA
+  value: 91.3
+  unit: percent
+- raw: FigQA
+  value: 78.3
+  unit: percent
+  model_config: reasoning + image cropping
+  methodology:
+  - reasoning only 58
+- raw: Finance Agent
+  value: 60.7
+  unit: percent
+- raw: GDPval-AA
+  value: 1606
+  unit: elo
+- raw: GPQA Diamond
+  weight_class: model_card
+  value: 91.31
+  unit: percent
+- raw: GraphWalks
+  value: 41.2
+  unit: percent
+  model_config: BFS 1M (64k, F1)
+- raw: HLE
+  value: 53.1
+  unit: percent
+  model_config: with tools
+  methodology:
+  - no tools 40
+- raw: MCP Atlas
+  weight_class: model_card
+  value: 59.5
+  unit: percent
+- raw: MMMLU
+  value: 91.1
+  unit: percent
+- raw: MMMU-Pro
+  weight_class: model_card
+  value: 77.3
+  unit: percent
+  model_config: with tools
+- raw: MRCR
+  value: 93.0
+  unit: percent
+  model_config: v2 256k
+  methodology:
+  - v2 1M 76
+- raw: OSWorld
+  weight_class: model_card
+  value: 72.7
+  unit: percent
+- raw: ProtocolQA
+  value: 78.0
+  unit: percent
+  methodology:
+  - about 78%
+- raw: Real-World Finance
+  value: 64.1
+  unit: percent
+- raw: SHADE
+  value: 0.0
+  unit: percent
+  model_config: win rate
+- raw: SWE-bench Multilingual
+  value: 77.83
+  unit: percent
+- raw: SWE-bench Verified
+  weight_class: model_card
+  value: 80.8
+  unit: percent
+- raw: tau2-bench
+  weight_class: model_card
+  value: 91.9
+  unit: percent
+  model_config: retail
+  methodology:
+  - telecom 99.3
+- raw: Terminal-Bench
+  weight_class: model_card
+  value: 65.4
+  unit: percent
+- raw: Vending-Bench
+  value: 8017.59
+  unit: usd
+- raw: WebArena
+  value: 68.0
+  unit: percent
+- raw: BioMysteryBench
+  methodology:
+  - exceeded human baseline
+- raw: LAB-Bench
+- raw: Petri
+- raw: MMLU
+- raw: MMMU

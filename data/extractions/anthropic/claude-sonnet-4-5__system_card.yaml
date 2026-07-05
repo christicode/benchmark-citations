@@ -1,11 +1,38 @@
 # claude-sonnet-4-5__system_card
 doc: claude-sonnet-4-5__system_card
 mentions:
-  - raw: "SWE-bench Verified"
-  - raw: "Cybench"
-  - raw: "CyberGym"
-  - raw: "LAB-Bench"
-  - raw: "ProtocolQA"
-  - raw: "SeqQA"
-  - raw: "FigQA"
-  - raw: "SHADE"
+- raw: Cybench
+  value: 99.0
+  unit: percent
+  model_config: easy
+  methodology:
+  - 37/40 original challenges; medium 50; hard 14
+- raw: CyberGym
+  value: 66.7
+  unit: percent
+  model_config: 30 trials
+  methodology:
+  - 1 trial 28.9
+- raw: ProtocolQA
+  value: 83.3
+  unit: percent
+  model_config: LAB-Bench subset
+- raw: FigQA
+  value: 49.7
+  unit: percent
+  model_config: LAB-Bench subset
+- raw: CloningScenarios
+  value: 66.7
+  unit: percent
+  model_config: LAB-Bench subset
+- raw: SeqQA
+  value: 78.0
+  unit: percent
+  model_config: LAB-Bench subset
+- raw: SHADE
+  value: 22.3
+  unit: percent
+- raw: SWE-bench Verified
+  value: 45.3
+  unit: percent
+  model_config: hard subset (>=1hr tasks)

@@ -99,7 +99,7 @@ documents:
     model: "Claude Haiku 4.5"
     container: pdf
     default_weight_class: system_card
-    url: "https://assets.anthropic.com/m/99128ddd009bdcb/original/Claude-Haiku-4-5-System-Card.pdf"
+    url: "https://www-cdn.anthropic.com/7aad69bf12627d42234e01ee7c36305dc2f6a970.pdf"
     pub_date: null
   - id: claude-sonnet-4-5__system_card
     lab: anthropic
@@ -140,16 +140,16 @@ documents:
     lab: openai
     model: "GPT-5.6 Sol"
     container: blog
-    default_weight_class: model_card
+    default_weight_class: blog_headliner
     url: "https://openai.com/index/previewing-gpt-5-6-sol/"
     pub_date: "2026-06-26"
-  - id: gemini-3-5-pro__blog_headliner
+  - id: gemini-3-5-flash__blog_headliner
     lab: google_deepmind
-    model: "Gemini 3.5 Pro"
+    model: "Gemini 3.5 Flash"
     container: blog
-    default_weight_class: model_card
+    default_weight_class: blog_headliner
     url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/"
-    pub_date: null
+    pub_date: "2026-05-19"
   - id: gemini-3-1-pro__model_card
     lab: google_deepmind
     model: "Gemini 3.1 Pro"
@@ -209,9 +209,9 @@ documents:
   - id: gemini-3-flash__model_card
     lab: google_deepmind
     model: "Gemini 3 Flash"
-    container: blog
+    container: pdf
     default_weight_class: model_card
-    url: "https://deepmind.google/models/model-cards/gemini-3-flash/"
+    url: "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Flash-Model-Card.pdf"
     pub_date: "2025-12-17"
   - id: kimi-k2-thinking__model_card
     lab: moonshot
@@ -230,9 +230,9 @@ documents:
   - id: glm-4-6__model_card
     lab: zai
     model: "GLM-4.6"
-    container: hf_readme
+    container: blog
     default_weight_class: model_card
-    url: "https://huggingface.co/zai-org/GLM-4.6"
+    url: "https://docs.z.ai/guides/llm/glm-4.6"
     pub_date: "2025-09-30"
   - id: mistral-large-3__model_card
     lab: mistral
@@ -244,7 +244,7 @@ documents:
   - id: qwen3-max__blog_headliner
     lab: qwen
     model: "Qwen3-Max"
-    container: hf_readme
-    default_weight_class: model_card
-    url: "https://huggingface.co/Qwen/Qwen3-Max"
+    container: blog
+    default_weight_class: blog_headliner
+    url: "https://qwen.ai/blog?id=qwen3-max"
     pub_date: null
