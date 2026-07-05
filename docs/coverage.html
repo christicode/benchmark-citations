@@ -28,8 +28,8 @@
     .no{color:var(--red)}
     .foot{color:var(--mut);font-size:11.5px;margin:16px 0 0}
     </style></head><body><div class=wrap>
-<h1>Coverage matrix — citations × adapters × registry</h1>
-<p class=sub>Every benchmark across all three sources (superset), joined on identity across name-drift. Harbor sources snapshotted from <code>harbor-framework/harbor</code> on 2026-07-05. <a href='index.html'>← back to dashboard</a></p>
+<h1>Coverage matrix</h1>
+<p class=sub><a href='index.html'>← back to dashboard</a></p>
 <div class=cards><div class=kpi><b>213</b>total benchmarks</div><div class=kpi><b>126</b>in citations</div><div class=kpi><b>83</b>in adapters/</div><div class=kpi><b>75</b>in registry</div><div class=kpi><b>14</b>in all three</div><div class=kpi><b>104</b>cited, not in Harbor</div></div>
 <div class=bar><input id=q placeholder='filter benchmarks...' oninput='F()'><button class=on data-f=all onclick='P(this)'>all</button><button data-f=cite onclick='P(this)'>in citations</button><button data-f=adapter onclick='P(this)'>in adapters</button><button data-f=registry onclick='P(this)'>in registry</button><button data-f=citeonly onclick='P(this)'>cited, not in Harbor</button><button data-f=harboronly onclick='P(this)'>Harbor, not cited</button><button data-f=all3 onclick='P(this)'>in all three</button></div>
 <table id=t><thead><tr><th onclick='S(0)'>benchmark</th><th class=c onclick='S(1)'>citations</th><th class=c onclick='S(2)'>adapters/ folder</th><th class=c onclick='S(3)'>registry</th><th onclick='S(4)'>harbor</th></tr></thead><tbody>
