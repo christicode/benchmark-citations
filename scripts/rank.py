@@ -1,52 +1,41 @@
 #!/usr/bin/env python3
-"""Priority ranking for 'convert this benchmark to Harbor next'.
+"""Per-benchmark citation summary (data-quality lens). NO priority score.
 
-Reads data/citations.jsonl (each record self-describes on_harbor / harbor_status / type / domain).
-Live-fetches Harbor registry.json from main only to report size + sanity-check dedupe.
+Priority/ranking (usage x saturation-headroom x diversity) is a deferred project. This tool
+just aggregates the citation graph so humans can sanity-check the INPUT DATA:
+  - citations (raw count) and weighted points (blog_headliner 3 / model_card 2 / system_card 1),
+    counted as MAX per (document, model) then summed across documents;
+  - how many distinct citing labs / documents;
+  - type (agentic|chat) + domain;
+  - live Harbor status (already synced onto each record by sync_harbor.py);
+  - whether any score has been extracted yet.
 
-Score (type/domain kept SEPARATE, surfaced not folded in):
-  usage    = prominence-weighted citations * lab-diversity multiplier
-  headroom = saturation headroom (lower max reported solve rate => longer half-life)
-Excludes benchmarks already in Harbor -- confirmed (on_harbor) and needs_review alike
-(needs_review = in Harbor by name, only the version is unconfirmed, #4). Keeps not_in_harbor
-+ false_positive (genuinely no adapter) as candidates; down-ranks false_positive slightly.
+Reads data/citations.jsonl only. Live-fetches the Harbor registry solely to print its size.
 """
 from __future__ import annotations
 import json, sys, urllib.request, pathlib, collections
 
+from scoring import points
+
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 RAW = "https://raw.githubusercontent.com/harbor-framework/harbor/main/registry.json"
-TABLE_NORM = 12.0  # benchmark in a <=12-row table = full table_row weight; deeper tables (row 47/50) decay
 
 
-def pweight(p):
-    """Prominence weight: a blog HEADLINE (2.0) outweighs a row in a big system-card table.
-    A table_row is discounted by table size so 'row 47 of 50' counts far less than a focused table."""
-    t = p.get("type")
-    if t == "headline":
-        return 2.0
-    if t in ("footnote", "prose"):
-        return 0.5
-    return min(1.0, TABLE_NORM / max(p.get("table_total") or 1, 1))
-
-
-def harbor_keys() -> set:
+def harbor_size():
     try:
         with urllib.request.urlopen(RAW, timeout=30) as r:
             data = json.load(r)
         keys = {(d["name"], str(d.get("version"))) for d in data}
         print(f"# harbor: {len(data)} entries, {len(keys)} unique (name,version) [live:main]", file=sys.stderr)
-        return keys
     except Exception as e:
-        print(f"# harbor live fetch failed ({e}); ranking uses citation flags only", file=sys.stderr)
-        return set()
+        print(f"# harbor live fetch failed ({e}); summary uses citation records only", file=sys.stderr)
 
 
 def main() -> None:
-    harbor_keys()
-    agg = collections.defaultdict(lambda: {"usage": 0.0, "labs": set(), "docs": 0,
-                                           "solve": [], "type": "?", "domain": "?", "status": "not_in_harbor",
-                                           "on": False, "vendor": False})
+    harbor_size()
+    # collapse to MAX weight per (benchmark, document, model), then aggregate per benchmark
+    per_doc = collections.defaultdict(int)          # (canon, doc_id, model) -> max weight
+    meta = {}
     for line in open(ROOT / "data" / "citations.jsonl"):
         line = line.strip()
         if not line:
@@ -55,37 +44,33 @@ def main() -> None:
         canon = c["benchmark_canonical"]
         if not canon:
             continue
-        a = agg[canon]
-        a["usage"] += pweight(c["prominence"])
-        a["labs"].add(c["citing_lab"]); a["docs"] += 1
-        a["type"] = c.get("type") or "?"; a["domain"] = c.get("domain") or "?"
-        a["status"] = c.get("harbor_status", "not_in_harbor")
-        a["on"] = a["on"] or c.get("on_harbor", False)
+        key = (canon, c["source_doc"].get("id"), c.get("citing_model"))
+        per_doc[key] = max(per_doc[key], points(c.get("weight_class")))
+        m = meta.setdefault(canon, {"labs": set(), "docs": set(), "solve": [],
+                                    "type": "?", "domain": "?", "status": "not_in_harbor", "scored": False})
+        m["labs"].add(c["citing_lab"]); m["docs"].add(c["source_doc"].get("id"))
+        m["type"] = c.get("type") or m["type"]; m["domain"] = c.get("domain") or m["domain"]
+        m["status"] = c.get("harbor_status", "not_in_harbor")
         rep = c.get("reported") or {}
-        if rep.get("unit") == "percent" and isinstance(rep.get("value"), (int, float)):
-            a["solve"].append(rep["value"] / 100.0)
+        if isinstance(rep.get("value"), (int, float)):
+            m["scored"] = True
 
-    rows = []
-    for canon, a in agg.items():
-        # Already in Harbor => not a conversion candidate. confirmed = on_harbor;
-        # needs_review = present in Harbor by name, only the (name,version) is unconfirmed (#4) --
-        # it still has an adapter, so exclude it too (e.g. terminal-bench, livecodebench, aime).
-        # false_positive = the auto-match was wrong => genuinely NOT in Harbor => keep as candidate.
-        if a["on"] or a["status"] in ("confirmed", "needs_review"):
-            continue
-        diversity = 1 + 0.5 * (len(a["labs"]) - 1)
-        usage = a["usage"] * diversity
-        headroom = (1 - max(a["solve"])) if a["solve"] else 0.5
-        penalty = 0.6 if a["status"] == "false_positive" else 1.0  # collided name; down-rank a touch
-        priority = (usage * 0.6 + headroom * 4 * 0.4) * penalty
-        rows.append((priority, canon, a["type"], a["domain"], usage, headroom, len(a["labs"]), a["docs"], a["status"]))
+    weighted = collections.Counter()
+    cites = collections.Counter()
+    for (canon, _doc, _model), w in per_doc.items():
+        weighted[canon] += w
+        cites[canon] += 1
 
-    rows.sort(reverse=True)
-    print(f"\n{'PRIOR':>6} {'TYPE':8} {'DOMAIN':12} {'BENCHMARK':24} {'usage':>6} {'headrm':>6} {'labs':>4} {'docs':>4}  status")
-    print("-" * 96)
-    for pr, canon, typ, dom, usage, hr, labs, docs, status in rows[:30]:
-        print(f"{pr:6.2f} {typ:8} {dom:12} {canon:24} {usage:6.1f} {hr:6.2f} {labs:4d} {docs:4d}  {status}")
-    print(f"\n# {len(rows)} candidate benchmarks NOT in Harbor (of {len(agg)} cited). Top 30 shown.")
+    rows = sorted(meta, key=lambda c: (weighted[c], cites[c]), reverse=True)
+    print(f"\n{'WEIGHT':>6} {'CITES':>5} {'LABS':>4} {'DOCS':>4} {'TYPE':8} {'DOMAIN':12} {'BENCHMARK':26} status")
+    print("-" * 92)
+    for c in rows:
+        m = meta[c]
+        print(f"{weighted[c]:6d} {cites[c]:5d} {len(m['labs']):4d} {len(m['docs']):4d} "
+              f"{m['type']:8} {m['domain']:12} {c:26} {m['status']}")
+    n_cand = sum(1 for c in meta if meta[c]["status"] == "not_in_harbor")
+    print(f"\n# {len(meta)} benchmarks cited | {n_cand} not currently in Harbor "
+          f"(candidates for future prioritization) | weight = blog_headliner 3 / model_card 2 / system_card 1")
 
 
 if __name__ == "__main__":
