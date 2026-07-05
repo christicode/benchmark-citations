@@ -55,7 +55,7 @@ models:
   company_category: big5
   release_date: '2026-05-19'
   release_date_source: derived:min_pub_date
-  citations: 7
+  citations: 8
   docs:
   - https://deepmind.google/models/model-cards/gemini-3-5-flash
 - id: gpt-5-5
