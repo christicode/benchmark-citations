@@ -1,0 +1,379 @@
+_generated_by: scripts/gen_models.py
+_generated_at: '2026-07-05'
+_note: 'MODEL axis for the heatmap. Derived from data/citations.jsonl; release_date is the earliest source-doc
+  pub_date (proxy). Override display/release_date in data/models.overrides.yaml. X-axis order: most recent
+  on the LEFT; undated models are grouped at the end until a real date is backfilled.'
+schema_version: 1
+count: 33
+undated_needs_backfill:
+- anthropic:Claude Haiku 4.5
+- deepseek:DeepSeek-V4-Pro
+- google_deepmind:Gemini 3.5 Pro
+- moonshot:Kimi K2.7-Code
+- qwen:Qwen3-Max
+models:
+- id: claude-sonnet-5
+  model: Claude Sonnet 5
+  display: Sonnet 5
+  company: anthropic
+  company_display: Anthropic
+  company_category: big5
+  release_date: '2026-06-30'
+  release_date_source: derived:min_pub_date
+  citations: 35
+  docs:
+  - https://www-cdn.anthropic.com/480e0bb54327b9622282e9c39a83a4f490ed377e/Claude%20Sonnet%205%20System%20Card.pdf
+- id: gpt-5-6-sol
+  model: GPT-5.6 Sol
+  display: GPT-5.6 Sol
+  company: openai
+  company_display: OpenAI
+  company_category: big5
+  release_date: '2026-06-26'
+  release_date_source: derived:min_pub_date
+  citations: 17
+  docs:
+  - https://deploymentsafety.openai.com/gpt-5-6-preview/gpt-5-6-preview.pdf
+  - https://openai.com/index/previewing-gpt-5-6-sol/
+- id: claude-fable-5
+  model: Claude Fable 5 / Mythos 5
+  display: Fable 5
+  company: anthropic
+  company_display: Anthropic
+  company_category: big5
+  release_date: '2026-06-09'
+  release_date_source: derived:min_pub_date
+  citations: 65
+  docs:
+  - https://www-cdn.anthropic.com/d00db56fa754a1b115b6dd7cb2e3c342ee809620.pdf
+  - https://www.anthropic.com/news/claude-fable-5-mythos-5
+- id: gemini-3-5-flash
+  model: Gemini 3.5 Flash
+  display: Gemini 3.5 Flash
+  company: google_deepmind
+  company_display: Google DeepMind
+  company_category: big5
+  release_date: '2026-05-19'
+  release_date_source: derived:min_pub_date
+  citations: 7
+  docs:
+  - https://deepmind.google/models/model-cards/gemini-3-5-flash
+- id: gpt-5-5
+  model: GPT-5.5
+  display: GPT-5.5
+  company: openai
+  company_display: OpenAI
+  company_category: big5
+  release_date: '2026-04-23'
+  release_date_source: derived:min_pub_date
+  citations: 27
+  docs:
+  - https://openai.com/index/introducing-gpt-5-5/
+- id: kimi-k2-6
+  model: Kimi K2.6
+  display: Kimi K2.6
+  company: moonshot
+  company_display: Moonshot AI
+  company_category: open_weight_leader
+  release_date: '2026-04-20'
+  release_date_source: derived:min_pub_date
+  citations: 26
+  docs:
+  - https://www.kimi.com/blog/kimi-k2-6
+- id: claude-opus-4-7
+  model: Claude Opus 4.7
+  display: Opus 4.7
+  company: anthropic
+  company_display: Anthropic
+  company_category: big5
+  release_date: '2026-04-16'
+  release_date_source: derived:min_pub_date
+  citations: 27
+  docs:
+  - https://cdn.sanity.io/files/4zrzovbb/website/037f06850df7fbe871e206dad004c3db5fd50340.pdf
+- id: muse-spark
+  model: Muse Spark
+  display: Muse Spark
+  company: meta
+  company_display: Meta (Meta Superintelligence Labs)
+  company_category: big5
+  release_date: '2026-04-08'
+  release_date_source: derived:min_pub_date
+  citations: 30
+  docs:
+  - https://ai.meta.com/static-resource/muse-spark-safety-and-preparedness-report/
+- id: claude-mythos-preview
+  model: Claude Mythos Preview
+  display: Mythos Preview
+  company: anthropic
+  company_display: Anthropic
+  company_category: big5
+  release_date: '2026-04-07'
+  release_date_source: derived:min_pub_date
+  citations: 23
+  docs:
+  - https://www-cdn.anthropic.com/53566bf5440a10affd749724787c8913a2ae0841.pdf
+- id: glm-5-1
+  model: GLM-5.1
+  display: GLM-5.1
+  company: zai
+  company_display: Z.ai (Zhipu AI)
+  company_category: open_weight_leader
+  release_date: '2026-04-07'
+  release_date_source: derived:min_pub_date
+  citations: 8
+  docs:
+  - https://huggingface.co/zai-org/GLM-5.1
+- id: gpt-5-4
+  model: GPT-5.4
+  display: GPT-5.4
+  company: openai
+  company_display: OpenAI
+  company_category: big5
+  release_date: '2026-03-05'
+  release_date_source: derived:min_pub_date
+  citations: 24
+  docs:
+  - https://openai.com/index/introducing-gpt-5-4/
+- id: gemini-3-1-pro
+  model: Gemini 3.1 Pro
+  display: Gemini 3.1 Pro
+  company: google_deepmind
+  company_display: Google DeepMind
+  company_category: big5
+  release_date: '2026-02-19'
+  release_date_source: derived:min_pub_date
+  citations: 16
+  docs:
+  - https://deepmind.google/models/model-cards/gemini-3-1-pro
+- id: claude-sonnet-4-6
+  model: Claude Sonnet 4.6
+  display: Sonnet 4.6
+  company: anthropic
+  company_display: Anthropic
+  company_category: big5
+  release_date: '2026-02-17'
+  release_date_source: derived:min_pub_date
+  citations: 23
+  docs:
+  - https://www-cdn.anthropic.com/78073f739564e986ff3e28522761a7a0b4484f84.pdf
+- id: glm-5
+  model: GLM-5
+  display: GLM-5
+  company: zai
+  company_display: Z.ai (Zhipu AI)
+  company_category: open_weight_leader
+  release_date: '2026-02-12'
+  release_date_source: derived:min_pub_date
+  citations: 10
+  docs:
+  - https://huggingface.co/zai-org/GLM-5
+- id: claude-opus-4-6
+  model: Claude Opus 4.6
+  display: Opus 4.6
+  company: anthropic
+  company_display: Anthropic
+  company_category: big5
+  release_date: '2026-02-05'
+  release_date_source: derived:min_pub_date
+  citations: 35
+  docs:
+  - https://www-cdn.anthropic.com/0dd865075ad3132672ee0ab40b05a53f14cf5288.pdf
+- id: kimi-k2-5
+  model: Kimi K2.5
+  display: Kimi K2.5
+  company: moonshot
+  company_display: Moonshot AI
+  company_category: open_weight_leader
+  release_date: '2026-01-27'
+  release_date_source: derived:min_pub_date
+  citations: 20
+  docs:
+  - https://www.kimi.com/blog/kimi-k2-5
+- id: glm-4-7
+  model: GLM-4.7
+  display: GLM-4.7
+  company: zai
+  company_display: Z.ai (Zhipu AI)
+  company_category: open_weight_leader
+  release_date: '2025-12-22'
+  release_date_source: derived:min_pub_date
+  citations: 10
+  docs:
+  - https://huggingface.co/zai-org/GLM-4.7
+- id: gemini-3-flash
+  model: Gemini 3 Flash
+  display: Gemini 3 Flash
+  company: google_deepmind
+  company_display: Google DeepMind
+  company_category: big5
+  release_date: '2025-12-17'
+  release_date_source: derived:min_pub_date
+  citations: 1
+  docs:
+  - https://deepmind.google/models/model-cards/gemini-3-flash/
+- id: gpt-5-2
+  model: GPT-5.2
+  display: GPT-5.2
+  company: openai
+  company_display: OpenAI
+  company_category: big5
+  release_date: '2025-12-11'
+  release_date_source: derived:min_pub_date
+  citations: 8
+  docs:
+  - https://cdn.openai.com/pdf/3a4153c8-c748-4b71-8e31-aecbde944f8d/oai_5_2_system-card.pdf
+- id: mistral-large-3
+  model: Mistral Large 3
+  display: Mistral Large 3
+  company: mistral
+  company_display: Mistral AI
+  company_category: open_weight_leader
+  release_date: '2025-12-02'
+  release_date_source: derived:min_pub_date
+  citations: 1
+  docs:
+  - https://huggingface.co/mistralai/Mistral-Large-3-675B-Instruct-2512
+- id: deepseek-v3-2
+  model: DeepSeek-V3.2
+  display: DeepSeek-V3.2
+  company: deepseek
+  company_display: DeepSeek
+  company_category: open_weight_leader
+  release_date: '2025-12-01'
+  release_date_source: derived:min_pub_date
+  citations: 14
+  docs:
+  - https://arxiv.org/abs/2512.02556
+- id: claude-opus-4-5
+  model: Claude Opus 4.5
+  display: Opus 4.5
+  company: anthropic
+  company_display: Anthropic
+  company_category: big5
+  release_date: '2025-11-24'
+  release_date_source: derived:min_pub_date
+  citations: 22
+  docs:
+  - https://assets.anthropic.com/m/64823ba7485345a7/Claude-Opus-4-5-System-Card.pdf
+- id: gemini-3-pro
+  model: Gemini 3 Pro
+  display: Gemini 3 Pro
+  company: google_deepmind
+  company_display: Google DeepMind
+  company_category: big5
+  release_date: '2025-11-18'
+  release_date_source: derived:min_pub_date
+  citations: 12
+  docs:
+  - https://blog.google/products-and-platforms/products/gemini/gemini-3/
+- id: grok-4-1
+  model: Grok 4.1
+  display: Grok 4.1
+  company: xai
+  company_display: xAI
+  company_category: big5
+  release_date: '2025-11-17'
+  release_date_source: derived:min_pub_date
+  citations: 9
+  docs:
+  - https://data.x.ai/2025-11-17-grok-4-1-model-card.pdf
+- id: kimi-k2-thinking
+  model: Kimi K2 Thinking
+  display: Kimi K2 Thinking
+  company: moonshot
+  company_display: Moonshot AI
+  company_category: open_weight_leader
+  release_date: '2025-11-06'
+  release_date_source: derived:min_pub_date
+  citations: 1
+  docs:
+  - https://www.kimi.com/blog/kimi-k2-thinking
+- id: claude-sonnet-4-5
+  model: Claude Sonnet 4.5
+  display: Sonnet 4.5
+  company: anthropic
+  company_display: Anthropic
+  company_category: big5
+  release_date: '2025-10-10'
+  release_date_source: derived:min_pub_date
+  citations: 8
+  docs:
+  - https://assets.anthropic.com/m/12f214efcc2f457a/original/Claude-Sonnet-4-5-System-Card.pdf
+- id: glm-4-6
+  model: GLM-4.6
+  display: GLM-4.6
+  company: zai
+  company_display: Z.ai (Zhipu AI)
+  company_category: open_weight_leader
+  release_date: '2025-09-30'
+  release_date_source: derived:min_pub_date
+  citations: 1
+  docs:
+  - https://huggingface.co/zai-org/GLM-4.6
+- id: gpt-5
+  model: GPT-5
+  display: GPT-5
+  company: openai
+  company_display: OpenAI
+  company_category: big5
+  release_date: '2025-08-13'
+  release_date_source: derived:min_pub_date
+  citations: 11
+  docs:
+  - https://cdn.openai.com/gpt-5-system-card.pdf
+- id: deepseek-v4-pro
+  model: DeepSeek-V4-Pro
+  display: DeepSeek-V4-Pro
+  company: deepseek
+  company_display: DeepSeek
+  company_category: open_weight_leader
+  release_date: null
+  release_date_source: unknown
+  citations: 17
+  docs:
+  - https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro
+- id: gemini-3-5-pro
+  model: Gemini 3.5 Pro
+  display: Gemini 3.5 Pro
+  company: google_deepmind
+  company_display: Google DeepMind
+  company_category: big5
+  release_date: null
+  release_date_source: unknown
+  citations: 3
+  docs:
+  - https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/
+- id: claude-haiku-4-5
+  model: Claude Haiku 4.5
+  display: Haiku 4.5
+  company: anthropic
+  company_display: Anthropic
+  company_category: big5
+  release_date: null
+  release_date_source: unknown
+  citations: 6
+  docs:
+  - https://assets.anthropic.com/m/99128ddd009bdcb/original/Claude-Haiku-4-5-System-Card.pdf
+- id: kimi-k2-7-code
+  model: Kimi K2.7-Code
+  display: Kimi K2.7-Code
+  company: moonshot
+  company_display: Moonshot AI
+  company_category: open_weight_leader
+  release_date: null
+  release_date_source: unknown
+  citations: 1
+  docs:
+  - https://www.kimi.com/resources/kimi-k2-7-code
+- id: qwen3-max
+  model: Qwen3-Max
+  display: Qwen3-Max
+  company: qwen
+  company_display: Qwen (Alibaba)
+  company_category: open_weight_leader
+  release_date: null
+  release_date_source: unknown
+  citations: 1
+  docs:
+  - https://huggingface.co/Qwen/Qwen3-Max
