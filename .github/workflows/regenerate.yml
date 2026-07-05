@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - scripts/build_citations.py
+      - scripts/resolve_aliases.py
       - scripts/sync_harbor.py
       - scripts/gen_aliases.py
       - scripts/build_dashboard.py
@@ -25,6 +26,8 @@ jobs:
           python-version: "3.12"
       - run: pip install pyyaml
       - run: python scripts/build_citations.py
+      - name: Resolve unmatched names against the curated alias registry (data-driven)
+        run: python scripts/resolve_aliases.py
       - name: Sync Harbor status from live registry + adapters (no hand-curation)
         run: python scripts/sync_harbor.py
         env:
