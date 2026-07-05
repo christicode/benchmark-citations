@@ -74,9 +74,9 @@ def main():
               "(usually a missing harbor_type in data/citations.jsonl):", file=sys.stderr)
         for c, ht in unreconciled:
             print(f"  - {c}  (harbor_type={ht!r})", file=sys.stderr)
-        print("Refusing to publish a split coverage matrix. Fix harbor_type classification "
-              "in build_citations.py, or set harbor_type='none' if this is a genuine "
-              "(reviewed) name collision.", file=sys.stderr)
+        print("Refusing to publish a split coverage matrix. This normally means sync_harbor.py "
+              "did not set harbor_type (rerun it), or the name is a genuine (reviewed) collision "
+              "that should be recorded as a `collision:` note in registry.yaml.", file=sys.stderr)
         return 1
 
     print(f"reconciliation OK: {len(agg)} cited canonicals, 0 unreconciled "
