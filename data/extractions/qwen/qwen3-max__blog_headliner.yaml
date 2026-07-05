@@ -1,5 +1,39 @@
 # qwen3-max__blog_headliner
 doc: qwen3-max__blog_headliner
-unreadable:
-  reason: "Qwen3-Max primary source not retrievable: HF repo gated (401) and qwenlm blog 404; Qwen source_index_urls need updating (feed relocated to qwen.ai)"
-  review_issue: 9
+mentions:
+- raw: SuperGPQA
+  weight_class: blog_headliner
+  value: 65.1
+  unit: percent
+- raw: AIME 2025
+  weight_class: blog_headliner
+  value: 81.6
+  unit: percent
+- raw: LiveCodeBench
+  weight_class: blog_headliner
+  value: 69.0
+  unit: percent
+  model_config: v6
+- raw: tau2-bench
+  weight_class: blog_headliner
+  value: 74.8
+  unit: percent
+- raw: SWE-bench Verified
+  weight_class: blog_headliner
+  value: 69.6
+  unit: percent
+- raw: AIME 2025
+  weight_class: blog_headliner
+  value: 100.0
+  unit: percent
+  model_config: Qwen3-Max-Thinking (Heavy)
+- raw: HMMT
+  weight_class: blog_headliner
+  value: 100.0
+  unit: percent
+  model_config: Qwen3-Max-Thinking (Heavy), 2025
+- raw: GPQA Diamond
+  weight_class: blog_headliner
+  value: 85.4
+  unit: percent
+  model_config: Qwen3-Max-Thinking (Heavy)

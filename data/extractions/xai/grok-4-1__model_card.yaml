@@ -1,12 +1,31 @@
 # grok-4-1__model_card
 doc: grok-4-1__model_card
 mentions:
-  - raw: "BioLP"
-  - raw: "ProtocolQA"
-  - raw: "FigQA"
-  - raw: "CloningScenarios"
-  - raw: "Cybench"
-  - raw: "WMDP"
-  - raw: "AgentHarm"
-  - raw: "MASK"
-  - raw: "MakeMeSay"
+- raw: WMDP
+  value: 87.0
+  unit: percent
+  model_config: Bio
+  methodology:
+  - Chem 84; Cyber 84
+- raw: VCT
+  value: 61.0
+  unit: percent
+- raw: BioLP
+  value: 37.0
+  unit: percent
+- raw: ProtocolQA
+  value: 79.0
+  unit: percent
+- raw: FigQA
+  value: 34.0
+  unit: percent
+- raw: CloningScenarios
+  value: 46.0
+  unit: percent
+- raw: Cybench
+  value: 39.0
+  unit: percent
+- raw: MakeMeSay
+  value: 0.0
+  unit: percent
+  model_config: win rate

@@ -1,11 +1,51 @@
 # gemini-3-5-flash__model_card
 doc: gemini-3-5-flash__model_card
 mentions:
-  - raw: "ARC-AGI"
-  - raw: "CharXiv"
-  - raw: "GDPval-AA"
-  - raw: "MMMU"
-  - raw: "MMMU-Pro"
-  - raw: "OSWorld"
-  - raw: "Terminal-Bench"
-  - raw: "Toolathlon"
+- raw: Terminal-Bench 2.1
+  value: 76.2
+  unit: percent
+  model_config: Terminus-2 harness
+- raw: SWE-bench Pro
+  value: 55.1
+  unit: percent
+  model_config: public
+- raw: MCP Atlas
+  value: 83.6
+  unit: percent
+  methodology:
+  - listed as 'ACP Atlas' on the card
+- raw: Toolathlon
+  value: 56.5
+  unit: percent
+- raw: OSWorld-Verified
+  value: 78.4
+  unit: percent
+- raw: Finance Agent
+  value: 57.9
+  unit: percent
+  model_config: v2
+- raw: GDPval-AA
+  value: 1656
+  unit: elo
+- raw: CharXiv
+  value: 84.2
+  unit: percent
+  model_config: Reasoning
+- raw: MMMU-Pro
+  value: 83.6
+  unit: percent
+- raw: Blueprint-Bench
+  value: 33.6
+  unit: percent
+- raw: MRCR
+  value: 77.3
+  unit: percent
+  model_config: v2 8-needle, 128k avg
+  methodology:
+  - 'MRCR v2 8-needle: 128k avg 77.3; 1M pointwise 26.6'
+- raw: Humanity's Last Exam
+  value: 40.2
+  unit: percent
+- raw: ARC-AGI-2
+  value: 72.1
+  unit: percent

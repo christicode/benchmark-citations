@@ -1,11 +1,36 @@
 # gpt-5-2__system_card
 doc: gpt-5-2__system_card
 mentions:
-  - raw: "CVE-Bench"
-  - raw: "CharXiv"
-  - raw: "HealthBench"
-  - raw: "MMLU"
-  - raw: "PaperBench"
-  - raw: "ProtocolQA"
-  - raw: "StrongReject"
-  - raw: "TroubleshootingBench"
+- raw: SecureBio
+  value: 43.0
+  unit: percent
+- raw: ProtocolQA
+  value: 40.0
+  unit: percent
+- raw: Biorisk Tacit Knowledge
+  value: 48.0
+  unit: percent
+  methodology:
+  - unpublished OpenAI eval
+- raw: TroubleshootingBench
+  value: 35.0
+  unit: percent
+  methodology:
+  - OpenAI internal
+- raw: CVE-Bench
+  value: 69.0
+  unit: percent
+- raw: MLE-Bench
+  value: 16.0
+  unit: percent
+  model_config: MLE-Bench-30
+  methodology:
+  - OpenAI internal
+- raw: PaperBench
+  value: 39.0
+  unit: percent
+- raw: OPQA
+  value: 3.0
+  unit: percent
+  methodology:
+  - OpenAI internal research/eng bottlenecks

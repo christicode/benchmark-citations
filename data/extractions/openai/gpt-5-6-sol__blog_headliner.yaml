@@ -1,11 +1,22 @@
 # gpt-5-6-sol__blog_headliner
 doc: gpt-5-6-sol__blog_headliner
 mentions:
-  - raw: "Terminal-Bench"
-    weight_class: blog_headliner
-  - raw: "GeneBench"
-    weight_class: blog_headliner
-  - raw: "ExploitBench"
-    weight_class: blog_headliner
-  - raw: "ExploitGym"
-    weight_class: blog_headliner
+- raw: Terminal-Bench 2.1
+  weight_class: blog_headliner
+  value: 88.8
+  unit: percent
+  model_config: GPT-5.6 Sol
+- raw: Terminal-Bench 2.1
+  weight_class: blog_headliner
+  value: 91.9
+  unit: percent
+  model_config: GPT-5.6 Sol Ultra
+- raw: GeneBench
+  weight_class: blog_headliner
+  value: 30.0
+  unit: percent
+  model_config: v1
+- raw: ExploitBench
+  weight_class: blog_headliner
+  value: 75.0
+  unit: percent

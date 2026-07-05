@@ -1,17 +1,45 @@
 # gpt-5__system_card
 doc: gpt-5__system_card
 mentions:
-  - raw: "SWE-bench Verified"
-  - raw: "HealthBench"
-    value: 46.2
-    unit: "percent"
-    model_config: "gpt-5-thinking, Hard"
-  - raw: "SimpleQA"
-  - raw: "BBQ"
-  - raw: "CharXiv"
-  - raw: "PaperBench"
-  - raw: "ProtocolQA"
-  - raw: "AbstentionBench"
-  - raw: "MMLU"
-  - raw: "StrongReject"
-  - raw: "TroubleshootingBench"
+- raw: ProtocolQA
+  value: 30.0
+  unit: percent
+  model_config: thinking, browsing
+  methodology:
+  - mini 37; pro 34
+- raw: TroubleshootingBench
+  value: 22.0
+  unit: percent
+  model_config: thinking, browsing
+  methodology:
+  - mini 26; pro 27
+- raw: SWE-bench Verified
+  value: 74.0
+  unit: percent
+  model_config: thinking, no browsing
+  methodology:
+  - mini 72
+- raw: MLE-Bench
+  value: 8.0
+  unit: percent
+  model_config: MLE-Bench-30 pass@1, thinking, no browsing
+  methodology:
+  - mini 3
+- raw: SWE-Lancer
+  value: 55.0
+  unit: percent
+  model_config: thinking, no browsing
+  methodology:
+  - mini 51
+- raw: PaperBench
+  value: 24.0
+  unit: percent
+  model_config: thinking, no browsing
+  methodology:
+  - mini 23
+- raw: OpenAI-ProofQA
+  value: 2.0
+  unit: percent
+  model_config: thinking, no browsing
+  methodology:
+  - mini 1
