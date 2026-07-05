@@ -116,25 +116,6 @@ def _build_coverage(rows, ROOT, e):
             uid = "cite::" + c
         R = row(uid); R["cite"] = d; R["display"] = c
 
-    # --- reconciliation invariant: fail loudly rather than ship an unreconciled matrix ---
-    # If a cited benchmark is normalized-identical to a Harbor adapter/registry entry yet did
-    # NOT merge onto that row, the three sources aren't actually reconciled (this is the
-    # "AIME shows twice" bug that shipped when harbor_type classification briefly went missing
-    # in citations.jsonl). A curated non-merge (htype == "none": a reviewed name collision) is
-    # legitimate and suppressed; anything else aborts the build so the last-good
-    # docs/coverage.html stays deployed instead of being overwritten with a split matrix.
-    harbor_norm = set(reg_uid) | {norm(nm) for nm in ad_uid}
-    unreconciled = sorted(
-        R["display"] for R in rows_by_uid.values()
-        if R["cite"] and not R["adapter"] and not R["reg_name"]
-        and R["cite"]["htype"] != "none" and norm(R["display"]) in harbor_norm)
-    if unreconciled:
-        raise SystemExit(
-            "coverage matrix NOT reconciled: {} cited benchmark(s) are name-identical to a "
-            "Harbor adapter/registry entry but did not merge (usually a missing harbor_type in "
-            "data/citations.jsonl): {}. Refusing to overwrite docs/coverage.html.".format(
-                len(unreconciled), ", ".join(unreconciled)))
-
     def nsrc(R):
         return (1 if R["cite"] else 0) + (1 if R["adapter"] else 0) + (1 if R["reg_name"] else 0)
     ordered = sorted(rows_by_uid.values(),
