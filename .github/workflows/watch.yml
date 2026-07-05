@@ -1,0 +1,31 @@
+name: watch
+# Feeds -> candidates. Scheduled crawl of labs.yaml source_index_urls + the Hugging Face org API.
+# Refreshes data/candidates.jsonl (the human-promotion queue). Does NOT extract or open issues.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 13 * * 1-5"   # weekday mid-day UTC
+concurrency:
+  group: watch
+  cancel-in-progress: false
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyyaml
+      - name: Discover new candidate documents
+        run: python scripts/discover.py
+      - name: Commit refreshed candidate queue (race-safe)
+        run: |
+          git config user.name "watch-bot"
+          git config user.email "watch-bot@users.noreply.github.com"
+          git add data/candidates.jsonl
+          git commit -m "watch: refresh candidate queue" || { echo "no changes"; exit 0; }
+          git pull --rebase origin main
+          git push
