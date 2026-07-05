@@ -1,170 +1,882 @@
 {
- "_comment": "Snapshot of harbor-framework/harbor: adapters/ folder dirs + registry.json entries, fetched live from main. Used by build_dashboard.py for the adapter-ROI section AND the coverage (citations vs adapters vs registry) page. rank.py still cross-refs registry.json live each run.",
- "source": "harbor-framework/harbor @ main",
- "fetched_at": "2026-07-05",
- "n_adapters": 83,
- "n_registry": 75,
- "n_in_registry": 52,
- "adapters": [
-  {"name": "aa-lcr", "in_registry": false, "registry_name": null},
-  {"name": "abc-bench", "in_registry": false, "registry_name": null},
-  {"name": "ace-bench", "in_registry": false, "registry_name": null},
-  {"name": "adebench", "in_registry": true, "registry_name": "ade-bench"},
-  {"name": "aider_polyglot", "in_registry": true, "registry_name": "aider-polyglot"},
-  {"name": "aime", "in_registry": true, "registry_name": "aime"},
-  {"name": "algotune", "in_registry": true, "registry_name": "algotune"},
-  {"name": "arc_agi_2", "in_registry": true, "registry_name": "arc_agi_2"},
-  {"name": "autocodebench", "in_registry": true, "registry_name": "autocodebench"},
-  {"name": "bfcl", "in_registry": true, "registry_name": "bfcl"},
-  {"name": "bigcodebench_hard", "in_registry": true, "registry_name": "bigcodebench-hard-complete"},
-  {"name": "bird_bench", "in_registry": true, "registry_name": "bird-bench"},
-  {"name": "bixbench", "in_registry": true, "registry_name": "bixbench"},
-  {"name": "clbench", "in_registry": false, "registry_name": null},
-  {"name": "codepde", "in_registry": true, "registry_name": "codepde"},
-  {"name": "compilebench", "in_registry": true, "registry_name": "compilebench"},
-  {"name": "cooperbench", "in_registry": true, "registry_name": "cooperbench"},
-  {"name": "crmarena", "in_registry": false, "registry_name": null},
-  {"name": "crustbench", "in_registry": true, "registry_name": "crustbench"},
-  {"name": "cybergym", "in_registry": false, "registry_name": null},
-  {"name": "dabstep", "in_registry": true, "registry_name": "dabstep"},
-  {"name": "dacode", "in_registry": false, "registry_name": null},
-  {"name": "deepsynth", "in_registry": false, "registry_name": null},
-  {"name": "deveval", "in_registry": true, "registry_name": "deveval"},
-  {"name": "devopsgym", "in_registry": false, "registry_name": null},
-  {"name": "ds1000", "in_registry": true, "registry_name": "ds-1000"},
-  {"name": "evoeval", "in_registry": true, "registry_name": "evoeval"},
-  {"name": "featbench", "in_registry": false, "registry_name": null},
-  {"name": "featurebench", "in_registry": true, "registry_name": "featurebench"},
-  {"name": "financeagent", "in_registry": true, "registry_name": "financeagent"},
-  {"name": "frontier-cs-algorithm", "in_registry": false, "registry_name": null},
-  {"name": "gaia", "in_registry": true, "registry_name": "gaia"},
-  {"name": "gaia2", "in_registry": false, "registry_name": null},
-  {"name": "gdb", "in_registry": false, "registry_name": null},
-  {"name": "gpqa-diamond", "in_registry": true, "registry_name": "gpqa-diamond"},
-  {"name": "gso", "in_registry": true, "registry_name": "gso"},
-  {"name": "hle", "in_registry": false, "registry_name": null},
-  {"name": "humanevalfix", "in_registry": true, "registry_name": "humanevalfix"},
-  {"name": "ineqmath", "in_registry": true, "registry_name": "ineqmath"},
-  {"name": "kramabench", "in_registry": false, "registry_name": null},
-  {"name": "kumo", "in_registry": true, "registry_name": "kumo"},
-  {"name": "labbench", "in_registry": true, "registry_name": "labbench"},
-  {"name": "lawbench", "in_registry": true, "registry_name": "lawbench"},
-  {"name": "livecodebench", "in_registry": true, "registry_name": "livecodebench"},
-  {"name": "llmsr_bench", "in_registry": false, "registry_name": null},
-  {"name": "medagentbench", "in_registry": true, "registry_name": "medagentbench"},
-  {"name": "ml_dev_bench", "in_registry": true, "registry_name": "ml-dev-bench"},
-  {"name": "mlgym-bench", "in_registry": true, "registry_name": "mlgym-bench"},
-  {"name": "mmau", "in_registry": true, "registry_name": "mmau"},
-  {"name": "mmmlu", "in_registry": true, "registry_name": "mmmlu"},
-  {"name": "multi-swe-bench", "in_registry": false, "registry_name": null},
-  {"name": "omnimath", "in_registry": false, "registry_name": null},
-  {"name": "osworld", "in_registry": false, "registry_name": null},
-  {"name": "pixiu", "in_registry": true, "registry_name": "pixiu"},
-  {"name": "qcircuitbench", "in_registry": true, "registry_name": "qcircuitbench"},
-  {"name": "quixbugs", "in_registry": true, "registry_name": "quixbugs"},
-  {"name": "reasoning-gym", "in_registry": true, "registry_name": "reasoning-gym-easy"},
-  {"name": "refav", "in_registry": false, "registry_name": null},
-  {"name": "replicationbench", "in_registry": true, "registry_name": "replicationbench"},
-  {"name": "research-code-bench", "in_registry": true, "registry_name": "researchcodebench"},
-  {"name": "rexbench", "in_registry": true, "registry_name": "rexbench"},
-  {"name": "satbench", "in_registry": true, "registry_name": "satbench"},
-  {"name": "scicode", "in_registry": false, "registry_name": null},
-  {"name": "scienceagentbench", "in_registry": false, "registry_name": null},
-  {"name": "seal0", "in_registry": false, "registry_name": null},
-  {"name": "simpleqa", "in_registry": true, "registry_name": "simpleqa"},
-  {"name": "sldbench", "in_registry": true, "registry_name": "sldbench"},
-  {"name": "spider2-dbt", "in_registry": true, "registry_name": "spider2-dbt"},
-  {"name": "spreadsheetbench-verified", "in_registry": true, "registry_name": "spreadsheetbench-verified"},
-  {"name": "strongreject", "in_registry": true, "registry_name": "strongreject"},
-  {"name": "swebench", "in_registry": true, "registry_name": "swebench-verified"},
-  {"name": "swebench_multilingual", "in_registry": true, "registry_name": "swebench_multilingual"},
-  {"name": "swebenchpro", "in_registry": true, "registry_name": "swebenchpro"},
-  {"name": "swegym", "in_registry": false, "registry_name": null},
-  {"name": "swelancer", "in_registry": false, "registry_name": null},
-  {"name": "swesmith", "in_registry": true, "registry_name": "swesmith"},
-  {"name": "swtbench", "in_registry": false, "registry_name": null},
-  {"name": "tau3-bench", "in_registry": false, "registry_name": null},
-  {"name": "textarena", "in_registry": false, "registry_name": null},
-  {"name": "theagentcompany", "in_registry": false, "registry_name": null},
-  {"name": "usaco", "in_registry": true, "registry_name": "usaco"},
-  {"name": "webgen_bench", "in_registry": false, "registry_name": null},
-  {"name": "widesearch", "in_registry": false, "registry_name": null}
- ],
- "registry": [
-  {"name": "ade-bench", "versions": ["1.0"]},
-  {"name": "aider-polyglot", "versions": ["1.0"]},
-  {"name": "aime", "versions": ["1.0"]},
-  {"name": "algotune", "versions": ["1.0"]},
-  {"name": "arc_agi_2", "versions": ["1.0"]},
-  {"name": "autocodebench", "versions": ["lite200"]},
-  {"name": "bfcl", "versions": ["1.0"]},
-  {"name": "bfcl_parity", "versions": ["1.0"]},
-  {"name": "bigcodebench-hard-complete", "versions": ["1.0.0"]},
-  {"name": "binary-audit", "versions": ["1.0"]},
-  {"name": "bird-bench", "versions": ["parity"]},
-  {"name": "bixbench", "versions": ["1.5"]},
-  {"name": "bixbench-cli", "versions": ["1.5"]},
-  {"name": "code-contests", "versions": ["1.0"]},
-  {"name": "codepde", "versions": ["1.0"]},
-  {"name": "compilebench", "versions": ["1.0"]},
-  {"name": "cooperbench", "versions": ["1.0"]},
-  {"name": "crustbench", "versions": ["1.0"]},
-  {"name": "dabstep", "versions": ["1.0"]},
-  {"name": "deveval", "versions": ["1.0"]},
-  {"name": "ds-1000", "versions": ["head"]},
-  {"name": "evoeval", "versions": ["1.0"]},
-  {"name": "featurebench", "versions": ["1.0"]},
-  {"name": "featurebench-lite", "versions": ["1.0"]},
-  {"name": "featurebench-lite-modal", "versions": ["1.0"]},
-  {"name": "featurebench-modal", "versions": ["1.0"]},
-  {"name": "financeagent", "versions": ["public"]},
-  {"name": "gaia", "versions": ["1.0"]},
-  {"name": "gpqa-diamond", "versions": ["1.0"]},
-  {"name": "gso", "versions": ["1.0"]},
-  {"name": "hello-world", "versions": ["1.0"]},
-  {"name": "humanevalfix", "versions": ["1.0"]},
-  {"name": "ineqmath", "versions": ["1.0"]},
-  {"name": "kumo", "versions": ["parity", "1.0", "easy", "hard"]},
-  {"name": "labbench", "versions": ["1.0"]},
-  {"name": "lawbench", "versions": ["1.0"]},
-  {"name": "legacy-bench", "versions": ["1.0"]},
-  {"name": "livecodebench", "versions": ["6.0"]},
-  {"name": "medagentbench", "versions": ["1.0"]},
-  {"name": "ml-dev-bench", "versions": ["1.0"]},
-  {"name": "mlgym-bench", "versions": ["1.0"]},
-  {"name": "mmau", "versions": ["1.0"]},
-  {"name": "mmmlu", "versions": ["parity"]},
-  {"name": "openthoughts-tblite", "versions": ["2.0"]},
-  {"name": "otel-bench", "versions": ["1.0"]},
-  {"name": "pixiu", "versions": ["parity"]},
-  {"name": "qcircuitbench", "versions": ["1.0"]},
-  {"name": "quixbugs", "versions": ["1.0"]},
-  {"name": "reasoning-gym-easy", "versions": ["parity"]},
-  {"name": "reasoning-gym-hard", "versions": ["parity"]},
-  {"name": "replicationbench", "versions": ["1.0"]},
-  {"name": "researchcodebench", "versions": ["1.0"]},
-  {"name": "rexbench", "versions": ["1.0"]},
-  {"name": "satbench", "versions": ["1.0"]},
-  {"name": "scale-ai/swe-atlas-qna", "versions": ["1.0"]},
-  {"name": "scale-ai/swe-atlas-tw", "versions": ["1.0"]},
-  {"name": "seta-env", "versions": ["1.0"]},
-  {"name": "simpleqa", "versions": ["1.0"]},
-  {"name": "sldbench", "versions": ["1.0"]},
-  {"name": "spider2-dbt", "versions": ["1.0"]},
-  {"name": "spreadsheetbench-verified", "versions": ["1.0"]},
-  {"name": "strongreject", "versions": ["parity"]},
-  {"name": "swe-gen-js", "versions": ["1.0"]},
-  {"name": "swe-lancer-diamond", "versions": ["all", "ic", "manager"]},
-  {"name": "swebench-verified", "versions": ["1.0"]},
-  {"name": "swebench_multilingual", "versions": ["1.0"]},
-  {"name": "swebenchpro", "versions": ["1.0"]},
-  {"name": "swesmith", "versions": ["1.0"]},
-  {"name": "swtbench-verified", "versions": ["1.0"]},
-  {"name": "termigen-environments", "versions": ["1.0"]},
-  {"name": "terminal-bench", "versions": ["2.0"]},
-  {"name": "terminal-bench-pro", "versions": ["1.0"]},
-  {"name": "terminal-bench-sample", "versions": ["2.0"]},
-  {"name": "usaco", "versions": ["2.0"]},
-  {"name": "vmax-tasks", "versions": ["1.0"]}
- ]
+  "_comment": "Live Harbor snapshot (registry.json + adapters/) fetched by sync_harbor.py.",
+  "source": "harbor-framework/harbor @ main",
+  "fetched_at": "2026-07-05",
+  "n_adapters": 83,
+  "n_registry": 75,
+  "n_in_registry": 49,
+  "adapters": [
+    {
+      "name": "aa-lcr",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "abc-bench",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "ace-bench",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "adebench",
+      "in_registry": true,
+      "registry_name": "adebench"
+    },
+    {
+      "name": "aider_polyglot",
+      "in_registry": true,
+      "registry_name": "aider_polyglot"
+    },
+    {
+      "name": "aime",
+      "in_registry": true,
+      "registry_name": "aime"
+    },
+    {
+      "name": "algotune",
+      "in_registry": true,
+      "registry_name": "algotune"
+    },
+    {
+      "name": "arc_agi_2",
+      "in_registry": true,
+      "registry_name": "arc_agi_2"
+    },
+    {
+      "name": "autocodebench",
+      "in_registry": true,
+      "registry_name": "autocodebench"
+    },
+    {
+      "name": "bfcl",
+      "in_registry": true,
+      "registry_name": "bfcl"
+    },
+    {
+      "name": "bigcodebench_hard",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "bird_bench",
+      "in_registry": true,
+      "registry_name": "bird_bench"
+    },
+    {
+      "name": "bixbench",
+      "in_registry": true,
+      "registry_name": "bixbench"
+    },
+    {
+      "name": "clbench",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "codepde",
+      "in_registry": true,
+      "registry_name": "codepde"
+    },
+    {
+      "name": "compilebench",
+      "in_registry": true,
+      "registry_name": "compilebench"
+    },
+    {
+      "name": "cooperbench",
+      "in_registry": true,
+      "registry_name": "cooperbench"
+    },
+    {
+      "name": "crmarena",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "crustbench",
+      "in_registry": true,
+      "registry_name": "crustbench"
+    },
+    {
+      "name": "cybergym",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "dabstep",
+      "in_registry": true,
+      "registry_name": "dabstep"
+    },
+    {
+      "name": "dacode",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "deepsynth",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "deveval",
+      "in_registry": true,
+      "registry_name": "deveval"
+    },
+    {
+      "name": "devopsgym",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "ds1000",
+      "in_registry": true,
+      "registry_name": "ds1000"
+    },
+    {
+      "name": "evoeval",
+      "in_registry": true,
+      "registry_name": "evoeval"
+    },
+    {
+      "name": "featbench",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "featurebench",
+      "in_registry": true,
+      "registry_name": "featurebench"
+    },
+    {
+      "name": "financeagent",
+      "in_registry": true,
+      "registry_name": "financeagent"
+    },
+    {
+      "name": "frontier-cs-algorithm",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "gaia",
+      "in_registry": true,
+      "registry_name": "gaia"
+    },
+    {
+      "name": "gaia2",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "gdb",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "gpqa-diamond",
+      "in_registry": true,
+      "registry_name": "gpqa-diamond"
+    },
+    {
+      "name": "gso",
+      "in_registry": true,
+      "registry_name": "gso"
+    },
+    {
+      "name": "hle",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "humanevalfix",
+      "in_registry": true,
+      "registry_name": "humanevalfix"
+    },
+    {
+      "name": "ineqmath",
+      "in_registry": true,
+      "registry_name": "ineqmath"
+    },
+    {
+      "name": "kramabench",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "kumo",
+      "in_registry": true,
+      "registry_name": "kumo"
+    },
+    {
+      "name": "labbench",
+      "in_registry": true,
+      "registry_name": "labbench"
+    },
+    {
+      "name": "lawbench",
+      "in_registry": true,
+      "registry_name": "lawbench"
+    },
+    {
+      "name": "livecodebench",
+      "in_registry": true,
+      "registry_name": "livecodebench"
+    },
+    {
+      "name": "llmsr_bench",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "medagentbench",
+      "in_registry": true,
+      "registry_name": "medagentbench"
+    },
+    {
+      "name": "ml_dev_bench",
+      "in_registry": true,
+      "registry_name": "ml_dev_bench"
+    },
+    {
+      "name": "mlgym-bench",
+      "in_registry": true,
+      "registry_name": "mlgym-bench"
+    },
+    {
+      "name": "mmau",
+      "in_registry": true,
+      "registry_name": "mmau"
+    },
+    {
+      "name": "mmmlu",
+      "in_registry": true,
+      "registry_name": "mmmlu"
+    },
+    {
+      "name": "multi-swe-bench",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "omnimath",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "osworld",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "pixiu",
+      "in_registry": true,
+      "registry_name": "pixiu"
+    },
+    {
+      "name": "qcircuitbench",
+      "in_registry": true,
+      "registry_name": "qcircuitbench"
+    },
+    {
+      "name": "quixbugs",
+      "in_registry": true,
+      "registry_name": "quixbugs"
+    },
+    {
+      "name": "reasoning-gym",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "refav",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "replicationbench",
+      "in_registry": true,
+      "registry_name": "replicationbench"
+    },
+    {
+      "name": "research-code-bench",
+      "in_registry": true,
+      "registry_name": "research-code-bench"
+    },
+    {
+      "name": "rexbench",
+      "in_registry": true,
+      "registry_name": "rexbench"
+    },
+    {
+      "name": "satbench",
+      "in_registry": true,
+      "registry_name": "satbench"
+    },
+    {
+      "name": "scicode",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "scienceagentbench",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "seal0",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "simpleqa",
+      "in_registry": true,
+      "registry_name": "simpleqa"
+    },
+    {
+      "name": "sldbench",
+      "in_registry": true,
+      "registry_name": "sldbench"
+    },
+    {
+      "name": "spider2-dbt",
+      "in_registry": true,
+      "registry_name": "spider2-dbt"
+    },
+    {
+      "name": "spreadsheetbench-verified",
+      "in_registry": true,
+      "registry_name": "spreadsheetbench-verified"
+    },
+    {
+      "name": "strongreject",
+      "in_registry": true,
+      "registry_name": "strongreject"
+    },
+    {
+      "name": "swebench",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "swebench_multilingual",
+      "in_registry": true,
+      "registry_name": "swebench_multilingual"
+    },
+    {
+      "name": "swebenchpro",
+      "in_registry": true,
+      "registry_name": "swebenchpro"
+    },
+    {
+      "name": "swegym",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "swelancer",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "swesmith",
+      "in_registry": true,
+      "registry_name": "swesmith"
+    },
+    {
+      "name": "swtbench",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "tau3-bench",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "textarena",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "theagentcompany",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "usaco",
+      "in_registry": true,
+      "registry_name": "usaco"
+    },
+    {
+      "name": "webgen_bench",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "widesearch",
+      "in_registry": false,
+      "registry_name": null
+    }
+  ],
+  "registry": [
+    {
+      "name": "ade-bench",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "aider-polyglot",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "aime",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "algotune",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "arc_agi_2",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "autocodebench",
+      "versions": [
+        "lite200"
+      ]
+    },
+    {
+      "name": "bfcl",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "bfcl_parity",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "bigcodebench-hard-complete",
+      "versions": [
+        "1.0.0"
+      ]
+    },
+    {
+      "name": "binary-audit",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "bird-bench",
+      "versions": [
+        "parity"
+      ]
+    },
+    {
+      "name": "bixbench",
+      "versions": [
+        "1.5"
+      ]
+    },
+    {
+      "name": "bixbench-cli",
+      "versions": [
+        "1.5"
+      ]
+    },
+    {
+      "name": "code-contests",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "codepde",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "compilebench",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "cooperbench",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "crustbench",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "dabstep",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "deveval",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "ds-1000",
+      "versions": [
+        "head"
+      ]
+    },
+    {
+      "name": "evoeval",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "featurebench",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "featurebench-lite",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "featurebench-lite-modal",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "featurebench-modal",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "financeagent",
+      "versions": [
+        "public"
+      ]
+    },
+    {
+      "name": "gaia",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "gpqa-diamond",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "gso",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "hello-world",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "humanevalfix",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "ineqmath",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "kumo",
+      "versions": [
+        "1.0",
+        "easy",
+        "hard",
+        "parity"
+      ]
+    },
+    {
+      "name": "labbench",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "lawbench",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "legacy-bench",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "livecodebench",
+      "versions": [
+        "6.0"
+      ]
+    },
+    {
+      "name": "medagentbench",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "ml-dev-bench",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "mlgym-bench",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "mmau",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "mmmlu",
+      "versions": [
+        "parity"
+      ]
+    },
+    {
+      "name": "openthoughts-tblite",
+      "versions": [
+        "2.0"
+      ]
+    },
+    {
+      "name": "otel-bench",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "pixiu",
+      "versions": [
+        "parity"
+      ]
+    },
+    {
+      "name": "qcircuitbench",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "quixbugs",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "reasoning-gym-easy",
+      "versions": [
+        "parity"
+      ]
+    },
+    {
+      "name": "reasoning-gym-hard",
+      "versions": [
+        "parity"
+      ]
+    },
+    {
+      "name": "replicationbench",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "researchcodebench",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "rexbench",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "satbench",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "scale-ai/swe-atlas-qna",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "scale-ai/swe-atlas-tw",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "seta-env",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "simpleqa",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "sldbench",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "spider2-dbt",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "spreadsheetbench-verified",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "strongreject",
+      "versions": [
+        "parity"
+      ]
+    },
+    {
+      "name": "swe-gen-js",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "swe-lancer-diamond",
+      "versions": [
+        "all",
+        "ic",
+        "manager"
+      ]
+    },
+    {
+      "name": "swebench-verified",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "swebench_multilingual",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "swebenchpro",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "swesmith",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "swtbench-verified",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "termigen-environments",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "terminal-bench",
+      "versions": [
+        "2.0"
+      ]
+    },
+    {
+      "name": "terminal-bench-pro",
+      "versions": [
+        "1.0"
+      ]
+    },
+    {
+      "name": "terminal-bench-sample",
+      "versions": [
+        "2.0"
+      ]
+    },
+    {
+      "name": "usaco",
+      "versions": [
+        "2.0"
+      ]
+    },
+    {
+      "name": "vmax-tasks",
+      "versions": [
+        "1.0"
+      ]
+    }
+  ]
 }

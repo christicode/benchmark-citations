@@ -22,12 +22,13 @@ benchmarks:
     type: agentic
     domain: coding
     aliases: ["Aider"]
-    harbor_status: not_in_harbor
+    harbor_status: confirmed
+    harbor_match: {name: aider_polyglot}
   - canonical: aime
     type: chat
     domain: math
     aliases: ["AIME"]
-    harbor_status: needs_review
+    harbor_status: confirmed
     harbor_match: {name: aime}
   - canonical: arc-agi-1
     type: chat
@@ -64,7 +65,7 @@ benchmarks:
     type: agentic
     domain: computer-use
     aliases: ["BFCL"]
-    harbor_status: needs_review
+    harbor_status: confirmed
     harbor_match: {name: bfcl}
   - canonical: biolp-bench
     type: chat
@@ -140,13 +141,13 @@ benchmarks:
     type: agentic
     domain: cyber
     aliases: ["Cybench"]
-    harbor_status: false_positive
-    harbor_match: {name: legacy-bench}
+    harbor_status: not_in_harbor
   - canonical: cybergym
     type: agentic
     domain: cyber
     aliases: ["CyberGym"]
-    harbor_status: not_in_harbor
+    harbor_status: confirmed
+    harbor_match: {name: cybergym}
   - canonical: cybersec-eval
     type: chat
     domain: cyber
@@ -243,7 +244,8 @@ benchmarks:
     type: chat
     domain: knowledge
     aliases: ["HLE"]
-    harbor_status: not_in_harbor
+    harbor_status: confirmed
+    harbor_match: {name: hle}
   - canonical: iheval
     type: chat
     domain: knowledge
@@ -263,7 +265,7 @@ benchmarks:
     type: chat
     domain: science
     aliases: ["LAB-Bench", "LAB-Bench FigQA"]
-    harbor_status: needs_review
+    harbor_status: confirmed
     harbor_match: {name: labbench}
   - canonical: legal-agent-benchmark
     type: agentic
@@ -274,7 +276,7 @@ benchmarks:
     type: chat
     domain: coding
     aliases: ["LiveCodeBench"]
-    harbor_status: needs_review
+    harbor_status: confirmed
     harbor_match: {name: livecodebench}
   - canonical: makemesay
     type: agentic
@@ -346,7 +348,8 @@ benchmarks:
     type: agentic
     domain: computer-use
     aliases: ["OSWorld", "OSWorld-Verified"]
-    harbor_status: not_in_harbor
+    harbor_status: confirmed
+    harbor_match: {name: osworld}
   - canonical: paperbench
     type: agentic
     domain: science
@@ -406,7 +409,7 @@ benchmarks:
     type: chat
     domain: knowledge
     aliases: ["SimpleQA"]
-    harbor_status: needs_review
+    harbor_status: confirmed
     harbor_match: {name: simpleqa}
   - canonical: singlecellbench
     type: chat
@@ -422,8 +425,7 @@ benchmarks:
     type: agentic
     domain: coding
     aliases: ["SpreadSheetBench"]
-    harbor_status: needs_review
-    harbor_match: {name: spreadsheetbench-verified}
+    harbor_status: not_in_harbor
   - canonical: strongreject
     type: chat
     domain: safety
@@ -462,7 +464,7 @@ benchmarks:
     type: agentic
     domain: coding
     aliases: ["Terminal-Bench", "Terminal-Bench 2.0", "Terminal-Bench 2.1"]
-    harbor_status: needs_review
+    harbor_status: confirmed
     harbor_match: {name: terminal-bench}
   - canonical: toolathlon
     type: agentic
