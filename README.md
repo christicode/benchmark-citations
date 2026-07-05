@@ -49,7 +49,9 @@ yet — that's a deferred project.)
 3. **Build** [`scripts/build.py`](scripts/build.py): extractions × registry → `citations.jsonl`.
 4. **Sync Harbor** [`scripts/sync_harbor.py`](scripts/sync_harbor.py): fills `harbor_*` fields from
    `harbor-framework/harbor` `registry.json` + `adapters/`, fetched **live from main** each run.
-5. **Dashboard** `scripts/build_dashboard.py` → `docs/` (out of current scope).
+5. **Model axis** [`scripts/gen_models.py`](scripts/gen_models.py): citations → `data/models.yaml`.
+6. **Heatmap** [`scripts/build_heatmap.py`](scripts/build_heatmap.py) → `docs/index.html`: the
+   benchmark×model citation heatmap served at <https://autobenchmark.ai> (replaced the tables).
 
 `scripts/rank.py` prints a per-benchmark citation summary (data-QA lens, no priority score).
 `scripts/review_queue.py` lists the open `needs-human-review` issues (the review queue's source

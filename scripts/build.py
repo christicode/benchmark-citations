@@ -13,7 +13,7 @@ Normalization is deterministic (exact/normalized alias lookup, never fuzzy). A r
 matches no alias is emitted unmatched (needs_review -> register it in registry.yaml; never
 guessed). Harbor fields are placeholders here and are filled in live by sync_harbor.py.
 
-Pipeline: build.py -> sync_harbor.py -> build_dashboard.py -> check_reconciliation.py
+Pipeline: build.py -> sync_harbor.py -> gen_models.py -> build_heatmap.py -> check_reconciliation.py
 """
 from __future__ import annotations
 import json, re, pathlib, sys

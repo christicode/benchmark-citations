@@ -1,0 +1,392 @@
+#!/usr/bin/env python3
+"""Build the benchmark × model HEATMAP — the autobenchmark.ai landing page (docs/index.html).
+
+This replaces the retired tables dashboard. Grid:
+  * Y axis = benchmark. Higher = more cumulative points. Points use the SHARED scoring
+    (scripts/scoring.py): blog_headliner 3 / model_card 2 / system_card 1, counted as
+    MAX per (benchmark, document, model) then SUMMED across documents (same as rank.py) —
+    a benchmark headlined + tabled in one blog counts 3, headlined in 3 blogs counts 9.
+    (H) suffix = currently Harbor-compatible (live-synced by sync_harbor.py).
+  * X axis = citing model, MOST RECENT ON THE LEFT (models.yaml release_date; undated last).
+  * cell (benchmark × model) = increasing DARKNESS OF BLUE for the highest source class in
+    which that model cites it: Headliner (darkest) > Model card > System card (lightest).
+  * saturation gutter (left of the grid) = max reported % for that benchmark (headroom),
+    on a green→amber→red ramp so it never reads as the blue citation signal.
+  * hover / click-to-pin a cell → the source link(s) (headliner / model card / system card)
+    with the reported score, for verifiability.
+
+Filters (agentic/static · Harbor-only · company) re-rank live over the VISIBLE columns.
+Self-contained (embeds a compact JSON blob; no external deps). Reads data/citations.jsonl
+(built by build.py, Harbor-synced by sync_harbor.py) + models.yaml (by gen_models.py).
+"""
+from __future__ import annotations
+
+import collections
+import datetime
+import json
+import pathlib
+import re
+
+import yaml
+from scoring import points  # single source of truth for the 3/2/1 weights
+
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+CITES = ROOT / "data" / "citations.jsonl"
+MODELS = ROOT / "data" / "models.yaml"
+OUT = ROOT / "docs" / "index.html"
+
+# weight_class -> human label for the tooltip (points come from scoring.py)
+WC_LABEL = {"blog_headliner": "Headliner", "model_card": "Model card", "system_card": "System card"}
+
+
+def slug(s: str) -> str:
+    return re.sub(r"-+", "-", re.sub(r"[^a-z0-9]+", "-", (s or "").lower())).strip("-")
+
+
+def model_id(citing_model: str) -> str:
+    return slug((citing_model or "").split(" / ")[0])
+
+
+def main() -> int:
+    rows = [json.loads(l) for l in open(CITES) if l.strip()]
+    mdoc = yaml.safe_load(MODELS.read_text())
+    models = mdoc.get("models", [])
+    model_meta = {m["id"]: m for m in models}
+
+    companies = []
+    seen = set()
+    for m in models:
+        if m["company"] not in seen:
+            seen.add(m["company"])
+            companies.append({"id": m["company"], "display": m["company_display"]})
+
+    # ---- aggregate: MAX weight per (benchmark, model, document); collect per-doc display ----
+    def newbench():
+        return {"type": None, "domain": None, "on_harbor": False,
+                # model_id -> doc_id -> {p, wc, url, container, val, unit, cfg, dev}
+                "m": collections.defaultdict(lambda: collections.defaultdict(
+                    lambda: {"p": 0, "wc": None, "url": None, "container": None,
+                             "val": None, "unit": None, "cfg": None, "dev": False}))}
+    B = collections.defaultdict(newbench)
+
+    for r in rows:
+        c = r.get("benchmark_canonical")
+        if not c:
+            continue                                   # unresolved -> review queue, not the grid
+        mid = model_id(r.get("citing_model"))
+        if mid not in model_meta:
+            continue
+        did = r["source_doc"].get("id") or r["source_doc"]["url"]
+        wc = r.get("weight_class")
+        p = points(wc)
+        b = B[c]
+        b["type"] = b["type"] or r.get("type")
+        b["domain"] = b["domain"] or r.get("domain")
+        b["on_harbor"] = b["on_harbor"] or bool(r.get("on_harbor"))
+        d = b["m"][mid][did]
+        if p >= d["p"]:                                # keep the DOC's max-class mention for display
+            d["p"] = p
+            d["wc"] = wc
+        d["url"] = r["source_doc"]["url"]
+        d["container"] = r["source_doc"].get("container")
+        rep = r.get("reported") or {}
+        val = rep.get("value")
+        if rep.get("unit") == "percent" and isinstance(val, (int, float)):
+            if d["val"] is None or (isinstance(d["val"], (int, float)) and val > d["val"]):
+                d["val"], d["unit"] = val, "percent"
+        elif d["val"] is None and val is not None:
+            d["val"], d["unit"] = val, rep.get("unit")
+        if rep.get("model_config"):
+            d["cfg"] = rep["model_config"]
+        if r.get("methodology_deviations"):
+            d["dev"] = True
+
+    benchmarks = []
+    for canon, b in B.items():
+        cells, total, sat = {}, 0, None
+        for mid, docs in b["m"].items():
+            docmax = [dd for dd in docs.values()]
+            tier = max(dd["p"] for dd in docmax)       # cell colour = highest class in the cell
+            pts = sum(dd["p"] for dd in docmax)        # cell points = sum of per-doc maxima
+            score = None
+            for dd in docmax:
+                if dd["unit"] == "percent" and isinstance(dd["val"], (int, float)):
+                    score = dd["val"] if score is None else max(score, dd["val"])
+            doclist = sorted(
+                [{"wc": dd["wc"], "url": dd["url"], "container": dd["container"],
+                  "val": dd["val"], "unit": dd["unit"], "cfg": dd["cfg"], "dev": dd["dev"]}
+                 for dd in docmax],
+                key=lambda x: -points(x["wc"]))
+            cells[mid] = {"tier": tier, "pts": pts, "score": score, "docs": doclist}
+            total += pts
+            if score is not None:
+                sat = score if sat is None else max(sat, score)
+        benchmarks.append({"canon": canon, "type": b["type"] or "?", "domain": b["domain"] or "?",
+                           "on_harbor": b["on_harbor"], "points": total, "sat": sat,
+                           "n_models": len(cells), "cells": cells})
+    benchmarks.sort(key=lambda x: (-x["points"], x["canon"]))
+
+    asof = max([datetime.date.today().isoformat()]
+               + [r["source_doc"]["pub_date"] for r in rows if r["source_doc"].get("pub_date")])
+
+    data = {
+        "as_of": asof,
+        "repo": "christicode/benchmark-citations",
+        "wc_points": {k: points(k) for k in WC_LABEL},
+        "wc_label": WC_LABEL,
+        "companies": companies,
+        "models": [{"id": m["id"], "display": m["display"], "company": m["company"],
+                    "company_display": m["company_display"],
+                    "release_date": m.get("release_date"), "dated": bool(m.get("release_date"))}
+                   for m in models],
+        "benchmarks": benchmarks,
+    }
+
+    OUT.parent.mkdir(exist_ok=True)
+    OUT.write_text(PAGE.replace("/*__DATA__*/", json.dumps(data, ensure_ascii=False)))
+    filled = sum(b["n_models"] for b in benchmarks)
+    print(f"wrote {OUT} | {len(benchmarks)} benchmarks × {len(models)} models "
+          f"| {filled} filled cells | as of {asof}")
+    return 0
+
+
+PAGE = r"""<!doctype html><html lang=en><head><meta charset=utf-8>
+<meta name=viewport content='width=device-width,initial-scale=1'>
+<title>PaperTrail — benchmark × model heatmap</title>
+<style>
+:root{--bg:#fff;--panel:#eef3fb;--b:#d7e3f2;--fg:#586e75;--emph:#073642;--mut:#93a1a1;
+  --blue:#268bd2;--green:#22c55e;--amber:#cb8a00;--red:#dc322f;--violet:#6c71c4;
+  /* blue citation ramp: System card (light) -> Model card -> Headliner (dark) */
+  --t1:#d6e9f7;--t2:#79b3e0;--t3:#0f5a97;--empty:#fafbfc}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font:13px/1.5 "JetBrains Mono","SF Mono",ui-monospace,Menlo,Consolas,monospace}
+.wrap{max-width:1400px;margin:0 auto;padding:20px}
+h1{font-size:21px;color:var(--emph);margin:0 0 2px}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.sub{color:var(--mut);font-size:12px;margin:0 0 12px}
+.bar{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin:12px 0;
+  background:var(--panel);border:1px solid var(--b);border-radius:6px;padding:8px 12px}
+.bar .grp{display:flex;gap:6px;align-items:center}
+.bar b{color:var(--emph);font-size:11px;text-transform:uppercase;letter-spacing:.03em;margin-right:2px}
+.chip{font:12px ui-monospace,monospace;padding:3px 8px;border:1px solid var(--b);
+  background:#fff;color:var(--fg);border-radius:6px;cursor:pointer;user-select:none}
+.chip.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.chip.co.on{background:var(--emph);border-color:var(--emph)}
+.legend{color:var(--mut);font-size:11.5px;margin:8px 0 0;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.sw{display:inline-block;width:12px;height:12px;border:1px solid var(--b);vertical-align:-2px;margin-right:3px;border-radius:2px}
+.grid-scroll{overflow:auto;max-height:80vh;border:1px solid var(--b);border-radius:6px}
+table.hm{border-collapse:separate;border-spacing:0}
+table.hm th,table.hm td{padding:0;margin:0}
+thead th{position:sticky;top:0;z-index:3;background:var(--bg)}
+th.corner{left:0;z-index:5}
+th.mh{height:118px;vertical-align:bottom;padding-bottom:6px}
+th.mh .lab{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;
+  font-size:11px;color:var(--emph);font-weight:700;max-height:104px;overflow:hidden}
+th.mh.new .lab{color:var(--violet);font-style:italic}
+td.yl,th.corner{position:sticky;left:0;z-index:2;background:var(--bg);border-right:1px solid var(--b)}
+th.corner.sat2{left:var(--gutL);z-index:5}
+td.yl{padding:0 8px;white-space:nowrap;font-size:12px;color:var(--emph);border-bottom:1px solid #f0f4f9}
+td.yl .rank{color:var(--mut);display:inline-block;min-width:22px}
+td.yl .nm{cursor:pointer}
+td.yl .h{color:var(--green);font-weight:700}
+td.yl .ty{font-size:9px;color:var(--mut);margin-left:5px}
+td.yl .ty.ag{color:var(--green)}
+td.sat{position:sticky;left:var(--gutL);z-index:2;background:var(--bg);width:74px;
+  border-right:1px solid var(--b);border-bottom:1px solid #f0f4f9;padding:0 6px}
+.satbar{height:9px;background:#eef1f4;border-radius:2px;position:relative;overflow:hidden}
+.satbar>i{display:block;height:100%}
+.satnum{font-size:9.5px;color:var(--mut)}
+td.cell{width:22px;height:22px;text-align:center;border-right:1px solid #eef2f7;
+  border-bottom:1px solid #eef2f7;cursor:default}
+td.cell.f{cursor:pointer}
+td.cell.t1{background:var(--t1)}td.cell.t2{background:var(--t2)}td.cell.t3{background:var(--t3)}
+td.cell.pin{outline:2px solid var(--red);outline-offset:-2px}
+.count{color:var(--mut);font-size:12px;margin:6px 2px}
+#tip{position:fixed;z-index:20;max-width:360px;background:#fff;border:1px solid var(--b);
+  border-radius:8px;box-shadow:0 6px 24px rgba(7,54,66,.16);padding:10px 12px;display:none;font-size:12px}
+#tip h4{margin:0 0 4px;font-size:12.5px;color:var(--emph)}
+#tip .r{margin:3px 0;color:var(--fg)}
+#tip .dt{font-weight:700;color:var(--emph)}
+#tip .g{color:var(--amber)}
+#tip .cl{color:var(--mut);font-size:11px}
+#tip a{font-weight:600}
+.foot{color:var(--mut);font-size:11.5px;margin:14px 0 0}
+</style></head><body><div class=wrap>
+<h1>PaperTrail · benchmark × model heatmap</h1>
+<p class=sub>Which benchmarks the frontier labs cite, and how prominently. Y = benchmark
+(top = most cumulative points). X = model, <b>most recent on the left</b>.
+<span id=asof></span> · <a href='https://github.com/christicode/benchmark-citations' target=_blank rel=noopener>data & method</a></p>
+
+<div class=bar>
+  <div class=grp><b>type</b>
+    <span class=chip data-ty=all onclick='setTy(this)'>all</span>
+    <span class=chip data-ty=agentic onclick='setTy(this)'>agentic</span>
+    <span class=chip data-ty=chat onclick='setTy(this)'>static</span></div>
+  <div class=grp><b>harbor</b>
+    <span class=chip id=harb onclick='toggleHarb(this)'>Harbor-compatible only</span></div>
+  <div class=grp><b>tail</b>
+    <span class=chip id=tail onclick='toggleTail(this)'>show single-citation</span></div>
+  <div class=grp id=cos><b>company</b></div>
+</div>
+
+<div class=grid-scroll><table class=hm id=hm></table></div>
+<div class=count id=count></div>
+
+<div class=legend>
+  <span><b>cell</b> — cited in a:</span>
+  <span><span class=sw style=background:var(--t3)></span>Headliner (3)</span>
+  <span><span class=sw style=background:var(--t2)></span>Model card (2)</span>
+  <span><span class=sw style=background:var(--t1)></span>System card (1)</span>
+  <span><span class=sw style=background:var(--empty)></span>not cited</span>
+  <span>· <b class=h style=color:var(--green)>(H)</b> = Harbor-compatible</span>
+  <span>· gutter bar = max reported % (saturation / headroom)</span>
+</div>
+<p class=foot>Points: Headliner 3 · Model card 2 · System card 1, max per document then summed.
+Click a cell to pin its source links. christicode/benchmark-citations.</p>
+</div>
+
+<div id=tip></div>
+<script>
+var DATA = /*__DATA__*/;
+document.getElementById('asof').textContent = 'Updated ' + DATA.as_of;
+
+var state = {ty:'all', harb:false, tail:false, cos:{}};
+DATA.companies.forEach(function(c){ state.cos[c.id]=true; });
+
+var cos=document.getElementById('cos');
+DATA.companies.forEach(function(c){
+  var s=document.createElement('span'); s.className='chip co on'; s.textContent=c.display;
+  s.onclick=function(){ state.cos[c.id]=!state.cos[c.id]; s.classList.toggle('on'); render(); };
+  cos.appendChild(s);
+});
+document.querySelector('.chip[data-ty=all]').classList.add('on');
+
+function setTy(el){ state.ty=el.dataset.ty;
+  document.querySelectorAll('.chip[data-ty]').forEach(function(x){x.classList.remove('on')});
+  el.classList.add('on'); render(); }
+function toggleHarb(el){ state.harb=!state.harb; el.classList.toggle('on'); render(); }
+function toggleTail(el){ state.tail=!state.tail; el.classList.toggle('on'); render(); }
+
+function visibleModels(){ return DATA.models.filter(function(m){ return state.cos[m.company]; }); }
+function rowVisible(b){
+  if(state.ty!=='all' && b.type!==state.ty) return false;
+  if(state.harb && !b.on_harbor) return false;
+  return true;
+}
+
+function render(){
+  var vm = visibleModels();
+  var vmids = vm.map(function(m){return m.id;});
+  var rows=[];
+  DATA.benchmarks.forEach(function(b){
+    if(!rowVisible(b)) return;
+    var pts=0, sat=null, nm=0;
+    vmids.forEach(function(id){ var c=b.cells[id]; if(c){ pts+=c.pts; nm++;
+      if(c.score!=null) sat=(sat==null)?c.score:Math.max(sat,c.score); } });
+    if(nm===0) return;                          // no citation in visible columns
+    if(!state.tail && b.n_models<2) return;     // long-tail cut (GLOBAL count, so a company
+                                                // filter still re-ranks densely 1,2,3,4...)
+    rows.push({b:b, pts:pts, sat:sat, nm:nm});
+  });
+  rows.sort(function(x,y){ return (y.pts-x.pts) || (y.nm-x.nm) || (x.b.canon<y.b.canon?-1:1); });
+
+  var t=document.getElementById('hm');
+  var H=[];
+  H.push('<thead><tr><th class=corner>&nbsp;</th><th class="corner sat2">&nbsp;</th>');
+  vm.forEach(function(m){
+    H.push('<th class="mh'+(m.dated?'':' new')+'" title="'+esc(m.model_title(m))+'">'+
+      '<div class=lab>'+esc(m.display)+(m.dated?'':' ·?')+'</div></th>');
+  });
+  H.push('</tr></thead><tbody>');
+  rows.forEach(function(r,i){
+    var b=r.b;
+    var ty = b.type==='agentic'?'<span class="ty ag">agentic</span>'
+            : b.type==='chat'?'<span class=ty>static</span>':'';
+    var h = b.on_harbor? ' <span class=h title="Harbor-compatible">(H)</span>':'';
+    H.push('<tr><td class=yl><span class=rank>'+(i+1)+'</span>'+
+      '<span class=nm onclick="openRec(\''+esc(b.canon)+'\')" title="see citation records on GitHub"><code>'+
+      esc(b.canon)+'</code></span>'+h+ty+'</td>');
+    if(r.sat!=null){
+      var col = r.sat>=85?'var(--red)':r.sat>=70?'var(--amber)':'var(--green)';
+      H.push('<td class=sat><div class=satbar><i style="width:'+Math.max(3,Math.round(r.sat))+
+        '%;background:'+col+'"></i></div><span class=satnum>'+Math.round(r.sat)+'%</span></td>');
+    } else { H.push('<td class=sat><span class=satnum>&mdash;</span></td>'); }
+    vm.forEach(function(m){
+      var c=b.cells[m.id];
+      if(!c){ H.push('<td class=cell></td>'); return; }
+      H.push('<td class="cell f t'+c.tier+'" data-b="'+esc(b.canon)+'" data-m="'+m.id+
+        '" onmouseenter="showTip(event,this)" onmouseleave="hideTip()" onclick="pin(this)"></td>');
+    });
+    H.push('</tr>');
+  });
+  H.push('</tbody>');
+  if(rows.length===0){
+    H=['<tbody><tr><td class=yl style="padding:14px 10px;white-space:normal;color:var(--mut)">'+
+       'No benchmarks match. Try enabling <b>show single-citation</b> or re-adding companies.'+
+       '</td></tr></tbody>'];
+  }
+  t.innerHTML=H.join('');
+  var yl=t.querySelector('td.yl');
+  document.documentElement.style.setProperty('--gutL',(yl?yl.getBoundingClientRect().width:220)+'px');
+  document.getElementById('count').textContent =
+    rows.length+' benchmarks × '+vm.length+' models shown'+
+    (state.tail?'':' (single-citation benchmarks hidden)');
+}
+
+// model header tooltip text
+DATA.models.forEach(function(m){ m.model_title=function(){ return m.display+
+  (m.release_date?(' · '+m.release_date):' · date unknown')+' · '+m.company_display; }; });
+
+var pinned=null;
+function cellData(el){
+  var b=el.dataset.b, m=el.dataset.m;
+  var rec=DATA.benchmarks.find(function(x){return x.canon===b;});
+  return {b:b, c:rec.cells[m], mm:DATA.models.find(function(x){return x.id===m;})};
+}
+function tipHTML(d){
+  var s='<h4>'+esc(d.b)+' × '+esc(d.mm.display)+'</h4>';
+  d.c.docs.forEach(function(doc){
+    var lab=DATA.wc_label[doc.wc]||doc.wc||'cited';
+    var v=(doc.val!=null)?(' — '+esc(String(doc.val))+(doc.unit==='percent'?'%':(doc.unit&&doc.unit!=='other'?(' '+doc.unit):''))):'';
+    var ct=doc.container?(' <span class=cl>['+esc(doc.container)+']</span>'):'';
+    s+='<div class=r><span class=dt>'+esc(lab)+'</span>'+v+
+       (doc.dev?' <span class=g title="methodology deviation on record">⚙</span>':'')+ct+
+       '<br><a href="'+esc(doc.url)+'" target=_blank rel=noopener>source ↗</a>'+
+       (doc.cfg?(' <span class=cl>'+esc(doc.cfg)+'</span>'):'')+'</div>';
+  });
+  return s;
+}
+function showTip(e,el){ if(pinned) return; var tip=document.getElementById('tip');
+  tip.innerHTML=tipHTML(cellData(el)); tip.style.display='block'; place(e); }
+function place(e){ var tip=document.getElementById('tip');
+  var x=e.clientX+14, y=e.clientY+14; var r=tip.getBoundingClientRect();
+  if(x+r.width>innerWidth) x=e.clientX-r.width-14;
+  if(y+r.height>innerHeight) y=innerHeight-r.height-8;
+  tip.style.left=x+'px'; tip.style.top=y+'px'; }
+function hideTip(){ if(!pinned) document.getElementById('tip').style.display='none'; }
+function pin(el){
+  document.querySelectorAll('td.cell.pin').forEach(function(x){x.classList.remove('pin')});
+  if(pinned===el){ pinned=null; document.getElementById('tip').style.display='none'; return; }
+  pinned=el; el.classList.add('pin');
+  var tip=document.getElementById('tip'); tip.innerHTML=tipHTML(cellData(el));
+  tip.style.display='block'; var r=el.getBoundingClientRect();
+  tip.style.left=Math.min(r.right+8, innerWidth-370)+'px'; tip.style.top=(r.top)+'px';
+}
+document.addEventListener('click',function(e){
+  if(pinned && !e.target.classList.contains('cell')){ pinned.classList.remove('pin'); pinned=null;
+    document.getElementById('tip').style.display='none'; }
+},true);
+function openRec(canon){
+  window.open('https://github.com/search?q='+encodeURIComponent('repo:'+DATA.repo+' "'+canon+'"')+'&type=code','_blank');
+}
+function esc(s){ return String(s).replace(/[&<>"']/g,function(c){
+  return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+
+render();
+</script>
+</body></html>"""
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
-"""Reconciliation invariant for the coverage matrix (docs/coverage.html).
+"""Reconciliation invariant for the citation↔Harbor identity join (behind the heatmap's (H) marks).
+
+(The coverage-matrix page it originally guarded is retired; the JOIN it validates is still live —
+it decides which cited benchmarks are Harbor-compatible and get an (H) on the heatmap.)
 
 Fails (exit 1) if a cited benchmark is normalized-identical to a Harbor adapter/registry
-entry yet would NOT merge onto that row in build_dashboard._build_coverage. That is exactly
-the "AIME shows twice / 0 in all three" failure that shipped when a citations.jsonl edit
-briefly dropped the harbor_type classification: with no harbor_type, the citation->Harbor
-join matches nothing and every benchmark splits into a cite-only row and a harbor-only row.
+entry yet would NOT merge onto that identity. That is exactly the "AIME shows twice / 0 in all
+three" failure that shipped when a citations.jsonl edit briefly dropped the harbor_type
+classification: with no harbor_type, the citation->Harbor join matches nothing.
 
 A curated non-merge (harbor_type == "none": a reviewed name collision where the cited
 benchmark is genuinely NOT the same as the same-named Harbor entry) is legitimate and
 suppressed. Anything else aborts the build so the regenerate Action goes red and the
-last-good docs/coverage.html stays deployed instead of being overwritten with a split matrix.
+last-good docs/index.html stays deployed instead of shipping wrong (H) Harbor marks.
 
 Run standalone (`python scripts/check_reconciliation.py`) or as a CI gate before the
 regenerate Action's commit step. Reads only data/citations.jsonl + data/harbor_adapters.json.
@@ -24,7 +26,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 
 
 def norm(s):
-    # identical to build_dashboard._build_coverage.norm
+    # normalized identity: lowercase, alphanumerics only
     return "".join(ch for ch in (s or "").lower() if ch.isalnum())
 
 
@@ -39,7 +41,7 @@ def main():
     harbor_norm |= {norm(nm) for nm in ad_names}
     harbor_norm |= {norm(ad["registry_name"]) for ad in snap.get("adapters", []) if ad.get("registry_name")}
 
-    # aggregate the Harbor-linking fields per canonical, mirroring _build_coverage's `cite` dict
+    # aggregate the Harbor-linking fields per canonical
     agg = {}
     for r in rows:
         c = r.get("benchmark_canonical")
@@ -52,7 +54,7 @@ def main():
 
     unreconciled = []
     for c, d in agg.items():
-        # does this citation merge onto a Harbor row? (same predicate as _build_coverage)
+        # does this citation merge onto a Harbor identity?
         merged = False
         if d["htype"] in ("native", "fork", "adapter"):
             if (d["hname"] and norm(d["hname"]) in reg_norm) \
