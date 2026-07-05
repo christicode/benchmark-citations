@@ -4,8 +4,8 @@ adapters/), automatically. No hand-curated status: a benchmark is "on Harbor" if
 matches a live adapter or registry entry. New adapters are picked up on every run.
 
 Pipeline position (regenerate Action):
-    build_citations.py  ->  sync_harbor.py  ->  gen_aliases.py  ->  build_dashboard.py
-build_citations writes the citation graph; THIS script overwrites the harbor_* fields
+    build.py  ->  sync_harbor.py  ->  build_dashboard.py  ->  check_reconciliation.py
+build.py writes the citation graph; THIS script overwrites the harbor_* fields
 (on_harbor / harbor_status / harbor_type / harbor_name / harbor_adapter) from the snapshot,
 clears harbor-driven needs_review, and appends a run entry to data/changelog.jsonl.
 
@@ -25,6 +25,7 @@ import datetime
 import json
 import os
 import pathlib
+import subprocess
 import sys
 import urllib.request
 
@@ -124,16 +125,36 @@ def resolve(canonical, reg_by_norm, ad_by_norm):
     return False, "not_in_harbor", "none", None, None
 
 
+def committed_prev_status():
+    """Previous (status, on_harbor) per canonical from the LAST COMMITTED citations.jsonl
+    (git HEAD), so the change log records genuine Harbor flips - not the placeholder reset
+    that build.py writes on every run. Falls back to {} if git/HEAD is unavailable."""
+    prev = {}
+    try:
+        blob = subprocess.run(["git", "-C", str(ROOT), "show", "HEAD:data/citations.jsonl"],
+                              capture_output=True, text=True, timeout=30)
+        if blob.returncode != 0:
+            return {}
+        for line in blob.stdout.splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            r = json.loads(line)
+            c = r.get("benchmark_canonical")
+            if c and c not in prev:
+                prev[c] = (r.get("harbor_status"), bool(r.get("on_harbor")))
+    except Exception:
+        return {}
+    return prev
+
+
 def main():
     snap = load_snapshot()
     reg_by_norm, ad_by_norm = build_index(snap)
     rows = [json.loads(l) for l in open(CITES) if l.strip()]
 
-    prev = {}   # canonical -> previous (status, on_harbor) for the change log
-    for r in rows:
-        c = r.get("benchmark_canonical")
-        if c and c not in prev:
-            prev[c] = (r.get("harbor_status"), bool(r.get("on_harbor")))
+    # Compare against the committed state, not build.py's placeholder reset.
+    prev = committed_prev_status()
 
     changes = []
     for r in rows:
