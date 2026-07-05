@@ -4,7 +4,7 @@ adapters/), automatically. No hand-curated status: a benchmark is "on Harbor" if
 matches a live adapter or registry entry. New adapters are picked up on every run.
 
 Pipeline position (regenerate Action):
-    build.py  ->  sync_harbor.py  ->  build_dashboard.py  ->  check_reconciliation.py
+    build.py  ->  sync_harbor.py  ->  gen_models.py  ->  build_heatmap.py  ->  check_reconciliation.py
 build.py writes the citation graph; THIS script overwrites the harbor_* fields
 (on_harbor / harbor_status / harbor_type / harbor_name / harbor_adapter) from the snapshot,
 clears harbor-driven needs_review, and appends a run entry to data/changelog.jsonl.
