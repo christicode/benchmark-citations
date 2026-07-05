@@ -1,0 +1,28 @@
+# claude-opus-4-5__system_card
+doc: claude-opus-4-5__system_card
+mentions:
+  - raw: "SWE-bench Verified"
+  - raw: "Terminal-Bench"
+  - raw: "GPQA"
+  - raw: "AIME"
+  - raw: "ARC-AGI"
+  - raw: "MMLU"
+  - raw: "MMMU"
+  - raw: "BrowseComp"
+  - raw: "OSWorld"
+    value: 66.26
+    unit: "percent"
+    model_config: "Opus 4.5 (P@1; avg@5)"
+  - raw: "Vending-Bench"
+  - raw: "CharXiv"
+  - raw: "LAB-Bench"
+  - raw: "FigQA"
+  - raw: "ProtocolQA"
+  - raw: "SeqQA"
+  - raw: "Petri"
+  - raw: "SHADE"
+  - raw: "Cybench"
+  - raw: "CyberGym"
+  - raw: "WebArena"
+  - raw: "SimpleQA"
+  - raw: "SpreadSheetBench"

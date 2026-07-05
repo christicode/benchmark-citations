@@ -1,0 +1,250 @@
+# documents.yaml - one entry per source document (DATA, not code).
+# container: pdf | hf_readme | blog. default_weight_class applies to every mention
+# unless the mention overrides it (e.g. a solo headline chart -> blog_headliner).
+schema_version: 1
+documents:
+  - id: claude-fable-5-mythos-5__system_card
+    lab: anthropic
+    model: "Claude Fable 5 / Mythos 5"
+    container: pdf
+    default_weight_class: system_card
+    url: "https://www-cdn.anthropic.com/d00db56fa754a1b115b6dd7cb2e3c342ee809620.pdf"
+    pub_date: "2026-06-09"
+  - id: claude-opus-4-6__system_card
+    lab: anthropic
+    model: "Claude Opus 4.6"
+    container: pdf
+    default_weight_class: system_card
+    url: "https://www-cdn.anthropic.com/0dd865075ad3132672ee0ab40b05a53f14cf5288.pdf"
+    pub_date: "2026-02-05"
+  - id: claude-sonnet-5__system_card
+    lab: anthropic
+    model: "Claude Sonnet 5"
+    container: pdf
+    default_weight_class: system_card
+    url: "https://www-cdn.anthropic.com/480e0bb54327b9622282e9c39a83a4f490ed377e/Claude%20Sonnet%205%20System%20Card.pdf"
+    pub_date: "2026-06-30"
+  - id: deepseek-v3-2__system_card
+    lab: deepseek
+    model: "DeepSeek-V3.2"
+    container: pdf
+    default_weight_class: system_card
+    url: "https://arxiv.org/abs/2512.02556"
+    pub_date: "2025-12-01"
+  - id: gpt-5__system_card
+    lab: openai
+    model: "GPT-5"
+    container: pdf
+    default_weight_class: system_card
+    url: "https://cdn.openai.com/gpt-5-system-card.pdf"
+    pub_date: "2025-08-13"
+  - id: gpt-5-2__system_card
+    lab: openai
+    model: "GPT-5.2"
+    container: pdf
+    default_weight_class: system_card
+    url: "https://cdn.openai.com/pdf/3a4153c8-c748-4b71-8e31-aecbde944f8d/oai_5_2_system-card.pdf"
+    pub_date: "2025-12-11"
+  - id: muse-spark__system_card
+    lab: meta
+    model: "Muse Spark"
+    container: blog
+    default_weight_class: system_card
+    url: "https://ai.meta.com/static-resource/muse-spark-safety-and-preparedness-report/"
+    pub_date: "2026-04-08"
+  - id: grok-4-1__model_card
+    lab: xai
+    model: "Grok 4.1"
+    container: pdf
+    default_weight_class: model_card
+    url: "https://data.x.ai/2025-11-17-grok-4-1-model-card.pdf"
+    pub_date: "2025-11-17"
+  - id: gemini-3-pro__blog_headliner
+    lab: google_deepmind
+    model: "Gemini 3 Pro"
+    container: blog
+    default_weight_class: model_card
+    url: "https://blog.google/products-and-platforms/products/gemini/gemini-3/"
+    pub_date: "2025-11-18"
+  - id: claude-opus-4-7__system_card
+    lab: anthropic
+    model: "Claude Opus 4.7"
+    container: pdf
+    default_weight_class: system_card
+    url: "https://cdn.sanity.io/files/4zrzovbb/website/037f06850df7fbe871e206dad004c3db5fd50340.pdf"
+    pub_date: "2026-04-16"
+  - id: claude-mythos-preview__system_card
+    lab: anthropic
+    model: "Claude Mythos Preview"
+    container: pdf
+    default_weight_class: system_card
+    url: "https://www-cdn.anthropic.com/53566bf5440a10affd749724787c8913a2ae0841.pdf"
+    pub_date: "2026-04-07"
+  - id: claude-sonnet-4-6__system_card
+    lab: anthropic
+    model: "Claude Sonnet 4.6"
+    container: pdf
+    default_weight_class: system_card
+    url: "https://www-cdn.anthropic.com/78073f739564e986ff3e28522761a7a0b4484f84.pdf"
+    pub_date: "2026-02-17"
+  - id: claude-opus-4-5__system_card
+    lab: anthropic
+    model: "Claude Opus 4.5"
+    container: pdf
+    default_weight_class: system_card
+    url: "https://assets.anthropic.com/m/64823ba7485345a7/Claude-Opus-4-5-System-Card.pdf"
+    pub_date: "2025-11-24"
+  - id: claude-haiku-4-5__system_card
+    lab: anthropic
+    model: "Claude Haiku 4.5"
+    container: pdf
+    default_weight_class: system_card
+    url: "https://assets.anthropic.com/m/99128ddd009bdcb/original/Claude-Haiku-4-5-System-Card.pdf"
+    pub_date: null
+  - id: claude-sonnet-4-5__system_card
+    lab: anthropic
+    model: "Claude Sonnet 4.5"
+    container: pdf
+    default_weight_class: system_card
+    url: "https://assets.anthropic.com/m/12f214efcc2f457a/original/Claude-Sonnet-4-5-System-Card.pdf"
+    pub_date: "2025-10-10"
+  - id: claude-fable-5-mythos-5__blog_headliner
+    lab: anthropic
+    model: "Claude Fable 5 / Mythos 5"
+    container: blog
+    default_weight_class: model_card
+    url: "https://www.anthropic.com/news/claude-fable-5-mythos-5"
+    pub_date: "2026-06-09"
+  - id: gpt-5-5__blog_headliner
+    lab: openai
+    model: "GPT-5.5"
+    container: blog
+    default_weight_class: model_card
+    url: "https://openai.com/index/introducing-gpt-5-5/"
+    pub_date: "2026-04-23"
+  - id: gpt-5-4__blog_headliner
+    lab: openai
+    model: "GPT-5.4"
+    container: blog
+    default_weight_class: model_card
+    url: "https://openai.com/index/introducing-gpt-5-4/"
+    pub_date: "2026-03-05"
+  - id: gpt-5-6-sol__system_card
+    lab: openai
+    model: "GPT-5.6 Sol"
+    container: pdf
+    default_weight_class: system_card
+    url: "https://deploymentsafety.openai.com/gpt-5-6-preview/gpt-5-6-preview.pdf"
+    pub_date: "2026-06-26"
+  - id: gpt-5-6-sol__blog_headliner
+    lab: openai
+    model: "GPT-5.6 Sol"
+    container: blog
+    default_weight_class: model_card
+    url: "https://openai.com/index/previewing-gpt-5-6-sol/"
+    pub_date: "2026-06-26"
+  - id: gemini-3-5-pro__blog_headliner
+    lab: google_deepmind
+    model: "Gemini 3.5 Pro"
+    container: blog
+    default_weight_class: model_card
+    url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/"
+    pub_date: null
+  - id: gemini-3-1-pro__model_card
+    lab: google_deepmind
+    model: "Gemini 3.1 Pro"
+    container: blog
+    default_weight_class: model_card
+    url: "https://deepmind.google/models/model-cards/gemini-3-1-pro"
+    pub_date: "2026-02-19"
+  - id: gemini-3-5-flash__model_card
+    lab: google_deepmind
+    model: "Gemini 3.5 Flash"
+    container: blog
+    default_weight_class: model_card
+    url: "https://deepmind.google/models/model-cards/gemini-3-5-flash"
+    pub_date: "2026-05-19"
+  - id: deepseek-v4-pro__system_card
+    lab: deepseek
+    model: "DeepSeek-V4-Pro"
+    container: hf_readme
+    default_weight_class: system_card
+    url: "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
+    pub_date: null
+  - id: kimi-k2-6__model_card
+    lab: moonshot
+    model: "Kimi K2.6"
+    container: blog
+    default_weight_class: model_card
+    url: "https://www.kimi.com/blog/kimi-k2-6"
+    pub_date: "2026-04-20"
+  - id: kimi-k2-5__model_card
+    lab: moonshot
+    model: "Kimi K2.5"
+    container: blog
+    default_weight_class: model_card
+    url: "https://www.kimi.com/blog/kimi-k2-5"
+    pub_date: "2026-01-27"
+  - id: glm-4-7__model_card
+    lab: zai
+    model: "GLM-4.7"
+    container: hf_readme
+    default_weight_class: model_card
+    url: "https://huggingface.co/zai-org/GLM-4.7"
+    pub_date: "2025-12-22"
+  - id: glm-5__model_card
+    lab: zai
+    model: "GLM-5"
+    container: hf_readme
+    default_weight_class: model_card
+    url: "https://huggingface.co/zai-org/GLM-5"
+    pub_date: "2026-02-12"
+  - id: glm-5-1__model_card
+    lab: zai
+    model: "GLM-5.1"
+    container: hf_readme
+    default_weight_class: model_card
+    url: "https://huggingface.co/zai-org/GLM-5.1"
+    pub_date: "2026-04-07"
+  - id: gemini-3-flash__model_card
+    lab: google_deepmind
+    model: "Gemini 3 Flash"
+    container: blog
+    default_weight_class: model_card
+    url: "https://deepmind.google/models/model-cards/gemini-3-flash/"
+    pub_date: "2025-12-17"
+  - id: kimi-k2-thinking__model_card
+    lab: moonshot
+    model: "Kimi K2 Thinking"
+    container: blog
+    default_weight_class: model_card
+    url: "https://www.kimi.com/blog/kimi-k2-thinking"
+    pub_date: "2025-11-06"
+  - id: kimi-k2-7-code__model_card
+    lab: moonshot
+    model: "Kimi K2.7-Code"
+    container: blog
+    default_weight_class: model_card
+    url: "https://www.kimi.com/resources/kimi-k2-7-code"
+    pub_date: null
+  - id: glm-4-6__model_card
+    lab: zai
+    model: "GLM-4.6"
+    container: hf_readme
+    default_weight_class: model_card
+    url: "https://huggingface.co/zai-org/GLM-4.6"
+    pub_date: "2025-09-30"
+  - id: mistral-large-3__model_card
+    lab: mistral
+    model: "Mistral Large 3"
+    container: hf_readme
+    default_weight_class: model_card
+    url: "https://huggingface.co/mistralai/Mistral-Large-3-675B-Instruct-2512"
+    pub_date: "2025-12-02"
+  - id: qwen3-max__blog_headliner
+    lab: qwen
+    model: "Qwen3-Max"
+    container: hf_readme
+    default_weight_class: model_card
+    url: "https://huggingface.co/Qwen/Qwen3-Max"
+    pub_date: null

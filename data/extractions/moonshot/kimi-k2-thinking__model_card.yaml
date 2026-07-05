@@ -1,0 +1,5 @@
+# kimi-k2-thinking__model_card
+doc: kimi-k2-thinking__model_card
+unreadable:
+  reason: "Kimi K2 Thinking blog is JS-rendered; benchmark scores not in served HTML (curl) - needs headless render/human extraction"
+  review_issue: 9

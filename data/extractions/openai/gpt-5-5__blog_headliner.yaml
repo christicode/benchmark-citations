@@ -1,0 +1,85 @@
+# gpt-5-5__blog_headliner
+doc: gpt-5-5__blog_headliner
+mentions:
+  - raw: "Terminal-Bench"
+    weight_class: blog_headliner
+    value: 82.7
+    unit: "percent"
+    model_config: "GPT-5.5 (TB 2.0)"
+  - raw: "SWE-bench Pro"
+    weight_class: blog_headliner
+    value: 58.6
+    unit: "percent"
+    model_config: "GPT-5.5 (Public)"
+    methodology:
+      - "Public split; Anthropic notes evidence of memorization on this eval (claude-opus-4-7 news)"
+  - raw: "GDPval (wins or ties)"
+    weight_class: blog_headliner
+  - raw: "OSWorld-Verified"
+    weight_class: blog_headliner
+    value: 78.7
+    unit: "percent"
+    model_config: "GPT-5.5"
+  - raw: "Toolathlon"
+    value: 55.6
+    unit: "percent"
+    model_config: "GPT-5.5"
+  - raw: "BrowseComp"
+    value: 84.4
+    unit: "percent"
+    model_config: "GPT-5.5"
+  - raw: "CyberGym"
+    value: 81.8
+    unit: "percent"
+    model_config: "GPT-5.5"
+  - raw: "Finance Agent"
+    value: 60.0
+    unit: "percent"
+    model_config: "GPT-5.5 (FinanceAgent v1.1)"
+  - raw: "OfficeQA"
+    value: 54.1
+    unit: "percent"
+    model_config: "GPT-5.5 (OfficeQA Pro)"
+  - raw: "MMMU-Pro"
+    value: 81.2
+    unit: "percent"
+    model_config: "GPT-5.5 (no tools)"
+  - raw: "MCP Atlas"
+    value: 75.3
+    unit: "percent"
+    model_config: "GPT-5.5 (Scale Apr-2026)"
+  - raw: "tau2-bench"
+    weight_class: blog_headliner
+    value: 98.0
+    unit: "percent"
+    model_config: "GPT-5.5 Telecom (original prompts)"
+  - raw: "GPQA Diamond"
+    value: 93.6
+    unit: "percent"
+    model_config: "GPT-5.5"
+  - raw: "HLE"
+    value: 41.4
+    unit: "percent"
+    model_config: "GPT-5.5 (no tools)"
+  - raw: "ARC-AGI"
+    value: 85.0
+    unit: "percent"
+    model_config: "GPT-5.5 (Verified)"
+  - raw: "ARC-AGI-1"
+    value: 95.0
+    unit: "percent"
+    model_config: "GPT-5.5 (Verified)"
+  - raw: "Graphwalks"
+  - raw: "MRCR"
+  - raw: "Expert-SWE"
+    weight_class: blog_headliner
+  - raw: "FrontierMath"
+  - raw: "GeneBench"
+    weight_class: blog_headliner
+  - raw: "BixBench"
+    weight_class: blog_headliner
+  - raw: "SciCode"
+  - raw: "AA-LCR"
+  - raw: "AA-Omniscience"
+  - raw: "CritPt"
+  - raw: "IFBench"

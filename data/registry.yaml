@@ -1,0 +1,565 @@
+# registry.yaml - SINGLE source of truth for benchmark IDENTITY + classification.
+# raw -> canonical is deterministic exact/normalized alias lookup (never fuzzy).
+# type = agentic|chat; domain = subject. Harbor status is NOT here - it is derived
+# live by sync_harbor.py. 'notes'/'collision' are human documentation only.
+schema_version: 1
+benchmarks:
+  - canonical: aa-lcr
+    type: chat
+    domain: knowledge
+    aliases: ["AA-LCR"]
+    notes: "Artificial Analysis Long-Context Reasoning. Merged adapter (adapters/aa-lcr), not yet in registry.json."
+  - canonical: aa-omniscience
+    type: chat
+    domain: knowledge
+    aliases: ["AA-Omniscience"]
+  - canonical: abstentionbench
+    type: chat
+    domain: knowledge
+    aliases: ["AbstentionBench"]
+  - canonical: agentharm
+    type: agentic
+    domain: safety
+    aliases: ["AgentHarm"]
+  - canonical: aider-polyglot
+    type: agentic
+    domain: coding
+    aliases: ["Aider", "Aider Polyglot", "aider-polyglot"]
+    notes: "TB-lineage (Terminal-Bench adapter -> Harbor adapter)."
+  - canonical: aime
+    type: chat
+    domain: math
+    aliases: ["AIME", "AIME 2025", "AIME 2026", "AIME 25"]
+    collision: "Harbor aime = 2024 + 2025-I + 2025-II. Cited 'AIME 2026' is NOT covered."
+  - canonical: apex-agents
+    type: agentic
+    domain: professional
+    aliases: ["APEX-Agents"]
+    notes: "!= MathArena 'APEX' (matharena-apex) — DO NOT merge (issue #8)."
+  - canonical: arc-agi-1
+    type: chat
+    domain: knowledge
+    aliases: ["ARC AGI 1", "ARC-AGI-1"]
+    notes: "Only arc_agi_2 is in Harbor; ARC-AGI-1 is a different, earlier benchmark."
+  - canonical: arc-agi-2
+    type: chat
+    domain: knowledge
+    aliases: ["ARC AGI 2", "ARC-AGI", "ARC-AGI-2", "ARC-AGI-2 (Verified)"]
+  - canonical: arxivmath
+    type: chat
+    domain: math
+    aliases: ["ArxivMath"]
+  - canonical: automationbench
+    type: agentic
+    domain: computer-use
+    aliases: ["AutomationBench"]
+  - canonical: babyvision
+    type: chat
+    domain: multimodal
+    aliases: ["BabyVision"]
+  - canonical: bbq
+    type: chat
+    domain: safety
+    aliases: ["BBQ", "Bias Benchmark for Question Answering"]
+  - canonical: benchcad
+    type: agentic
+    domain: professional
+    aliases: ["BenchCAD"]
+  - canonical: bfcl
+    type: agentic
+    domain: computer-use
+    aliases: ["BFCL", "BFCL V4", "BFCL-V4"]
+    collision: "V4 vs Harbor bfcl/bfcl_parity version unconfirmed."
+  - canonical: biglaw-bench
+    type: agentic
+    domain: professional
+    aliases: ["BigLaw Bench"]
+    notes: "Harvey legal task eval; != Harbor lawbench (Chinese legal)."
+  - canonical: biolp-bench
+    type: chat
+    domain: science
+    aliases: ["BioLP"]
+  - canonical: biomysterybench
+    type: chat
+    domain: science
+    aliases: ["BioMysteryBench"]
+  - canonical: biopipelinebench
+    type: chat
+    domain: science
+    aliases: ["BioPipelineBench"]
+    notes: "Anthropic bio capability eval; != bixbench."
+  - canonical: biotier
+    type: chat
+    domain: science
+    aliases: ["BioTIER"]
+  - canonical: bixbench
+    type: agentic
+    domain: science
+    aliases: ["BixBench"]
+    notes: "Merged Harbor adapter + registry entry (bixbench@1.5). Bioinformatics agent eval."
+  - canonical: blueprint-bench-2
+    type: chat
+    domain: multimodal
+    aliases: ["Blueprint-Bench 2"]
+  - canonical: browsecomp
+    type: agentic
+    domain: knowledge
+    aliases: ["BrowseComp", "BrowseComp (Agent Swarm)", "BrowseComp-Zh"]
+    notes: "BrowseComp-Zh (Chinese subset) folded in as an alias per issue #8."
+  - canonical: chartmuseum
+    type: chat
+    domain: multimodal
+    aliases: ["ChartMuseum"]
+  - canonical: chartqapro
+    type: chat
+    domain: multimodal
+    aliases: ["ChartQAPro"]
+  - canonical: charxiv
+    type: chat
+    domain: multimodal
+    aliases: ["CharXiv"]
+  - canonical: chinese-simpleqa
+    type: chat
+    domain: knowledge
+    aliases: ["Chinese-SimpleQA"]
+    notes: "!= simpleqa (Chinese factuality variant)."
+  - canonical: cloning-scenarios
+    type: chat
+    domain: science
+    aliases: ["Cloning", "CloningScenarios"]
+  - canonical: codeforces
+    type: chat
+    domain: coding
+    aliases: ["Codeforces"]
+  - canonical: corpusqa
+    type: chat
+    domain: knowledge
+    aliases: ["CorpusQA"]
+  - canonical: creative-writing-v3
+    type: chat
+    domain: knowledge
+    aliases: ["Creative Writing"]
+  - canonical: critpt
+    type: chat
+    domain: science
+    aliases: ["CritPt"]
+  - canonical: cursorbench
+    type: agentic
+    domain: coding
+    aliases: ["CursorBench"]
+    vendor_proprietary: true
+  - canonical: cve-bench
+    type: agentic
+    domain: cyber
+    aliases: ["CVE-Bench"]
+  - canonical: cybench
+    type: agentic
+    domain: cyber
+    aliases: ["CyBench", "Cybench"]
+    collision: "Auto-matcher hit legacy-bench in error. Treat as not_in_harbor. Also != cybergym (which IS a merged adapter)."
+  - canonical: cybergym
+    type: agentic
+    domain: cyber
+    aliases: ["CyberGym"]
+    notes: "Harbor ADAPTER merged + parity-validated (adapters/cybergym, 5-run parity) but NOT yet in registry.json. Distinct from cybench (false-positive legacy-bench collision)."
+  - canonical: cybersec-eval
+    type: chat
+    domain: cyber
+    aliases: ["CyberSecEval"]
+  - canonical: cyscenariobench
+    type: agentic
+    domain: cyber
+    aliases: ["CyScenarioBench"]
+  - canonical: deceptionbench
+    type: chat
+    domain: safety
+    aliases: ["DeceptionBench"]
+  - canonical: deepsearchqa
+    type: agentic
+    domain: knowledge
+    aliases: ["DeepSearchQA"]
+  - canonical: draco
+    type: agentic
+    domain: knowledge
+    aliases: ["DRACO"]
+  - canonical: expert-swe
+    type: agentic
+    domain: coding
+    aliases: ["Expert-SWE"]
+    notes: "!= swebench-verified / swebenchpro etc."
+  - canonical: exploitbench
+    type: agentic
+    domain: cyber
+    aliases: ["ExploitBench"]
+  - canonical: exploitgym
+    type: agentic
+    domain: cyber
+    aliases: ["ExploitGym"]
+    notes: "Cyber offense gym; distinct from Harbor cybergym adapter."
+  - canonical: figqa
+    type: chat
+    domain: multimodal
+    aliases: ["FigQA"]
+  - canonical: finance-agent
+    type: agentic
+    domain: professional
+    aliases: ["Finance Agent"]
+  - canonical: frontier-science-research
+    type: agentic
+    domain: science
+    aliases: ["Frontier Science Research"]
+  - canonical: frontier-swe
+    type: agentic
+    domain: coding
+    aliases: ["Frontier SWE"]
+  - canonical: frontierbench
+    type: agentic
+    domain: coding
+    aliases: ["FrontierBench"]
+    notes: "!= FrontierCode (frontiercode) — Anthropic Fable-blog partner eval."
+  - canonical: frontiercode
+    type: agentic
+    domain: coding
+    aliases: ["Cognition FrontierCode", "FrontierCode"]
+    vendor_proprietary: true
+  - canonical: frontiermath
+    type: chat
+    domain: math
+    aliases: ["FrontierMath"]
+    notes: "Epoch AI research-math. No Harbor adapter."
+  - canonical: gdp-pdf
+    type: chat
+    domain: multimodal
+    aliases: ["GDP.pdf"]
+  - canonical: gdpval-aa
+    type: agentic
+    domain: professional
+    aliases: ["GDPval AA", "GDPval-AA", "GDPval-AA v2"]
+    notes: "Distinct from OpenAI's GDPval gold (gdpval-gold). v1 vs v2 versions."
+  - canonical: gdpval-gold
+    type: agentic
+    domain: professional
+    aliases: ["GDPval (gold)", "GDPval (wins or ties)"]
+    notes: "OpenAI GDPval gold win-rate; DISTINCT from gdpval-aa (Artificial Analysis). No Harbor adapter."
+  - canonical: genebench
+    type: agentic
+    domain: science
+    aliases: ["GeneBench"]
+    vendor_proprietary: true
+    notes: "OpenAI comp-bio agent eval; distinct from the harder GeneBench-Pro. No Harbor adapter."
+  - canonical: genebench-pro
+    type: agentic
+    domain: knowledge
+    aliases: ["GeneBench Pro", "GeneBench-Pro"]
+    vendor_proprietary: true
+    notes: "129 synthetic, deterministically-graded comp-bio agent tasks. GPT-5.6 Sol 28.7% (highest reasoning) / 31.5% (Pro). Expected saturation ~EOY2026."
+  - canonical: gpqa-diamond
+    type: chat
+    domain: science
+    aliases: ["GPQA", "GPQA Diamond", "GPQA diamond", "GPQA-Diamond"]
+  - canonical: graphwalks
+    type: chat
+    domain: knowledge
+    aliases: ["GraphWalks", "Graphwalks"]
+  - canonical: harmbench
+    type: chat
+    domain: safety
+    aliases: ["Harmbench"]
+  - canonical: healthadminbench
+    type: chat
+    domain: health
+    aliases: ["HealthAdminBench"]
+  - canonical: healthbench
+    type: chat
+    domain: health
+    aliases: ["HealthBench", "HealthBench Consensus", "HealthBench Hard", "HealthBench Professional"]
+  - canonical: hmmt
+    type: chat
+    domain: math
+    aliases: ["HMMT"]
+  - canonical: humanitys-last-exam
+    type: chat
+    domain: knowledge
+    aliases: ["HLE", "Humanity's Last Exam", "Humanity’s Last Exam"]
+    notes: "Harbor ADAPTER merged + parity-validated (adapters/hle) but NOT yet in registry.json (registry-only check mislabeled it not_in_harbor). with-tools vs no-tools split; grader-model restatements common (e.g. Sonnet 4.6 HLE restated 34.6->46.8)."
+  - canonical: ifbench
+    type: chat
+    domain: knowledge
+    aliases: ["IFBench"]
+    notes: "Instruction-following eval."
+  - canonical: iheval
+    type: chat
+    domain: knowledge
+    aliases: ["IHEval"]
+  - canonical: imoanswerbench
+    type: chat
+    domain: math
+    aliases: ["IMO-AnswerBench", "IMOAnswerBench"]
+  - canonical: impossiblebench
+    type: agentic
+    domain: safety
+    aliases: ["ImpossibleBench"]
+  - canonical: lab-bench
+    type: chat
+    domain: science
+    aliases: ["LAB-Bench", "LAB-Bench FigQA", "LAB-Bench: ProtocolQA", "LAB-Bench: SeqQA"]
+    collision: "Cited protocolqa/seqqa/cloning-scenarios may be LAB-Bench subtasks — verify Harbor labbench subtask coverage."
+  - canonical: legal-agent-benchmark
+    type: agentic
+    domain: professional
+    aliases: ["Legal Agent Benchmark"]
+  - canonical: livecodebench
+    type: chat
+    domain: coding
+    aliases: ["LiveCodeBench", "LiveCodeBench Pro"]
+    collision: "Base livecodebench (v6) is in Harbor. 'LiveCodeBench Pro' is a distinct harder benchmark — NOT this. Confirm split."
+  - canonical: longvideobench
+    type: chat
+    domain: multimodal
+    aliases: ["LongVideoBench"]
+  - canonical: makemesay
+    type: agentic
+    domain: safety
+    aliases: ["MakeMeSay"]
+  - canonical: mask
+    type: chat
+    domain: safety
+    aliases: ["MASK"]
+  - canonical: matharena-apex
+    type: chat
+    domain: math
+    aliases: ["APEX", "Apex reasoning", "MathArena", "MathArena Apex"]
+    notes: "NB: != APEX-Agents (apex-agents)."
+  - canonical: mathvision
+    type: chat
+    domain: multimodal
+    aliases: ["MathVision"]
+  - canonical: mcp-atlas
+    type: agentic
+    domain: computer-use
+    aliases: ["MCP Atlas", "MCP-Atlas"]
+  - canonical: mcp-mark-verified
+    type: agentic
+    domain: knowledge
+    aliases: ["MCP Mark Verified"]
+  - canonical: mcpmark
+    type: agentic
+    domain: computer-use
+    aliases: ["MCPMark"]
+    notes: "MCP tool-use eval; keep distinct from curated mcp-mark-verified until identity confirmed."
+  - canonical: minimal-linuxbench
+    type: agentic
+    domain: coding
+    aliases: ["Minimal-LinuxBench"]
+  - canonical: mle-bench
+    type: agentic
+    domain: coding
+    aliases: ["MLE-Bench"]
+    notes: "OpenAI ML-engineering agent eval; != Harbor ml-dev-bench / mlgym-bench adapters."
+  - canonical: mmlu
+    type: chat
+    domain: knowledge
+    aliases: ["MMLU"]
+  - canonical: mmlu-pro
+    type: chat
+    domain: knowledge
+    aliases: ["MMLU-Pro"]
+  - canonical: mmmlu
+    type: chat
+    domain: knowledge
+    aliases: ["MMMLU"]
+  - canonical: mmmu
+    type: chat
+    domain: multimodal
+    aliases: ["MMMU"]
+  - canonical: mmmu-pro
+    type: chat
+    domain: multimodal
+    aliases: ["MMMU Pro", "MMMU-Pro"]
+    notes: "NB: Harbor mmmlu (Multilingual MMLU) is a DIFFERENT benchmark; mmmu/mmmu-pro/mmlu/mmlu-pro/video-mmmu are NOT in Harbor."
+  - canonical: mrcr
+    type: chat
+    domain: knowledge
+    aliases: ["MRCR"]
+  - canonical: officeqa
+    type: agentic
+    domain: professional
+    aliases: ["OfficeQA"]
+  - canonical: ojbench
+    type: chat
+    domain: coding
+    aliases: ["OJBench"]
+    notes: "Olympiad code-judge; != Harbor code-contests / usaco."
+  - canonical: omnidocbench
+    type: chat
+    domain: multimodal
+    aliases: ["OmniDocBench"]
+  - canonical: online-mind2web
+    type: agentic
+    domain: computer-use
+    aliases: ["Online-Mind2Web"]
+    notes: "Web-agent eval; != Harbor osworld / theagentcompany."
+  - canonical: or-bench
+    type: chat
+    domain: safety
+    aliases: ["OR-Bench"]
+  - canonical: osworld
+    type: agentic
+    domain: computer-use
+    aliases: ["OSWorld", "OSWorld-Verified"]
+    notes: "RESOLVED: Harbor adapters/osworld targets the OSWorld-Verified no-Google-Drive 361-task split (full parity run merged); adapter NOT yet in registry.json."
+  - canonical: paperbench
+    type: agentic
+    domain: science
+    aliases: ["PaperBench"]
+  - canonical: petri
+    type: agentic
+    domain: safety
+    aliases: ["Petri"]
+  - canonical: programbench
+    type: agentic
+    domain: coding
+    aliases: ["ProgramBench"]
+  - canonical: propensitybench
+    type: chat
+    domain: safety
+    aliases: ["PropensityBench"]
+  - canonical: proteingym
+    type: chat
+    domain: science
+    aliases: ["ProteinGym"]
+  - canonical: protocolqa
+    type: chat
+    domain: science
+    aliases: ["ProtocolQA"]
+  - canonical: real-world-finance
+    type: agentic
+    domain: professional
+    aliases: ["Real-World Finance"]
+  - canonical: riemannbench
+    type: chat
+    domain: math
+    aliases: ["RiemannBench"]
+  - canonical: scicode
+    type: chat
+    domain: science
+    aliases: ["SciCode"]
+    notes: "Merged Harbor adapter (adapters/scicode), not yet in registry.json. Cited by OpenAI GPT-5.5 (headliner), GDM Gemini 3.1 Pro, Moonshot K2.6."
+  - canonical: screenspot-pro
+    type: agentic
+    domain: computer-use
+    aliases: ["ScreenSpot-Pro"]
+  - canonical: seqqa
+    type: chat
+    domain: science
+    aliases: ["SeqQA"]
+  - canonical: shade-arena
+    type: agentic
+    domain: safety
+    aliases: ["SHADE"]
+  - canonical: simpleqa
+    type: chat
+    domain: knowledge
+    aliases: ["SimpleQA", "SimpleQA Verified"]
+    collision: "Harbor holds base OpenAI SimpleQA (4326). 'SimpleQA Verified' (Google 1k) is a DIFFERENT benchmark — confirm."
+  - canonical: singlecellbench
+    type: chat
+    domain: science
+    aliases: ["SingleCellBench"]
+  - canonical: spatialbench
+    type: chat
+    domain: science
+    aliases: ["SpatialBench"]
+  - canonical: spreadsheetbench
+    type: agentic
+    domain: coding
+    aliases: ["SpreadSheetBench", "SpreadSheetBench-v1"]
+    notes: "RESOLVED: cited 'SpreadSheetBench' == Harbor spreadsheetbench-verified (verified_400 split + 11 correctness fixes). Same benchmark."
+  - canonical: strongreject
+    type: chat
+    domain: safety
+    aliases: ["StrongReject"]
+  - canonical: supergpqa
+    type: chat
+    domain: knowledge
+    aliases: ["SuperGPQA"]
+    notes: "!= gpqa-diamond (different, larger graduate QA)."
+  - canonical: swe-bench-multilingual
+    type: agentic
+    domain: coding
+    aliases: ["SWE-Multilingual", "SWE-bench Multilingual"]
+  - canonical: swe-bench-multimodal
+    type: agentic
+    domain: coding
+    aliases: ["SWE-bench Multimodal"]
+  - canonical: swe-bench-pro
+    type: agentic
+    domain: coding
+    aliases: ["SWE-Bench Pro", "SWE-Pro", "SWE-bench Pro"]
+  - canonical: swe-bench-verified
+    type: agentic
+    domain: coding
+    aliases: ["SWE-Bench", "SWE-Bench Verified", "SWE-bench Verified", "SWE-bench verified", "SWEbench Verified"]
+    notes: "Anthropic: bash + string-replace file edit scaffold. OpenAI GPT-5: n=500. Not cross-lab comparable without scaffold/n."
+  - canonical: tau2-bench
+    type: agentic
+    domain: computer-use
+    aliases: ["Tau2-Bench", "tau2", "tau2-bench", "tau2-bench telecom", "τ2-bench", "τ²-Bench"]
+    notes: "NB: Harbor has adapters/tau3-bench (tau3), which is a DIFFERENT version."
+  - canonical: terminal-bench
+    type: agentic
+    domain: coding
+    aliases: ["Terminal Bench", "Terminal Bench 2.0-Terminus", "Terminal-Bench", "Terminal-Bench 2.0", "Terminal-Bench 2.1"]
+    collision: "NATIVE: Harbor is TB2.0's official harness. registry holds terminal-bench@2.0 ONLY; cited 'Terminal-Bench 2.1' is a DIFFERENT version. Harness materially changes score."
+  - canonical: toolathlon
+    type: agentic
+    domain: computer-use
+    aliases: ["Toolathlon"]
+  - canonical: troubleshootingbench
+    type: chat
+    domain: science
+    aliases: ["TroubleshootingBench"]
+  - canonical: usamo-2026
+    type: chat
+    domain: math
+    aliases: ["USAMO", "USAMO 2026"]
+  - canonical: vending-bench-2
+    type: agentic
+    domain: computer-use
+    aliases: ["Vending Bench 2", "Vending-Bench", "Vending-Bench 2"]
+    notes: "Andon Labs; long-horizon business sim."
+  - canonical: vibench
+    type: agentic
+    domain: coding
+    aliases: ["ViBench"]
+    vendor_proprietary: true
+  - canonical: video-mmmu
+    type: chat
+    domain: multimodal
+    aliases: ["Video-MMMU"]
+  - canonical: webarena
+    type: agentic
+    domain: computer-use
+    aliases: ["WebArena", "WebArena-Verified"]
+  - canonical: webdev-arena
+    type: agentic
+    domain: coding
+    aliases: ["WebDev Arena"]
+    notes: "Web-development arena eval cited on the Gemini 3 blog. No Harbor adapter."
+  - canonical: widesearch
+    type: agentic
+    domain: knowledge
+    aliases: ["WideSearch"]
+    notes: "Merged adapter (adapters/widesearch), not yet in registry.json. Cited by Moonshot K2.6."
+  - canonical: wmdp
+    type: chat
+    domain: safety
+    aliases: ["WMDP", "WMDP-Bio", "WMDP-Chem"]
+  - canonical: worldvqa
+    type: chat
+    domain: multimodal
+    aliases: ["WorldVQA"]
+  - canonical: zerobench
+    type: chat
+    domain: multimodal
+    aliases: ["ZeroBench"]

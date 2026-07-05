@@ -1,0 +1,21 @@
+# gpt-5-6-sol__system_card
+doc: gpt-5-6-sol__system_card
+mentions:
+  - raw: "HealthBench"
+    value: 60.5
+    unit: "percent"
+    model_config: "GPT-5.6 Sol - HealthBench Professional, length-adjusted"
+    methodology:
+      - "length-adjusted; also HealthBench 57.0 / Hard 33.1 / Consensus 95.5 (GPT-5.6 Sol)"
+  - raw: "CVE-Bench"
+  - raw: "ProtocolQA"
+  - raw: "TroubleshootingBench"
+  - raw: "GPQA"
+  - raw: "MMLU-Pro"
+  - raw: "HLE"
+  - raw: "BFCL"
+  - raw: "SWE-bench Verified"
+  - raw: "MLE-Bench"
+  - raw: "CyberGym"
+  - raw: "CyScenarioBench"
+  - raw: "ExploitBench"

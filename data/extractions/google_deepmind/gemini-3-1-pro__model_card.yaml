@@ -1,0 +1,63 @@
+# gemini-3-1-pro__model_card
+doc: gemini-3-1-pro__model_card
+mentions:
+  - raw: "HLE"
+    value: 44.4
+    unit: "percent"
+    model_config: "Gemini 3.1 Pro (no tools; 51.4 Search+Code)"
+  - raw: "ARC-AGI-2"
+    value: 77.1
+    unit: "percent"
+    model_config: "Gemini 3.1 Pro (ARC Prize Verified)"
+  - raw: "GPQA Diamond"
+    value: 94.3
+    unit: "percent"
+    model_config: "Gemini 3.1 Pro (no tools)"
+  - raw: "Terminal-Bench"
+    value: 68.5
+    unit: "percent"
+    model_config: "Gemini 3.1 Pro (TB 2.0, Terminus-2)"
+    methodology:
+      - "Terminus-2 harness; GPT-5.2 62.2 / GPT-5.3-Codex 77.3 on best self-reported (Codex) harness"
+  - raw: "SWE-bench Verified"
+    value: 80.6
+    unit: "percent"
+    model_config: "Gemini 3.1 Pro (single attempt)"
+  - raw: "SWE-bench Pro"
+    value: 54.2
+    unit: "percent"
+    model_config: "Gemini 3.1 Pro (Public)"
+  - raw: "LiveCodeBench"
+    value: 2887
+    unit: "elo"
+    model_config: "Gemini 3.1 Pro (LiveCodeBench Pro)"
+  - raw: "SciCode"
+  - raw: "APEX-Agents"
+  - raw: "GDPval-AA"
+    value: 1317
+    unit: "elo"
+    model_config: "Gemini 3.1 Pro"
+  - raw: "tau2-bench"
+    value: 99.3
+    unit: "percent"
+    model_config: "Gemini 3.1 Pro Telecom (90.8 Retail)"
+  - raw: "MCP Atlas"
+    value: 69.2
+    unit: "percent"
+    model_config: "Gemini 3.1 Pro"
+  - raw: "BrowseComp"
+    value: 85.9
+    unit: "percent"
+    model_config: "Gemini 3.1 Pro"
+  - raw: "MMMU-Pro"
+    value: 80.5
+    unit: "percent"
+    model_config: "Gemini 3.1 Pro (no tools)"
+  - raw: "MMMLU"
+    value: 92.6
+    unit: "percent"
+    model_config: "Gemini 3.1 Pro"
+  - raw: "MRCR"
+    value: 84.9
+    unit: "percent"
+    model_config: "Gemini 3.1 Pro (v2 8-needle 128k avg)"

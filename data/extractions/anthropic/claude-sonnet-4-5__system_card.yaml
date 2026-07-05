@@ -1,0 +1,11 @@
+# claude-sonnet-4-5__system_card
+doc: claude-sonnet-4-5__system_card
+mentions:
+  - raw: "SWE-bench Verified"
+  - raw: "Cybench"
+  - raw: "CyberGym"
+  - raw: "LAB-Bench"
+  - raw: "ProtocolQA"
+  - raw: "SeqQA"
+  - raw: "FigQA"
+  - raw: "SHADE"

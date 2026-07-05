@@ -1,0 +1,9 @@
+# claude-haiku-4-5__system_card
+doc: claude-haiku-4-5__system_card
+mentions:
+  - raw: "SWE-bench Verified"
+  - raw: "Cybench"
+  - raw: "LAB-Bench"
+  - raw: "ProtocolQA"
+  - raw: "Petri"
+  - raw: "SHADE"

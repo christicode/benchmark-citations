@@ -1,0 +1,39 @@
+# glm-5__model_card
+doc: glm-5__model_card
+mentions:
+  - raw: "HLE"
+    value: 30.5
+    unit: "percent"
+    model_config: "GLM-5 (text-only; 50.4 w/ tools)"
+  - raw: "AIME"
+    value: 92.7
+    unit: "percent"
+    model_config: "GLM-5 (AIME 2026 I)"
+  - raw: "GPQA"
+    value: 86.0
+    unit: "percent"
+    model_config: "GLM-5"
+  - raw: "SWE-bench Verified"
+    value: 77.8
+    unit: "percent"
+    model_config: "GLM-5 (OpenHands)"
+  - raw: "SWE-bench Multilingual"
+    value: 73.3
+    unit: "percent"
+    model_config: "GLM-5"
+  - raw: "Terminal-Bench"
+    value: 56.2
+    unit: "percent"
+    model_config: "GLM-5 (TB 2.0, Terminus-2; 60.7 verified)"
+    methodology:
+      - "Terminus 2 framework, 128K ctx; also 61.1 Claude Code 2.1.14; verified TB2.0 variant fixes ambiguous instructions"
+  - raw: "CyberGym"
+    value: 43.2
+    unit: "percent"
+    model_config: "GLM-5 (Claude Code 2.1.18)"
+  - raw: "BrowseComp"
+    value: 62.0
+    unit: "percent"
+    model_config: "GLM-5 (75.9 w/ context mgmt)"
+  - raw: "HMMT"
+  - raw: "BrowseComp-Zh"

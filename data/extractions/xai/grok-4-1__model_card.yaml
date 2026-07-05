@@ -1,0 +1,12 @@
+# grok-4-1__model_card
+doc: grok-4-1__model_card
+mentions:
+  - raw: "BioLP"
+  - raw: "ProtocolQA"
+  - raw: "FigQA"
+  - raw: "CloningScenarios"
+  - raw: "Cybench"
+  - raw: "WMDP"
+  - raw: "AgentHarm"
+  - raw: "MASK"
+  - raw: "MakeMeSay"

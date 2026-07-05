@@ -1,0 +1,11 @@
+# gpt-5-2__system_card
+doc: gpt-5-2__system_card
+mentions:
+  - raw: "CVE-Bench"
+  - raw: "CharXiv"
+  - raw: "HealthBench"
+  - raw: "MMLU"
+  - raw: "PaperBench"
+  - raw: "ProtocolQA"
+  - raw: "StrongReject"
+  - raw: "TroubleshootingBench"

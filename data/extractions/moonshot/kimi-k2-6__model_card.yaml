@@ -1,0 +1,73 @@
+# kimi-k2-6__model_card
+doc: kimi-k2-6__model_card
+mentions:
+  - raw: "SWE-bench Verified"
+    value: 80.2
+    unit: "percent"
+    model_config: "K2.6 thinking-high"
+  - raw: "SWE-bench Multilingual"
+    value: 76.7
+    unit: "percent"
+    model_config: "K2.6 thinking-high"
+  - raw: "SWE-bench Pro"
+    value: 58.6
+    unit: "percent"
+    model_config: "K2.6 thinking-high"
+  - raw: "Terminal-Bench"
+    value: 66.7
+    unit: "percent"
+    model_config: "K2.6 (TB 2.0, Terminus-2)"
+    methodology:
+      - "first data column = K2.6 (thinking high); Terminus-2 harness"
+  - raw: "GPQA"
+    value: 90.5
+    unit: "percent"
+    model_config: "K2.6 thinking-high"
+  - raw: "AIME"
+    value: 96.4
+    unit: "percent"
+    model_config: "K2.6 (AIME 2026)"
+  - raw: "HMMT"
+    value: 92.7
+    unit: "percent"
+    model_config: "K2.6 (2026 Feb)"
+  - raw: "HLE"
+    value: 34.7
+    unit: "percent"
+    model_config: "K2.6 (HLE-Full)"
+  - raw: "BrowseComp"
+    value: 83.2
+    unit: "percent"
+    model_config: "K2.6"
+  - raw: "LiveCodeBench"
+    value: 89.6
+    unit: "percent"
+    model_config: "K2.6 (v6)"
+  - raw: "OSWorld"
+    value: 73.1
+    unit: "percent"
+    model_config: "K2.6 (OSWorld-Verified)"
+  - raw: "Toolathlon"
+    value: 50.0
+    unit: "percent"
+    model_config: "K2.6"
+  - raw: "MMMU-Pro"
+    value: 79.4
+    unit: "percent"
+    model_config: "K2.6"
+  - raw: "CharXiv"
+    value: 80.4
+    unit: "percent"
+    model_config: "K2.6 (RQ)"
+  - raw: "DeepSearchQA"
+  - raw: "SciCode"
+  - raw: "IMO-AnswerBench"
+  - raw: "MMLU"
+  - raw: "MMMU"
+  - raw: "APEX-Agents"
+  - raw: "MCPMark"
+  - raw: "WideSearch"
+  - raw: "OJBench"
+  - raw: "MathVision"
+  - raw: "BabyVision"
+  - raw: "ZeroBench"

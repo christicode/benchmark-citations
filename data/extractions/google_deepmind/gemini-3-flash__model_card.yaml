@@ -1,0 +1,5 @@
+# gemini-3-flash__model_card
+doc: gemini-3-flash__model_card
+unreadable:
+  reason: "Gemini 3 Flash model card benchmark table is image-based (no text-extractable scores) - OCR/blog needed"
+  review_issue: 9

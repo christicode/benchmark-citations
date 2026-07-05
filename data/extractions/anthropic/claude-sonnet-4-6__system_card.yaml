@@ -1,0 +1,34 @@
+# claude-sonnet-4-6__system_card
+doc: claude-sonnet-4-6__system_card
+mentions:
+  - raw: "SWE-bench Verified"
+    value: 79.6
+    unit: "percent"
+    model_config: "Sonnet 4.6"
+    methodology:
+      - "averaged over 10 trials, adaptive; SWE-bench Multilingual 75.9"
+  - raw: "SWE-bench Multilingual"
+    value: 75.9
+    unit: "percent"
+    model_config: "Sonnet 4.6"
+  - raw: "Terminal-Bench"
+  - raw: "GPQA"
+  - raw: "AIME"
+  - raw: "ARC-AGI"
+  - raw: "MMLU"
+  - raw: "MMMU"
+  - raw: "MMMU-Pro"
+  - raw: "BrowseComp"
+  - raw: "HLE"
+  - raw: "DeepSearchQA"
+  - raw: "GDPval-AA"
+  - raw: "OSWorld"
+  - raw: "Vending-Bench"
+  - raw: "CharXiv"
+  - raw: "LAB-Bench"
+  - raw: "FigQA"
+  - raw: "Petri"
+  - raw: "SHADE"
+  - raw: "Cybench"
+  - raw: "CyberGym"
+  - raw: "WebArena"

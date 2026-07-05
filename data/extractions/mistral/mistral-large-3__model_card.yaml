@@ -1,0 +1,5 @@
+# mistral-large-3__model_card
+doc: mistral-large-3__model_card
+unreadable:
+  reason: "Mistral Large 3 card benchmarks are chart images only (issue #1); only AIME appears as text"
+  review_issue: 1

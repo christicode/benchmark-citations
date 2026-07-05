@@ -1,0 +1,40 @@
+# glm-4-7__model_card
+doc: glm-4-7__model_card
+mentions:
+  - raw: "GPQA"
+    value: 85.7
+    unit: "percent"
+    model_config: "GLM-4.7"
+  - raw: "HLE"
+    value: 24.8
+    unit: "percent"
+    model_config: "GLM-4.7 (42.8 w/ tools)"
+  - raw: "AIME"
+    value: 95.7
+    unit: "percent"
+    model_config: "GLM-4.7 (AIME 2025)"
+  - raw: "HMMT"
+    value: 97.1
+    unit: "percent"
+    model_config: "GLM-4.7 (Feb 2025)"
+  - raw: "LiveCodeBench"
+    value: 84.9
+    unit: "percent"
+    model_config: "GLM-4.7 (v6)"
+  - raw: "SWE-bench Verified"
+    value: 73.8
+    unit: "percent"
+    model_config: "GLM-4.7 (OpenHands)"
+  - raw: "SWE-bench Multilingual"
+    value: 66.7
+    unit: "percent"
+    model_config: "GLM-4.7"
+  - raw: "Terminal-Bench"
+    value: 41.0
+    unit: "percent"
+    model_config: "GLM-4.7 (TB 2.0, Terminus-2)"
+  - raw: "BrowseComp"
+    value: 52.0
+    unit: "percent"
+    model_config: "GLM-4.7"
+  - raw: "BrowseComp-Zh"

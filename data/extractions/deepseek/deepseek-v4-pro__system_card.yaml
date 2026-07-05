@@ -1,0 +1,43 @@
+# deepseek-v4-pro__system_card
+doc: deepseek-v4-pro__system_card
+mentions:
+  - raw: "GPQA Diamond"
+    value: 90.1
+    unit: "percent"
+    model_config: "DeepSeek-V4-Pro-Max"
+  - raw: "HLE"
+    value: 37.7
+    unit: "percent"
+    model_config: "DeepSeek-V4-Pro-Max (48.2 w/ tools)"
+  - raw: "LiveCodeBench"
+    value: 93.5
+    unit: "percent"
+    model_config: "DeepSeek-V4-Pro-Max"
+  - raw: "Codeforces"
+    value: 3206
+    unit: "rank"
+    model_config: "DeepSeek-V4-Pro-Max (rating)"
+  - raw: "HMMT"
+    value: 95.2
+    unit: "percent"
+    model_config: "DeepSeek-V4-Pro-Max (2026 Feb)"
+  - raw: "Terminal-Bench"
+    value: 67.9
+    unit: "percent"
+    model_config: "DeepSeek-V4-Pro-Max (TB 2.0)"
+    methodology:
+      - "Terminal-Bench 2.0; DeepSeek-V4-Pro-Max column of competitor comparison table (Opus-4.6/GPT-5.4/Gemini-3.1-Pro/K2.6/GLM-5.1/DS-V4-Pro-Max)"
+  - raw: "BrowseComp"
+    value: 83.4
+    unit: "percent"
+    model_config: "DeepSeek-V4-Pro-Max"
+  - raw: "AIME"
+  - raw: "SimpleQA"
+  - raw: "Toolathlon"
+  - raw: "IMOAnswerBench"
+  - raw: "MMLU"
+  - raw: "MMLU-Pro"
+  - raw: "GDPval-AA"
+  - raw: "SuperGPQA"
+  - raw: "Chinese-SimpleQA"
+  - raw: "CorpusQA"

@@ -1,0 +1,35 @@
+# glm-5-1__model_card
+doc: glm-5-1__model_card
+mentions:
+  - raw: "HLE"
+    value: 31.0
+    unit: "percent"
+    model_config: "GLM-5.1 (52.3 w/ tools)"
+  - raw: "AIME"
+    value: 95.3
+    unit: "percent"
+    model_config: "GLM-5.1 (AIME 2026)"
+  - raw: "GPQA"
+    value: 86.2
+    unit: "percent"
+    model_config: "GLM-5.1"
+  - raw: "SWE-bench Pro"
+    value: 58.4
+    unit: "percent"
+    model_config: "GLM-5.1"
+  - raw: "Terminal-Bench"
+    value: 63.5
+    unit: "percent"
+    model_config: "GLM-5.1 (TB 2.0, Terminus-2)"
+  - raw: "CyberGym"
+    value: 68.7
+    unit: "percent"
+    model_config: "GLM-5.1"
+  - raw: "BrowseComp"
+    value: 68.0
+    unit: "percent"
+    model_config: "GLM-5.1"
+  - raw: "HMMT"
+    value: 82.6
+    unit: "percent"
+    model_config: "GLM-5.1 (Feb 2026)"

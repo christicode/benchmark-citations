@@ -1,0 +1,23 @@
+# kimi-k2-5__model_card
+doc: kimi-k2-5__model_card
+mentions:
+  - raw: "AIME"
+  - raw: "BrowseComp"
+  - raw: "CharXiv"
+  - raw: "CyberGym"
+  - raw: "DeepSearchQA"
+  - raw: "GPQA"
+  - raw: "HLE"
+  - raw: "HMMT"
+  - raw: "LiveCodeBench"
+  - raw: "MMLU"
+  - raw: "MMLU-Pro"
+  - raw: "MMMU"
+  - raw: "MMMU-Pro"
+  - raw: "OSWorld"
+  - raw: "Terminal-Bench"
+  - raw: "IMO-AnswerBench"
+  - raw: "LongVideoBench"
+  - raw: "OmniDocBench"
+  - raw: "WorldVQA"
+  - raw: "ZeroBench"

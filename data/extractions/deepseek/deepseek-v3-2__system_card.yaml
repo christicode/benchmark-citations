@@ -1,0 +1,27 @@
+# deepseek-v3-2__system_card
+doc: deepseek-v3-2__system_card
+mentions:
+  - raw: "AIME"
+  - raw: "HMMT"
+  - raw: "GPQA"
+  - raw: "HLE"
+  - raw: "LiveCodeBench"
+  - raw: "Codeforces"
+  - raw: "Aider"
+  - raw: "SWE-bench Verified"
+  - raw: "Terminal-Bench"
+    value: 46.4
+    unit: "percent"
+    model_config: "Claude Code harness"
+    methodology:
+      - "thinking-mode incompatible w/ Terminus; Terminus non-thinking 39.3"
+  - raw: "tau2"
+    value: 96.2
+    unit: "percent"
+    model_config: "Telecom"
+    methodology:
+      - "model itself as user agent; Airline 63.8 / Retail 81.1"
+  - raw: "BrowseComp"
+  - raw: "MMLU-Pro"
+  - raw: "MMLU"
+  - raw: "IMOAnswerBench"

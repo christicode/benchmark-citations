@@ -1,0 +1,48 @@
+# gemini-3-pro__blog_headliner
+doc: gemini-3-pro__blog_headliner
+mentions:
+  - raw: "GPQA Diamond"
+    weight_class: blog_headliner
+    value: 91.9
+    unit: "percent"
+  - raw: "HLE"
+    weight_class: blog_headliner
+    value: 37.5
+    unit: "percent"
+    model_config: "no tools"
+  - raw: "ARC-AGI-2"
+    weight_class: blog_headliner
+    value: 31.1
+    unit: "percent"
+  - raw: "MathArena"
+    weight_class: blog_headliner
+    value: 23.4
+    unit: "percent"
+  - raw: "MMMU-Pro"
+    weight_class: blog_headliner
+    value: 81.0
+    unit: "percent"
+  - raw: "Video-MMMU"
+    weight_class: blog_headliner
+    value: 87.6
+    unit: "percent"
+  - raw: "SimpleQA"
+    weight_class: blog_headliner
+    value: 72.1
+    unit: "percent"
+    model_config: "Verified"
+  - raw: "AIME"
+  - raw: "Vending-Bench 2"
+    weight_class: blog_headliner
+  - raw: "SWE-bench Verified"
+    weight_class: blog_headliner
+    value: 76.2
+    unit: "percent"
+    model_config: "Gemini 3 Pro"
+  - raw: "Terminal-Bench 2.0"
+    weight_class: blog_headliner
+    value: 54.2
+    unit: "percent"
+    model_config: "Gemini 3 Pro (Terminal-Bench 2.0)"
+  - raw: "WebDev Arena"
+    weight_class: blog_headliner

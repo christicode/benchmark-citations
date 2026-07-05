@@ -1,0 +1,85 @@
+# gpt-5-4__blog_headliner
+doc: gpt-5-4__blog_headliner
+mentions:
+  - raw: "GDPval (wins or ties)"
+    weight_class: blog_headliner
+  - raw: "SWE-bench Pro"
+    weight_class: blog_headliner
+    value: 57.7
+    unit: "percent"
+    model_config: "GPT-5.4 (Public)"
+  - raw: "OSWorld-Verified"
+    weight_class: blog_headliner
+    value: 75.0
+    unit: "percent"
+    model_config: "GPT-5.4"
+  - raw: "Toolathlon"
+    weight_class: blog_headliner
+    value: 54.6
+    unit: "percent"
+    model_config: "GPT-5.4"
+  - raw: "BrowseComp"
+    weight_class: blog_headliner
+    value: 82.7
+    unit: "percent"
+    model_config: "GPT-5.4"
+  - raw: "Terminal-Bench"
+    value: 75.1
+    unit: "percent"
+    model_config: "GPT-5.4 (TB 2.0)"
+  - raw: "WebArena-Verified"
+    weight_class: blog_headliner
+    value: 67.3
+    unit: "percent"
+    model_config: "GPT-5.4 (WebArena-Verified)"
+    methodology:
+      - "WebArena-Verified, DOM+screenshot; Online-Mind2Web 92.8 (screenshot-only)"
+  - raw: "MMMU-Pro"
+    weight_class: blog_headliner
+    value: 81.2
+    unit: "percent"
+    model_config: "GPT-5.4 (no tools)"
+  - raw: "GPQA Diamond"
+    value: 92.8
+    unit: "percent"
+    model_config: "GPT-5.4"
+  - raw: "HLE"
+    value: 39.8
+    unit: "percent"
+    model_config: "GPT-5.4 (no tools)"
+  - raw: "tau2-bench"
+    weight_class: blog_headliner
+    value: 98.9
+    unit: "percent"
+    model_config: "GPT-5.4 Telecom"
+  - raw: "MCP Atlas"
+    weight_class: blog_headliner
+    value: 67.2
+    unit: "percent"
+    model_config: "GPT-5.4"
+  - raw: "ARC-AGI"
+    value: 73.3
+    unit: "percent"
+    model_config: "GPT-5.4 (Verified)"
+  - raw: "ARC-AGI-1"
+    value: 93.7
+    unit: "percent"
+    model_config: "GPT-5.4 (Verified)"
+  - raw: "Finance Agent"
+    value: 56.0
+    unit: "percent"
+    model_config: "GPT-5.4 (v1.1)"
+  - raw: "OfficeQA"
+    value: 68.1
+    unit: "percent"
+    model_config: "GPT-5.4"
+  - raw: "Graphwalks"
+  - raw: "MRCR"
+  - raw: "OmniDocBench"
+    weight_class: blog_headliner
+  - raw: "Online-Mind2Web"
+    weight_class: blog_headliner
+  - raw: "FrontierMath"
+  - raw: "APEX-Agents"
+  - raw: "BigLaw Bench"
+  - raw: "Frontier Science Research"

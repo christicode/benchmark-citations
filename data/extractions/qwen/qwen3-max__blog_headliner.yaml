@@ -1,0 +1,5 @@
+# qwen3-max__blog_headliner
+doc: qwen3-max__blog_headliner
+unreadable:
+  reason: "Qwen3-Max primary source not retrievable: HF repo gated (401) and qwenlm blog 404; Qwen source_index_urls need updating (feed relocated to qwen.ai)"
+  review_issue: 9

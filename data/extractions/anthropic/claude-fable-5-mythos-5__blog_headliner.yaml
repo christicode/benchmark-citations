@@ -1,0 +1,12 @@
+# claude-fable-5-mythos-5__blog_headliner
+doc: claude-fable-5-mythos-5__blog_headliner
+mentions:
+  - raw: "FrontierCode"
+    weight_class: blog_headliner
+    methodology:
+      - "headline blog; main comparison table is an IMAGE (numbers live in the system card, not text) - blog prose headlines FrontierCode/CyberGym/CyScenarioBench + partner evals CursorBench/ViBench/FrontierBench"
+  - raw: "CyberGym"
+  - raw: "CyScenarioBench"
+  - raw: "CursorBench"
+  - raw: "ViBench"
+  - raw: "FrontierBench"

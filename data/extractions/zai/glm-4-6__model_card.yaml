@@ -1,0 +1,5 @@
+# glm-4-6__model_card
+doc: glm-4-6__model_card
+unreadable:
+  reason: "GLM-4.6 HF README has no text-extractable benchmark table; scores live on z.ai blog (not archived) - human extraction needed"
+  review_issue: 9

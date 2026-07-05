@@ -1,0 +1,17 @@
+# gpt-5__system_card
+doc: gpt-5__system_card
+mentions:
+  - raw: "SWE-bench Verified"
+  - raw: "HealthBench"
+    value: 46.2
+    unit: "percent"
+    model_config: "gpt-5-thinking, Hard"
+  - raw: "SimpleQA"
+  - raw: "BBQ"
+  - raw: "CharXiv"
+  - raw: "PaperBench"
+  - raw: "ProtocolQA"
+  - raw: "AbstentionBench"
+  - raw: "MMLU"
+  - raw: "StrongReject"
+  - raw: "TroubleshootingBench"
