@@ -4,11 +4,10 @@ _note: 'MODEL axis for the heatmap. Derived from data/citations.jsonl; release_d
   pub_date (proxy). Override display/release_date in data/models.overrides.yaml. X-axis order: most recent
   on the LEFT; undated models are grouped at the end until a real date is backfilled.'
 schema_version: 1
-count: 33
+count: 32
 undated_needs_backfill:
 - anthropic:Claude Haiku 4.5
 - deepseek:DeepSeek-V4-Pro
-- google_deepmind:Gemini 3.5 Pro
 - moonshot:Kimi K2.7-Code
 - qwen:Qwen3-Max
 models:
@@ -43,7 +42,7 @@ models:
   company_category: big5
   release_date: '2026-06-09'
   release_date_source: derived:min_pub_date
-  citations: 65
+  citations: 63
   docs:
   - https://www-cdn.anthropic.com/d00db56fa754a1b115b6dd7cb2e3c342ee809620.pdf
   - https://www.anthropic.com/news/claude-fable-5-mythos-5
@@ -55,8 +54,9 @@ models:
   company_category: big5
   release_date: '2026-05-19'
   release_date_source: derived:min_pub_date
-  citations: 8
+  citations: 17
   docs:
+  - https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/
   - https://deepmind.google/models/model-cards/gemini-3-5-flash
 - id: gpt-5-5
   model: GPT-5.5
@@ -121,7 +121,7 @@ models:
   company_category: open_weight_leader
   release_date: '2026-04-07'
   release_date_source: derived:min_pub_date
-  citations: 8
+  citations: 14
   docs:
   - https://huggingface.co/zai-org/GLM-5.1
 - id: gpt-5-4
@@ -165,7 +165,7 @@ models:
   company_category: open_weight_leader
   release_date: '2026-02-12'
   release_date_source: derived:min_pub_date
-  citations: 10
+  citations: 15
   docs:
   - https://huggingface.co/zai-org/GLM-5
 - id: claude-opus-4-6
@@ -176,7 +176,7 @@ models:
   company_category: big5
   release_date: '2026-02-05'
   release_date_source: derived:min_pub_date
-  citations: 35
+  citations: 36
   docs:
   - https://www-cdn.anthropic.com/0dd865075ad3132672ee0ab40b05a53f14cf5288.pdf
 - id: kimi-k2-5
@@ -198,7 +198,7 @@ models:
   company_category: open_weight_leader
   release_date: '2025-12-22'
   release_date_source: derived:min_pub_date
-  citations: 10
+  citations: 14
   docs:
   - https://huggingface.co/zai-org/GLM-4.7
 - id: gemini-3-flash
@@ -209,9 +209,9 @@ models:
   company_category: big5
   release_date: '2025-12-17'
   release_date_source: derived:min_pub_date
-  citations: 1
+  citations: 23
   docs:
-  - https://deepmind.google/models/model-cards/gemini-3-flash/
+  - https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Flash-Model-Card.pdf
 - id: gpt-5-2
   model: GPT-5.2
   display: GPT-5.2
@@ -231,7 +231,7 @@ models:
   company_category: open_weight_leader
   release_date: '2025-12-02'
   release_date_source: derived:min_pub_date
-  citations: 1
+  citations: 5
   docs:
   - https://huggingface.co/mistralai/Mistral-Large-3-675B-Instruct-2512
 - id: deepseek-v3-2
@@ -275,7 +275,7 @@ models:
   company_category: big5
   release_date: '2025-11-17'
   release_date_source: derived:min_pub_date
-  citations: 9
+  citations: 8
   docs:
   - https://data.x.ai/2025-11-17-grok-4-1-model-card.pdf
 - id: kimi-k2-thinking
@@ -286,7 +286,7 @@ models:
   company_category: open_weight_leader
   release_date: '2025-11-06'
   release_date_source: derived:min_pub_date
-  citations: 1
+  citations: 21
   docs:
   - https://www.kimi.com/blog/kimi-k2-thinking
 - id: claude-sonnet-4-5
@@ -308,9 +308,9 @@ models:
   company_category: open_weight_leader
   release_date: '2025-09-30'
   release_date_source: derived:min_pub_date
-  citations: 1
+  citations: 9
   docs:
-  - https://huggingface.co/zai-org/GLM-4.6
+  - https://docs.z.ai/guides/llm/glm-4.6
 - id: gpt-5
   model: GPT-5
   display: GPT-5
@@ -319,7 +319,7 @@ models:
   company_category: big5
   release_date: '2025-08-13'
   release_date_source: derived:min_pub_date
-  citations: 11
+  citations: 7
   docs:
   - https://cdn.openai.com/gpt-5-system-card.pdf
 - id: deepseek-v4-pro
@@ -333,17 +333,6 @@ models:
   citations: 17
   docs:
   - https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro
-- id: gemini-3-5-pro
-  model: Gemini 3.5 Pro
-  display: Gemini 3.5 Pro
-  company: google_deepmind
-  company_display: Google DeepMind
-  company_category: big5
-  release_date: null
-  release_date_source: unknown
-  citations: 3
-  docs:
-  - https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/
 - id: claude-haiku-4-5
   model: Claude Haiku 4.5
   display: Haiku 4.5
@@ -352,9 +341,9 @@ models:
   company_category: big5
   release_date: null
   release_date_source: unknown
-  citations: 6
+  citations: 4
   docs:
-  - https://assets.anthropic.com/m/99128ddd009bdcb/original/Claude-Haiku-4-5-System-Card.pdf
+  - https://www-cdn.anthropic.com/7aad69bf12627d42234e01ee7c36305dc2f6a970.pdf
 - id: kimi-k2-7-code
   model: Kimi K2.7-Code
   display: Kimi K2.7-Code
@@ -363,7 +352,7 @@ models:
   company_category: open_weight_leader
   release_date: null
   release_date_source: unknown
-  citations: 1
+  citations: 6
   docs:
   - https://www.kimi.com/resources/kimi-k2-7-code
 - id: qwen3-max
@@ -374,6 +363,6 @@ models:
   company_category: open_weight_leader
   release_date: null
   release_date_source: unknown
-  citations: 1
+  citations: 8
   docs:
-  - https://huggingface.co/Qwen/Qwen3-Max
+  - https://qwen.ai/blog?id=qwen3-max
