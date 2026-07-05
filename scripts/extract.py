@@ -37,18 +37,16 @@ def norm(s: str) -> str:
 
 
 def load_registry():
-    """(alias2canon, canon2aliases) from the flat-file alias registry. Deterministic; never fuzzy."""
+    """(alias2canon, canon2aliases) from data/registry.yaml (the single identity registry).
+    Deterministic; never fuzzy."""
     a2c = {}
-    for fn in ("data/aliases.yaml", "data/aliases_generated.yaml"):
-        p = ROOT / fn
-        if not p.exists():
-            continue
-        for b in (yaml.safe_load(open(p)) or {}).get("benchmarks", []):
-            can = b["canonical"]
-            for al in [can] + list(b.get("aliases", [])):
-                na = norm(str(al))
-                if na:
-                    a2c[na] = can
+    p = ROOT / "data" / "registry.yaml"
+    for b in (yaml.safe_load(open(p)) or {}).get("benchmarks", []):
+        can = b["canonical"]
+        for al in [can] + list(b.get("aliases", [])):
+            na = norm(str(al))
+            if na:
+                a2c[na] = can
     c2a = collections.defaultdict(list)
     for na, can in a2c.items():
         c2a[can].append(na)
