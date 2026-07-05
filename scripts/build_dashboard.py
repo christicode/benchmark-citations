@@ -166,8 +166,8 @@ def main():
     T = ["<!doctype html><html lang=en><head><meta charset=utf-8>",
          "<meta name=viewport content='width=device-width,initial-scale=1'>",
          "<title>PaperTrail \u2014 benchmark citations in the LLM ecosystem</title>", """<style>
-    :root{--bg:#ffffff;--panel:#eee8d5;--b:#ddd6c1;--fg:#586e75;--emph:#073642;--mut:#93a1a1;
-      --blue:#268bd2;--green:#859900;--cyan:#2aa198;--magenta:#d33682;--orange:#cb4b16;--red:#dc322f;--yellow:#b58900;--violet:#6c71c4}
+    :root{--bg:#ffffff;--panel:#eef3fb;--b:#d7e3f2;--fg:#586e75;--emph:#073642;--mut:#93a1a1;
+      --blue:#268bd2;--green:#22c55e;--cyan:#2aa198;--magenta:#d33682;--orange:#cb4b16;--red:#dc322f;--yellow:#b58900;--violet:#6c71c4}
     *{box-sizing:border-box}
     body{margin:0;background:var(--bg);color:var(--fg);font:13.5px/1.5 "JetBrains Mono","SF Mono",ui-monospace,Menlo,Consolas,monospace}
     .wrap{max-width:1180px;margin:0 auto;padding:22px}
@@ -195,7 +195,7 @@ def main():
     .news .d{color:var(--mut)}.news .src{color:var(--magenta);font-weight:700}
     .news a{color:var(--blue);font-weight:600;text-decoration:none}.news a:hover{text-decoration:underline}
     .news .w{color:var(--fg)}
-    .bar{height:8px;width:60px;border-radius:2px;background:#e4dcc4;display:inline-block;vertical-align:middle;margin-right:6px;border:1px solid var(--b)}
+    .bar{height:8px;width:60px;border-radius:2px;background:#dbe7f5;display:inline-block;vertical-align:middle;margin-right:6px;border:1px solid var(--b)}
     .bar>i{display:block;height:100%;background:var(--green)}
     a{color:var(--blue)}
     </style></head><body><div class=wrap>"""]
