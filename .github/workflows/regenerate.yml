@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - scripts/build_citations.py
+      - scripts/sync_harbor.py
       - scripts/gen_aliases.py
       - scripts/build_dashboard.py
       - scripts/check_reconciliation.py
@@ -24,6 +25,10 @@ jobs:
           python-version: "3.12"
       - run: pip install pyyaml
       - run: python scripts/build_citations.py
+      - name: Sync Harbor status from live registry + adapters (no hand-curation)
+        run: python scripts/sync_harbor.py
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
       - run: python scripts/gen_aliases.py
       - run: python scripts/build_dashboard.py
       - name: Reconciliation invariant (block a split coverage matrix from deploying)
@@ -32,7 +37,7 @@ jobs:
         run: |
           git config user.name "regen-bot"
           git config user.email "regen-bot@users.noreply.github.com"
-          git add data/citations.jsonl data/aliases_generated.yaml docs/index.html docs/coverage.html
+          git add -A data docs
           git commit -m "regen: citations.jsonl + aliases_generated.yaml + dashboard" || { echo "no changes"; exit 0; }
           git pull --rebase origin main
           git push
