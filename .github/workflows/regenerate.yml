@@ -30,16 +30,17 @@ jobs:
         run: python scripts/sync_harbor.py
         env:
           GITHUB_TOKEN: ${{ github.token }}
-      - name: Regenerate dashboard (best-effort; out of the data critical path)
-        continue-on-error: true
-        run: python scripts/build_dashboard.py
-      - name: Reconciliation invariant (block a split coverage matrix from deploying)
+      - name: Refresh the model axis registry (data/models.yaml) from citations
+        run: python scripts/gen_models.py
+      - name: Regenerate heatmap landing page (docs/index.html)
+        run: python scripts/build_heatmap.py
+      - name: Reconciliation invariant (guards the citation↔Harbor join / the (H) marks)
         run: python scripts/check_reconciliation.py
-      - name: Commit regenerated data + dashboard (race-safe)
+      - name: Commit regenerated data + heatmap (race-safe)
         run: |
           git config user.name "regen-bot"
           git config user.email "regen-bot@users.noreply.github.com"
           git add -A data docs
-          git commit -m "regen: citations.jsonl + dashboard" || { echo "no changes"; exit 0; }
+          git commit -m "regen: citations.jsonl + models.yaml + heatmap" || { echo "no changes"; exit 0; }
           git pull --rebase origin main
           git push
