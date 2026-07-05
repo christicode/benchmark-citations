@@ -171,10 +171,8 @@ def _build_coverage(rows, ROOT, e):
     .no{color:var(--red)}
     .foot{color:var(--mut);font-size:11.5px;margin:16px 0 0}
     </style></head><body><div class=wrap>"""]
-    H.append("<h1>Coverage matrix \u2014 citations \u00d7 adapters \u00d7 registry</h1>")
-    H.append(f"<p class=sub>Every benchmark across all three sources (superset), joined on identity across "
-             f"name-drift. Harbor sources snapshotted from <code>harbor-framework/harbor</code> on "
-             f"{e(snap.get('fetched_at','?'))}. <a href='index.html'>\u2190 back to dashboard</a></p>")
+    H.append("<h1>Coverage matrix</h1>")
+    H.append("<p class=sub><a href='index.html'>\u2190 back to dashboard</a></p>")
     H.append("<div class=cards>"
              f"<div class=kpi><b>{tot}</b>total benchmarks</div>"
              f"<div class=kpi><b>{n_c}</b>in citations</div>"
@@ -341,9 +339,8 @@ def main():
         return "<span class=off>\u2717 none</span>"
     def pct(v):
         return EMDASH if v is None else f"{v:.0f}%"
-    def sec(title, width=82):
-        s = "== " + title + " "
-        return "<div class=sec>" + e(s + "=" * max(4, width - len(s))) + "</div>"
+    def sec(title):
+        return "<div class=sec>" + e(title) + "</div>"
 
     T = ["<!doctype html><html lang=en><head><meta charset=utf-8>",
          "<meta name=viewport content='width=device-width,initial-scale=1'>",
@@ -356,7 +353,7 @@ def main():
     h1{font-size:22px;color:var(--emph);margin:0 0 2px;letter-spacing:.01em}
     .context{color:var(--fg);margin:0 0 2px;font-size:13.5px}
     .asof{color:var(--mut);margin:0 0 10px;font-size:12px}
-    .sec{color:var(--green);font-weight:700;margin:28px 0 6px;white-space:pre;overflow:hidden;font-size:13px}
+    .sec{color:var(--green);font-weight:700;margin:28px 0 8px;font-size:15px}
     .cards{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
     .kpi{background:var(--panel);border:1px solid var(--b);border-radius:6px;padding:8px 12px;min-width:118px}
     .kpi b{font-size:18px;display:block;color:var(--emph)}.kpi.big b{color:var(--green)}
@@ -386,14 +383,13 @@ def main():
     T.append("<h1>PaperTrail</h1>")
     T.append("<p class=context>Tracks benchmark citations in the LLM ecosystem.</p>")
     T.append(f"<p class=asof>Updated {asof}. Citations are prominence-weighted \u2014 a blog headline counts 2\u00d7, "
-             "a table row 1\u00d7 (less in large tables). Click any benchmark for its underlying records. "
-             "<a href='coverage.html'>\u2192 coverage matrix: citations \u00d7 adapters \u00d7 registry</a></p>")
+             "a table row 1\u00d7 (less in large tables). Click any benchmark for its underlying records.</p>")
 
     ag_all = cov['all']['ag_o'] / cov['all']['ag_t'] if cov['all']['ag_t'] else 0
 
     # What's new
     if news:
-        T.append(sec("WHAT'S NEW \u00b7 LAST 7 DAYS"))
+        T.append(sec("WHAT'S NEW"))
         T.append("<div class=news>")
         for dt, src, title, url, why in news:
             T.append(f"<div class=row><span class=d>[{e(dt)}]</span> <span class=src>{e(src)}</span> "
@@ -401,7 +397,7 @@ def main():
         T.append("</div>")
 
     # 1/ Top cited benchmarks
-    T.append(sec("1/ TOP CITED BENCHMARKS \u00b7 regardless of Harbor status"))
+    T.append(sec("1/ TOP CITED BENCHMARKS"))
     T.append("<table><tr><th>#</th><th>benchmark</th><th>type</th><th>domain</th><th class=r>cards</th>"
              "<th class=r>blogs</th><th class=r>weighted</th><th class=r>labs</th><th class=r>max</th><th>harbor</th></tr>")
     for i, (c, a) in enumerate(ranked[:30], 1):
@@ -411,24 +407,23 @@ def main():
     T.append("</table>")
 
     # 2/ Harbor coverage
-    T.append(sec("2/ HARBOR COVERAGE \u00b7 share of citations Harbor-compatible (native/fork/adapter)"))
+    T.append(sec("2/ HARBOR COVERAGE"))
     T.append("<table><tr><th>window</th><th class=r>citations</th><th class=r>overall</th>"
-             "<th class=r>agentic</th><th class=r>chat</th><th class=r>if \u25d0 confirmed</th></tr>")
+             "<th class=r>agentic</th><th class=r>chat</th></tr>")
     lw = {"all": "all-time", "180": "last 6 months", "90": "last 90 days"}
     for k in ("all", "180", "90"):
         b = cov[k]
         co = b["won"]/b["wt"]*100 if b["wt"] else 0
         ag = b["ag_o"]/b["ag_t"]*100 if b["ag_t"] else 0
         stt = b["st_o"]/b["st_t"]*100 if b["st_t"] else 0
-        cp = (b["won"]+b["wrev"])/b["wt"]*100 if b["wt"] else 0
         T.append(f"<tr><td>{lw[k]}</td><td class=r>{b['n']}</td>"
                  f"<td class=r><span class=bar><i style='width:{int(co)}%'></i></span>{co:.0f}%</td>"
-                 f"<td class=r><span class=bar><i style='width:{int(ag)}%'></i></span>{ag:.0f}%</td>"
-                 f"<td class=r>{stt:.0f}%</td><td class=r>{cp:.0f}%</td></tr>")
+                 f"<td class=r>{ag:.0f}%</td>"
+                 f"<td class=r>{stt:.0f}%</td></tr>")
     T.append("</table>")
 
     # 3/ Rising citations
-    T.append(sec("3/ RISING CITATIONS \u00b7 new entrants gaining citations"))
+    T.append(sec("3/ RISING CITATIONS"))
     T.append("<table><tr><th>benchmark</th><th>type</th><th>domain</th><th class=r>citations</th><th class=r>labs</th>"
              "<th>first seen</th><th>harbor</th></tr>")
     for k, v in rising[:20]:
@@ -444,7 +439,7 @@ def main():
     T.append("</table>")
 
     # 4/ Rising saturation
-    T.append(sec("4/ RISING SATURATION \u00b7 climbing toward ceiling"))
+    T.append(sec("4/ RISING SATURATION"))
     T.append("<table><tr><th>benchmark</th><th>type</th><th>domain</th><th class=r>models \u226580%</th>"
              "<th class=r>max</th><th>harbor</th><th>models</th></tr>")
     for c, a in satur[:20]:
@@ -455,7 +450,7 @@ def main():
     T.append("</table>")
 
     # 5/ Rising agentic vs chat
-    T.append(sec("5/ RISING AGENTIC VS CHAT \u00b7 citation mix over time"))
+    T.append(sec("5/ RISING AGENTIC VS CHAT"))
     T.append("<table><tr><th>window</th><th class=r>citations</th><th class=r>agentic</th><th class=r>chat</th></tr>")
     def ag_share(b):
         tot = b["ag_n"] + b["st_n"]
@@ -463,7 +458,7 @@ def main():
     for k in ("all", "180", "90"):
         b = cov[k]; tot = b["ag_n"] + b["st_n"]; ags = ag_share(b); chs = 100 - ags if tot else 0
         T.append(f"<tr><td>{lw[k]}</td><td class=r>{tot}</td>"
-                 f"<td class=r><span class=bar><i style='width:{int(ags)}%'></i></span>{ags:.0f}%</td>"
+                 f"<td class=r>{ags:.0f}%</td>"
                  f"<td class=r>{chs:.0f}%</td></tr>")
     T.append("</table>")
 
@@ -505,21 +500,15 @@ def main():
     never_ad = sorted([(n, a) for n, a in adg.items() if a["cites"] == 0])
     n_total, n_cited, n_never = len(adg), len(cited_ad), len(never_ad)
 
-    T.append(sec("6/ HARBOR ADAPTERS \u00b7 usage over time (adapter ROI)"))
-    T.append(f"<p class=note>For the Harbor team: which merged adapters are actually cited by in-scope labs, over time "
-             f"\u2014 a proxy for adapter ROI. <b>{n_cited}</b> of {n_total} adapters are cited by the tracked labs; "
-             f"<b>{n_never}</b> are never cited in-window. Adapter set + registry membership snapshotted from "
-             f"<code>harbor-framework/harbor</code> (adapters/ + registry.json) on {e(snap.get('fetched_at','?'))}. "
-             f"<span class=rev>\u25cb</span> reg = adapter merged but <b>not yet in registry.json</b>.</p>")
+    T.append(sec("6/ HARBOR ADAPTERS"))
     qh = "".join(f"<th class=r>{e(q)}</th>" for q in qs)
-    T.append("<table><tr><th>adapter</th><th>benchmark</th><th>reg</th>" + qh +
+    T.append("<table><tr><th>adapter</th><th>benchmark</th>" + qh +
              "<th class=r>cites</th><th class=r>weighted</th><th class=r>labs</th><th>first\u2192last</th></tr>")
     for name, a in cited_ad:
-        reg = "<span class=on>\u2713</span>" if a["in_reg"] else "<span class=rev>\u25cb</span>"
         qcells = "".join(f"<td class=r>{(a['q'].get(q,0) or EMDASH)}</td>" for q in qs)
         canoncell = bname(a["canon"]) if a["canon"] else EMDASH
         span = (e(a["first"]) + "\u2192" + e(a["last"])) if a["first"] else EMDASH
-        T.append(f"<tr><td><code>{e(name)}</code></td><td>{canoncell}</td><td>{reg}</td>{qcells}"
+        T.append(f"<tr><td><code>{e(name)}</code></td><td>{canoncell}</td>{qcells}"
                  f"<td class=r>{a['cites']}</td><td class=r>{a['w']:.1f}</td><td class=r>{len(a['labs'])}</td><td>{span}</td></tr>")
     T.append("</table>")
     circ = " \u25cb"
@@ -527,6 +516,7 @@ def main():
     T.append(f"<details><summary class=note>{n_never} adapters never cited by in-scope labs in-window "
              f"(candidates to reassess build effort) \u2014 click to expand. <span class=rev>\u25cb</span> = not in registry.json.</summary>"
              f"<p class=why>{nl}</p></details>")
+    T.append("<p class=note><a href='coverage.html'>\u2192 coverage matrix</a></p>")
 
     T.append("<p class=legend>Key: <span class=gear>\u2699</span> methodology-sensitive (differing harness/scaffold) \u00b7 "
              "<span class=on>\u2713</span> on Harbor \u00b7 <span class=rev>\u25d0</span> in Harbor, version unconfirmed \u00b7 "
