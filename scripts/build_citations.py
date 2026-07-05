@@ -1,42 +1,63 @@
 import json, re, pathlib
 BC = pathlib.Path(__file__).resolve().parents[1]  # repo root (CI-safe)
 
-# ---- deterministic Harbor status per canonical (curated; NO fuzzy guessing) ----
-HARBOR = {  # canonical: (status, harbor_name)
- "swe-bench-verified":("confirmed","swebench-verified"),
- "swe-bench-pro":("confirmed","swebenchpro"),
- "swe-bench-multilingual":("confirmed","swebench_multilingual"),
- "gpqa-diamond":("confirmed","gpqa-diamond"),
- "arc-agi-2":("confirmed","arc_agi_2"),
- "finance-agent":("confirmed","financeagent"),
- "mmmlu":("confirmed","mmmlu"),
- "strongreject":("confirmed","strongreject"),
- "lab-bench":("needs_review","labbench"),
- "terminal-bench":("needs_review","terminal-bench"),
- "livecodebench":("needs_review","livecodebench"),
- "simpleqa":("needs_review","simpleqa"),
- "aime":("needs_review","aime"),
- "bfcl":("needs_review","bfcl"),
- "spreadsheetbench":("needs_review","spreadsheetbench-verified"),
- "cybench":("false_positive","legacy-bench"),
+# ---- deterministic Harbor compatibility per canonical (curated; NO fuzzy guessing) ----
+# Cross-referenced against harbor-framework/harbor: registry.json (packaged/runnable) AND the
+# adapters/ folder (adapter_metadata.json + parity_summary.csv). The two are DIFFERENT sets:
+# an adapter can be MERGED + parity-validated but not yet packaged in the registry (registry=False).
+#   type     : native (built on Harbor) | fork (built on a Harbor fork) | adapter (adapter added after the fact) | none
+#   registry : True iff a registry.json (name,version) entry exists (runnable via `harbor run -d name@ver`)
+#   status   : confirmed | needs_review (version/variant/subtask nuance) | false_positive | not_in_harbor
+#   on_harbor (emitted below) = (status == "confirmed") -> Harbor-compatible & identity/version confirmed.
+HARBOR = {  # canonical: dict(status, name, type, adapter, registry)
+ "swe-bench-verified":     dict(status="confirmed", name="swebench-verified",     type="adapter", adapter="swebench",                  registry=True),
+ "swe-bench-pro":          dict(status="confirmed", name="swebenchpro",           type="adapter", adapter="swebenchpro",               registry=True),
+ "swe-bench-multilingual": dict(status="confirmed", name="swebench_multilingual", type="adapter", adapter="swebench_multilingual",     registry=True),
+ "gpqa-diamond":           dict(status="confirmed", name="gpqa-diamond",          type="adapter", adapter="gpqa-diamond",              registry=True),
+ "arc-agi-2":              dict(status="confirmed", name="arc_agi_2",             type="adapter", adapter="arc_agi_2",                 registry=True),
+ "finance-agent":          dict(status="confirmed", name="financeagent",          type="adapter", adapter="financeagent",             registry=True),
+ "mmmlu":                  dict(status="confirmed", name="mmmlu",                 type="adapter", adapter="mmmlu",                    registry=True),
+ "strongreject":           dict(status="confirmed", name="strongreject",          type="adapter", adapter="strongreject",             registry=True),
+ "bixbench":               dict(status="confirmed", name="bixbench",              type="adapter", adapter="bixbench",                 registry=True),
+ "aider-polyglot":         dict(status="confirmed", name="aider-polyglot",        type="adapter", adapter="aider_polyglot",            registry=True),  # TB-lineage (tb adapter -> harbor)
+ # RESOLVED: cited "SpreadSheetBench" == Harbor spreadsheetbench-verified (verified_400 split + 11 fixes).
+ "spreadsheetbench":       dict(status="confirmed", name="spreadsheetbench-verified", type="adapter", adapter="spreadsheetbench-verified", registry=True),
+ # Adapter MERGED + parity-validated but NOT yet packaged in registry.json (registry-only check was WRONG here):
+ "humanitys-last-exam":    dict(status="confirmed", name="hle",              type="adapter", adapter="hle",       registry=False),
+ "osworld":                dict(status="confirmed", name="osworld-verified", type="adapter", adapter="osworld",   registry=False),
+ "cybergym":               dict(status="confirmed", name="cybergym",         type="adapter", adapter="cybergym",  registry=False),
+ "scicode":                dict(status="confirmed", name="scicode",          type="adapter", adapter="scicode",   registry=False),
+ "aa-lcr":                 dict(status="confirmed", name="aa-lcr",           type="adapter", adapter="aa-lcr",    registry=False),
+ "widesearch":             dict(status="confirmed", name="widesearch",       type="adapter", adapter="widesearch",registry=False),
+ # NATIVE: Harbor is the official harness for Terminal-Bench 2.0. registry holds terminal-bench@2.0 ONLY;
+ # cited "Terminal-Bench 2.1" is a DIFFERENT version -> needs_review.
+ "terminal-bench":         dict(status="needs_review", name="terminal-bench", type="native",  adapter=None,          registry=True),
+ # In Harbor (registry/adapter) but a version/variant/subtask nuance remains -> needs_review:
+ "lab-bench":              dict(status="needs_review", name="labbench",       type="adapter", adapter="labbench",      registry=True),
+ "livecodebench":          dict(status="needs_review", name="livecodebench",  type="adapter", adapter="livecodebench", registry=True),
+ "simpleqa":               dict(status="needs_review", name="simpleqa",       type="adapter", adapter="simpleqa",      registry=True),
+ "aime":                   dict(status="needs_review", name="aime",           type="adapter", adapter="aime",          registry=True),
+ "bfcl":                   dict(status="needs_review", name="bfcl",           type="adapter", adapter="bfcl",          registry=True),
+ # FALSE POSITIVE: auto-matcher hit registry 'legacy-bench' (a different Factory-AI benchmark).
+ "cybench":                dict(status="false_positive", name="legacy-bench", type="none",    adapter=None,            registry=False),
 }
 # ---- TWO orthogonal axes ----
 # TYPE = how it's run (chat = one-shot Q&A/exam vs agentic tool/environment task). Harbor prefers agentic.
 # DOMAIN = subject matter. Do NOT conflate the two.
-AGENTIC = set("swe-bench-verified swe-bench-pro swe-bench-multilingual swe-bench-multimodal terminal-bench frontiercode frontier-swe programbench cursorbench aider-polyglot expert-swe spreadsheetbench minimal-linuxbench vibench osworld webarena screenspot-pro online-mind2web automationbench toolathlon mcp-atlas mcp-mark-verified bfcl tau2-bench vending-bench-2 browsecomp deepsearchqa draco gdpval-aa finance-agent real-world-finance legal-agent-benchmark officeqa apex-agents benchcad cybergym cve-bench cybench cyscenariobench exploitbench exploitgym paperbench mle-bench agentharm shade-arena petri makemesay impossiblebench genebench bixbench".split())
+AGENTIC = set("swe-bench-verified swe-bench-pro swe-bench-multilingual swe-bench-multimodal terminal-bench frontiercode frontier-swe programbench cursorbench aider-polyglot expert-swe spreadsheetbench minimal-linuxbench vibench osworld webarena screenspot-pro online-mind2web automationbench toolathlon mcp-atlas mcp-mark-verified bfcl tau2-bench vending-bench-2 browsecomp deepsearchqa draco gdpval-aa finance-agent real-world-finance legal-agent-benchmark officeqa apex-agents benchcad cybergym cve-bench cybench cyscenariobench exploitbench exploitgym paperbench mle-bench agentharm shade-arena petri makemesay impossiblebench genebench bixbench widesearch mcpmark gdpval-gold frontier-science-research biglaw-bench frontierbench webdev-arena".split())
 def type_of(c):
     return "agentic" if c in AGENTIC else "chat"
 
 DOMAIN = {
- "coding": "swe-bench-verified swe-bench-pro swe-bench-multilingual swe-bench-multimodal terminal-bench frontiercode frontier-swe programbench cursorbench vibench livecodebench aider-polyglot codeforces ojbench expert-swe spreadsheetbench minimal-linuxbench".split(),
+ "coding": "swe-bench-verified swe-bench-pro swe-bench-multilingual swe-bench-multimodal terminal-bench frontiercode frontier-swe programbench cursorbench vibench livecodebench aider-polyglot codeforces ojbench expert-swe spreadsheetbench minimal-linuxbench mle-bench frontierbench webdev-arena".split(),
  "math": "aime hmmt matharena-apex usamo-2026 arxivmath riemannbench imoanswerbench frontiermath".split(),
- "science": "gpqa-diamond critpt scicode proteingym biomysterybench biopipelinebench lab-bench protocolqa seqqa biolp-bench cloning-scenarios singlecellbench spatialbench genebench bixbench biotier secure-bio-evals paperbench troubleshootingbench".split(),
- "knowledge": "mmlu mmlu-pro mmmlu humanitys-last-exam simpleqa arc-agi-1 arc-agi-2 graphwalks mrcr aa-omniscience iheval abstentionbench browsecomp deepsearchqa draco creative-writing-v3".split(),
+ "science": "gpqa-diamond critpt scicode proteingym biomysterybench biopipelinebench lab-bench protocolqa seqqa biolp-bench cloning-scenarios singlecellbench spatialbench genebench bixbench biotier secure-bio-evals paperbench troubleshootingbench frontier-science-research".split(),
+ "knowledge": "mmlu mmlu-pro mmmlu humanitys-last-exam simpleqa arc-agi-1 arc-agi-2 graphwalks mrcr aa-omniscience iheval abstentionbench browsecomp deepsearchqa draco creative-writing-v3 aa-lcr supergpqa ifbench chinese-simpleqa corpusqa widesearch".split(),
  "health": "healthbench healthadminbench".split(),
  "safety": "wmdp agentharm or-bench strongreject mask shade-arena petri bbq deceptionbench propensitybench impossiblebench makemesay harmbench".split(),
  "cyber": "cybench cybergym cve-bench cyscenariobench cybersec-eval exploitbench exploitgym".split(),
- "computer-use": "osworld webarena screenspot-pro online-mind2web automationbench toolathlon mcp-atlas mcp-mark-verified bfcl tau2-bench vending-bench-2".split(),
- "professional": "gdpval-aa finance-agent real-world-finance legal-agent-benchmark officeqa apex-agents benchcad".split(),
+ "computer-use": "osworld webarena screenspot-pro online-mind2web automationbench toolathlon mcp-atlas mcp-mark-verified bfcl tau2-bench vending-bench-2 mcpmark".split(),
+ "professional": "gdpval-aa finance-agent real-world-finance legal-agent-benchmark officeqa apex-agents benchcad gdpval-gold biglaw-bench".split(),
  "multimodal": "mmmu mmmu-pro video-mmmu charxiv chartqapro chartmuseum gdp-pdf blueprint-bench-2 figqa mathvision babyvision zerobench longvideobench worldvqa omnidocbench".split(),
 }
 DOM = {c: d for d, cs in DOMAIN.items() for c in cs}
@@ -54,13 +75,13 @@ def canon(raw):
     r=raw.strip().lower()
     m={"swe-bench verified":"swe-bench-verified","swe-bench":"swe-bench-verified","swe-bench pro":"swe-bench-pro",
     "swe-bench multilingual":"swe-bench-multilingual","swe-bench multimodal":"swe-bench-multimodal","frontier swe":"frontier-swe",
-    "terminal-bench":"terminal-bench","terminal-bench 2.0":"terminal-bench","terminal-bench 2.1":"terminal-bench","gpqa":"gpqa-diamond","gpqa diamond":"gpqa-diamond",
+    "terminal-bench":"terminal-bench","terminal-bench 2.1":"terminal-bench","terminal-bench 2.0":"terminal-bench","webdev arena":"webdev-arena","gpqa":"gpqa-diamond","gpqa diamond":"gpqa-diamond",
     "hle":"humanitys-last-exam","humanity":"humanitys-last-exam","humanity's last exam":"humanitys-last-exam",
     "arc-agi":"arc-agi-2","arc-agi-2":"arc-agi-2","matharena":"matharena-apex","matharena apex":"matharena-apex",
     "gdpval":"gdpval-aa","gdpval-aa":"gdpval-aa","gdp.pdf":"gdp-pdf","mcp atlas":"mcp-atlas","mcp-atlas":"mcp-atlas",
     "browsecomp":"browsecomp","osworld":"osworld","osworld-verified":"osworld","vending bench":"vending-bench-2","vending-bench":"vending-bench-2",
     "vending-bench 2":"vending-bench-2","lab-bench":"lab-bench","lab-bench figqa":"lab-bench","labbench":"lab-bench",
-    "figqa":"figqa","tau2":"tau2-bench","\u03c42":"tau2-bench","tau2-bench":"tau2-bench","mmmu":"mmmu","mmmu-pro":"mmmu-pro",
+    "figqa":"figqa","tau2":"tau2-bench","τ2":"tau2-bench","tau2-bench":"tau2-bench","mmmu":"mmmu","mmmu-pro":"mmmu-pro",
     "mmlu":"mmlu","mmlu-pro":"mmlu-pro","mmmlu":"mmmlu","video-mmmu":"video-mmmu","simpleqa":"simpleqa",
     "aime":"aime","aime 2025":"aime","hmmt":"hmmt","usamo":"usamo-2026","usamo 2026":"usamo-2026","charxiv":"charxiv",
     "cybench":"cybench","cyber bench":"cybench","cyberbench":"cybench","cyberseceval":"cybersec-eval",
@@ -156,6 +177,24 @@ EXTRA.update({
  "spreadsheetbench":"spreadsheetbench","spreadsheetbench-v1":"spreadsheetbench",
  "imo-answerbench":"imoanswerbench","gpqa-diamond":"gpqa-diamond","webarena-verified":"webarena",
  "bfcl":"bfcl","vibench":"vibench",
+})
+
+# ---- Issue #8: classify the 29 forward-run benchmark names into the canonical registry (2026-07). ----
+# All registered in OUR repo; none newly added to Harbor. 4 (scicode/bixbench/aa-lcr/widesearch) DO have a
+# merged Harbor adapter (see HARBOR above); the other 25 are not_in_harbor. Collision watch-outs are noted.
+EXTRA.update({
+ "scicode":"scicode", "bixbench":"bixbench", "aa-lcr":"aa-lcr", "widesearch":"widesearch",
+ "genebench":"genebench", "frontiermath":"frontiermath", "exploitgym":"exploitgym",
+ "supergpqa":"supergpqa", "ifbench":"ifbench", "mle-bench":"mle-bench", "omnidocbench":"omnidocbench",
+ "mathvision":"mathvision", "babyvision":"babyvision", "zerobench":"zerobench",
+ "longvideobench":"longvideobench", "worldvqa":"worldvqa", "ojbench":"ojbench",
+ "online-mind2web":"online-mind2web", "chinese-simpleqa":"chinese-simpleqa", "corpusqa":"corpusqa",
+ "frontier science research":"frontier-science-research", "biglaw bench":"biglaw-bench",
+ "expert-swe":"expert-swe", "biopipelinebench":"biopipelinebench", "mcpmark":"mcpmark",
+ "apex-agents":"apex-agents",              # NB: != MathArena "APEX" (matharena-apex)
+ "frontierbench":"frontierbench",          # NB: != Anthropic "FrontierCode" (frontiercode)
+ "gdpval (wins or ties)":"gdpval-gold",    # OpenAI GDPval gold win-rate; DISTINCT from gdpval-aa (Artificial Analysis)
+ "browsecomp-zh":"browsecomp",             # Chinese subset -> alias of browsecomp (merged, per issue #8)
 })
 
 NEWDOCS={
@@ -345,6 +384,7 @@ for did,d in DOCS.items():
               "citing_lab":d["lab"],"citing_model":d["model"],"prominence":{"type":"prose"},
               "reported":{"value":None,"unit":None,"model_config":None},
               "type":None,"domain":None,"on_harbor":False,"harbor_status":"not_in_harbor","harbor_name":None,
+              "harbor_type":None,"harbor_adapter":None,"harbor_in_registry":False,
               "methodology_deviations":[],"score_pending":False,
               "needs_review":True,"review_reason":d.get("reason"),"review_issue":d.get("issue")})
             continue
@@ -353,7 +393,12 @@ for did,d in DOCS.items():
         if not c:
             unmatched.add(raw)
         cc=c
-        hs,hn=HARBOR.get(cc,("not_in_harbor",None)) if cc else ("not_in_harbor",None)
+        hinfo = HARBOR.get(cc) if cc else None
+        hs = hinfo["status"] if hinfo else "not_in_harbor"
+        hn = hinfo["name"] if hinfo else None
+        htype = hinfo["type"] if hinfo else ("none" if cc else None)
+        hadapter = hinfo.get("adapter") if hinfo else None
+        hreg = bool(hinfo["registry"]) if hinfo else False
         on = hs=="confirmed"
         val,unit,cfg=SCORES.get((did,cc),(None,None,None))
         # needs_review = genuine HUMAN decision only (unmatched / harbor collision / config-dependent).
@@ -371,6 +416,7 @@ for did,d in DOCS.items():
           "prominence":{"type":("headline" if raw.strip().lower() in _head else d.get("prom","table_row")),"table_row_n":None,"table_total":_M},
           "reported":{"value":val,"unit":unit,"model_config":cfg},
           "type":type_of(cc) if cc else None,"domain":domain_of(cc) if cc else None,"on_harbor":on,"harbor_status":hs,"harbor_name":hn,
+          "harbor_type":htype,"harbor_adapter":hadapter,"harbor_in_registry":hreg,
           "methodology_deviations":meth,"score_pending":score_pending,
           "needs_review":nr,"review_reason":reason,"review_issue":issue})
 
