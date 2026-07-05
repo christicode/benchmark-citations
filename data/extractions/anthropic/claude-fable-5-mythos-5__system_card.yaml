@@ -1,105 +1,227 @@
 # claude-fable-5-mythos-5__system_card
 doc: claude-fable-5-mythos-5__system_card
 mentions:
-  - raw: "SWE-bench Verified"
-    value: 95
-    unit: "percent"
-    model_config: "Fable 5"
-    methodology:
-      - "standard config, thinking blocks incl.; Mythos 5 95.5"
-  - raw: "SWE-bench Pro"
-    value: 80
-    unit: "percent"
-    model_config: "Fable 5"
-  - raw: "SWE-bench Multilingual"
-  - raw: "SWE-bench Multimodal"
-  - raw: "Terminal-Bench 2.1"
-    value: 84.3
-    unit: "percent"
-    model_config: "Fable 5"
-    methodology:
-      - "Harbor maintains TB 2.1 leaderboard; competitor harnesses Codex/Gemini CLI"
-  - raw: "FrontierCode"
-    value: 29.3
-    unit: "percent"
-    model_config: "Fable 5"
-  - raw: "Frontier SWE"
-  - raw: "ProgramBench"
-  - raw: "CursorBench"
-  - raw: "GPQA Diamond"
-  - raw: "RiemannBench"
-  - raw: "USAMO 2026"
-  - raw: "ArxivMath"
-  - raw: "CritPt"
-    value: 28.6
-    unit: "percent"
-    model_config: "Mythos 5"
-  - raw: "GraphWalks"
-  - raw: "HLE"
-    value: 59.0
-    unit: "percent"
-    model_config: "Mythos 5 (no tools)"
-  - raw: "BrowseComp"
-  - raw: "DeepSearchQA"
-  - raw: "DRACO"
-  - raw: "GDP.pdf"
-    value: 29.8
-    unit: "percent"
-    model_config: "Fable 5"
-  - raw: "Blueprint-Bench 2"
-    value: 38.6
-    unit: "percent"
-    model_config: "Fable 5"
-  - raw: "OSWorld-Verified"
-    value: 85.0
-    unit: "percent"
-    model_config: "Fable 5"
-  - raw: "BenchCAD"
-  - raw: "ChartQAPro"
-  - raw: "ChartMuseum"
-  - raw: "LAB-Bench FigQA"
-  - raw: "CharXiv"
-  - raw: "ScreenSpot-Pro"
-  - raw: "OfficeQA"
-    value: 57.9
-    unit: "percent"
-    model_config: "Fable 5"
-  - raw: "Finance Agent"
-  - raw: "Real-World Finance"
-  - raw: "Legal Agent Benchmark"
-  - raw: "MCP Atlas"
-  - raw: "Vending-Bench 2"
-  - raw: "GDPval-AA"
-    value: 1932
-    unit: "elo"
-    model_config: "Fable 5"
-  - raw: "Toolathlon"
-  - raw: "AutomationBench"
-    value: 17.4
-    unit: "percent"
-    model_config: "Fable 5"
-  - raw: "HealthBench"
-    value: 62.7
-    unit: "percent"
-    model_config: "Mythos 5"
-  - raw: "HealthAdminBench"
-  - raw: "BioMysteryBench"
-  - raw: "CyberGym"
-  - raw: "Cybench"
-  - raw: "ExploitBench"
-  - raw: "WMDP"
-  - raw: "MMLU-Pro"
-  - raw: "SHADE"
-  - raw: "Petri"
-  - raw: "MASK"
-  - raw: "BBQ"
-  - raw: "AA-Omniscience"
-  - raw: "SimpleQA"
-  - raw: "MathArena"
-  - raw: "AIME"
-  - raw: "MMLU"
-  - raw: "ProteinGym"
-  - raw: "SpatialBench"
-  - raw: "SingleCellBench"
-  - raw: "Minimal-LinuxBench"
-  - raw: "FigQA"
+- raw: SWE-bench Pro
+  value: 80.3
+  unit: percent
+  model_config: Mythos 5
+  methodology:
+  - Fable 5 80.0
+- raw: SWE-bench Verified
+  value: 95.5
+  unit: percent
+  model_config: Mythos 5
+  methodology:
+  - Fable 5 95.0
+- raw: SWE-bench Multilingual
+  value: 92.2
+  unit: percent
+  model_config: Mythos 5
+- raw: SWE-bench Multimodal
+  value: 54.9
+  unit: percent
+  model_config: Mythos 5
+- raw: Terminal-Bench 2.1
+  value: 88.0
+  unit: percent
+  model_config: Mythos 5
+  methodology:
+  - Fable 5 84.3 (20.9% of trials hit safety refusal -> Opus 4.8 high effort); mini-SWE-agent harness
+- raw: FrontierCode
+  value: 46.3
+  unit: percent
+  model_config: Fable 5, main subset
+  methodology:
+  - Diamond subset 29.3
+- raw: FrontierSWE
+  value: 2.12
+  unit: other
+  model_config: Fable 5
+  methodology:
+  - mean@5 (continuous metrics suite)
+- raw: ProgramBench
+  methodology:
+  - Mythos 5 84-93% (excl 34 tasks where reference<0.9); Fable blocked by security classifiers
+- raw: CursorBench
+  value: 72.9
+  unit: percent
+  model_config: Fable 5, max effort
+- raw: GPQA Diamond
+  value: 94.1
+  unit: percent
+  model_config: Mythos 5
+  methodology:
+  - 'Anthropic: consider saturated, plan to stop reporting'
+- raw: RiemannBench
+  value: 55.0
+  unit: percent
+  model_config: Mythos 5
+  methodology:
+  - 4 attempts/problem
+- raw: USAMO
+  value: 99.8
+  unit: percent
+  model_config: Mythos 5, 2026
+- raw: ArxivMath
+  value: 78.52
+  unit: percent
+  model_config: Mythos 5
+  methodology:
+  - Mar+Apr 2026 releases, 71 problems (anti-contamination)
+- raw: CritPt
+  value: 28.6
+  unit: percent
+  model_config: Mythos 5
+- raw: GraphWalks
+  value: 91.1
+  unit: percent
+  model_config: Mythos 5, BFS 256k
+  methodology:
+  - BFS 256k 91.1 / BFS 1M 79.4 / Parents 256k 99.96 / Parents 1M 97.5
+- raw: HLE
+  value: 64.5
+  unit: percent
+  model_config: Mythos 5, tools
+  methodology:
+  - no tools 59
+- raw: BrowseComp
+  value: 88.0
+  unit: percent
+  model_config: Mythos 5
+  methodology:
+  - web tools, 1M ctx, compaction @200k
+- raw: DeepSearchQA
+  value: 94.2
+  unit: percent
+  model_config: Mythos 5
+- raw: DRACO
+  value: 86.4
+  unit: percent
+  model_config: Mythos 5, max effort
+  methodology:
+  - Opus 4.6 as judge
+- raw: Multi-agent BrowseComp
+  value: 93.3
+  unit: percent
+  model_config: Mythos 5
+  methodology:
+  - async subagents
+- raw: Multi-agent ProgramBench
+  value: 60.0
+  unit: percent
+  model_config: Mythos 5
+- raw: GDP.pdf
+  value: 87.6
+  unit: percent
+  model_config: Mythos 5, tools
+  methodology:
+  - no tools 72.7; Fable 29.8
+- raw: Blueprint-Bench 2
+  value: 38.6
+  unit: percent
+  model_config: Fable 5
+- raw: OSWorld-Verified
+  value: 85.0
+  unit: percent
+  model_config: Mythos 5
+  methodology:
+  - first-attempt, avg 5 runs
+- raw: BenchCAD
+  value: 0.384
+  unit: other
+  model_config: Mythos 5
+  methodology:
+  - reference impl corrected (camera/grading/omitted 26)
+- raw: ChartQAPro
+  value: 72.9
+  unit: percent
+  model_config: Mythos 5, python
+  methodology:
+  - no tools 71.6
+- raw: ChartMuseum
+  value: 93.2
+  unit: percent
+  model_config: Mythos 5, python
+  methodology:
+  - no tools 85.9
+- raw: FigQA
+  value: 90.7
+  unit: percent
+  model_config: Mythos 5, LAB-Bench FigQA, python
+  methodology:
+  - no tools 88.9
+- raw: CharXiv
+  value: 93.5
+  unit: percent
+  model_config: Mythos 5, Reasoning, python
+  methodology:
+  - no tools 88.9; Sonnet 4.6 grader
+- raw: ScreenSpot-Pro
+  value: 90.7
+  unit: percent
+  model_config: Mythos 5, tools
+  methodology:
+  - no tools 87.3
+- raw: OfficeQA
+  value: 79.0
+  unit: percent
+  model_config: Mythos 5
+  methodology:
+  - Fable 57.9; OfficeQA-PRO 67.1
+- raw: Finance Agent
+  value: 56.31
+  unit: percent
+  model_config: Fable 5
+- raw: Real-World Finance
+  value: 1374
+  unit: elo
+  model_config: v2
+  methodology:
+  - v1 70%
+- raw: Legal Agent Benchmark
+  value: 16.91
+  unit: percent
+  model_config: Mythos 5
+  methodology:
+  - Harvey Law; Fable 13.3; ±0.4 n=5
+- raw: MCP Atlas
+  value: 83.3
+  unit: percent
+  model_config: Fable 5
+- raw: Vending-Bench
+  value: 5680.26
+  unit: usd
+  model_config: Fable 5
+- raw: GDPval-AA
+  methodology:
+  - Fable 5 led Opus 4.8 by ~42 Elo (56% pairwise win rate)
+- raw: Toolathlon
+  value: 61.7
+  unit: percent
+  model_config: Pass@1
+  methodology:
+  - Tool Decathlon
+- raw: AutomationBench
+  value: 17.4
+  unit: percent
+  model_config: Fable 5
+- raw: HealthBench
+  value: 62.7
+  unit: percent
+  model_config: Mythos 5
+- raw: HealthBench Professional
+  value: 66.0
+  unit: percent
+  model_config: Mythos 5
+- raw: HealthAdminBench
+  value: 51.9
+  unit: percent
+  model_config: Mythos 5
+- raw: BioMysteryBench
+- raw: ProteinGym
+- raw: LatchBio
+- raw: LAB-Bench
+- raw: GMMLU
+- raw: MILU
+- raw: INCLUDE
+- raw: BenchCAD

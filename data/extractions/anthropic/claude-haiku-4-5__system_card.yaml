@@ -1,9 +1,20 @@
 # claude-haiku-4-5__system_card
 doc: claude-haiku-4-5__system_card
 mentions:
-  - raw: "SWE-bench Verified"
-  - raw: "Cybench"
-  - raw: "LAB-Bench"
-  - raw: "ProtocolQA"
-  - raw: "Petri"
-  - raw: "SHADE"
+- raw: ProtocolQA
+  value: 69.0
+  unit: percent
+  model_config: LAB-Bench subset
+- raw: SeqQA
+  value: 66.0
+  unit: percent
+  model_config: LAB-Bench subset
+- raw: CloningScenarios
+  value: 45.0
+  unit: percent
+  model_config: LAB-Bench subset
+- raw: VCT
+  value: 32.0
+  unit: percent
+  methodology:
+  - VMQA/VCT
