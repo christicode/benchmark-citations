@@ -10,14 +10,14 @@ This replaces the retired tables dashboard. Grid:
   * X axis = citing model, MOST RECENT ON THE LEFT (models.yaml release_date; undated last).
   * cell (benchmark × model) = increasing DARKNESS OF BLUE for the highest source class in
     which that model cites it: Headliner (darkest) > Model card > System card (lightest).
-  * saturation gutter (left of the grid) = max reported % for that benchmark (headroom),
-    on a green→amber→red ramp so it never reads as the blue citation signal.
+  * Saturation gutter (left of the grid) = max reported % for that benchmark (headroom),
+    on a green→amber→red ramp; hover shows which model set it + a source link.
   * hover / click-to-pin a cell → the source link(s) (headliner / model card / system card)
     with the reported score, for verifiability.
 
-Filters (agentic/static · Harbor-only · company) re-rank live over the VISIBLE columns.
-Self-contained (embeds a compact JSON blob; no external deps). Reads data/citations.jsonl
-(built by build.py, Harbor-synced by sync_harbor.py) + models.yaml (by gen_models.py).
+Filters (agentic/chat · Harbor-only · company) re-rank live over the VISIBLE columns.
+Self-contained (embeds a compact JSON blob; modern sans UI via Inter). Reads
+data/citations.jsonl (built by build.py, Harbor-synced by sync_harbor.py) + data/models.yaml.
 """
 from __future__ import annotations
 
@@ -152,77 +152,81 @@ def main() -> int:
 
 PAGE = r"""<!doctype html><html lang=en><head><meta charset=utf-8>
 <meta name=viewport content='width=device-width,initial-scale=1'>
-<title>PaperTrail — benchmark × model heatmap</title>
+<title>PaperTrail</title>
+<link rel=preconnect href="https://fonts.googleapis.com">
+<link rel=preconnect href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel=stylesheet>
 <style>
-:root{--bg:#fff;--panel:#eef3fb;--b:#d7e3f2;--fg:#586e75;--emph:#073642;--mut:#93a1a1;
-  --blue:#268bd2;--green:#22c55e;--amber:#cb8a00;--red:#dc322f;--violet:#6c71c4;
+:root{--bg:#ffffff;--panel:#f7f8fa;--b:#e6e8eb;--fg:#3d4451;--emph:#0d0f13;--mut:#9aa1ac;
+  --blue:#2563eb;--green:#16a34a;--amber:#d97706;--red:#dc2626;--violet:#7c3aed;
   /* blue citation ramp: System card (light) -> Model card -> Headliner (dark) */
-  --t1:#d6e9f7;--t2:#79b3e0;--t3:#0f5a97;--empty:#fafbfc}
+  --t1:#dbeafe;--t2:#7fb0ee;--t3:#1e56b0;--empty:#fbfcfd}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);
-  font:13px/1.5 "JetBrains Mono","SF Mono",ui-monospace,Menlo,Consolas,monospace}
-.wrap{max-width:1400px;margin:0 auto;padding:20px}
-h1{font-size:21px;color:var(--emph);margin:0 0 2px}
+  font:14px/1.55 "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.wrap{max-width:1400px;margin:0 auto;padding:26px 22px 40px}
+h1{font-size:24px;font-weight:700;letter-spacing:-.02em;color:var(--emph);margin:0 0 14px}
 a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
-.sub{color:var(--mut);font-size:12px;margin:0 0 12px}
-.bar{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin:12px 0;
-  background:var(--panel);border:1px solid var(--b);border-radius:6px;padding:8px 12px}
+.bar{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin:0 0 14px;
+  background:var(--panel);border:1px solid var(--b);border-radius:12px;padding:10px 14px}
 .bar .grp{display:flex;gap:6px;align-items:center}
-.bar b{color:var(--emph);font-size:11px;text-transform:uppercase;letter-spacing:.03em;margin-right:2px}
-.chip{font:12px ui-monospace,monospace;padding:3px 8px;border:1px solid var(--b);
-  background:#fff;color:var(--fg);border-radius:6px;cursor:pointer;user-select:none}
+.bar b{color:var(--mut);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-right:2px}
+.chip{font-size:12.5px;font-weight:500;padding:4px 11px;border:1px solid var(--b);
+  background:#fff;color:var(--fg);border-radius:999px;cursor:pointer;user-select:none;transition:.12s}
+.chip:hover{border-color:var(--blue);color:var(--blue)}
 .chip.on{background:var(--blue);color:#fff;border-color:var(--blue)}
 .chip.co.on{background:var(--emph);border-color:var(--emph)}
-.legend{color:var(--mut);font-size:11.5px;margin:8px 0 0;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-.sw{display:inline-block;width:12px;height:12px;border:1px solid var(--b);vertical-align:-2px;margin-right:3px;border-radius:2px}
-.grid-scroll{overflow:auto;max-height:80vh;border:1px solid var(--b);border-radius:6px}
+.legend{color:var(--mut);font-size:12px;margin:12px 2px 0;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.sw{display:inline-block;width:12px;height:12px;border:1px solid var(--b);vertical-align:-2px;margin-right:4px;border-radius:3px}
+.grid-scroll{overflow:auto;max-height:80vh;border:1px solid var(--b);border-radius:12px}
 table.hm{border-collapse:separate;border-spacing:0}
 table.hm th,table.hm td{padding:0;margin:0}
 thead th{position:sticky;top:0;z-index:3;background:var(--bg)}
-th.corner{left:0;z-index:5}
-th.mh{height:118px;vertical-align:bottom;padding-bottom:6px}
+th.mh{height:120px;vertical-align:bottom;padding-bottom:8px}
 th.mh .lab{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;
-  font-size:11px;color:var(--emph);font-weight:700;max-height:104px;overflow:hidden}
-th.mh.new .lab{color:var(--violet);font-style:italic}
-td.yl,th.corner{position:sticky;left:0;z-index:2;background:var(--bg);border-right:1px solid var(--b)}
-th.corner.sat2{left:var(--gutL);z-index:5}
-td.yl{padding:0 8px;white-space:nowrap;font-size:12px;color:var(--emph);border-bottom:1px solid #f0f4f9}
-td.yl .rank{color:var(--mut);display:inline-block;min-width:22px}
-td.yl .nm{cursor:pointer}
+  font-size:11.5px;font-weight:600;color:var(--emph);max-height:104px;overflow:hidden}
+th.mh.new .lab{color:var(--violet);font-style:italic;font-weight:500}
+td.yl{position:sticky;left:0;z-index:2;background:var(--bg);border-right:1px solid var(--b);
+  padding:0 10px;white-space:nowrap;font-size:12.5px;color:var(--emph);border-bottom:1px solid #f1f3f5}
+td.yl .rank{color:var(--mut);display:inline-block;min-width:22px;font-variant-numeric:tabular-nums}
+td.yl .nm{cursor:pointer;font-weight:500;color:var(--emph)}
+td.yl .nm:hover{color:var(--blue);text-decoration:underline}
 td.yl .h{color:var(--green);font-weight:700}
-td.yl .ty{font-size:9px;color:var(--mut);margin-left:5px}
+td.yl .ty{font-size:10px;color:var(--mut);margin-left:6px}
 td.yl .ty.ag{color:var(--green)}
-td.sat{position:sticky;left:var(--gutL);z-index:2;background:var(--bg);width:74px;
-  border-right:1px solid var(--b);border-bottom:1px solid #f0f4f9;padding:0 6px}
-.satbar{height:9px;background:#eef1f4;border-radius:2px;position:relative;overflow:hidden}
-.satbar>i{display:block;height:100%}
-.satnum{font-size:9.5px;color:var(--mut)}
-td.cell{width:22px;height:22px;text-align:center;border-right:1px solid #eef2f7;
-  border-bottom:1px solid #eef2f7;cursor:default}
+td.sat{position:sticky;left:var(--gutL);z-index:2;background:var(--bg);width:78px;
+  border-right:1px solid var(--b);border-bottom:1px solid #f1f3f5;padding:0 8px}
+td.sat.hs{cursor:help}
+.satbar{height:9px;background:#eef1f4;border-radius:999px;position:relative;overflow:hidden}
+.satbar>i{display:block;height:100%;border-radius:999px}
+.satnum{font-size:10px;color:var(--mut);font-variant-numeric:tabular-nums}
+th.corner{left:0;z-index:6;background:var(--bg);border-right:1px solid var(--b)}
+th.corner.sat2{left:var(--gutL);z-index:6;vertical-align:bottom;padding:0 8px 8px}
+th.corner.sat2 .satlbl{font-size:10px;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.03em}
+td.cell{width:22px;height:22px;text-align:center;border-right:1px solid #f1f4f7;
+  border-bottom:1px solid #f1f4f7;cursor:default}
 td.cell.f{cursor:pointer}
 td.cell.t1{background:var(--t1)}td.cell.t2{background:var(--t2)}td.cell.t3{background:var(--t3)}
 td.cell.pin{outline:2px solid var(--red);outline-offset:-2px}
-.count{color:var(--mut);font-size:12px;margin:6px 2px}
+.count{color:var(--mut);font-size:12.5px;margin:10px 2px}
 #tip{position:fixed;z-index:20;max-width:360px;background:#fff;border:1px solid var(--b);
-  border-radius:8px;box-shadow:0 6px 24px rgba(7,54,66,.16);padding:10px 12px;display:none;font-size:12px}
-#tip h4{margin:0 0 4px;font-size:12.5px;color:var(--emph)}
+  border-radius:12px;box-shadow:0 8px 30px rgba(13,15,19,.14);padding:11px 13px;display:none;font-size:12.5px}
+#tip h4{margin:0 0 5px;font-size:13px;font-weight:600;color:var(--emph)}
 #tip .r{margin:3px 0;color:var(--fg)}
-#tip .dt{font-weight:700;color:var(--emph)}
+#tip .dt{font-weight:600;color:var(--emph)}
 #tip .g{color:var(--amber)}
-#tip .cl{color:var(--mut);font-size:11px}
+#tip .cl{color:var(--mut);font-size:11.5px}
 #tip a{font-weight:600}
-.foot{color:var(--mut);font-size:11.5px;margin:14px 0 0}
+.foot{color:var(--mut);font-size:12px;margin:16px 0 0}
 </style></head><body><div class=wrap>
-<h1>PaperTrail · benchmark × model heatmap</h1>
-<p class=sub>Which benchmarks the frontier labs cite, and how prominently. Y = benchmark
-(top = most cumulative points). X = model, <b>most recent on the left</b>.
-<span id=asof></span> · <a href='https://github.com/christicode/benchmark-citations' target=_blank rel=noopener>data & method</a></p>
+<h1>PaperTrail</h1>
 
 <div class=bar>
   <div class=grp><b>type</b>
     <span class=chip data-ty=all onclick='setTy(this)'>all</span>
     <span class=chip data-ty=agentic onclick='setTy(this)'>agentic</span>
-    <span class=chip data-ty=chat onclick='setTy(this)'>static</span></div>
+    <span class=chip data-ty=chat onclick='setTy(this)'>chat</span></div>
   <div class=grp><b>harbor</b>
     <span class=chip id=harb onclick='toggleHarb(this)'>Harbor-compatible only</span></div>
   <div class=grp><b>tail</b>
@@ -234,13 +238,13 @@ td.cell.pin{outline:2px solid var(--red);outline-offset:-2px}
 <div class=count id=count></div>
 
 <div class=legend>
-  <span><b>cell</b> — cited in a:</span>
+  <span><b style="color:var(--mut);font-weight:600">cell — cited in a:</b></span>
   <span><span class=sw style=background:var(--t3)></span>Headliner (3)</span>
   <span><span class=sw style=background:var(--t2)></span>Model card (2)</span>
   <span><span class=sw style=background:var(--t1)></span>System card (1)</span>
   <span><span class=sw style=background:var(--empty)></span>not cited</span>
   <span>· <b class=h style=color:var(--green)>(H)</b> = Harbor-compatible</span>
-  <span>· gutter bar = max reported % (saturation / headroom)</span>
+  <span>· Saturation = max reported % (hover for the model + source)</span>
 </div>
 <p class=foot>Points: Headliner 3 · Model card 2 · System card 1, max per document then summed.
 Click a cell to pin its source links. christicode/benchmark-citations.</p>
@@ -249,7 +253,6 @@ Click a cell to pin its source links. christicode/benchmark-citations.</p>
 <div id=tip></div>
 <script>
 var DATA = /*__DATA__*/;
-document.getElementById('asof').textContent = 'Updated ' + DATA.as_of;
 
 var state = {ty:'all', harb:false, tail:false, cos:{}};
 DATA.companies.forEach(function(c){ state.cos[c.id]=true; });
@@ -281,19 +284,19 @@ function render(){
   var rows=[];
   DATA.benchmarks.forEach(function(b){
     if(!rowVisible(b)) return;
-    var pts=0, sat=null, nm=0;
+    var pts=0, sat=null, satMid=null, nm=0;
     vmids.forEach(function(id){ var c=b.cells[id]; if(c){ pts+=c.pts; nm++;
-      if(c.score!=null) sat=(sat==null)?c.score:Math.max(sat,c.score); } });
+      if(c.score!=null && (sat==null || c.score>sat)){ sat=c.score; satMid=id; } } });
     if(nm===0) return;                          // no citation in visible columns
     if(!state.tail && b.n_models<2) return;     // long-tail cut (GLOBAL count, so a company
                                                 // filter still re-ranks densely 1,2,3,4...)
-    rows.push({b:b, pts:pts, sat:sat, nm:nm});
+    rows.push({b:b, pts:pts, sat:sat, satMid:satMid, nm:nm});
   });
   rows.sort(function(x,y){ return (y.pts-x.pts) || (y.nm-x.nm) || (x.b.canon<y.b.canon?-1:1); });
 
   var t=document.getElementById('hm');
   var H=[];
-  H.push('<thead><tr><th class=corner>&nbsp;</th><th class="corner sat2">&nbsp;</th>');
+  H.push('<thead><tr><th class=corner>&nbsp;</th><th class="corner sat2"><span class=satlbl>Saturation</span></th>');
   vm.forEach(function(m){
     H.push('<th class="mh'+(m.dated?'':' new')+'" title="'+esc(m.model_title(m))+'">'+
       '<div class=lab>'+esc(m.display)+(m.dated?'':' ·?')+'</div></th>');
@@ -302,14 +305,16 @@ function render(){
   rows.forEach(function(r,i){
     var b=r.b;
     var ty = b.type==='agentic'?'<span class="ty ag">agentic</span>'
-            : b.type==='chat'?'<span class=ty>static</span>':'';
+            : b.type==='chat'?'<span class=ty>chat</span>':'';
     var h = b.on_harbor? ' <span class=h title="Harbor-compatible">(H)</span>':'';
     H.push('<tr><td class=yl><span class=rank>'+(i+1)+'</span>'+
-      '<span class=nm onclick="openRec(\''+esc(b.canon)+'\')" title="see citation records on GitHub"><code>'+
-      esc(b.canon)+'</code></span>'+h+ty+'</td>');
+      '<span class=nm onclick="openRec(\''+esc(b.canon)+'\')" title="see citation records on GitHub">'+
+      esc(b.canon)+'</span>'+h+ty+'</td>');
     if(r.sat!=null){
       var col = r.sat>=85?'var(--red)':r.sat>=70?'var(--amber)':'var(--green)';
-      H.push('<td class=sat><div class=satbar><i style="width:'+Math.max(3,Math.round(r.sat))+
+      H.push('<td class="sat hs" data-b="'+esc(b.canon)+'" data-m="'+r.satMid+
+        '" onmouseenter="showSat(event,this)" onmouseleave="hideTip()">'+
+        '<div class=satbar><i style="width:'+Math.max(3,Math.round(r.sat))+
         '%;background:'+col+'"></i></div><span class=satnum>'+Math.round(r.sat)+'%</span></td>');
     } else { H.push('<td class=sat><span class=satnum>&mdash;</span></td>'); }
     vm.forEach(function(m){
@@ -357,12 +362,35 @@ function tipHTML(d){
   });
   return s;
 }
+function satHTML(el){
+  var b=el.dataset.b, m=el.dataset.m;
+  var rec=DATA.benchmarks.find(function(x){return x.canon===b;});
+  var mm=DATA.models.find(function(x){return x.id===m;});
+  var cell=rec.cells[m], best=null;
+  cell.docs.forEach(function(dd){ if(dd.unit==='percent'&&dd.val!=null&&(best==null||dd.val>best.val)) best=dd; });
+  var pct=best?best.val:cell.score;
+  var s='<h4>'+esc(b)+' · saturation</h4>';
+  s+='<div class=r>max <b>'+esc(String(Math.round(pct)))+'%</b> · '+esc(mm.display)+'</div>';
+  if(best){
+    var lab=DATA.wc_label[best.wc]||best.wc||'source';
+    s+='<div class=r><a href="'+esc(best.url)+'" target=_blank rel=noopener>'+esc(lab)+' source ↗</a>'+
+       (best.cfg?(' <span class=cl>'+esc(best.cfg)+'</span>'):'')+'</div>';
+  }
+  return s;
+}
+function pos(el){ var tip=document.getElementById('tip'); var r=el.getBoundingClientRect();
+  var x=r.right+10, y=r.top; var t=tip.getBoundingClientRect();
+  if(x+t.width>innerWidth) x=r.left-t.width-10; if(x<6) x=6;
+  if(y+t.height>innerHeight) y=innerHeight-t.height-8; if(y<6) y=6;
+  tip.style.left=x+'px'; tip.style.top=y+'px'; }
 function showTip(e,el){ if(pinned) return; var tip=document.getElementById('tip');
-  tip.innerHTML=tipHTML(cellData(el)); tip.style.display='block'; place(e); }
-function place(e){ var tip=document.getElementById('tip');
+  tip.innerHTML=tipHTML(cellData(el)); tip.style.display='block'; posMouse(e); }
+function showSat(e,el){ if(pinned) return; var tip=document.getElementById('tip');
+  tip.innerHTML=satHTML(el); tip.style.display='block'; pos(el); }
+function posMouse(e){ var tip=document.getElementById('tip');
   var x=e.clientX+14, y=e.clientY+14; var r=tip.getBoundingClientRect();
-  if(x+r.width>innerWidth) x=e.clientX-r.width-14;
-  if(y+r.height>innerHeight) y=innerHeight-r.height-8;
+  if(x+r.width>innerWidth) x=e.clientX-r.width-14; if(x<6) x=6;
+  if(y+r.height>innerHeight) y=innerHeight-r.height-8; if(y<6) y=6;
   tip.style.left=x+'px'; tip.style.top=y+'px'; }
 function hideTip(){ if(!pinned) document.getElementById('tip').style.display='none'; }
 function pin(el){
@@ -370,8 +398,7 @@ function pin(el){
   if(pinned===el){ pinned=null; document.getElementById('tip').style.display='none'; return; }
   pinned=el; el.classList.add('pin');
   var tip=document.getElementById('tip'); tip.innerHTML=tipHTML(cellData(el));
-  tip.style.display='block'; var r=el.getBoundingClientRect();
-  tip.style.left=Math.min(r.right+8, innerWidth-370)+'px'; tip.style.top=(r.top)+'px';
+  tip.style.display='block'; pos(el);
 }
 document.addEventListener('click',function(e){
   if(pinned && !e.target.classList.contains('cell')){ pinned.classList.remove('pin'); pinned=null;
