@@ -1,5 +1,35 @@
 # glm-4-6__model_card
 doc: glm-4-6__model_card
-unreadable:
-  reason: "GLM-4.6 HF README has no text-extractable benchmark table; scores live on z.ai blog (not archived) - human extraction needed"
-  review_issue: 9
+mentions:
+- raw: AIME 2025
+  value: 98.6
+  unit: percent
+  model_config: with tools
+- raw: GPQA Diamond
+  value: 82.9
+  unit: percent
+  model_config: with tools
+- raw: LiveCodeBench
+  value: 84.5
+  unit: percent
+  model_config: v6, with tools
+- raw: HLE
+  value: 17.2
+  unit: percent
+  model_config: no tools
+- raw: HLE
+  value: 30.4
+  unit: percent
+  model_config: with tools
+- raw: BrowseComp
+  value: 45.1
+  unit: percent
+- raw: SWE-bench Verified
+  value: 68.0
+  unit: percent
+- raw: Terminal-Bench
+  value: 40.5
+  unit: percent
+- raw: tau2-bench
+  value: 75.9
+  unit: percent

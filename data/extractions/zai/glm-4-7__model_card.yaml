@@ -1,40 +1,63 @@
 # glm-4-7__model_card
 doc: glm-4-7__model_card
 mentions:
-  - raw: "GPQA"
-    value: 85.7
-    unit: "percent"
-    model_config: "GLM-4.7"
-  - raw: "HLE"
-    value: 24.8
-    unit: "percent"
-    model_config: "GLM-4.7 (42.8 w/ tools)"
-  - raw: "AIME"
-    value: 95.7
-    unit: "percent"
-    model_config: "GLM-4.7 (AIME 2025)"
-  - raw: "HMMT"
-    value: 97.1
-    unit: "percent"
-    model_config: "GLM-4.7 (Feb 2025)"
-  - raw: "LiveCodeBench"
-    value: 84.9
-    unit: "percent"
-    model_config: "GLM-4.7 (v6)"
-  - raw: "SWE-bench Verified"
-    value: 73.8
-    unit: "percent"
-    model_config: "GLM-4.7 (OpenHands)"
-  - raw: "SWE-bench Multilingual"
-    value: 66.7
-    unit: "percent"
-    model_config: "GLM-4.7"
-  - raw: "Terminal-Bench"
-    value: 41.0
-    unit: "percent"
-    model_config: "GLM-4.7 (TB 2.0, Terminus-2)"
-  - raw: "BrowseComp"
-    value: 52.0
-    unit: "percent"
-    model_config: "GLM-4.7"
-  - raw: "BrowseComp-Zh"
+- raw: AIME 2025
+  weight_class: blog_headliner
+  value: 95.7
+  unit: percent
+- raw: LiveCodeBench
+  weight_class: blog_headliner
+  value: 84.9
+  unit: percent
+  model_config: v6
+- raw: GPQA Diamond
+  weight_class: blog_headliner
+  value: 85.7
+  unit: percent
+- raw: HLE
+  weight_class: blog_headliner
+  value: 42.8
+  unit: percent
+  model_config: with tools
+  methodology:
+  - no tools 24.8
+- raw: SWE-bench Verified
+  weight_class: blog_headliner
+  value: 73.8
+  unit: percent
+- raw: Terminal-Bench 2.0
+  weight_class: blog_headliner
+  value: 41.0
+  unit: percent
+- raw: tau2-bench
+  weight_class: blog_headliner
+  value: 87.4
+  unit: percent
+- raw: BrowseComp
+  weight_class: blog_headliner
+  value: 67.5
+  unit: percent
+  model_config: w/ context manage
+  methodology:
+  - base 52
+- raw: MMLU-Pro
+  value: 84.3
+  unit: percent
+- raw: HMMT
+  value: 97.1
+  unit: percent
+  model_config: Feb 2025
+  methodology:
+  - Nov 2025 93.5
+- raw: IMO-AnswerBench
+  value: 82.0
+  unit: percent
+- raw: SWE-bench Multilingual
+  value: 66.7
+  unit: percent
+- raw: Terminal-Bench Hard
+  value: 33.3
+  unit: percent
+- raw: BrowseComp-Zh
+  value: 66.6
+  unit: percent

@@ -1,5 +1,21 @@
 # kimi-k2-7-code__model_card
 doc: kimi-k2-7-code__model_card
-unreadable:
-  reason: "Kimi K2.7-Code page is JS-rendered; benchmark scores not in served HTML (curl) - needs headless render/human extraction"
-  review_issue: 9
+mentions:
+- raw: Kimi Code Bench v2
+  value: 62.0
+  unit: percent
+- raw: ProgramBench
+  value: 53.6
+  unit: percent
+- raw: MLS Bench Lite
+  value: 35.1
+  unit: percent
+- raw: Kimi Claw 24/7 Bench
+  value: 46.9
+  unit: percent
+- raw: MCP Atlas
+  value: 76.0
+  unit: percent
+- raw: MCP Mark Verified
+  value: 81.1
+  unit: percent

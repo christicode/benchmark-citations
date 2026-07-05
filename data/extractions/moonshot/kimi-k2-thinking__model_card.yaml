@@ -1,5 +1,90 @@
 # kimi-k2-thinking__model_card
 doc: kimi-k2-thinking__model_card
-unreadable:
-  reason: "Kimi K2 Thinking blog is JS-rendered; benchmark scores not in served HTML (curl) - needs headless render/human extraction"
-  review_issue: 9
+mentions:
+- raw: Humanity's Last Exam
+  weight_class: blog_headliner
+  value: 44.9
+  unit: percent
+  model_config: expert-level Qs only
+- raw: BrowseComp
+  weight_class: blog_headliner
+  value: 60.2
+  unit: percent
+- raw: Seal-0
+  weight_class: blog_headliner
+  value: 56.3
+  unit: percent
+- raw: SWE-bench Multilingual
+  weight_class: blog_headliner
+  value: 61.1
+  unit: percent
+- raw: SWE-bench Verified
+  weight_class: blog_headliner
+  value: 71.3
+  unit: percent
+- raw: LiveCodeBench
+  weight_class: blog_headliner
+  value: 83.1
+  unit: percent
+  model_config: v6
+- raw: Humanity's Last Exam
+  value: 51.0
+  unit: percent
+  model_config: heavy
+  methodology:
+  - 'no tools 23.9; w/ tools 44.9; heavy 51.0'
+- raw: AIME 2025
+  value: 100.0
+  unit: percent
+  model_config: heavy
+  methodology:
+  - 'no tools 94.5; python 99.1; heavy 100'
+- raw: HMMT
+  value: 97.5
+  unit: percent
+  model_config: heavy
+  methodology:
+  - 'no tools 89.4; python 95.1; heavy 97.5'
+- raw: IMO-AnswerBench
+  value: 78.6
+  unit: percent
+  model_config: no tools
+- raw: GPQA Diamond
+  value: 84.5
+  unit: percent
+  model_config: no tools
+- raw: MMLU-Pro
+  value: 84.6
+  unit: percent
+- raw: MMLU-Redux
+  value: 94.4
+  unit: percent
+- raw: HealthBench
+  value: 58.0
+  unit: percent
+- raw: BrowseComp-Zh
+  value: 62.3
+  unit: percent
+  model_config: w/ tools
+- raw: FinSearchComp-T3
+  value: 47.4
+  unit: percent
+  model_config: w/ tools
+- raw: Frames
+  value: 87.0
+  unit: percent
+  model_config: w/ tools
+- raw: Multi-SWE-bench
+  value: 41.9
+  unit: percent
+  model_config: w/ tools
+- raw: SciCode
+  value: 44.8
+  unit: percent
+  model_config: no tools
+- raw: OJ-Bench
+  value: 48.7
+  unit: percent
+- raw: Terminal-Bench
+  value: 47.1
+  unit: percent
