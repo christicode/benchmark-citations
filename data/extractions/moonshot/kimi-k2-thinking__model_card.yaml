@@ -32,19 +32,19 @@ mentions:
   unit: percent
   model_config: heavy
   methodology:
-  - 'no tools 23.9; w/ tools 44.9; heavy 51.0'
+  - no tools 23.9; w/ tools 44.9; heavy 51.0
 - raw: AIME 2025
   value: 100.0
   unit: percent
   model_config: heavy
   methodology:
-  - 'no tools 94.5; python 99.1; heavy 100'
+  - no tools 94.5; python 99.1; heavy 100
 - raw: HMMT
   value: 97.5
   unit: percent
   model_config: heavy
   methodology:
-  - 'no tools 89.4; python 95.1; heavy 97.5'
+  - no tools 89.4; python 95.1; heavy 97.5
 - raw: IMO-AnswerBench
   value: 78.6
   unit: percent
