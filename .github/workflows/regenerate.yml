@@ -7,6 +7,7 @@ on:
       - scripts/build_citations.py
       - scripts/gen_aliases.py
       - scripts/build_dashboard.py
+      - scripts/check_reconciliation.py
       - .github/workflows/regenerate.yml
 concurrency:
   group: regenerate
@@ -25,6 +26,8 @@ jobs:
       - run: python scripts/build_citations.py
       - run: python scripts/gen_aliases.py
       - run: python scripts/build_dashboard.py
+      - name: Reconciliation invariant (block a split coverage matrix from deploying)
+        run: python scripts/check_reconciliation.py
       - name: Commit regenerated data + dashboard (race-safe)
         run: |
           git config user.name "regen-bot"
