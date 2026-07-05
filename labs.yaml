@@ -1,11 +1,13 @@
 # labs.yaml — IN-SCOPE LABS/ORGS (CONFIG, NOT CODE)
 # Onboarding a new lab = add an entry here. No code change required.
-# `source_index_urls` are the canonical index pages the watcher CRAWLS to
-# DISCOVER documents (model cards / system cards / headline blogs). We enumerate
-# from these indexes and diff against already-extracted docs — we never rely on a
-# guessed list of model names. (This is what caused the Mythos/Fable miss.)
+# `source_index_urls` are the canonical index pages the watcher (scripts/discover.py) CRAWLS to
+# DISCOVER documents (model cards / system cards / headline blogs). We enumerate from these
+# indexes and diff against already-tracked docs — we never rely on a guessed list of model names.
+# `candidate_patterns` (regex, matched against a discovered URL) keep discovery PRECISE: only URLs
+# matching a pattern are surfaced as candidates, so the human queue isn't flooded with quant
+# variants, product posts, or nav links. Tuning discovery for a lab = edit its patterns here.
 
-schema_version: 1
+schema_version: 2
 window:
   start: "2025-09-01"   # backfill window start
   # GPT-5 system card (2025-08-13) is INCLUDED as a comparison anchor (see below),
@@ -16,7 +18,15 @@ window:
       date: "2025-08-13"
       reason: "referenced as baseline across later OpenAI/Anthropic/Google cards"
 
-doc_types: [blog_headliner, model_card, system_card]
+# Physical document containers we crawl for (see data/documents.yaml `container`).
+# NB: the SCORING classes (weight_class: blog_headliner 3 / model_card 2 / system_card 1)
+# are a separate per-mention axis — a single blog can contain both headliner and model-card evals.
+containers: [blog, pdf, hf_readme]
+
+# Global HF repo suffixes that are NEVER primary model cards (quantizations, base checkpoints,
+# speculative-decoding/eagle heads, interpretability SAEs). Applied to every huggingface.co URL.
+hf_deny_suffixes: ["-Base", "-base", "Base", "-FP8", "-BF16", "-NVFP4", "-Int4", "-GPTQ", "-AWQ",
+                   "-ONNX", "-GGUF", "_gguf", "-Eagle", "-eagle", "-DSpark", "-DSpark", "-hf"]
 
 labs:
   # ---------- Big-5 ----------
@@ -27,6 +37,8 @@ labs:
     source_index_urls:
       - https://www.anthropic.com/news            # headline release blogs
       - https://www.anthropic.com/transparency     # system/model cards index
+    candidate_patterns:
+      - "anthropic\\.com/news/claude-[a-z0-9-]+$"   # model launch blogs (claude-sonnet-5, claude-fable-5-mythos-5)
     notes: >-
       Model lines observed in-window: Claude Sonnet 4.5/4.6/5, Opus 4.5/4.6/4.7/4.8,
       Haiku 4.5, and the new Mythos-class (Mythos 5 / Fable 5). DISCOVER BY INDEX —
@@ -40,8 +52,12 @@ labs:
       - https://openai.com/news/
       - https://openai.com/safety/                 # system cards
       - https://deploymentsafety.openai.com/        # deployment safety hub (per-model cards)
-    notes: "GPT-5 (anchor), 5.1, 5.2, 5.4, 5.5 + Codex variants."
-
+    candidate_patterns:
+      - "openai\\.com/index/(introducing|previewing)-gpt"   # model launch blogs
+      - "openai\\.com/index/gpt-[0-9].*(system-card|sol)"   # system cards
+    notes: >-
+      GPT-5 (anchor), 5.1, 5.2, 5.4, 5.5, 5.6 Sol + Codex variants. NOTE: openai.com/news is
+      JS-rendered and mostly yields category links; the discoverable posts live under /index/.
   - id: google_deepmind
     display_name: Google DeepMind
     category: big5
@@ -49,7 +65,10 @@ labs:
     source_index_urls:
       - https://deepmind.google/models/            # model cards index
       - https://blog.google/technology/google-deepmind/
-    notes: "Gemini 3 Pro / 3 Deep Think (blog-only, NO system card) / 3.1 Pro / 3.5 Flash."
+    candidate_patterns:
+      - "deepmind\\.google/models/model-cards/[a-z0-9-]+"   # model cards
+      - "blog\\.google/.*/gemini-[0-9]"                     # Gemini launch blogs
+    notes: "Gemini 3 Pro / 3 Deep Think (blog-only, NO system card) / 3.1 Pro / 3.5 Flash / 3.5 Pro."
 
   - id: meta
     display_name: Meta (Meta Superintelligence Labs)
@@ -58,6 +77,8 @@ labs:
     source_index_urls:
       - https://ai.meta.com/blog/
       - https://ai.meta.com/research/publications/   # Safety & Preparedness Reports
+    candidate_patterns:
+      - "ai\\.meta\\.com/blog/[a-z0-9-]*(muse|llama|superintelligence|preparedness)"
     notes: >-
       In-window first-party doc is the Muse Spark 'Safety & Preparedness Report'
       (NOT titled 'System Card' but is 1st-party and cites benchmarks). Llama 4 (Apr
@@ -70,26 +91,31 @@ labs:
     source_index_urls:
       - https://x.ai/news
       - https://data.x.ai/                          # model card PDFs
-    notes: "Grok 4.1 (safety-focused card), 4.2/4.3. Cards lean safety; blogs carry capability evals."
+    candidate_patterns:
+      - "x\\.ai/news/grok-[0-9]"                     # Grok model releases (skip product/partnership posts)
+    notes: "Grok 4.1 (safety-focused card), 4.1 Fast. Cards lean safety; blogs carry capability evals."
 
-  # ---------- Open-weight leaders ----------
+  # ---------- Open-weight leaders (HF org listing is the primary discovery feed) ----------
   - id: deepseek
     display_name: DeepSeek
     category: open_weight_leader
     in_scope: true
     source_index_urls:
-      - https://api-docs.deepseek.com/news/
       - https://huggingface.co/deepseek-ai
-    notes: "V3.2-Exp / V3.2 / V3.2-Speciale tech reports (arXiv). For open weights, HF README serves as card."
+    candidate_patterns:
+      - "huggingface\\.co/deepseek-ai/DeepSeek-V[0-9.]+(-Pro|-Flash|-Speciale)?$"
+    notes: "V3.2 / V4-Pro / V4-Flash. HF README serves as the card. api-docs.deepseek.com/news 404s — HF org is the live feed."
 
   - id: qwen
     display_name: Qwen (Alibaba)
     category: open_weight_leader
     in_scope: true
     source_index_urls:
-      - https://qwenlm.github.io/blog/
       - https://huggingface.co/Qwen
-    notes: "Qwen3-Max (Sep 2025) + 3.6/3.7-Max. NOTE: 3.6-Max+ shipped closed-weights."
+    candidate_patterns:
+      - "huggingface\\.co/Qwen/Qwen[0-9.]+-Max$"                 # Qwen3-Max, Qwen3.6-Max
+      - "huggingface\\.co/Qwen/Qwen3\\.[0-9]+-[0-9]+B(-A[0-9]+B)?$"  # flagship dense/MoE instruct cards
+    notes: "Qwen3-Max (Sep 2025) + 3.5/3.6-Max. qwenlm.github.io/blog redirects — HF Qwen org is the live feed."
 
   - id: mistral
     display_name: Mistral AI
@@ -98,6 +124,9 @@ labs:
     source_index_urls:
       - https://mistral.ai/news/
       - https://huggingface.co/mistralai
+    candidate_patterns:
+      - "huggingface\\.co/mistralai/Mistral-(Large|Medium|Small)-[0-9][0-9.]*$"   # flagship instruct cards (deny-suffixes drop -FP8/-Base/etc.)
+      - "mistral\\.ai/news/mistral-(3|large|medium|small)"
     notes: >-
       Open-weight → HF README is the accepted card equivalent. Large 3 (2512) card
       presents benchmarks as CHART IMAGES ONLY (no text scores) — needs OCR/blog.
@@ -109,14 +138,16 @@ labs:
     source_index_urls:
       - https://www.kimi.com/blog
       - https://huggingface.co/moonshotai
-    notes: "Kimi K2.5 / K2.6 / K2.7-Code. Many headline evals are Moonshot-proprietary benchmarks."
+    candidate_patterns:
+      - "huggingface\\.co/moonshotai/Kimi-K[0-9][0-9.]*(-Code|-Thinking|-Instruct)?$"
+    notes: "Kimi K2.5 / K2.6 / K2.7-Code / K2 Thinking. kimi.com/blog is JS-rendered; HF moonshotai org is the reliable feed."
 
   - id: zai
     display_name: Z.ai (Zhipu AI)
     category: open_weight_leader
     in_scope: true
     source_index_urls:
-      - https://docs.z.ai/release-notes/new-released
-      - https://z.ai/blog
       - https://huggingface.co/zai-org
-    notes: "GLM-4.6 (Sep 2025), GLM-5 / 5.1 / 5.2, GLM-4.7."
+    candidate_patterns:
+      - "huggingface\\.co/zai-org/GLM-[0-9.]+$"                 # flagship numeric GLM cards (deny-suffixes drop -FP8/-Air/-V variants via suffix)
+    notes: "GLM-4.6 (Sep 2025), GLM-4.7, GLM-5 / 5.1 / 5.2. z.ai/blog 404s — HF zai-org is the live feed."
