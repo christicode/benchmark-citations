@@ -37,12 +37,6 @@ mentions:
     model_config: "GPT-5.4 Thinking; open-ended, pass@1"
     methodology:
       - "expert baseline 54%"
-  - raw: "Tacit Knowledge and Troubleshooting"
-    value: 65.00
-    unit: percent
-    model_config: "GPT-5.4 Thinking; cons@32"
-    methodology:
-      - "83.8% including refusals; expert baseline 80%"
   - raw: "TroubleshootingBench"
     value: 35.75
     unit: percent

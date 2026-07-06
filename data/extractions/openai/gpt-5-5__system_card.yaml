@@ -27,10 +27,6 @@ mentions:
     model_config: "GPT-5.5; open-ended"
     methodology:
       - "108 FutureHouse questions, open-ended; consensus expert baseline 54%; value in figure only -> score_pending"
-  - raw: "Tacit Knowledge and Troubleshooting"
-    model_config: "GPT-5.5"
-    methodology:
-      - "Gryphon Scientific MCQ; expert baseline 80%; GPT-5.5 Pro 81.67%; GPT-5.5 value in figure only -> score_pending"
   - raw: "TroubleshootingBench"
     model_config: "GPT-5.5"
     methodology:

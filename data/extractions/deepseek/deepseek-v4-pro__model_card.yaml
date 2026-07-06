@@ -2,6 +2,8 @@
 # Source: https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro (HF README; DeepSeek-V4 tech report
 # arXiv:2606.19348). Numbers from the "DeepSeek-V4-Pro-Max vs Frontier Models" instruct table
 # (DS-V4-Pro Max column). Config: Think Max reasoning mode.
+# A HF README is a model card (weight_class model_card, w=2). This is the single DeepSeek-V4-Pro
+# document; the earlier system_card extraction of this same README was consolidated in here.
 doc: deepseek-v4-pro__model_card
 mentions:
   # --- Knowledge & reasoning ---
@@ -104,3 +106,7 @@ mentions:
     value: 90.1
     unit: percent
     model_config: "V4-Pro-Base; EM, 5-shot"
+  # --- listed on the card but no in-text value (score_pending; carried over from the
+  #     consolidated system_card extraction of this same README) ---
+  - raw: "AIME"
+    model_config: "V4-Pro Max"
