@@ -1,0 +1,30 @@
+# kimi-k2-7-code__blog_headliner
+# Source: platform.kimi.ai/docs/guide/kimi-k2-7-code-quickstart (Kimi K2.7 Code).
+# The quickstart's "Long-horizon coding" (k27.png) and "Agentic capabilities" (k27-agent.png)
+# hero charts headline these benchmarks (K2.7 Code column; values human-read from the charts).
+doc: kimi-k2-7-code__blog_headliner
+mentions:
+  - raw: "Kimi Code Bench v2"
+    weight_class: blog_headliner
+    value: 62.0
+    unit: percent
+  - raw: "ProgramBench"
+    weight_class: blog_headliner
+    value: 53.6
+    unit: percent
+  - raw: "MLS Bench Lite"
+    weight_class: blog_headliner
+    value: 35.1
+    unit: percent
+  - raw: "Kimi Claw 24/7 Bench"
+    weight_class: blog_headliner
+    value: 46.9
+    unit: percent
+  - raw: "MCP Atlas"
+    weight_class: blog_headliner
+    value: 76.0
+    unit: percent
+  - raw: "MCP Mark Verified"
+    weight_class: blog_headliner
+    value: 81.1
+    unit: percent

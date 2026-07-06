@@ -1,32 +1,53 @@
 # kimi-k2-thinking__model_card
+# Source: moonshotai.github.io/Kimi-K2/thinking.html (Kimi K2 Thinking technical page, Nov 6 2025).
+# ONE document: the hero-chart headline benchmarks carry weight_class: blog_headliner; the rest
+# of the eval table uses the doc default (model_card). "heavy" = parallel/heavy test-time compute.
 doc: kimi-k2-thinking__model_card
 mentions:
+# --- Hero-chart headliners -> blog_headliner ---
 - raw: Humanity's Last Exam
   weight_class: blog_headliner
   value: 44.9
   unit: percent
-  model_config: expert-level Qs only
+  model_config: w/ tools (text-only)
+  methodology:
+  - no tools 23.9; w/ tools 44.9; heavy 51.0
 - raw: BrowseComp
   weight_class: blog_headliner
   value: 60.2
   unit: percent
+  model_config: w/ tools
 - raw: Seal-0
   weight_class: blog_headliner
   value: 56.3
   unit: percent
+  model_config: w/ tools
 - raw: SWE-bench Multilingual
   weight_class: blog_headliner
   value: 61.1
   unit: percent
+  model_config: w/ tools
 - raw: SWE-bench Verified
   weight_class: blog_headliner
   value: 71.3
   unit: percent
+  model_config: w/ tools
 - raw: LiveCodeBench
   weight_class: blog_headliner
   value: 83.1
   unit: percent
-  model_config: v6
+  model_config: v6, no tools
+- raw: BrowseComp-Zh
+  weight_class: blog_headliner
+  value: 62.3
+  unit: percent
+  model_config: w/ tools
+- raw: FinSearchComp-T3
+  weight_class: blog_headliner
+  value: 47.4
+  unit: percent
+  model_config: w/ tools
+# --- Eval table (model_card default) ---
 - raw: Humanity's Last Exam
   value: 51.0
   unit: percent
@@ -42,7 +63,7 @@ mentions:
 - raw: HMMT
   value: 97.5
   unit: percent
-  model_config: heavy
+  model_config: heavy (2025)
   methodology:
   - no tools 89.4; python 95.1; heavy 97.5
 - raw: IMO-AnswerBench
@@ -56,20 +77,17 @@ mentions:
 - raw: MMLU-Pro
   value: 84.6
   unit: percent
+  model_config: no tools
 - raw: MMLU-Redux
   value: 94.4
+  unit: percent
+  model_config: no tools
+- raw: Longform Writing
+  value: 73.8
   unit: percent
 - raw: HealthBench
   value: 58.0
   unit: percent
-- raw: BrowseComp-Zh
-  value: 62.3
-  unit: percent
-  model_config: w/ tools
-- raw: FinSearchComp-T3
-  value: 47.4
-  unit: percent
-  model_config: w/ tools
 - raw: Frames
   value: 87.0
   unit: percent
@@ -85,6 +103,8 @@ mentions:
 - raw: OJ-Bench
   value: 48.7
   unit: percent
+  model_config: no tools
 - raw: Terminal-Bench
   value: 47.1
   unit: percent
+  model_config: w/ simulated tools (JSON)
