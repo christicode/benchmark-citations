@@ -35,7 +35,7 @@ benchmarks:
     type: agentic
     domain: professional
     aliases: ["APEX-Agents"]
-    notes: "!= MathArena 'APEX' (matharena-apex) \u2014 DO NOT merge (issue #8)."
+    notes: "!= MathArena 'APEX' (matharena-apex) — DO NOT merge (issue #8)."
   - canonical: arc-agi-1
     type: chat
     domain: knowledge
@@ -218,7 +218,7 @@ benchmarks:
     type: agentic
     domain: coding
     aliases: ["FrontierBench"]
-    notes: "!= FrontierCode (frontiercode) \u2014 Anthropic Fable-blog partner eval."
+    notes: "!= FrontierCode (frontiercode) — Anthropic Fable-blog partner eval."
   - canonical: frontiercode
     type: agentic
     domain: coding
@@ -282,7 +282,7 @@ benchmarks:
   - canonical: humanitys-last-exam
     type: chat
     domain: knowledge
-    aliases: ["HLE", "Humanity's Last Exam", "Humanity\u2019s Last Exam"]
+    aliases: ["HLE", "Humanity's Last Exam", "Humanity’s Last Exam"]
     notes: "Harbor ADAPTER merged + parity-validated (adapters/hle) but NOT yet in registry.json (registry-only check mislabeled it not_in_harbor). with-tools vs no-tools split; grader-model restatements common (e.g. Sonnet 4.6 HLE restated 34.6->46.8)."
   - canonical: ifbench
     type: chat
@@ -305,7 +305,7 @@ benchmarks:
     type: chat
     domain: science
     aliases: ["LAB-Bench", "LAB-Bench FigQA", "LAB-Bench: ProtocolQA", "LAB-Bench: SeqQA"]
-    collision: "Cited protocolqa/seqqa/cloning-scenarios may be LAB-Bench subtasks \u2014 verify Harbor labbench subtask coverage."
+    collision: "Cited protocolqa/seqqa/cloning-scenarios may be LAB-Bench subtasks — verify Harbor labbench subtask coverage."
   - canonical: legal-agent-benchmark
     type: agentic
     domain: professional
@@ -314,7 +314,7 @@ benchmarks:
     type: chat
     domain: coding
     aliases: ["LiveCodeBench", "LiveCodeBench Pro"]
-    collision: "Base livecodebench (v6) is in Harbor. 'LiveCodeBench Pro' is a distinct harder benchmark \u2014 NOT this. Confirm split."
+    collision: "Base livecodebench (v6) is in Harbor. 'LiveCodeBench Pro' is a distinct harder benchmark — NOT this. Confirm split."
   - canonical: longvideobench
     type: chat
     domain: multimodal
@@ -469,7 +469,7 @@ benchmarks:
     type: chat
     domain: knowledge
     aliases: ["SimpleQA", "SimpleQA Verified"]
-    collision: "Harbor holds base OpenAI SimpleQA (4326). 'SimpleQA Verified' (Google 1k) is a DIFFERENT benchmark \u2014 confirm."
+    collision: "Harbor holds base OpenAI SimpleQA (4326). 'SimpleQA Verified' (Google 1k) is a DIFFERENT benchmark — confirm."
   - canonical: singlecellbench
     type: chat
     domain: science
@@ -512,7 +512,7 @@ benchmarks:
   - canonical: tau2-bench
     type: agentic
     domain: computer-use
-    aliases: ["Tau2-Bench", "tau2", "tau2-bench", "tau2-bench telecom", "\u03c42-bench", "\u03c4\u00b2-Bench"]
+    aliases: ["Tau2-Bench", "tau2", "tau2-bench", "tau2-bench telecom", "τ2-bench", "τ²-Bench"]
     notes: "NB: Harbor has adapters/tau3-bench (tau3), which is a DIFFERENT version."
   - canonical: terminal-bench
     type: agentic
@@ -688,7 +688,7 @@ benchmarks:
     domain: science
     aliases: ["VCT", "Multimodal Troubleshooting Virology"]
     notes: "Virology Capabilities Test (a.k.a. VMQA/VCT). SecureBio; OpenAI cards cite it as
-      'Multimodal Troubleshooting Virology' (expert baseline 22.1%) \u2014 human-confirmed same benchmark."
+      'Multimodal Troubleshooting Virology' (expert baseline 22.1%) — human-confirmed same benchmark."
   - canonical: tau3-bench
     type: agentic
     domain: computer-use
@@ -696,7 +696,7 @@ benchmarks:
   # --- manual backfill (agent run, current): benchmarks newly cited in the second-source
   #     backfill batch. Each is a clearly-named, distinct benchmark (no risk of a wrong MERGE);
   #     type/domain classified from the citing-card context. See GAPS/report for the 3 names
-  #     deliberately LEFT unregistered (identity uncertain \u2014 flagged needs_review, not guessed).
+  #     deliberately LEFT unregistered (identity uncertain — flagged needs_review, not guessed).
   - canonical: airs-bench
     type: agentic
     domain: safety
@@ -787,7 +787,7 @@ benchmarks:
     domain: computer-use
     aliases: ["WildClawBench"]
     notes: "New benchmark (human-confirmed). Cited on the DeepSeek-V3.2 HF leaderboard ('overall').
-      type/domain tentative (agentic tool/computer-use 'Claw' family) \u2014 refine when spec is known."
+      type/domain tentative (agentic tool/computer-use 'Claw' family) — refine when spec is known."
   - canonical: v-star
     type: chat
     domain: multimodal
@@ -798,7 +798,7 @@ benchmarks:
     domain: computer-use
     aliases: ["Claw Eval"]
     notes: "Agentic tool-use eval cited on the Kimi K2.6 blog (pass^3). May relate to
-      kimi-claw-bench ('Kimi Claw 24/7 Bench') \u2014 kept DISTINCT until identity confirmed."
+      kimi-claw-bench ('Kimi Claw 24/7 Bench') — kept DISTINCT until identity confirmed."
   - canonical: openrca
     type: agentic
     domain: coding
