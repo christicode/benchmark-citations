@@ -1,7 +1,7 @@
 # PaperTrail
 <https://autobenchmark.ai>
 
-Tracks **benchmark citations** across the LLM ecosystem.
+Tracks **benchmark citations** across the LLM ecosystem - a heatmap sorted by benchmarks and models.
 
 ## Scope
 - Backfilled to 2025-09, then forward continuously.
