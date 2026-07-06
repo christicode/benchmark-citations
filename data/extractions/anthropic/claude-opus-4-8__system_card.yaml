@@ -1,0 +1,79 @@
+# claude-opus-4-8__system_card
+# Source: Claude Opus 4.8 System Card (Anthropic), Table 8.1.A "Capability evaluation summary".
+# Opus 4.8 column. Standard config: adaptive thinking at max effort, default sampling,
+# averaged over 5 trials; context <= 1M tokens.
+doc: claude-opus-4-8__system_card
+mentions:
+  - raw: "SWE-bench Verified"
+    value: 88.6
+    unit: percent
+  - raw: "SWE-bench Pro"
+    value: 69.2
+    unit: percent
+  - raw: "SWE-bench Multilingual"
+    value: 84.4
+    unit: percent
+  - raw: "SWE-bench Multimodal"
+    value: 38.4
+    unit: percent
+  - raw: "BrowseComp"
+    value: 84.3
+    unit: percent
+    model_config: "single-agent"
+    methodology:
+      - "88.5 multi-agent; blocklist + context compaction at 200k + adaptive thinking"
+  - raw: "Terminal-Bench 2.1"
+    value: 74.6
+    unit: percent
+    methodology:
+      - "Terminus-2 public harness; GPT-5.5 (Codex CLI) = 83.4 for reference"
+  - raw: "Humanity's Last Exam"
+    value: 49.8
+    unit: percent
+    model_config: "no tools"
+    methodology:
+      - "with tools 57.9"
+  - raw: "ChartQAPro"
+    value: 69.4
+    unit: percent
+    model_config: "no tools"
+    methodology:
+      - "with tools 72.3"
+  - raw: "OSWorld-Verified"
+    value: 83.4
+    unit: percent
+    methodology:
+      - "Opus 4.7 restated to 82.8 (zoom-tool bug fix; max tokens/turn 16K->128K)"
+  - raw: "GPQA Diamond"
+    value: 93.6
+    unit: percent
+  - raw: "ScreenSpot-Pro"
+    value: 82.3
+    unit: percent
+    model_config: "no tools"
+    methodology:
+      - "with tools 87.9"
+  - raw: "Finance Agent v2"
+    value: 53.9
+    unit: percent
+    methodology:
+      - "Gemini 3.5 Flash scores 57.9"
+  - raw: "GDPval-AA"
+    value: 1890
+    unit: elo
+  - raw: "MCP-Atlas"
+    value: 82.2
+    unit: percent
+    methodology:
+      - "Gemini 3.5 Flash 83.6"
+  - raw: "Automation Bench"
+    value: 15.5
+    unit: percent
+  - raw: "GraphWalks"
+    value: 85.9
+    unit: percent
+    model_config: "BFS 256K"
+  - raw: "GraphWalks"
+    value: 99.3
+    unit: percent
+    model_config: "Parents 256K"
