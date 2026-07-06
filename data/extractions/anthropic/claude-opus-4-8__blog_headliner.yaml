@@ -1,22 +1,41 @@
 # claude-opus-4-8__blog_headliner
 # Source: https://www.anthropic.com/news/claude-opus-4-8 (Anthropic, May 28, 2026)
-# Opus 4.8 launch blog. Comparison table is IMAGE-ONLY -> score_pending; footnotes + partner quotes
-# give a few text-stated values. This is the first document for Opus 4.8 (a new model in the set).
+# Values READ FROM the comparison-table image (Opus 4.8 vs Opus 4.7/GPT-5.5/Gemini 3.1 Pro).
+# First document for Opus 4.8 (a new model). Partner-quote benchmarks appended.
 doc: claude-opus-4-8__blog_headliner
 mentions:
+  # --- Comparison-table rows (model_card default) ---
+  - raw: "SWE-Bench Pro"
+    value: 69.2
+    unit: percent
+    model_config: "Claude Opus 4.8; agentic coding"
   - raw: "Terminal-Bench 2.1"
-    weight_class: blog_headliner
-    model_config: "Claude Opus 4.8; Terminus-2 public harness"
+    value: 74.6
+    unit: percent
+    model_config: "Claude Opus 4.8; agentic terminal coding (Terminus-2 public harness)"
     methodology:
-      - "GPT-5.5 (Codex CLI) = 83.4% for reference; Opus 4.8 value in chart image only -> score_pending"
+      - "GPT-5.5 (Codex CLI) = 78.2% for reference"
+  - raw: "Humanity's Last Exam"
+    value: 57.9
+    unit: percent
+    model_config: "Claude Opus 4.8; with tools"
+    methodology:
+      - "49.8% no tools / 57.9% with tools"
   - raw: "OSWorld-Verified"
-    model_config: "Claude Opus 4.8"
+    value: 83.4
+    unit: percent
+    model_config: "Claude Opus 4.8; agentic computer use"
     methodology:
-      - "eval run updated (Opus 4.7 restated to 82.3%); Opus 4.8 value in chart image only -> score_pending"
+      - "Opus 4.7 baseline restated to 82.8% under updated eval run"
+  - raw: "GDPval-AA"
+    value: 1890
+    unit: elo
+    model_config: "Claude Opus 4.8; knowledge work"
   - raw: "Finance Agent v2"
-    model_config: "Claude Opus 4.8"
-    methodology:
-      - "Gemini 3.5 Flash = 57.9% for reference; Opus 4.8 value in chart image only -> score_pending"
+    value: 53.9
+    unit: percent
+    model_config: "Claude Opus 4.8; agentic financial analysis"
+  # --- Partner-quote benchmarks ---
   - raw: "Online-Mind2Web"
     value: 84.0
     unit: percent

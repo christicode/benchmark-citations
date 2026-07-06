@@ -1,48 +1,81 @@
 # claude-sonnet-4-6__blog_headliner
 # Source: https://www.anthropic.com/news/claude-sonnet-4-6 (Anthropic, Feb 17, 2026)
-# Launch blog: OSWorld headline chart + a model-card comparison table + Vending-Bench Arena chart,
-# all IMAGE-ONLY -> score_pending. Cited benchmarks + footnote methodology recorded; only
-# prose-stated values kept.
+# Values READ FROM the comparison-table image (Sonnet 4.6 vs Sonnet 4.5/Opus 4.6/Opus 4.5/Gemini 3
+# Pro/GPT-5.2). OSWorld is the headline chart (blog_headliner); rest of the table = model_card.
 doc: claude-sonnet-4-6__blog_headliner
 mentions:
+  # --- Headline chart ---
   - raw: "OSWorld-Verified"
     weight_class: blog_headliner
-    model_config: "Claude Sonnet 4.6; headline computer-use chart"
-    methodology:
-      - "OSWorld-Verified (in-place upgrade of OSWorld); major gain over Sonnet 4.5; value in chart image only -> score_pending"
-  - raw: "Terminal-Bench 2.0"
-    model_config: "Claude Sonnet 4.6; Terminus-2, thinking off"
-    methodology:
-      - "1x guaranteed/3x ceiling resource, 5-15 samples/task; value in chart image only -> score_pending"
-  - raw: "SWE-bench Verified"
-    value: 80.2
+    value: 72.5
     unit: percent
-    model_config: "Claude Sonnet 4.6; with prompt modification"
+    model_config: "Claude Sonnet 4.6; headline computer-use chart"
+  - raw: "Vending-Bench Arena"
+    weight_class: blog_headliner
+    model_config: "Claude Sonnet 4.6"
     methodology:
-      - "base averaged over 10 trials (value in image); 80.2% with a prompt modification"
+      - "Andon Labs competitive arena; value in chart image only -> score_pending"
+  # --- Comparison-table rows (model_card default) ---
+  - raw: "Terminal-Bench 2.0"
+    value: 59.1
+    unit: percent
+    model_config: "Claude Sonnet 4.6; Terminus-2, thinking off"
+  - raw: "SWE-bench Verified"
+    value: 79.6
+    unit: percent
+    model_config: "Claude Sonnet 4.6"
+    methodology:
+      - "table value; 80.2% with a prompt modification (prose)"
+  - raw: "tau2-bench"
+    value: 97.9
+    unit: percent
+    model_config: "Claude Sonnet 4.6; Telecom"
+    methodology:
+      - "Retail 91.7% / Telecom 97.9%"
+  - raw: "MCP-Atlas"
+    value: 61.3
+    unit: percent
+    model_config: "Claude Sonnet 4.6; scaled tool use"
+  - raw: "BrowseComp"
+    value: 74.7
+    unit: percent
+    model_config: "Claude Sonnet 4.6; agentic search"
   - raw: "Humanity's Last Exam"
+    value: 49.0
+    unit: percent
     model_config: "Claude Sonnet 4.6; with tools"
     methodology:
-      - "web tools, compaction 50k up to 3M, max effort, adaptive thinking, domain blocklist; value in chart image only -> score_pending"
-  - raw: "BrowseComp"
-    model_config: "Claude Sonnet 4.6"
-    methodology:
-      - "web tools, compaction 50k up to 10M, max effort, no thinking; value in chart image only -> score_pending"
-  - raw: "ARC-AGI-2"
-    value: 60.4
+      - "33.2% without tools / 49.0% with tools"
+  - raw: "Finance Agent v1.1"
+    value: 63.3
     unit: percent
-    model_config: "Claude Sonnet 4.6; high effort, 120k thinking"
+    model_config: "Claude Sonnet 4.6; agentic financial analysis"
+  - raw: "GDPval-AA"
+    value: 1633
+    unit: elo
+    model_config: "Claude Sonnet 4.6; office tasks"
+  - raw: "ARC-AGI-2"
+    value: 58.3
+    unit: percent
+    model_config: "Claude Sonnet 4.6"
     methodology:
-      - "table shows max effort (in image); 60.4% is the high-effort figure stated in prose"
+      - "table value (max effort); 60.4% at high effort (prose)"
+  - raw: "GPQA Diamond"
+    value: 89.9
+    unit: percent
+    model_config: "Claude Sonnet 4.6; graduate-level reasoning"
   - raw: "MMMU-Pro"
-    model_config: "Claude Sonnet 4.6"
+    value: 75.6
+    unit: percent
+    model_config: "Claude Sonnet 4.6; with tools (visual reasoning)"
     methodology:
-      - "impl updated (dropped 'think step-by-step' prefix; graded via separate model); value in chart image only -> score_pending"
-  - raw: "Vending-Bench Arena"
-    model_config: "Claude Sonnet 4.6"
-    methodology:
-      - "Andon Labs competitive arena; invests early then pivots to profit; value in chart image only -> score_pending"
+      - "74.5% without tools / 75.6% with tools"
+  - raw: "MMMLU"
+    value: 89.3
+    unit: percent
+    model_config: "Claude Sonnet 4.6; multilingual Q&A"
+  # --- Partner-quote benchmark ---
   - raw: "OfficeQA"
     model_config: "Claude Sonnet 4.6 (Databricks)"
     methodology:
-      - "partner: 'matches Opus 4.6 on OfficeQA' (enterprise doc reasoning); no numeric score stated -> score_pending"
+      - "'matches Opus 4.6 on OfficeQA'; no numeric score stated -> score_pending"

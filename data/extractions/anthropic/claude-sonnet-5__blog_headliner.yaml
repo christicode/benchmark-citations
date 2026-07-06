@@ -1,21 +1,36 @@
 # claude-sonnet-5__blog_headliner
 # Source: https://www.anthropic.com/news/claude-sonnet-5 (Anthropic, Jun 30, 2026)
-# Launch blog. The benchmark comparison table (Sonnet 5 vs Sonnet 4.6 vs Opus 4.8) and the
-# cost-performance curves are IMAGE-ONLY -> score_pending. Only text-named benchmarks are recorded;
-# the footnote values are Sonnet 4.6 restatements (not Sonnet 5), so they are not recorded as 5's.
+# Values READ FROM the comparison-table image ("Model card": Sonnet 5 vs Sonnet 4.6 vs Opus 4.8)
+# and the two cost-performance headline curves (BrowseComp, OSWorld-Verified).
 doc: claude-sonnet-5__blog_headliner
 mentions:
-  - raw: "BrowseComp"
-    weight_class: blog_headliner
-    model_config: "Claude Sonnet 5; agentic search cost-performance curve"
-    methodology:
-      - "10M token budget with compaction + programmatic tool calling (matches system card); value in chart image only -> score_pending"
+  # --- Headline cost-performance curves (blog_headliner) ---
   - raw: "OSWorld-Verified"
     weight_class: blog_headliner
-    model_config: "Claude Sonnet 5; agentic computer use cost-performance curve"
+    value: 81.2
+    unit: percent
+    model_config: "Claude Sonnet 5; computer-use (headline curve + comparison table)"
+  - raw: "BrowseComp"
+    weight_class: blog_headliner
+    model_config: "Claude Sonnet 5; agentic-search cost-performance curve"
     methodology:
-      - "value in chart image only -> score_pending (Sonnet 4.6 baseline restated to 78.5%)"
+      - "10M token budget, compaction + programmatic tool calling; curve (no single value) -> score_pending"
+  # --- Comparison-table rows (model_card default) ---
+  - raw: "SWE-bench Pro"
+    value: 63.2
+    unit: percent
+    model_config: "Claude Sonnet 5; agentic coding"
+  - raw: "Terminal-Bench 2.1"
+    value: 80.4
+    unit: percent
+    model_config: "Claude Sonnet 5; agentic terminal coding"
   - raw: "Humanity's Last Exam"
-    model_config: "Claude Sonnet 5"
+    value: 57.4
+    unit: percent
+    model_config: "Claude Sonnet 5; with tools"
     methodology:
-      - "in comparison table; grader-model updated (Sonnet 4.6 restated 34.6 no-tools / 46.8 with-tools); Sonnet 5 value in table image only -> score_pending"
+      - "43.2% no tools / 57.4% with tools"
+  - raw: "GDPval-AA v2"
+    value: 1618
+    unit: elo
+    model_config: "Claude Sonnet 5; knowledge work (Artificial Analysis)"
