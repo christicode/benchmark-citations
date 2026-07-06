@@ -204,8 +204,8 @@ benchmarks:
   - canonical: finance-agent
     type: agentic
     domain: professional
-    aliases: ["Finance Agent", "Finance Agent v2"]
-    notes: "Vals AI Finance Agent; v2 folded in as an alias (cited on the Opus 4.7/4.8 blogs)."
+    aliases: ["Finance Agent", "Finance Agent v1.1", "Finance Agent v2"]
+    notes: "Vals AI Finance Agent; v1.1/v2 folded in as aliases (cited across the Anthropic blogs)."
   - canonical: frontier-science-research
     type: agentic
     domain: science
