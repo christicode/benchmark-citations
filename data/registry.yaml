@@ -117,7 +117,8 @@ benchmarks:
   - canonical: charxiv
     type: chat
     domain: multimodal
-    aliases: ["CharXiv"]
+    aliases: ["CharXiv", "CharXiv Reasoning"]
+    notes: "'CharXiv Reasoning' (RQ split) folded in; == the 'CharXiv' RQ figure cited by Moonshot."
   - canonical: chinese-simpleqa
     type: chat
     domain: knowledge
@@ -207,7 +208,7 @@ benchmarks:
   - canonical: frontier-science-research
     type: agentic
     domain: science
-    aliases: ["Frontier Science Research"]
+    aliases: ["Frontier Science Research", "FrontierScience Research"]
   - canonical: frontier-swe
     type: agentic
     domain: coding
@@ -337,7 +338,7 @@ benchmarks:
   - canonical: mcp-atlas
     type: agentic
     domain: computer-use
-    aliases: ["MCP Atlas", "MCP-Atlas"]
+    aliases: ["MCP Atlas", "MCP-Atlas", "MCPAtlas"]
   - canonical: mcp-mark-verified
     type: agentic
     domain: knowledge
@@ -380,7 +381,8 @@ benchmarks:
   - canonical: mrcr
     type: chat
     domain: knowledge
-    aliases: ["MRCR"]
+    aliases: ["MRCR", "OpenAI MRCR v2"]
+    notes: "OpenAI MRCR v2 (Mean Match Ratio, not a solve rate) folded in as an alias."
   - canonical: officeqa
     type: agentic
     domain: professional
@@ -499,7 +501,7 @@ benchmarks:
   - canonical: swe-bench-verified
     type: agentic
     domain: coding
-    aliases: ["SWE-Bench", "SWE-Bench Verified", "SWE-bench Verified", "SWE-bench verified", "SWEbench Verified"]
+    aliases: ["SWE-Bench", "SWE-Bench Verified", "SWE-bench Verified", "SWE-bench verified", "SWEbench Verified", "SWE Verified"]
     notes: "Anthropic: bash + string-replace file edit scaffold. OpenAI GPT-5: n=500. Not cross-lab comparable without scaffold/n."
   - canonical: tau2-bench
     type: agentic
@@ -678,9 +680,116 @@ benchmarks:
   - canonical: vct
     type: chat
     domain: science
-    aliases: ["VCT"]
-    notes: "Virology Capabilities Test (a.k.a. VMQA/VCT)."
+    aliases: ["VCT", "Multimodal Troubleshooting Virology"]
+    notes: "Virology Capabilities Test (a.k.a. VMQA/VCT). SecureBio; OpenAI cards cite it as
+      'Multimodal Troubleshooting Virology' (expert baseline 22.1%) — human-confirmed same benchmark."
   - canonical: tau3-bench
     type: agentic
     domain: computer-use
     aliases: ["tau3-bench", "Tau3 Bench", "Tau3-bench"]
+  # --- manual backfill (agent run, current): benchmarks newly cited in the second-source
+  #     backfill batch. Each is a clearly-named, distinct benchmark (no risk of a wrong MERGE);
+  #     type/domain classified from the citing-card context. See GAPS/report for the 3 names
+  #     deliberately LEFT unregistered (identity uncertain — flagged needs_review, not guessed).
+  - canonical: airs-bench
+    type: agentic
+    domain: safety
+    aliases: ["AIRS-Bench"]
+    notes: "AI R&D safety eval cited on the Meta Muse Spark system card (cross-model column)."
+  - canonical: biochemistry-knowledge
+    type: chat
+    domain: science
+    aliases: ["Biochemistry Knowledge"]
+    notes: "OpenAI internal biochemistry-knowledge eval (reward@4); cited in the GPT-5.5 system card."
+  - canonical: browsecomp-long-context
+    type: agentic
+    domain: knowledge
+    aliases: ["BrowseComp Long Context"]
+    notes: "Long-context (128k-1M) variant of BrowseComp; kept DISTINCT from browsecomp (different config)."
+  - canonical: capture-the-flag
+    type: agentic
+    domain: cyber
+    aliases: ["Capture-the-Flag"]
+    notes: "OpenAI 'Professional CTF' preparedness eval (pass@12); != academic cybench."
+  - canonical: cyber-range
+    type: agentic
+    domain: cyber
+    aliases: ["Cyber Range"]
+    notes: "OpenAI emulated-network cyber range (combined pass rate); GPT-5.4/5.5 system cards."
+  - canonical: eq-bench
+    type: chat
+    domain: knowledge
+    aliases: ["EQ-Bench3", "EQ-Bench 3", "EQ-Bench"]
+    notes: "EQ-Bench v3 emotional-intelligence roleplay; cited on the Grok 4.1 launch blog (chart-only)."
+  - canonical: erqa
+    type: chat
+    domain: multimodal
+    aliases: ["ERQA"]
+    notes: "Embodied Reasoning QA; cited on the Meta Muse Spark blog."
+  - canonical: factscore
+    type: chat
+    domain: knowledge
+    aliases: ["FActScore", "FactScore"]
+    notes: "Biography factuality / hallucination-rate eval; cited on the Grok 4.1 blog (chart-only)."
+  - canonical: gdm-stealth
+    type: agentic
+    domain: safety
+    aliases: ["GDM-Stealth"]
+    notes: "Loss-of-control 'stealth' eval on the Meta Muse Spark system card (higher = more capable/risky)."
+  - canonical: internal-research-debugging
+    type: agentic
+    domain: coding
+    aliases: ["Internal Research Debugging"]
+    notes: "OpenAI internal eval: 41 real internal bugs, median score; GPT-5.5 system card."
+  - canonical: investment-banking-modeling
+    type: agentic
+    domain: professional
+    aliases: ["Investment Banking Modeling"]
+    notes: "OpenAI internal spreadsheet/financial-modeling tasks; cited across GPT-5.2/5.4/5.5 blogs."
+  - canonical: lmarena
+    type: chat
+    domain: knowledge
+    aliases: ["LMArena Text", "LMArena", "LMArena (Text)"]
+    notes: "LMArena human-preference text leaderboard (Style-Control Elo); arena, not a static solve-rate."
+  - canonical: medxpertqa
+    type: chat
+    domain: health
+    aliases: ["MedXpertQA", "MedXpertQA Text", "MedXpertQA MM"]
+    notes: "Expert medical QA (Text + MM splits); cited on the Meta Muse Spark blog."
+  - canonical: monorepo-bench
+    type: agentic
+    domain: coding
+    aliases: ["Monorepo-Bench"]
+    notes: "OpenAI internal PR-replication SWE eval (hidden tests); GPT-5.4/5.5 system cards."
+  - canonical: re-bench
+    type: agentic
+    domain: coding
+    aliases: ["RE-Bench"]
+    notes: "METR AI-R&D uplift eval (ML research engineering); cited (qualitatively) on the Gemini 3 Pro card."
+  - canonical: simplevqa
+    type: chat
+    domain: multimodal
+    aliases: ["SimpleVQA"]
+    notes: "Multimodal visual QA; cited on the Meta Muse Spark blog."
+  - canonical: vulnlmp
+    type: agentic
+    domain: cyber
+    aliases: ["VulnLMP"]
+    notes: "Long-horizon vulnerability-research eval (qualitative on GPT-5.5 system card)."
+  - canonical: wildclawbench
+    type: agentic
+    domain: computer-use
+    aliases: ["WildClawBench"]
+    notes: "New benchmark (human-confirmed). Cited on the DeepSeek-V3.2 HF leaderboard ('overall').
+      type/domain tentative (agentic tool/computer-use 'Claw' family) — refine when spec is known."
+  - canonical: v-star
+    type: chat
+    domain: multimodal
+    aliases: ["V*", "V-Star", "VStar"]
+    notes: "V* guided visual-search benchmark; cited (with python) on the Kimi K2.6 blog."
+  - canonical: claw-eval
+    type: agentic
+    domain: computer-use
+    aliases: ["Claw Eval"]
+    notes: "Agentic tool-use eval cited on the Kimi K2.6 blog (pass^3). May relate to
+      kimi-claw-bench ('Kimi Claw 24/7 Bench') — kept DISTINCT until identity confirmed."
