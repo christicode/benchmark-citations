@@ -315,3 +315,62 @@ documents:
     default_weight_class: model_card
     url: "https://ai.meta.com/blog/introducing-muse-spark-msl"
     pub_date: "2026-04-08"
+  # --- comprehensive-sweep backfill: release blogs (headline chart + comparison table) that
+  #     were missing while only the system card was tracked. Anthropic headline numbers are
+  #     chart IMAGES -> most scores score_pending; cited benchmarks + methodology are verbatim.
+  - id: claude-opus-4-7__blog_headliner
+    lab: anthropic
+    model: "Claude Opus 4.7"
+    container: blog
+    default_weight_class: model_card
+    url: "https://www.anthropic.com/news/claude-opus-4-7"
+    pub_date: "2026-04-16"
+  - id: claude-opus-4-6__blog_headliner
+    lab: anthropic
+    model: "Claude Opus 4.6"
+    container: blog
+    default_weight_class: model_card
+    url: "https://www.anthropic.com/news/claude-opus-4-6"
+    pub_date: "2026-02-05"
+  - id: claude-sonnet-5__blog_headliner
+    lab: anthropic
+    model: "Claude Sonnet 5"
+    container: blog
+    default_weight_class: model_card
+    url: "https://www.anthropic.com/news/claude-sonnet-5"
+    pub_date: "2026-06-30"
+  - id: claude-opus-4-5__blog_headliner
+    lab: anthropic
+    model: "Claude Opus 4.5"
+    container: blog
+    default_weight_class: model_card
+    url: "https://www.anthropic.com/news/claude-opus-4-5"
+    pub_date: "2025-11-24"
+  - id: claude-sonnet-4-6__blog_headliner
+    lab: anthropic
+    model: "Claude Sonnet 4.6"
+    container: blog
+    default_weight_class: model_card
+    url: "https://www.anthropic.com/news/claude-sonnet-4-6"
+    pub_date: "2026-02-17"
+  - id: claude-haiku-4-5__blog_headliner
+    lab: anthropic
+    model: "Claude Haiku 4.5"
+    container: blog
+    default_weight_class: model_card
+    url: "https://www.anthropic.com/news/claude-haiku-4-5"
+    pub_date: "2025-10-15"
+  - id: claude-opus-4-8__blog_headliner
+    lab: anthropic
+    model: "Claude Opus 4.8"
+    container: blog
+    default_weight_class: model_card
+    url: "https://www.anthropic.com/news/claude-opus-4-8"
+    pub_date: "2026-05-28"
+  - id: claude-sonnet-4-5__blog_headliner
+    lab: anthropic
+    model: "Claude Sonnet 4.5"
+    container: blog
+    default_weight_class: model_card
+    url: "https://www.anthropic.com/news/claude-sonnet-4-5"
+    pub_date: "2025-09-29"
