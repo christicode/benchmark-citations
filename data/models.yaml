@@ -18,7 +18,7 @@ models:
   company_category: big5
   release_date: '2026-06-30'
   release_date_source: derived:min_pub_date
-  citations: 38
+  citations: 41
   docs:
   - https://www-cdn.anthropic.com/480e0bb54327b9622282e9c39a83a4f490ed377e/Claude%20Sonnet%205%20System%20Card.pdf
   - https://www.anthropic.com/news/claude-sonnet-5
@@ -54,7 +54,7 @@ models:
   company_category: big5
   release_date: '2026-05-28'
   release_date_source: derived:min_pub_date
-  citations: 6
+  citations: 9
   docs:
   - https://www.anthropic.com/news/claude-opus-4-8
 - id: gemini-3-5-flash
@@ -100,7 +100,7 @@ models:
   company_category: big5
   release_date: '2026-04-16'
   release_date_source: derived:min_pub_date
-  citations: 39
+  citations: 45
   docs:
   - https://cdn.sanity.io/files/4zrzovbb/website/037f06850df7fbe871e206dad004c3db5fd50340.pdf
   - https://www.anthropic.com/news/claude-opus-4-7
@@ -169,7 +169,7 @@ models:
   company_category: big5
   release_date: '2026-02-17'
   release_date_source: derived:min_pub_date
-  citations: 32
+  citations: 38
   docs:
   - https://www-cdn.anthropic.com/78073f739564e986ff3e28522761a7a0b4484f84.pdf
   - https://www.anthropic.com/news/claude-sonnet-4-6
@@ -192,7 +192,7 @@ models:
   company_category: big5
   release_date: '2026-02-05'
   release_date_source: derived:min_pub_date
-  citations: 49
+  citations: 55
   docs:
   - https://www-cdn.anthropic.com/0dd865075ad3132672ee0ab40b05a53f14cf5288.pdf
   - https://www.anthropic.com/news/claude-opus-4-6
@@ -273,7 +273,7 @@ models:
   company_category: big5
   release_date: '2025-11-24'
   release_date_source: derived:min_pub_date
-  citations: 29
+  citations: 35
   docs:
   - https://assets.anthropic.com/m/64823ba7485345a7/Claude-Opus-4-5-System-Card.pdf
   - https://www.anthropic.com/news/claude-opus-4-5
@@ -320,7 +320,7 @@ models:
   company_category: big5
   release_date: '2025-10-15'
   release_date_source: derived:min_pub_date
-  citations: 10
+  citations: 12
   docs:
   - https://www-cdn.anthropic.com/7aad69bf12627d42234e01ee7c36305dc2f6a970.pdf
   - https://www.anthropic.com/news/claude-haiku-4-5
@@ -343,7 +343,7 @@ models:
   company_category: big5
   release_date: '2025-09-29'
   release_date_source: derived:min_pub_date
-  citations: 15
+  citations: 17
   docs:
   - https://assets.anthropic.com/m/12f214efcc2f457a/original/Claude-Sonnet-4-5-System-Card.pdf
   - https://www.anthropic.com/news/claude-sonnet-4-5
