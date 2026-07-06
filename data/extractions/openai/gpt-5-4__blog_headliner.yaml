@@ -1,85 +1,129 @@
 # gpt-5-4__blog_headliner
+# Source: https://openai.com/index/introducing-gpt-5-4/ (Mar 5, 2026)
+# Full text tables. Headline table heroes -> blog_headliner; per-category eval tables
+# are model_card prominence. Evals at reasoning effort xhigh unless noted.
 doc: gpt-5-4__blog_headliner
 mentions:
+  # --- Headline heroes ---
   - raw: "GDPval (wins or ties)"
     weight_class: blog_headliner
-  - raw: "SWE-bench Pro"
-    weight_class: blog_headliner
-    value: 57.7
-    unit: "percent"
-    model_config: "GPT-5.4 (Public)"
+    value: 83.0
+    unit: percent
+    model_config: "GPT-5.4; SOTA"
+    methodology:
+      - "wins-or-ties vs industry professionals across 44 occupations; GPT-5.2 70.9%"
   - raw: "OSWorld-Verified"
     weight_class: blog_headliner
     value: 75.0
-    unit: "percent"
+    unit: percent
     model_config: "GPT-5.4"
-  - raw: "Toolathlon"
-    weight_class: blog_headliner
-    value: 54.6
-    unit: "percent"
-    model_config: "GPT-5.4"
+    methodology:
+      - "SOTA; surpasses human 72.4%; GPT-5.2 47.3%"
   - raw: "BrowseComp"
     weight_class: blog_headliner
     value: 82.7
-    unit: "percent"
+    unit: percent
     model_config: "GPT-5.4"
+    methodology:
+      - "+17abs over GPT-5.2; GPT-5.4 Pro sets SOTA 89.3%; search blocklist decontamination"
+  # --- Summary-table + per-category rows (model_card prominence) ---
+  - raw: "SWE-bench Pro"
+    value: 57.7
+    unit: percent
+    model_config: "GPT-5.4; Public"
   - raw: "Terminal-Bench"
     value: 75.1
-    unit: "percent"
-    model_config: "GPT-5.4 (TB 2.0)"
-  - raw: "WebArena-Verified"
-    weight_class: blog_headliner
-    value: 67.3
-    unit: "percent"
-    model_config: "GPT-5.4 (WebArena-Verified)"
+    unit: percent
+    model_config: "GPT-5.4; TB 2.0"
     methodology:
-      - "WebArena-Verified, DOM+screenshot; Online-Mind2Web 92.8 (screenshot-only)"
+      - "GPT-5.3-Codex 77.3%"
+  - raw: "Toolathlon"
+    value: 54.6
+    unit: percent
+    model_config: "GPT-5.4"
+  - raw: "Finance Agent"
+    value: 56.0
+    unit: percent
+    model_config: "GPT-5.4; FinanceAgent v1.1"
+  - raw: "Investment Banking Modeling"
+    value: 87.3
+    unit: percent
+    model_config: "GPT-5.4; internal"
+  - raw: "OfficeQA"
+    value: 68.1
+    unit: percent
+    model_config: "GPT-5.4"
+  - raw: "BigLaw Bench"
+    value: 91.0
+    unit: percent
+    model_config: "GPT-5.4"
+    methodology:
+      - "Harvey partner quote"
+  - raw: "WebArena-Verified"
+    value: 67.3
+    unit: percent
+    model_config: "GPT-5.4; DOM + screenshot"
+  - raw: "Online-Mind2Web"
+    value: 92.8
+    unit: percent
+    model_config: "GPT-5.4; screenshot-only"
   - raw: "MMMU-Pro"
-    weight_class: blog_headliner
     value: 81.2
-    unit: "percent"
-    model_config: "GPT-5.4 (no tools)"
+    unit: percent
+    model_config: "GPT-5.4; no tools"
+  - raw: "MMMU-Pro"
+    value: 82.1
+    unit: percent
+    model_config: "GPT-5.4; with tools"
+  - raw: "OmniDocBench"
+    value: 0.109
+    unit: other
+    model_config: "GPT-5.4; no reasoning; normalized edit distance (lower better)"
+  - raw: "MCP Atlas"
+    value: 67.2
+    unit: percent
+    model_config: "GPT-5.4"
+  - raw: "tau2-bench"
+    value: 98.9
+    unit: percent
+    model_config: "GPT-5.4; Telecom"
+  - raw: "Frontier Science Research"
+    value: 33.0
+    unit: percent
+    model_config: "GPT-5.4"
+  - raw: "FrontierMath"
+    value: 47.6
+    unit: percent
+    model_config: "GPT-5.4; Tier 1-3"
+    methodology:
+      - "Tier 4 = 27.1%"
   - raw: "GPQA Diamond"
     value: 92.8
-    unit: "percent"
+    unit: percent
     model_config: "GPT-5.4"
   - raw: "HLE"
     value: 39.8
-    unit: "percent"
-    model_config: "GPT-5.4 (no tools)"
-  - raw: "tau2-bench"
-    weight_class: blog_headliner
-    value: 98.9
-    unit: "percent"
-    model_config: "GPT-5.4 Telecom"
-  - raw: "MCP Atlas"
-    weight_class: blog_headliner
-    value: 67.2
-    unit: "percent"
-    model_config: "GPT-5.4"
-  - raw: "ARC-AGI"
-    value: 73.3
-    unit: "percent"
-    model_config: "GPT-5.4 (Verified)"
+    unit: percent
+    model_config: "GPT-5.4; no tools"
+  - raw: "HLE"
+    value: 52.1
+    unit: percent
+    model_config: "GPT-5.4; with tools"
+  - raw: "Graphwalks"
+    value: 93.0
+    unit: percent
+    model_config: "GPT-5.4; BFS 0K-128K F1"
+  - raw: "OpenAI MRCR v2"
+    value: 97.3
+    unit: other
+    model_config: "GPT-5.4; 8-needle 4K-8K"
+    methodology:
+      - "Mean Match Ratio (not a solve rate); degrades to 36.6 at 512K-1M"
   - raw: "ARC-AGI-1"
     value: 93.7
-    unit: "percent"
-    model_config: "GPT-5.4 (Verified)"
-  - raw: "Finance Agent"
-    value: 56.0
-    unit: "percent"
-    model_config: "GPT-5.4 (v1.1)"
-  - raw: "OfficeQA"
-    value: 68.1
-    unit: "percent"
-    model_config: "GPT-5.4"
-  - raw: "Graphwalks"
-  - raw: "MRCR"
-  - raw: "OmniDocBench"
-    weight_class: blog_headliner
-  - raw: "Online-Mind2Web"
-    weight_class: blog_headliner
-  - raw: "FrontierMath"
-  - raw: "APEX-Agents"
-  - raw: "BigLaw Bench"
-  - raw: "Frontier Science Research"
+    unit: percent
+    model_config: "GPT-5.4; Verified"
+  - raw: "ARC-AGI-2"
+    value: 73.3
+    unit: percent
+    model_config: "GPT-5.4; Verified; GPT-5.4 Pro 83.3%"
