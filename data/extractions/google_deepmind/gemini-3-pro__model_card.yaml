@@ -1,0 +1,98 @@
+# gemini-3-pro__model_card
+# Source: Gemini 3 Pro Model Card (Google DeepMind; released Nov 2025, updated May 2026).
+# Numbers from the page-5 Evaluation table (Gemini 3 Pro column). Results as of Nov 2025.
+doc: gemini-3-pro__model_card
+mentions:
+  - raw: "HLE"
+    value: 37.5
+    unit: percent
+    model_config: "Gemini 3 Pro; no tools"
+    methodology:
+      - "45.8% with search + code execution"
+  - raw: "ARC-AGI-2"
+    value: 31.1
+    unit: percent
+    model_config: "Gemini 3 Pro; ARC Prize Verified"
+  - raw: "GPQA Diamond"
+    value: 91.9
+    unit: percent
+    model_config: "Gemini 3 Pro; no tools"
+  - raw: "AIME"
+    value: 95.0
+    unit: percent
+    model_config: "Gemini 3 Pro; AIME 2025, no tools"
+    methodology:
+      - "100% with code execution"
+  - raw: "MathArena Apex"
+    value: 23.4
+    unit: percent
+    model_config: "Gemini 3 Pro"
+  - raw: "MMMU-Pro"
+    value: 81.0
+    unit: percent
+    model_config: "Gemini 3 Pro"
+  - raw: "ScreenSpot-Pro"
+    value: 72.7
+    unit: percent
+    model_config: "Gemini 3 Pro"
+  - raw: "CharXiv Reasoning"
+    value: 81.4
+    unit: percent
+    model_config: "Gemini 3 Pro"
+  - raw: "OmniDocBench"
+    value: 0.115
+    unit: other
+    model_config: "Gemini 3 Pro; OmniDocBench 1.5, overall edit distance (lower better)"
+  - raw: "Video-MMMU"
+    value: 87.6
+    unit: percent
+    model_config: "Gemini 3 Pro"
+  - raw: "LiveCodeBench Pro"
+    value: 2439
+    unit: other
+    model_config: "Gemini 3 Pro; Elo rating"
+    methodology:
+      - "Codeforces/ICPC/IOI competitive coding; Elo, not a solve rate"
+  - raw: "Terminal-Bench 2.0"
+    value: 54.2
+    unit: percent
+    model_config: "Gemini 3 Pro; Terminus-2 agent"
+  - raw: "SWE-bench Verified"
+    value: 76.2
+    unit: percent
+    model_config: "Gemini 3 Pro; single attempt"
+  - raw: "tau2-bench"
+    value: 85.4
+    unit: percent
+    model_config: "Gemini 3 Pro"
+  - raw: "Vending-Bench 2"
+    value: 5478.16
+    unit: usd
+    model_config: "Gemini 3 Pro; net worth mean"
+  - raw: "FACTS Benchmark Suite"
+    value: 70.5
+    unit: percent
+    model_config: "Gemini 3 Pro; held-out grounding/MM/search-retrieval"
+  - raw: "SimpleQA Verified"
+    value: 72.1
+    unit: percent
+    model_config: "Gemini 3 Pro; parametric knowledge"
+  - raw: "MMMLU"
+    value: 91.8
+    unit: percent
+    model_config: "Gemini 3 Pro"
+  - raw: "Global PIQA"
+    value: 93.4
+    unit: percent
+    model_config: "Gemini 3 Pro; 100 languages & cultures"
+  - raw: "MRCR"
+    value: 77.0
+    unit: other
+    model_config: "Gemini 3 Pro; v2 8-needle, 128k average"
+    methodology:
+      - "Mean Match Ratio (not a solve rate); 26.3 at 1M pointwise"
+  # --- Frontier Safety (RE-Bench referenced; CCL results qualitative) ---
+  - raw: "RE-Bench"
+    model_config: "Gemini 3 Pro"
+    methodology:
+      - "ML R&D uplift eval; aggregate below alert threshold; no single numeric score in card -> score_pending"

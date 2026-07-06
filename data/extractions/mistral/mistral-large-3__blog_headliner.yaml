@@ -1,0 +1,30 @@
+# mistral-large-3__blog_headliner
+# Source: https://mistral.ai/news/mistral-3 (Dec 2, 2025)
+# Numbers read from the "Base Model Benchmark Comparison" chart image (Mistral Large 3 675B bars).
+# NB: same values as the HF card; the blog re-presents them as the launch headliner + adds LMArena.
+doc: mistral-large-3__blog_headliner
+mentions:
+  - raw: "MMMLU"
+    value: 85.5
+    unit: percent
+    model_config: "Mistral Large 3 675B; 8-language average"
+  - raw: "GPQA Diamond"
+    value: 43.9
+    unit: percent
+    model_config: "Mistral Large 3 675B; 5-shot, no CoT"
+  - raw: "SimpleQA"
+    value: 23.8
+    unit: percent
+    model_config: "Mistral Large 3 675B; exact match"
+  - raw: "AMC"
+    value: 52.0
+    unit: percent
+    model_config: "Mistral Large 3 675B"
+  - raw: "LiveCodeBench"
+    value: 34.4
+    unit: percent
+    model_config: "Mistral Large 3 675B; no CoT"
+  - raw: "LMArena Text"
+    model_config: "Mistral Large 3"
+    methodology:
+      - "debuts #2 in OSS non-reasoning category (#6 OSS overall); rank not a numeric Elo in text -> score_pending"
