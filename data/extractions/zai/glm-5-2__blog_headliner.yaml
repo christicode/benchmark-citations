@@ -1,0 +1,41 @@
+# glm-5-2__blog_headliner
+# Source: docs.z.ai/guides/llm/glm-5.2 (GLM-5.2 release page / blog).
+# Hero chart "Long-Horizon Task Evaluation" leads with FrontierSWE, PostTrainBench,
+# SWE-Marathon. Narrative also highlights Terminal-Bench 2.1 (81.0 vs 62.0) and
+# SWE-bench Pro (62.1). GLM-5.2 column values (== HF model card).
+doc: glm-5-2__blog_headliner
+mentions:
+  - raw: "FrontierSWE"
+    weight_class: blog_headliner
+    value: 74.4
+    unit: percent
+    model_config: "Dominance, Max 20 Hrs"
+    methodology:
+      - "trails Opus 4.8 (75.1) by ~1%; ahead of GPT-5.5 (72.6), Opus 4.7 (63.0)"
+  - raw: "PostTrainBench"
+    weight_class: blog_headliner
+    value: 34.3
+    unit: percent
+    model_config: "Max 10 Hrs"
+    methodology:
+      - "Opus 4.8 37.2; Opus 4.7 28.6; GPT-5.5 25.0; Gemini 3.1 Pro 21.6"
+  - raw: "SWE-Marathon"
+    weight_class: blog_headliner
+    value: 13.0
+    unit: percent
+    model_config: "Max 10 Hrs"
+    methodology:
+      - "Opus 4.8 26.0; Opus 4.7 16.0; GPT-5.5 12.0; Gemini 3.1 Pro 4.0"
+  - raw: "Terminal-Bench 2.1"
+    weight_class: blog_headliner
+    value: 81.0
+    unit: percent
+    model_config: "Terminus-2"
+    methodology:
+      - "highest open-source; GLM-5.1 was 62.0; within a few points of Opus 4.8 (85.0)"
+  - raw: "SWE-bench Pro"
+    weight_class: blog_headliner
+    value: 62.1
+    unit: percent
+    methodology:
+      - "GLM-5.1 was 58.4"

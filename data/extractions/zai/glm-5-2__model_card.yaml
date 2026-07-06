@@ -1,0 +1,101 @@
+# glm-5-2__model_card
+# Source: huggingface.co/zai-org/GLM-5.2 README "Benchmark" table (GLM-5.2 column).
+# All models evaluated under maximum thinking effort. Footnote methodology captured per row.
+doc: glm-5-2__model_card
+mentions:
+  # --- Reasoning ---
+  - raw: "HLE"
+    value: 40.5
+    unit: percent
+    model_config: "text-only, no tools"
+    methodology:
+      - "temp=1.0, top_p=0.95, max gen 163,840 tokens; judge GPT-5.5 (medium)"
+  - raw: "HLE"
+    value: 54.7
+    unit: percent
+    model_config: "w/ tools"
+    methodology:
+      - "max context 300,000 tokens; no context management"
+  - raw: "CritPt"
+    value: 20.9
+    unit: percent
+  - raw: "AIME 2026"
+    value: 99.2
+    unit: percent
+    methodology:
+      - "system prompt w/ explanation+exact answer+confidence format"
+  - raw: "HMMT"
+    value: 94.4
+    unit: percent
+    model_config: "Nov 2025"
+  - raw: "HMMT"
+    value: 92.5
+    unit: percent
+    model_config: "Feb 2026"
+  - raw: "IMOAnswerBench"
+    value: 91.0
+    unit: percent
+  - raw: "GPQA-Diamond"
+    value: 91.2
+    unit: percent
+  # --- Coding ---
+  - raw: "SWE-bench Pro"
+    value: 62.1
+    unit: percent
+    methodology:
+      - "OpenHands w/ tailored prompt; temp=1, top_p=1, max_new_tokens=32k, 400K ctx"
+  - raw: "NL2Repo"
+    value: 48.9
+    unit: percent
+    methodology:
+      - "temp=1.0, top_p=1.0, max_new_tokens=48k, 400k ctx; rule-based + LLM judge"
+  - raw: "DeepSWE"
+    value: 46.2
+    unit: percent
+    methodology:
+      - "official pier framework + mini-swe-agent; timeout 2h; 400K ctx; 2 CPU/8GB, no internet"
+  - raw: "ProgramBench"
+    value: 63.7
+    unit: percent
+    methodology:
+      - "200 instances; Claude-Code 2.1.156; max_tokens=64000, max_turns=2000, timeout=6h, reasoning_effort=max; 400K ctx"
+  - raw: "Terminal-Bench 2.1"
+    value: 81.0
+    unit: percent
+    model_config: "Terminus-2"
+    methodology:
+      - "parser=json, timeout=4h, temp=1.0, top_p=1.0, max_new_tokens=48k, max_episodes=500, 256K ctx"
+  - raw: "Terminal-Bench 2.1"
+    value: 82.7
+    unit: percent
+    model_config: "Best Reported Harness (Claude Code 2.1.167)"
+    methodology:
+      - "temp=1.0, top_p=0.95, max_new_tokens=131072; averaged over 5 runs"
+  - raw: "FrontierSWE"
+    value: 74.4
+    unit: percent
+    model_config: "Dominance"
+    methodology:
+      - "evaluated by Proximal; 1M ctx, max effort, 128K max output; as of 2026/06/16"
+  - raw: "PostTrainBench"
+    value: 34.3
+    unit: percent
+    methodology:
+      - "evaluated by PostTrainBench; 1M ctx, max effort, 128K max output"
+  - raw: "SWE-Marathon"
+    value: 13.0
+    unit: percent
+    methodology:
+      - "evaluated by Abundant AI; 1M ctx, max effort, 128K max output"
+  # --- Agentic ---
+  - raw: "MCP-Atlas"
+    value: 76.8
+    unit: percent
+    model_config: "Public Set"
+    methodology:
+      - "think mode; 500-task public subset; 10-min timeout/task; judge Gemini-3.0-Pro"
+  - raw: "Tool-Decathlon"
+    value: 48.2
+    unit: percent
+    methodology:
+      - "official eval service; max_token 128K"
