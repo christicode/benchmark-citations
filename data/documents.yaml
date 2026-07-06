@@ -374,3 +374,74 @@ documents:
     default_weight_class: model_card
     url: "https://www.anthropic.com/news/claude-sonnet-4-5"
     pub_date: "2025-09-29"
+  # --- redo-backfill 2026-07: second-document extractions for models missing a doc_type ---
+  - id: claude-opus-4-8__system_card
+    lab: anthropic
+    model: "Claude Opus 4.8"
+    container: pdf
+    default_weight_class: system_card
+    url: "https://www-cdn.anthropic.com/0b4915911bb0d19eca5b5ee635c80fef830a37ea.pdf"
+    pub_date: "2026-05-28"
+  - id: claude-mythos-preview__blog_headliner
+    lab: anthropic
+    model: "Claude Mythos Preview"
+    container: blog
+    default_weight_class: blog_headliner
+    url: "https://www.anthropic.com/glasswing"
+    pub_date: "2026-04-07"
+  - id: deepseek-v4-pro__blog_headliner
+    lab: deepseek
+    model: "DeepSeek-V4-Pro"
+    container: blog
+    default_weight_class: blog_headliner
+    url: "https://api-docs.deepseek.com/news/news260424"
+    pub_date: "2026-04-24"
+  - id: deepseek-v3-2__blog_headliner
+    lab: deepseek
+    model: "DeepSeek-V3.2"
+    container: blog
+    default_weight_class: blog_headliner
+    url: "https://api-docs.deepseek.com/news/news250929"
+    pub_date: "2025-09-29"
+  - id: gemini-3-1-pro__blog_headliner
+    lab: google_deepmind
+    model: "Gemini 3.1 Pro"
+    container: blog
+    default_weight_class: blog_headliner
+    url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/"
+    pub_date: "2026-02-19"
+  - id: gemini-3-flash__blog_headliner
+    lab: google_deepmind
+    model: "Gemini 3 Flash"
+    container: blog
+    default_weight_class: blog_headliner
+    url: "https://blog.google/products-and-platforms/products/gemini/gemini-3-flash/"
+    pub_date: "2025-12-17"
+  - id: glm-5__blog_headliner
+    lab: zai
+    model: "GLM-5"
+    container: blog
+    default_weight_class: blog_headliner
+    url: "https://docs.z.ai/guides/llm/glm-5"
+    pub_date: "2026-02-12"
+  - id: glm-5-2__model_card
+    lab: zai
+    model: "GLM-5.2"
+    container: hf_readme
+    default_weight_class: model_card
+    url: "https://huggingface.co/zai-org/GLM-5.2"
+    pub_date: null
+  - id: glm-5-2__blog_headliner
+    lab: zai
+    model: "GLM-5.2"
+    container: blog
+    default_weight_class: blog_headliner
+    url: "https://docs.z.ai/guides/llm/glm-5.2"
+    pub_date: null
+  - id: kimi-k2-5__blog_headliner
+    lab: moonshot
+    model: "Kimi K2.5"
+    container: blog
+    default_weight_class: model_card
+    url: "https://www.kimi.com/blog/kimi-k2-5"
+    pub_date: "2026-01-27"

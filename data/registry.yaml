@@ -522,7 +522,8 @@ benchmarks:
   - canonical: toolathlon
     type: agentic
     domain: computer-use
-    aliases: ["Toolathlon"]
+    aliases: ["Toolathlon", "Tool-Decathlon", "Tool Decathlon"]
+    notes: "Toolathlon == Tool-Decathlon (agentic tool-use decathlon); both spellings cited (GLM-5.1/5.2, DeepSeek-V4)."
   - canonical: troubleshootingbench
     type: chat
     domain: science
@@ -544,7 +545,7 @@ benchmarks:
   - canonical: video-mmmu
     type: chat
     domain: multimodal
-    aliases: ["Video-MMMU"]
+    aliases: ["Video-MMMU", "VideoMMMU"]
   - canonical: webarena
     type: agentic
     domain: computer-use
@@ -814,3 +815,58 @@ benchmarks:
     domain: computer-use
     aliases: ["Vending-Bench Arena", "Vending Bench Arena"]
     notes: "Andon Labs competitive (multi-model) arena variant of Vending-Bench; cited on the Sonnet 4.6 blog. Distinct from vending-bench-2."
+  # --- redo-backfill 2026-07: NEW benchmarks first cited in this batch (GLM-5/5.2, Kimi K2.5, Opus 4.8) ---
+  - canonical: posttrainbench
+    type: agentic
+    domain: coding
+    aliases: ["PostTrainBench"]
+    notes: "NEW (2026): long-horizon post-training engineering benchmark (posttrainbench.com); GLM-5.2 headliner."
+  - canonical: swe-marathon
+    type: agentic
+    domain: coding
+    aliases: ["SWE-Marathon"]
+    notes: "NEW: long-horizon multi-issue SWE benchmark (Abundant AI); GLM-5.2 headliner."
+  - canonical: deepswe
+    type: agentic
+    domain: coding
+    aliases: ["DeepSWE"]
+    notes: "datacurve/deep-swe agentic SWE eval; cited on the GLM-5.2 card."
+  - canonical: mathvista
+    type: chat
+    domain: multimodal
+    aliases: ["MathVista"]
+    notes: "Visual math reasoning (mini split cited on Kimi K2.5)."
+  - canonical: video-mme
+    type: chat
+    domain: multimodal
+    aliases: ["VideoMME", "Video-MME"]
+  - canonical: mmvu
+    type: chat
+    domain: multimodal
+    aliases: ["MMVU"]
+  - canonical: motionbench
+    type: chat
+    domain: multimodal
+    aliases: ["MotionBench"]
+  - canonical: ocrbench
+    type: chat
+    domain: multimodal
+    aliases: ["OCRBench"]
+  - canonical: infovqa
+    type: chat
+    domain: multimodal
+    aliases: ["InfoVQA", "InfographicVQA"]
+  - canonical: lvbench
+    type: chat
+    domain: multimodal
+    aliases: ["LVBench"]
+  - canonical: longbench-v2
+    type: chat
+    domain: knowledge
+    aliases: ["Longbench v2", "LongBench v2", "LongBench-v2", "LongBench-V2"]
+    notes: "Long-context understanding (standardized ~128k); cited on the Kimi K2.5 card."
+  - canonical: automation-bench
+    type: agentic
+    domain: professional
+    aliases: ["Automation Bench"]
+    notes: "Agentic automation eval in the Opus 4.8 system-card capability table; type/domain classified from context."
