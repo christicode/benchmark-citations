@@ -1,0 +1,48 @@
+# claude-sonnet-4-6__blog_headliner
+# Source: https://www.anthropic.com/news/claude-sonnet-4-6 (Anthropic, Feb 17, 2026)
+# Launch blog: OSWorld headline chart + a model-card comparison table + Vending-Bench Arena chart,
+# all IMAGE-ONLY -> score_pending. Cited benchmarks + footnote methodology recorded; only
+# prose-stated values kept.
+doc: claude-sonnet-4-6__blog_headliner
+mentions:
+  - raw: "OSWorld-Verified"
+    weight_class: blog_headliner
+    model_config: "Claude Sonnet 4.6; headline computer-use chart"
+    methodology:
+      - "OSWorld-Verified (in-place upgrade of OSWorld); major gain over Sonnet 4.5; value in chart image only -> score_pending"
+  - raw: "Terminal-Bench 2.0"
+    model_config: "Claude Sonnet 4.6; Terminus-2, thinking off"
+    methodology:
+      - "1x guaranteed/3x ceiling resource, 5-15 samples/task; value in chart image only -> score_pending"
+  - raw: "SWE-bench Verified"
+    value: 80.2
+    unit: percent
+    model_config: "Claude Sonnet 4.6; with prompt modification"
+    methodology:
+      - "base averaged over 10 trials (value in image); 80.2% with a prompt modification"
+  - raw: "Humanity's Last Exam"
+    model_config: "Claude Sonnet 4.6; with tools"
+    methodology:
+      - "web tools, compaction 50k up to 3M, max effort, adaptive thinking, domain blocklist; value in chart image only -> score_pending"
+  - raw: "BrowseComp"
+    model_config: "Claude Sonnet 4.6"
+    methodology:
+      - "web tools, compaction 50k up to 10M, max effort, no thinking; value in chart image only -> score_pending"
+  - raw: "ARC-AGI-2"
+    value: 60.4
+    unit: percent
+    model_config: "Claude Sonnet 4.6; high effort, 120k thinking"
+    methodology:
+      - "table shows max effort (in image); 60.4% is the high-effort figure stated in prose"
+  - raw: "MMMU-Pro"
+    model_config: "Claude Sonnet 4.6"
+    methodology:
+      - "impl updated (dropped 'think step-by-step' prefix; graded via separate model); value in chart image only -> score_pending"
+  - raw: "Vending-Bench Arena"
+    model_config: "Claude Sonnet 4.6"
+    methodology:
+      - "Andon Labs competitive arena; invests early then pivots to profit; value in chart image only -> score_pending"
+  - raw: "OfficeQA"
+    model_config: "Claude Sonnet 4.6 (Databricks)"
+    methodology:
+      - "partner: 'matches Opus 4.6 on OfficeQA' (enterprise doc reasoning); no numeric score stated -> score_pending"

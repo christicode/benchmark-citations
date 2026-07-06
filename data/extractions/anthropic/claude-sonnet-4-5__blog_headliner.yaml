@@ -1,0 +1,41 @@
+# claude-sonnet-4-5__blog_headliner
+# Source: https://www.anthropic.com/news/claude-sonnet-4-5 (Anthropic, Sep 29, 2025)
+# Launch blog: SWE-bench + OSWorld headline charts + a model-card comparison table + domain charts
+# (Finance/Law/Medicine/STEM), IMAGE-ONLY -> score_pending. Footnotes give text values for the two
+# headline benchmarks.
+doc: claude-sonnet-4-5__blog_headliner
+mentions:
+  - raw: "SWE-bench Verified"
+    weight_class: blog_headliner
+    value: 77.2
+    unit: percent
+    model_config: "Claude Sonnet 4.5; bash + string-replace edit scaffold, 200K thinking"
+    methodology:
+      - "avg 10 trials, no test-time compute, full 500-problem set, prompt addition; 1M config 78.2%; high-compute (parallel + rejection sampling + scoring model) 82.0%"
+  - raw: "OSWorld"
+    weight_class: blog_headliner
+    value: 61.4
+    unit: percent
+    model_config: "Claude Sonnet 4.5; OSWorld-Verified"
+    methodology:
+      - "computer-use lead (Sonnet 4 was 42.2%); official OSWorld-Verified, 100 max steps, avg 4 runs"
+  - raw: "Terminal-Bench"
+    model_config: "Claude Sonnet 4.5; Terminus 2"
+    methodology:
+      - "XML parser, averaged over multiple days to smooth infra sensitivity; value in chart image only -> score_pending"
+  - raw: "tau2-bench"
+    model_config: "Claude Sonnet 4.5; extended thinking"
+    methodology:
+      - "Airline+Telecom prompt addenda; value in chart image only -> score_pending"
+  - raw: "AIME"
+    model_config: "Claude Sonnet 4.5; temp 1.0, 64K reasoning (Python config)"
+    methodology:
+      - "value in chart image only -> score_pending"
+  - raw: "MMMLU"
+    model_config: "Claude Sonnet 4.5"
+    methodology:
+      - "avg 5 runs over 14 non-English languages, extended thinking up to 128K; value in chart image only -> score_pending"
+  - raw: "Finance Agent"
+    model_config: "Claude Sonnet 4.5; Vals AI, interleaved thinking"
+    methodology:
+      - "Vals AI public leaderboard, extended thinking up to 64K; value in chart image only -> score_pending"

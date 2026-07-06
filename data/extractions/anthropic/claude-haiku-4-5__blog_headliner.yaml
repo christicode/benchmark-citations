@@ -1,0 +1,36 @@
+# claude-haiku-4-5__blog_headliner
+# Source: https://www.anthropic.com/news/claude-haiku-4-5 (Anthropic, Oct 15, 2025)
+# Launch blog: SWE-bench headline chart + a model-card comparison table (IMAGE). Unusually, the
+# methodology footnotes give TEXT values for SWE-bench Verified and Terminal-Bench; the rest are
+# image-only -> score_pending.
+doc: claude-haiku-4-5__blog_headliner
+mentions:
+  - raw: "SWE-bench Verified"
+    weight_class: blog_headliner
+    value: 73.3
+    unit: percent
+    model_config: "Claude Haiku 4.5; bash + string-replace edit scaffold"
+    methodology:
+      - "avg 50 trials, no test-time compute, 128K thinking, full 500-problem set; minor prompt addition ('use tools 100+ times; write your own tests first')"
+  - raw: "Terminal-Bench"
+    value: 41.75
+    unit: percent
+    model_config: "Claude Haiku 4.5; Terminus 2, 32K thinking"
+    methodology:
+      - "Terminus 2 + XML parser, avg 11 runs, n-attempts=1: 40.21% (no thinking) / 41.75% (32K thinking)"
+  - raw: "tau2-bench"
+    model_config: "Claude Haiku 4.5; extended thinking 128k"
+    methodology:
+      - "avg 10 runs, Airline+Telecom prompt addenda; value in chart image only -> score_pending"
+  - raw: "AIME"
+    model_config: "Claude Haiku 4.5"
+    methodology:
+      - "avg 10 runs, pass@1 over 16 trials, 128K thinking; value in chart image only -> score_pending"
+  - raw: "OSWorld"
+    model_config: "Claude Haiku 4.5; OSWorld-Verified"
+    methodology:
+      - "official OSWorld-Verified, 100 max steps, avg 4 runs, 128K thinking; value in chart image only -> score_pending"
+  - raw: "MMMLU"
+    model_config: "Claude Haiku 4.5"
+    methodology:
+      - "avg 10 runs over 14 non-English languages, 128K thinking; value in chart image only -> score_pending"

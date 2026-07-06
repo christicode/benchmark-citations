@@ -1,0 +1,64 @@
+# claude-opus-4-7__blog_headliner
+# Source: https://www.anthropic.com/news/claude-opus-4-7 (Anthropic, Apr 16, 2026)
+# The launch blog carries BOTH a headline comparison chart AND a model-card-style comparison
+# table (the "range of benchmarks" chart vs Opus 4.6/Sonnet 4.6/GPT-5.4/Gemini 3.1 Pro) plus
+# per-domain charts. HEADLINE numbers are IMAGE-ONLY (chart PNGs) -> score_pending; we record the
+# CITED benchmarks + text-stated methodology verbatim, and only the values stated in prose.
+# Comparison-table rows = model_card (default); the two text-declared SOTA claims = blog_headliner.
+doc: claude-opus-4-7__blog_headliner
+mentions:
+  # --- Text-declared state-of-the-art headline claims (blog_headliner) ---
+  - raw: "Finance Agent"
+    weight_class: blog_headliner
+    model_config: "Claude Opus 4.7"
+    methodology:
+      - "text: 'state-of-the-art score on the Finance Agent evaluation'; value in chart image only -> score_pending"
+  - raw: "GDPval-AA"
+    weight_class: blog_headliner
+    model_config: "Claude Opus 4.7"
+    methodology:
+      - "text: 'state-of-the-art on GDPval-AA' (Artificial Analysis, third-party); value in chart image only -> score_pending"
+  # --- Comparison-table rows (model_card default); scores are in the chart image -> score_pending ---
+  - raw: "Terminal-Bench 2.0"
+    model_config: "Claude Opus 4.7"
+    methodology:
+      - "Terminus-2 harness, thinking disabled; 1x guaranteed/3x ceiling resource, avg 5 attempts/task; value in chart image only -> score_pending"
+  - raw: "SWE-bench Verified"
+    model_config: "Claude Opus 4.7"
+    methodology:
+      - "memorization screens flag a subset; margin over Opus 4.6 holds after exclusion; value in chart image only -> score_pending"
+  - raw: "SWE-bench Pro"
+    model_config: "Claude Opus 4.7"
+    methodology:
+      - "memorization-screened; value in chart image only -> score_pending"
+  - raw: "SWE-bench Multilingual"
+    model_config: "Claude Opus 4.7"
+    methodology:
+      - "memorization-screened; value in chart image only -> score_pending"
+  - raw: "SWE-bench Multimodal"
+    model_config: "Claude Opus 4.7"
+    methodology:
+      - "internal implementation for both 4.7 and 4.6; not comparable to public leaderboard; value in chart image only -> score_pending"
+  - raw: "CyberGym"
+    model_config: "Claude Opus 4.7"
+    methodology:
+      - "Opus 4.6 baseline updated 66.6 -> 73.8 after harness-parameter change; value in chart image only -> score_pending"
+  - raw: "MCP-Atlas"
+    model_config: "Claude Opus 4.7"
+    methodology:
+      - "Opus 4.6 score updated per revised Scale AI grading; value in chart image only -> score_pending"
+  - raw: "OfficeQA Pro"
+    model_config: "Claude Opus 4.7; Document reasoning chart"
+    methodology:
+      - "Databricks; '21% fewer errors than Opus 4.6'; graph updated 2026-05-04; value in chart image only -> score_pending"
+  # --- Partner-quote benchmarks with text-stated values ---
+  - raw: "BigLaw Bench"
+    value: 90.9
+    unit: percent
+    model_config: "Claude Opus 4.7; high effort (Harvey)"
+    methodology:
+      - "substantive-accuracy score; partner-reported (Harvey)"
+  - raw: "CursorBench"
+    model_config: "Claude Opus 4.7 (Cursor)"
+    methodology:
+      - "partner-reported 'clearing 70%' vs Opus 4.6 58%; no exact 4.7 value stated -> score_pending"

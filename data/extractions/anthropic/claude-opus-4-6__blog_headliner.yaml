@@ -1,0 +1,76 @@
+# claude-opus-4-6__blog_headliner
+# Source: https://www.anthropic.com/news/claude-opus-4-6 (Anthropic, Feb 5, 2026)
+# Launch blog: headline SOTA charts + a model-card comparison table (Opus 4.6 vs 4.5/GPT-5.2/
+# Gemini 3 Pro). Main table + per-domain charts are IMAGE-ONLY (score_pending); we record cited
+# benchmarks + text-stated methodology, and ONLY values stated in prose/footnotes.
+doc: claude-opus-4-6__blog_headliner
+mentions:
+  # --- Text-declared SOTA headline claims (blog_headliner) ---
+  - raw: "Terminal-Bench 2.0"
+    weight_class: blog_headliner
+    model_config: "Claude Opus 4.6; highest score"
+    methodology:
+      - "Terminus-2 harness (except OpenAI Codex CLI); 1x guaranteed/3x ceiling resource, 5-15 samples/task; value in chart image only -> score_pending"
+  - raw: "Humanity's Last Exam"
+    weight_class: blog_headliner
+    value: 53.0
+    unit: percent
+    model_config: "Claude Opus 4.6; with tools; leads all frontier models"
+    methodology:
+      - "web search/fetch/code-exec/programmatic tools, compaction 50k up to 3M tokens, max effort, adaptive thinking, domain blocklist decontam; updated 53.1 -> 53.0 (cheating-detection re-run)"
+  - raw: "GDPval-AA"
+    weight_class: blog_headliner
+    model_config: "Claude Opus 4.6; SOTA (Artificial Analysis)"
+    methodology:
+      - "+~144 Elo over GPT-5.2 (~70% win rate), +190 over Opus 4.5; absolute Elo in chart image only -> score_pending"
+  - raw: "BrowseComp"
+    weight_class: blog_headliner
+    model_config: "Claude Opus 4.6; best of any model"
+    methodology:
+      - "web search/fetch, programmatic tools, compaction 50k up to 10M, max effort, no thinking; multi-agent harness -> 86.8%; single-agent value in chart image only -> score_pending"
+  - raw: "DeepSearchQA"
+    weight_class: blog_headliner
+    model_config: "Claude Opus 4.6; highest score in the industry"
+    methodology:
+      - "deep multi-step agentic search; value in chart image only -> score_pending"
+  # --- Comparison-table rows (model_card default) ---
+  - raw: "MRCR"
+    value: 76.0
+    unit: other
+    model_config: "Claude Opus 4.6; MRCR v2 8-needle 1M"
+    methodology:
+      - "Mean Match Ratio (not a solve rate); Sonnet 4.5 = 18.5% for reference"
+  - raw: "MCP Atlas"
+    value: 62.7
+    unit: percent
+    model_config: "Claude Opus 4.6; high effort (industry-leading)"
+    methodology:
+      - "table value run at max effort (in image); 62.7% is the high-effort figure stated in prose"
+  - raw: "SWE-bench Verified"
+    value: 81.42
+    unit: percent
+    model_config: "Claude Opus 4.6; with prompt modification"
+    methodology:
+      - "base averaged over 25 trials (value in image); 81.42% with a prompt modification"
+  - raw: "ARC AGI 2"
+    model_config: "Claude Opus 4.6; max effort, 120k thinking budget"
+    methodology:
+      - "value in chart image only -> score_pending"
+  - raw: "CyberGym"
+    model_config: "Claude Opus 4.6; no thinking, default effort/temp/top_p, + think tool"
+    methodology:
+      - "value in chart image only -> score_pending"
+  - raw: "OpenRCA"
+    model_config: "Claude Opus 4.6"
+    methodology:
+      - "root-cause analysis; 1 pt iff all root-cause elements match ground truth; author's harness/official grading; value in chart image only -> score_pending"
+  - raw: "Vending-Bench 2"
+    model_config: "Claude Opus 4.6"
+    methodology:
+      - "earns $3,050.53 more than Opus 4.5 (delta only; absolute net worth in chart image) -> score_pending"
+  - raw: "BigLaw Bench"
+    value: 90.2
+    unit: percent
+    model_config: "Claude Opus 4.6 (Harvey); highest of any Claude model"
+    methodology:
+      - "40% perfect scores, 84% above 0.8; partner-reported"

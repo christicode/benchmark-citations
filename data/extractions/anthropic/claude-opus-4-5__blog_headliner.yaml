@@ -1,0 +1,39 @@
+# claude-opus-4-5__blog_headliner
+# Source: https://www.anthropic.com/news/claude-opus-4-5 (Anthropic, Nov 24, 2025)
+# Launch blog: SWE-bench headline chart + a model-card comparison table + per-domain charts,
+# all IMAGE-ONLY -> score_pending. Cited benchmarks + text/footnote methodology are recorded;
+# only prose-stated values kept. Methodology (blog): 64K thinking, 200K ctx, default (high) effort,
+# avg 5 trials; SWE-bench Verified no thinking; Terminal Bench 128K thinking.
+doc: claude-opus-4-5__blog_headliner
+mentions:
+  - raw: "SWE-bench Verified"
+    weight_class: blog_headliner
+    model_config: "Claude Opus 4.5; state-of-the-art on real-world SWE"
+    methodology:
+      - "no thinking budget; medium effort matches Sonnet 4.5 best at -76% tokens; high effort +4.3pp vs Sonnet 4.5 at -48% tokens; absolute value in chart image only -> score_pending"
+  - raw: "SWE-bench Multilingual"
+    model_config: "Claude Opus 4.5; leads 7 of 8 languages"
+    methodology:
+      - "value in chart image only -> score_pending"
+  - raw: "Aider Polyglot"
+    model_config: "Claude Opus 4.5"
+    methodology:
+      - "+10.6% over Sonnet 4.5 (delta only); absolute value in chart image only -> score_pending"
+  - raw: "BrowseComp-Plus"
+    value: 85.30
+    unit: percent
+    model_config: "Claude Opus 4.5; fetch-enabled, with full technique stack (subagents/memory/compaction)"
+    methodology:
+      - "70.48% without the technique combination -> 85.30% with it (deep-research eval, +~15pp)"
+  - raw: "Vending-Bench"
+    model_config: "Claude Opus 4.5"
+    methodology:
+      - "earns 29% more than Sonnet 4.5 (delta only); absolute net worth in chart image only -> score_pending"
+  - raw: "Terminal Bench"
+    model_config: "Claude Opus 4.5; Terminus-2"
+    methodology:
+      - "128K thinking budget; Warp partner: +15% over Sonnet 4.5; value in chart image only -> score_pending"
+  - raw: "tau2-bench"
+    model_config: "Claude Opus 4.5"
+    methodology:
+      - "airline-agent scenario discussed narratively (creative cabin-then-flight path); no numeric score stated -> score_pending"

@@ -1,0 +1,33 @@
+# claude-opus-4-8__blog_headliner
+# Source: https://www.anthropic.com/news/claude-opus-4-8 (Anthropic, May 28, 2026)
+# Opus 4.8 launch blog. Comparison table is IMAGE-ONLY -> score_pending; footnotes + partner quotes
+# give a few text-stated values. This is the first document for Opus 4.8 (a new model in the set).
+doc: claude-opus-4-8__blog_headliner
+mentions:
+  - raw: "Terminal-Bench 2.1"
+    weight_class: blog_headliner
+    model_config: "Claude Opus 4.8; Terminus-2 public harness"
+    methodology:
+      - "GPT-5.5 (Codex CLI) = 83.4% for reference; Opus 4.8 value in chart image only -> score_pending"
+  - raw: "OSWorld-Verified"
+    model_config: "Claude Opus 4.8"
+    methodology:
+      - "eval run updated (Opus 4.7 restated to 82.3%); Opus 4.8 value in chart image only -> score_pending"
+  - raw: "Finance Agent v2"
+    model_config: "Claude Opus 4.8"
+    methodology:
+      - "Gemini 3.5 Flash = 57.9% for reference; Opus 4.8 value in chart image only -> score_pending"
+  - raw: "Online-Mind2Web"
+    value: 84.0
+    unit: percent
+    model_config: "Claude Opus 4.8 (partner: strongest computer-use/browser agent)"
+    methodology:
+      - "meaningful jump over Opus 4.7 and GPT-5.5; partner-reported"
+  - raw: "Legal Agent Benchmark"
+    model_config: "Claude Opus 4.8 (Harvey); highest recorded"
+    methodology:
+      - "first model to break 10% overall on the all-pass standard; exact value not stated -> score_pending"
+  - raw: "CursorBench"
+    model_config: "Claude Opus 4.8 (Cursor)"
+    methodology:
+      - "exceeds prior Opus across every effort level; no numeric value stated -> score_pending"

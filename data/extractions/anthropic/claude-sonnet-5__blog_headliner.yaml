@@ -1,0 +1,21 @@
+# claude-sonnet-5__blog_headliner
+# Source: https://www.anthropic.com/news/claude-sonnet-5 (Anthropic, Jun 30, 2026)
+# Launch blog. The benchmark comparison table (Sonnet 5 vs Sonnet 4.6 vs Opus 4.8) and the
+# cost-performance curves are IMAGE-ONLY -> score_pending. Only text-named benchmarks are recorded;
+# the footnote values are Sonnet 4.6 restatements (not Sonnet 5), so they are not recorded as 5's.
+doc: claude-sonnet-5__blog_headliner
+mentions:
+  - raw: "BrowseComp"
+    weight_class: blog_headliner
+    model_config: "Claude Sonnet 5; agentic search cost-performance curve"
+    methodology:
+      - "10M token budget with compaction + programmatic tool calling (matches system card); value in chart image only -> score_pending"
+  - raw: "OSWorld-Verified"
+    weight_class: blog_headliner
+    model_config: "Claude Sonnet 5; agentic computer use cost-performance curve"
+    methodology:
+      - "value in chart image only -> score_pending (Sonnet 4.6 baseline restated to 78.5%)"
+  - raw: "Humanity's Last Exam"
+    model_config: "Claude Sonnet 5"
+    methodology:
+      - "in comparison table; grader-model updated (Sonnet 4.6 restated 34.6 no-tools / 46.8 with-tools); Sonnet 5 value in table image only -> score_pending"
