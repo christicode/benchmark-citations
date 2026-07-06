@@ -153,9 +153,9 @@ documents:
   - id: gemini-3-1-pro__model_card
     lab: google_deepmind
     model: "Gemini 3.1 Pro"
-    container: blog
+    container: pdf
     default_weight_class: model_card
-    url: "https://deepmind.google/models/model-cards/gemini-3-1-pro"
+    url: "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-1-Pro-Model-Card.pdf"
     pub_date: "2026-02-19"
   - id: gemini-3-5-flash__model_card
     lab: google_deepmind
@@ -218,7 +218,7 @@ documents:
     model: "Kimi K2 Thinking"
     container: blog
     default_weight_class: model_card
-    url: "https://www.kimi.com/blog/kimi-k2-thinking"
+    url: "https://moonshotai.github.io/Kimi-K2/thinking.html"
     pub_date: "2025-11-06"
   - id: kimi-k2-7-code__model_card
     lab: moonshot
@@ -226,6 +226,13 @@ documents:
     container: blog
     default_weight_class: model_card
     url: "https://www.kimi.com/resources/kimi-k2-7-code"
+    pub_date: null
+  - id: kimi-k2-7-code__blog_headliner
+    lab: moonshot
+    model: "Kimi K2.7-Code"
+    container: blog
+    default_weight_class: blog_headliner
+    url: "https://platform.kimi.ai/docs/guide/kimi-k2-7-code-quickstart"
     pub_date: null
   - id: glm-4-6__model_card
     lab: zai

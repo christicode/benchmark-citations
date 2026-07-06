@@ -870,3 +870,14 @@ benchmarks:
     domain: professional
     aliases: ["Automation Bench"]
     notes: "Agentic automation eval in the Opus 4.8 system-card capability table; type/domain classified from context."
+  # --- 2026-07 (batch 2): human-reviewed identity for the Apex Shortlist flag + Kimi K2 Thinking writing eval ---
+  - canonical: apex-shortlist
+    type: chat
+    domain: math
+    aliases: ["Apex Shortlist"]
+    notes: "Competitive 'shortlist' subset of the Apex advanced-math reasoning benchmark (MathArena family); measures consistency on difficult, recently-contested problems. Human-reviewed (issue #8). Distinct from matharena-apex (the full Apex eval). Cited on the DeepSeek-V4 blog."
+  - canonical: longform-writing
+    type: chat
+    domain: knowledge
+    aliases: ["Longform Writing", "Long-form Writing"]
+    notes: "Long-form writing-quality eval; cited on the Kimi K2 Thinking card."
