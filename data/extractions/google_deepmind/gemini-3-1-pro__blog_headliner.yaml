@@ -1,0 +1,90 @@
+# gemini-3-1-pro__blog_headliner
+# Source: blog.google .../gemini-models/gemini-3-1-pro/ (Feb 19, 2026).
+# Blog leads with ARC-AGI-2 77.1% and a full comparison table (gemini_3-1-pro__benchmarks.gif).
+# Gemini 3.1 Pro column, Thinking (High). Google launch-blog tables are the hero -> blog_headliner.
+doc: gemini-3-1-pro__blog_headliner
+mentions:
+  - raw: "Humanity's Last Exam"
+    weight_class: blog_headliner
+    value: 44.4
+    unit: percent
+    model_config: "no tools"
+    methodology:
+      - "51.4 with Search (blocklist) + Code; full set text+MM"
+  - raw: "ARC-AGI-2"
+    weight_class: blog_headliner
+    value: 77.1
+    unit: percent
+    model_config: "ARC Prize Verified"
+    methodology:
+      - "more than double Gemini 3 Pro (31.1)"
+  - raw: "GPQA Diamond"
+    weight_class: blog_headliner
+    value: 94.3
+    unit: percent
+    model_config: "no tools"
+  - raw: "Terminal-Bench 2.0"
+    weight_class: blog_headliner
+    value: 68.5
+    unit: percent
+    model_config: "Terminus-2 harness"
+  - raw: "SWE-Bench Verified"
+    weight_class: blog_headliner
+    value: 80.6
+    unit: percent
+    model_config: "single attempt"
+  - raw: "SWE-Bench Pro"
+    weight_class: blog_headliner
+    value: 54.2
+    unit: percent
+    model_config: "Public, single attempt"
+  - raw: "LiveCodeBench Pro"
+    weight_class: blog_headliner
+    value: 2887
+    unit: elo
+    methodology:
+      - "Elo; Codeforces/ICPC/IOI competitive coding (LiveCodeBench Pro, distinct from base LiveCodeBench)"
+  - raw: "SciCode"
+    weight_class: blog_headliner
+    value: 59.0
+    unit: percent
+  - raw: "APEX-Agents"
+    weight_class: blog_headliner
+    value: 33.5
+    unit: percent
+  - raw: "GDPval-AA"
+    weight_class: blog_headliner
+    value: 1317
+    unit: elo
+  - raw: "τ2-bench"
+    weight_class: blog_headliner
+    value: 90.8
+    unit: percent
+    model_config: "Retail"
+    methodology:
+      - "Telecom 99.3"
+  - raw: "MCP Atlas"
+    weight_class: blog_headliner
+    value: 69.2
+    unit: percent
+  - raw: "BrowseComp"
+    weight_class: blog_headliner
+    value: 85.9
+    unit: percent
+    model_config: "Search + Python + Browse"
+  - raw: "MMMU Pro"
+    weight_class: blog_headliner
+    value: 80.5
+    unit: percent
+    model_config: "no tools"
+  - raw: "MMMLU"
+    weight_class: blog_headliner
+    value: 92.6
+    unit: percent
+  - raw: "MRCR"
+    weight_class: blog_headliner
+    value: 84.9
+    unit: percent
+    model_config: "v2 (8-needle), 128k average"
+    methodology:
+      - "1M pointwise 26.3"

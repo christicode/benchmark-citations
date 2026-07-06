@@ -1,0 +1,31 @@
+# gemini-3-flash__blog_headliner
+# Source: blog.google .../products/gemini/gemini-3-flash/ (Dec 17, 2025).
+# Benchmarks explicitly headlined in the blog narrative (Gemini 3 Flash).
+doc: gemini-3-flash__blog_headliner
+mentions:
+  - raw: "GPQA Diamond"
+    weight_class: blog_headliner
+    value: 90.4
+    unit: percent
+  - raw: "Humanity's Last Exam"
+    weight_class: blog_headliner
+    value: 33.7
+    unit: percent
+    model_config: "without tools"
+  - raw: "MMMU Pro"
+    weight_class: blog_headliner
+    value: 81.2
+    unit: percent
+    methodology:
+      - "comparable to Gemini 3 Pro"
+  - raw: "SWE-bench Verified"
+    weight_class: blog_headliner
+    value: 78.0
+    unit: percent
+    methodology:
+      - "outperforms Gemini 3 Pro"
+  - raw: "LMArena"
+    weight_class: blog_headliner
+    model_config: "Elo (Pareto frontier: quality vs cost/speed)"
+    methodology:
+      - "headline Pareto graph; no single Elo value stated -> score_pending"
