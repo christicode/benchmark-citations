@@ -164,11 +164,11 @@ documents:
     default_weight_class: model_card
     url: "https://deepmind.google/models/model-cards/gemini-3-5-flash"
     pub_date: "2026-05-19"
-  - id: deepseek-v4-pro__system_card
+  - id: deepseek-v4-pro__model_card
     lab: deepseek
     model: "DeepSeek-V4-Pro"
     container: hf_readme
-    default_weight_class: system_card
+    default_weight_class: model_card
     url: "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro"
     pub_date: null
   - id: kimi-k2-6__model_card
@@ -248,3 +248,70 @@ documents:
     default_weight_class: blog_headliner
     url: "https://qwen.ai/blog?id=qwen3-max"
     pub_date: null
+  # --- second-source backfill: extractions existed under data/extractions/** with no matching
+  #     documents.yaml entry (build.py was failing). url + pub_date taken from each extraction
+  #     file's own source-provenance header (verified, not guessed); each URL is DISTINCT from the
+  #     model's already-tracked doc (a genuine additional citing document, not a same-URL split).
+  - id: gpt-5__blog_headliner
+    lab: openai
+    model: "GPT-5"
+    container: blog
+    default_weight_class: model_card
+    url: "https://openai.com/index/introducing-gpt-5/"
+    pub_date: "2025-08-07"
+  - id: gpt-5-2__blog_headliner
+    lab: openai
+    model: "GPT-5.2"
+    container: blog
+    default_weight_class: model_card
+    url: "https://openai.com/index/introducing-gpt-5-2/"
+    pub_date: "2025-12-11"
+  - id: gpt-5-4__system_card
+    lab: openai
+    model: "GPT-5.4"
+    container: blog
+    default_weight_class: system_card
+    url: "https://deploymentsafety.openai.com/gpt-5-4-thinking"
+    pub_date: "2026-03-05"
+  - id: gpt-5-5__system_card
+    lab: openai
+    model: "GPT-5.5"
+    container: blog
+    default_weight_class: system_card
+    url: "https://deploymentsafety.openai.com/gpt-5-5"
+    pub_date: "2026-04-23"
+  - id: deepseek-v3-2__model_card
+    lab: deepseek
+    model: "DeepSeek-V3.2"
+    container: hf_readme
+    default_weight_class: model_card
+    url: "https://huggingface.co/deepseek-ai/DeepSeek-V3.2"
+    pub_date: null
+  - id: gemini-3-pro__model_card
+    lab: google_deepmind
+    model: "Gemini 3 Pro"
+    container: pdf
+    default_weight_class: model_card
+    url: "https://deepmind.google/models/model-cards/gemini-3-pro"
+    pub_date: null
+  - id: grok-4-1__blog_headliner
+    lab: xai
+    model: "Grok 4.1"
+    container: blog
+    default_weight_class: blog_headliner
+    url: "https://x.ai/news/grok-4-1"
+    pub_date: "2025-11-17"
+  - id: mistral-large-3__blog_headliner
+    lab: mistral
+    model: "Mistral Large 3"
+    container: blog
+    default_weight_class: model_card
+    url: "https://mistral.ai/news/mistral-3"
+    pub_date: "2025-12-02"
+  - id: muse-spark__blog_headliner
+    lab: meta
+    model: "Muse Spark"
+    container: blog
+    default_weight_class: model_card
+    url: "https://ai.meta.com/blog/introducing-muse-spark-msl"
+    pub_date: "2026-04-08"
