@@ -73,6 +73,15 @@ Issues: write**, All repositories. Network access for crawling + `curl` PDF fetc
    **Set `weight_class` per mention** (blog_headliner 3 / model_card 2 / system_card 1) — a blog
    can carry both a headliner chart AND a model-card table; only override when it differs from the
    doc's `default_weight_class`.
+   **ALWAYS hunt for the benchmark comparison TABLE.** Nearly every release blog AND system card
+   embeds a short "model card" table — a compact list of the headline benchmarks (the citing model
+   vs competitors). It is the single highest-signal extraction target; NEVER skip it. If it renders
+   as a chart IMAGE (common for Anthropic/Google/Mistral/Meta), READ IT — don't default to
+   `score_pending`: `curl` the chart PNG (works on CDNs where hosted web-fetch is blocked) and open
+   it with the image/vision reader (`read` on the .png). These tables are almost always legible and
+   give exact values + config splits (no-tools/with-tools, harness, retail/telecom). Only mark
+   `score_pending` (or flag) when the image is genuinely unreadable/gated. Also capture the
+   per-domain charts and footnote methodology, but the comparison table comes first.
 5. **Summarize.** Run `scripts/rank.py` for a per-benchmark citation data-QA summary (no priority
    score — that's deferred).
 6. **Heatmap.** Regenerate the model axis (`gen_models.py` → `data/models.yaml`) then the
@@ -102,8 +111,11 @@ apply (use judgment). Prefer bullets over paragraphs.
 - Always stamp the opened issue's number onto the flagged citation's `review_issue` field.
 
 ## Known gotchas
-- Some cards present benchmarks as **images only** (Mistral Large 3, Gemini 3 Pro/3 Flash
-  model cards) → numbers must come from OCR or the blog; flag, don't invent.
+- Benchmarks are frequently presented as **chart/table IMAGES** (Mistral Large 3, Gemini 3 Pro/3
+  Flash cards, and EVERY Anthropic release blog's comparison table + per-domain charts). Do NOT
+  default these to `score_pending`: `curl` the image (works on CDNs where hosted web-fetch 403s)
+  and read it with the vision-capable `read` tool — the comparison TABLES are almost always legible
+  and yield exact numbers. Only flag (don't invent) when the image is truly unreadable or gated.
 - Some blogs/cards are **JS-rendered or gated** (Kimi K2.x pages, gated HF repos) → `curl`
   returns no scores; flag for headless render / human extraction, don't guess.
 - **Config-dependent scores**: Fable 5 reroutes cyber/bio to Opus 4.8 (0.0%); headline
