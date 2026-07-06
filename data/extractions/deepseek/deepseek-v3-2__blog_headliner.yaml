@@ -1,0 +1,64 @@
+# deepseek-v3-2__blog_headliner
+# Source: api-docs.deepseek.com/news/news250929 (Introducing DeepSeek-V3.2-Exp, 2025/09/29).
+# Release-blog comparison table (v3_2_benchmark.webp), DeepSeek-V3.2-Exp column.
+# NB: values are the V3.2-Exp release (the V3.2 line's launch); recorded under DeepSeek-V3.2.
+doc: deepseek-v3-2__blog_headliner
+mentions:
+  - raw: "MMLU-Pro"
+    weight_class: blog_headliner
+    value: 85.0
+    unit: percent
+  - raw: "GPQA-Diamond"
+    weight_class: blog_headliner
+    value: 79.9
+    unit: percent
+  - raw: "Humanity's Last Exam"
+    weight_class: blog_headliner
+    value: 19.8
+    unit: percent
+  - raw: "BrowseComp"
+    weight_class: blog_headliner
+    value: 40.1
+    unit: percent
+  - raw: "BrowseComp-zh"
+    weight_class: blog_headliner
+    value: 47.9
+    unit: percent
+  - raw: "SimpleQA"
+    weight_class: blog_headliner
+    value: 97.1
+    unit: percent
+  - raw: "LiveCodeBench"
+    weight_class: blog_headliner
+    value: 74.1
+    unit: percent
+  - raw: "Codeforces"
+    weight_class: blog_headliner
+    value: 2121
+    unit: elo
+    model_config: "Div1"
+  - raw: "Aider-Polyglot"
+    weight_class: blog_headliner
+    value: 74.5
+    unit: percent
+  - raw: "SWE Verified"
+    weight_class: blog_headliner
+    value: 67.8
+    unit: percent
+  - raw: "SWE-bench Multilingual"
+    weight_class: blog_headliner
+    value: 57.9
+    unit: percent
+  - raw: "Terminal-bench"
+    weight_class: blog_headliner
+    value: 37.7
+    unit: percent
+  - raw: "AIME 2025"
+    weight_class: blog_headliner
+    value: 89.3
+    unit: percent
+  - raw: "HMMT"
+    weight_class: blog_headliner
+    value: 83.6
+    unit: percent
+    model_config: "2025"

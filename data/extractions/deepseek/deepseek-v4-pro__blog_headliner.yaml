@@ -1,0 +1,40 @@
+# deepseek-v4-pro__blog_headliner
+# Source: api-docs.deepseek.com/news/news260424 (DeepSeek-V4 Preview Release, 2026/04/24).
+# Hero benchmark figure (v4-benchmark.png), DeepSeek-V4-Pro-Max column (Think Max mode).
+doc: deepseek-v4-pro__blog_headliner
+mentions:
+  - raw: "SimpleQA"
+    weight_class: blog_headliner
+    value: 57.9
+    unit: percent
+    model_config: "Verified, Pass@1"
+  - raw: "HLE"
+    weight_class: blog_headliner
+    value: 37.7
+    unit: percent
+    model_config: "Pass@1"
+  - raw: "Apex Shortlist"
+    weight_class: blog_headliner
+    value: 90.2
+    unit: percent
+    model_config: "Pass@1"
+  - raw: "Codeforces"
+    weight_class: blog_headliner
+    value: 3206
+    unit: elo
+    model_config: "Rating"
+  - raw: "SWE Verified"
+    weight_class: blog_headliner
+    value: 80.6
+    unit: percent
+    model_config: "Resolved"
+  - raw: "Terminal-Bench 2.0"
+    weight_class: blog_headliner
+    value: 67.9
+    unit: percent
+    model_config: "Acc"
+  - raw: "Toolathlon"
+    weight_class: blog_headliner
+    value: 51.8
+    unit: percent
+    model_config: "Pass@1"
