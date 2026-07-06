@@ -298,7 +298,7 @@ function render(){
   H.push('<thead><tr><th class=corner>&nbsp;</th><th class="corner sat2"><span class=satlbl>Saturation</span></th>');
   vm.forEach(function(m){
     H.push('<th class="mh'+(m.dated?'':' new')+'" title="'+esc(m.model_title(m))+'">'+
-      '<div class=lab>'+esc(m.display)+(m.dated?'':' ·?')+'</div></th>');
+      '<div class=lab>'+esc(m.display)+'</div></th>');
   });
   H.push('</tr></thead><tbody>');
   rows.forEach(function(r,i){
