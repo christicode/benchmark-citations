@@ -1,0 +1,106 @@
+# deepseek-v4-pro__model_card
+# Source: https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro (HF README; DeepSeek-V4 tech report
+# arXiv:2606.19348). Numbers from the "DeepSeek-V4-Pro-Max vs Frontier Models" instruct table
+# (DS-V4-Pro Max column). Config: Think Max reasoning mode.
+doc: deepseek-v4-pro__model_card
+mentions:
+  # --- Knowledge & reasoning ---
+  - raw: "MMLU-Pro"
+    value: 87.5
+    unit: percent
+    model_config: "V4-Pro Max; EM"
+  - raw: "SimpleQA-Verified"
+    value: 57.9
+    unit: percent
+    model_config: "V4-Pro Max; Pass@1"
+  - raw: "Chinese-SimpleQA"
+    value: 84.4
+    unit: percent
+    model_config: "V4-Pro Max; Pass@1"
+  - raw: "GPQA Diamond"
+    value: 90.1
+    unit: percent
+    model_config: "V4-Pro Max; Pass@1"
+  - raw: "HLE"
+    value: 37.7
+    unit: percent
+    model_config: "V4-Pro Max; Pass@1 (no tools)"
+    methodology:
+      - "HLE with tools 48.2"
+  - raw: "LiveCodeBench"
+    value: 93.5
+    unit: percent
+    model_config: "V4-Pro Max; Pass@1"
+  - raw: "Codeforces"
+    value: 3206
+    unit: other
+    model_config: "V4-Pro Max; rating"
+    methodology:
+      - "Elo rating, not a solve rate"
+  - raw: "HMMT"
+    value: 95.2
+    unit: percent
+    model_config: "V4-Pro Max; HMMT 2026 Feb, Pass@1"
+  - raw: "IMOAnswerBench"
+    value: 89.8
+    unit: percent
+    model_config: "V4-Pro Max; Pass@1"
+  - raw: "Apex"
+    value: 38.3
+    unit: percent
+    model_config: "V4-Pro Max; MathArena Apex, Pass@1"
+    methodology:
+      - "Apex Shortlist 90.2"
+  # --- Long context ---
+  - raw: "MRCR"
+    value: 83.5
+    unit: other
+    model_config: "V4-Pro Max; MRCR 1M, Mean Match Ratio"
+    methodology:
+      - "MMR (not a solve rate)"
+  - raw: "CorpusQA"
+    value: 62.0
+    unit: percent
+    model_config: "V4-Pro Max; CorpusQA 1M, accuracy"
+  # --- Agentic ---
+  - raw: "Terminal Bench 2.0"
+    value: 67.9
+    unit: percent
+    model_config: "V4-Pro Max; Acc"
+  - raw: "SWE Verified"
+    value: 80.6
+    unit: percent
+    model_config: "V4-Pro Max; Resolved"
+  - raw: "SWE Pro"
+    value: 55.4
+    unit: percent
+    model_config: "V4-Pro Max; Resolved"
+  - raw: "SWE Multilingual"
+    value: 76.2
+    unit: percent
+    model_config: "V4-Pro Max; Resolved"
+  - raw: "BrowseComp"
+    value: 83.4
+    unit: percent
+    model_config: "V4-Pro Max; Pass@1"
+  - raw: "GDPval-AA"
+    value: 1554
+    unit: elo
+    model_config: "V4-Pro Max; Elo"
+  - raw: "MCPAtlas"
+    value: 73.6
+    unit: percent
+    model_config: "V4-Pro Max; MCPAtlas Public, Pass@1"
+  - raw: "Toolathlon"
+    value: 51.8
+    unit: percent
+    model_config: "V4-Pro Max; Pass@1"
+  # --- Base-model table extras ---
+  - raw: "SuperGPQA"
+    value: 53.9
+    unit: percent
+    model_config: "V4-Pro-Base; EM, 5-shot"
+  - raw: "MMLU"
+    value: 90.1
+    unit: percent
+    model_config: "V4-Pro-Base; EM, 5-shot"

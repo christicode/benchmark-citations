@@ -1,0 +1,38 @@
+# gpt-5__blog_headliner
+# Source: https://openai.com/index/introducing-gpt-5/ (Aug 7, 2025)
+# In-scope as comparison anchor (labs.yaml anchors_before_window). Headline numbers are
+# text-stated (the per-category eval tables are chart images with no in-text values).
+doc: gpt-5__blog_headliner
+mentions:
+  - raw: "AIME 2025"
+    weight_class: blog_headliner
+    value: 94.6
+    unit: percent
+    model_config: "GPT-5; no tools; SOTA"
+  - raw: "SWE-bench Verified"
+    weight_class: blog_headliner
+    value: 74.9
+    unit: percent
+    model_config: "GPT-5; high reasoning effort"
+    methodology:
+      - "fixed subset of n=477 verified tasks"
+  - raw: "Aider"
+    weight_class: blog_headliner
+    value: 88.0
+    unit: percent
+    model_config: "GPT-5; Aider Polyglot"
+  - raw: "MMMU"
+    weight_class: blog_headliner
+    value: 84.2
+    unit: percent
+    model_config: "GPT-5; averaged standard + vision"
+  - raw: "HealthBench Hard"
+    weight_class: blog_headliner
+    value: 46.2
+    unit: percent
+    model_config: "GPT-5"
+  - raw: "GPQA"
+    weight_class: blog_headliner
+    value: 88.4
+    unit: percent
+    model_config: "GPT-5 Pro; no tools; SOTA"

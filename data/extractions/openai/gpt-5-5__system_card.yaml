@@ -1,0 +1,82 @@
+# gpt-5-5__system_card
+# Source: https://deploymentsafety.openai.com/gpt-5-5 (GPT-5.5 System Card, Apr 23, 2026)
+# Safety/Preparedness-focused card. Most capability numbers live in figures (images) with
+# only baselines stated in prose -> those are score_pending (no invented values). Text-stated
+# numbers are recorded. Distinct bio/cyber/health benchmarks vs the capability blog.
+doc: gpt-5-5__system_card
+mentions:
+  # --- Health (text tables) ---
+  - raw: "HealthBench"
+    value: 56.5
+    unit: percent
+    model_config: "GPT-5.5; length-adjusted"
+    methodology:
+      - "length-adjusted score (unadjusted 58.4); +2.5 vs GPT-5.4"
+  - raw: "HealthBench Professional"
+    value: 51.8
+    unit: percent
+    model_config: "GPT-5.5; length-adjusted"
+    methodology:
+      - "unadjusted 57.2; +3.7 vs GPT-5.4"
+  # --- Bio/Chem preparedness (mostly figures; baselines in prose) ---
+  - raw: "Multimodal Troubleshooting Virology"
+    model_config: "GPT-5.5"
+    methodology:
+      - "SecureBio, 350 held-out questions; all models exceed 22.1% expert baseline; value in figure only -> score_pending"
+  - raw: "ProtocolQA"
+    model_config: "GPT-5.5; open-ended"
+    methodology:
+      - "108 FutureHouse questions, open-ended; consensus expert baseline 54%; value in figure only -> score_pending"
+  - raw: "Tacit Knowledge and Troubleshooting"
+    model_config: "GPT-5.5"
+    methodology:
+      - "Gryphon Scientific MCQ; expert baseline 80%; GPT-5.5 Pro 81.67%; GPT-5.5 value in figure only -> score_pending"
+  - raw: "TroubleshootingBench"
+    model_config: "GPT-5.5"
+    methodology:
+      - "52 protocols x3 questions; 80th-pct expert 36.4%; value in figure only -> score_pending"
+  # --- Cyber preparedness ---
+  - raw: "Capture-the-Flag"
+    model_config: "GPT-5.5; Professional CTFs, pass@12 of 16 rollouts"
+    methodology:
+      - "OpenAI saturated this eval (no GPT-5.5 Pro run); value in figure only -> score_pending"
+  - raw: "CVE-Bench"
+    model_config: "GPT-5.5; zero-day config, pass@1 over 3 rollouts"
+    methodology:
+      - "34/40 challenges run; value in figure only -> score_pending"
+  - raw: "Cyber Range"
+    value: 93.33
+    unit: percent
+    model_config: "GPT-5.5; combined pass rate (pass=1+/16 trials)"
+    methodology:
+      - "15 emulated-network scenarios; GPT-5.4-thinking 73.33%, GPT-5.3-codex 80%"
+  - raw: "VulnLMP"
+    model_config: "GPT-5.5"
+    methodology:
+      - "long-horizon vuln research; qualitative (no functional full-chain exploit); no numeric score -> score_pending"
+  # --- AI self-improvement ---
+  - raw: "Monorepo-Bench"
+    model_config: "GPT-5.5"
+    methodology:
+      - "internal PR-replication, hidden tests; value in figure only -> score_pending"
+  - raw: "MLE-Bench"
+    model_config: "GPT-5.5"
+    methodology:
+      - "30 Kaggle competitions, bronze-medal success; outperforms GPT-5.4; value in figure only -> score_pending"
+  - raw: "Internal Research Debugging"
+    value: 50.5
+    unit: percent
+    model_config: "GPT-5.5; median score"
+    methodology:
+      - "41 real internal bugs; highest-scoring model, not significantly over GPT-5.4"
+  - raw: "OPQA"
+    model_config: "GPT-5.5"
+    methodology:
+      - "OpenAI-Proof Q&A, 20 bottlenecks, pass@1; GPT-5.3-Codex highest at 5.8%; GPT-5.5 value in figure only -> score_pending"
+  # --- Biochem knowledge (text table) ---
+  - raw: "Biochemistry Knowledge"
+    value: 32.32
+    unit: percent
+    model_config: "GPT-5.5; reward@4"
+    methodology:
+      - "internal; +1.35% over GPT-5.4-thinking (30.97%); GPT-5.5 Pro 39.26%"

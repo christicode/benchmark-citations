@@ -1,0 +1,24 @@
+# grok-4-1__blog_headliner
+# Source: https://x.ai/news/grok-4-1 (xAI, Nov 17, 2025)
+# Personality/EQ-focused launch blog. Most numbers are in charts; text-stated values recorded,
+# chart-only values flagged score_pending. Distinct from the safety-focused model card PDF.
+doc: grok-4-1__blog_headliner
+mentions:
+  - raw: "LMArena Text"
+    value: 1483
+    unit: elo
+    model_config: "Grok 4.1 Thinking (quasarflux); #1 overall, Style Control Elo"
+    methodology:
+      - "31-pt margin over top non-xAI model; non-reasoning (tensor) #2 at 1465"
+  - raw: "EQ-Bench3"
+    model_config: "Grok 4.1"
+    methodology:
+      - "emotional-intelligence roleplay; normalized Elo shown in chart only (working with authors for leaderboard) -> score_pending"
+  - raw: "Creative Writing v3"
+    model_config: "Grok 4.1"
+    methodology:
+      - "32 prompts x3 iterations; normalized Elo in chart only -> score_pending"
+  - raw: "FActScore"
+    model_config: "Grok 4.1 (non-reasoning, web search)"
+    methodology:
+      - "500 biography questions; hallucination rate (lower better) in chart only -> score_pending"

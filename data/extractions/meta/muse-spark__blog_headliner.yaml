@@ -1,0 +1,92 @@
+# muse-spark__blog_headliner
+# Source: https://ai.meta.com/blog/introducing-muse-spark-msl (Apr 8, 2026)
+# Numbers from the capabilities-table image (Muse Spark Thinking column) + text
+# (Contemplating mode: 58% HLE, 38% FrontierScience Research).
+doc: muse-spark__blog_headliner
+mentions:
+  # --- Multimodal ---
+  - raw: "CharXiv Reasoning"
+    value: 86.4
+    unit: percent
+    model_config: "Muse Spark Thinking"
+  - raw: "MMMU Pro"
+    value: 80.4
+    unit: percent
+    model_config: "Muse Spark Thinking"
+  - raw: "ERQA"
+    value: 64.7
+    unit: percent
+    model_config: "Muse Spark Thinking; embodied reasoning"
+  - raw: "SimpleVQA"
+    value: 71.3
+    unit: percent
+    model_config: "Muse Spark Thinking"
+  - raw: "ScreenSpot Pro"
+    value: 84.1
+    unit: percent
+    model_config: "Muse Spark Thinking; with python"
+  - raw: "ZeroBench"
+    value: 33.0
+    unit: percent
+    model_config: "Muse Spark Thinking; pass@5, with python"
+  # --- Text / reasoning ---
+  - raw: "HLE"
+    weight_class: blog_headliner
+    value: 42.8
+    unit: percent
+    model_config: "Muse Spark Thinking; no tools"
+    methodology:
+      - "with tools 50.4; Contemplating mode reaches 58% (text)"
+  - raw: "ARC AGI 2"
+    value: 42.5
+    unit: percent
+    model_config: "Muse Spark Thinking; public"
+  - raw: "GPQA Diamond"
+    value: 89.5
+    unit: percent
+    model_config: "Muse Spark Thinking"
+  - raw: "LiveCodeBench Pro"
+    value: 80.0
+    unit: percent
+    model_config: "Muse Spark Thinking; competitive coding"
+  # --- Health ---
+  - raw: "HealthBench Hard"
+    value: 42.8
+    unit: percent
+    model_config: "Muse Spark Thinking"
+  - raw: "MedXpertQA"
+    value: 52.6
+    unit: percent
+    model_config: "Muse Spark Thinking; Text"
+    methodology:
+      - "MedXpertQA MM 78.4"
+  # --- Agentic ---
+  - raw: "DeepSearchQA"
+    value: 74.8
+    unit: percent
+    model_config: "Muse Spark Thinking"
+  - raw: "SWE-Bench Verified"
+    value: 77.4
+    unit: percent
+    model_config: "Muse Spark Thinking"
+  - raw: "SWE-Bench Pro"
+    value: 52.4
+    unit: percent
+    model_config: "Muse Spark Thinking"
+  - raw: "Terminal-Bench 2.0"
+    value: 59.0
+    unit: percent
+    model_config: "Muse Spark Thinking"
+  - raw: "tau2-bench Telecom"
+    value: 91.5
+    unit: percent
+    model_config: "Muse Spark Thinking; Artificial Analysis"
+  - raw: "GDPval-AA"
+    value: 1444
+    unit: elo
+    model_config: "Muse Spark Thinking; Office Tasks (Artificial Analysis)"
+  # --- Contemplating mode (text-stated) ---
+  - raw: "FrontierScience Research"
+    value: 38.0
+    unit: percent
+    model_config: "Muse Spark; Contemplating mode (multi-agent)"

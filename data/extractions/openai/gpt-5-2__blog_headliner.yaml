@@ -1,0 +1,135 @@
+# gpt-5-2__blog_headliner
+# Source: https://openai.com/index/introducing-gpt-5-2/ (Dec 11, 2025)
+# Full text tables (headline + appendix). GPT-5.2 Thinking column unless noted.
+# Headline table heroes -> blog_headliner; appendix per-category tables -> model_card.
+# Evals at max reasoning effort (xhigh); professional evals at 'heavy'.
+doc: gpt-5-2__blog_headliner
+mentions:
+  # --- Headline heroes ---
+  - raw: "GDPval (wins or ties)"
+    weight_class: blog_headliner
+    value: 70.9
+    unit: percent
+    model_config: "GPT-5.2 Thinking; SOTA, first at/above human-expert level"
+    methodology:
+      - "44 occupations; GPT-5.2 Pro 74.1%; >11x faster & <1% cost of experts"
+  - raw: "SWE-bench Pro"
+    weight_class: blog_headliner
+    value: 55.6
+    unit: percent
+    model_config: "GPT-5.2 Thinking; Public, SOTA"
+  - raw: "OpenAI MRCR v2"
+    weight_class: blog_headliner
+    value: 98.2
+    unit: other
+    model_config: "GPT-5.2 Thinking; 8-needle 4k-8k"
+    methodology:
+      - "Mean Match Ratio (not a solve rate); SOTA long-context; near-100% on 4-needle to 256k"
+  - raw: "tau2-bench"
+    weight_class: blog_headliner
+    value: 98.7
+    unit: percent
+    model_config: "GPT-5.2 Thinking; Telecom, SOTA"
+  # --- Summary + appendix rows (model_card prominence) ---
+  - raw: "SWE-bench Verified"
+    value: 80.0
+    unit: percent
+    model_config: "GPT-5.2 Thinking"
+  - raw: "SWE-Lancer"
+    value: 74.6
+    unit: percent
+    model_config: "GPT-5.2 Thinking; IC Diamond"
+  - raw: "Investment Banking Modeling"
+    value: 68.4
+    unit: percent
+    model_config: "GPT-5.2 Thinking; internal spreadsheet tasks"
+  - raw: "GPQA Diamond"
+    value: 92.4
+    unit: percent
+    model_config: "GPT-5.2 Thinking; no tools"
+    methodology:
+      - "GPT-5.2 Pro 93.2%"
+  - raw: "HLE"
+    value: 34.5
+    unit: percent
+    model_config: "GPT-5.2 Thinking; no tools"
+    methodology:
+      - "45.5% with search+Python; Pro 36.6/50.0"
+  - raw: "AIME 2025"
+    value: 100.0
+    unit: percent
+    model_config: "GPT-5.2 Thinking; no tools"
+  - raw: "HMMT"
+    value: 99.4
+    unit: percent
+    model_config: "GPT-5.2 Thinking; Feb 2025, no tools"
+  - raw: "FrontierMath"
+    value: 40.3
+    unit: percent
+    model_config: "GPT-5.2 Thinking; Tier 1-3, w/ Python"
+    methodology:
+      - "Tier 4 = 14.6%"
+  - raw: "MMMLU"
+    value: 89.6
+    unit: percent
+    model_config: "GPT-5.2 Thinking"
+  - raw: "ARC-AGI-1"
+    value: 86.2
+    unit: percent
+    model_config: "GPT-5.2 Thinking; Verified"
+    methodology:
+      - "GPT-5.2 Pro 90.5% (first to cross 90%)"
+  - raw: "ARC-AGI-2"
+    value: 52.9
+    unit: percent
+    model_config: "GPT-5.2 Thinking; Verified, SOTA for CoT models"
+    methodology:
+      - "GPT-5.2 Pro 54.2% (high)"
+  - raw: "CharXiv Reasoning"
+    value: 82.1
+    unit: percent
+    model_config: "GPT-5.2 Thinking; no tools"
+    methodology:
+      - "88.7% with Python"
+  - raw: "MMMU-Pro"
+    value: 79.5
+    unit: percent
+    model_config: "GPT-5.2 Thinking; no tools"
+    methodology:
+      - "80.4% with Python"
+  - raw: "Video MMMU"
+    value: 85.9
+    unit: percent
+    model_config: "GPT-5.2 Thinking; no tools"
+  - raw: "Screenspot Pro"
+    value: 86.3
+    unit: percent
+    model_config: "GPT-5.2 Thinking; w/ Python"
+  - raw: "tau2-bench"
+    value: 82.0
+    unit: percent
+    model_config: "GPT-5.2 Thinking; Retail"
+  - raw: "BrowseComp"
+    value: 65.8
+    unit: percent
+    model_config: "GPT-5.2 Thinking"
+    methodology:
+      - "GPT-5.2 Pro 77.9%"
+  - raw: "BrowseComp Long Context"
+    value: 92.0
+    unit: percent
+    model_config: "GPT-5.2 Thinking; 128k"
+    methodology:
+      - "256k = 89.8%"
+  - raw: "MCP Atlas"
+    value: 60.6
+    unit: percent
+    model_config: "GPT-5.2 Thinking; Scale"
+  - raw: "Toolathlon"
+    value: 46.3
+    unit: percent
+    model_config: "GPT-5.2 Thinking"
+  - raw: "GraphWalks"
+    value: 94.0
+    unit: percent
+    model_config: "GPT-5.2 Thinking; BFS <128k"

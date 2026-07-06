@@ -1,20 +1,33 @@
 # gpt-5-5__blog_headliner
+# Source: https://openai.com/index/introducing-gpt-5-5/ (Apr 23, 2026)
+# Full text tables (not images). Headline table heroes -> blog_headliner; the
+# per-category eval tables are model_card prominence. Evals run at reasoning effort xhigh.
 doc: gpt-5-5__blog_headliner
 mentions:
   - raw: "Terminal-Bench"
     weight_class: blog_headliner
     value: 82.7
     unit: "percent"
-    model_config: "GPT-5.5 (TB 2.0)"
+    model_config: "GPT-5.5; TB 2.0, SOTA"
   - raw: "SWE-bench Pro"
     weight_class: blog_headliner
     value: 58.6
     unit: "percent"
-    model_config: "GPT-5.5 (Public)"
+    model_config: "GPT-5.5; Public"
     methodology:
       - "Public split; Anthropic notes evidence of memorization on this eval (claude-opus-4-7 news)"
+  - raw: "Expert-SWE"
+    weight_class: blog_headliner
+    value: 73.1
+    unit: "percent"
+    model_config: "GPT-5.5; internal, ~20h median human time"
   - raw: "GDPval (wins or ties)"
     weight_class: blog_headliner
+    value: 84.9
+    unit: "percent"
+    model_config: "GPT-5.5"
+    methodology:
+      - "wins-or-ties rate across 44 occupations; GPT-5.5 Pro 82.3%"
   - raw: "OSWorld-Verified"
     weight_class: blog_headliner
     value: 78.7
@@ -27,7 +40,7 @@ mentions:
   - raw: "BrowseComp"
     value: 84.4
     unit: "percent"
-    model_config: "GPT-5.5"
+    model_config: "GPT-5.5; GPT-5.5 Pro 90.1%"
   - raw: "CyberGym"
     value: 81.8
     unit: "percent"
@@ -35,24 +48,28 @@ mentions:
   - raw: "Finance Agent"
     value: 60.0
     unit: "percent"
-    model_config: "GPT-5.5 (FinanceAgent v1.1)"
+    model_config: "GPT-5.5; FinanceAgent v1.1"
   - raw: "OfficeQA"
     value: 54.1
     unit: "percent"
-    model_config: "GPT-5.5 (OfficeQA Pro)"
+    model_config: "GPT-5.5; OfficeQA Pro"
   - raw: "MMMU-Pro"
     value: 81.2
     unit: "percent"
-    model_config: "GPT-5.5 (no tools)"
+    model_config: "GPT-5.5; no tools"
+  - raw: "MMMU-Pro"
+    value: 83.2
+    unit: "percent"
+    model_config: "GPT-5.5; with tools"
   - raw: "MCP Atlas"
     value: 75.3
     unit: "percent"
-    model_config: "GPT-5.5 (Scale Apr-2026)"
+    model_config: "GPT-5.5; Scale AI Apr-2026 update"
   - raw: "tau2-bench"
     weight_class: blog_headliner
     value: 98.0
     unit: "percent"
-    model_config: "GPT-5.5 Telecom (original prompts)"
+    model_config: "GPT-5.5; Telecom, original prompts (no tuning), GPT-4.1 user model"
   - raw: "GPQA Diamond"
     value: 93.6
     unit: "percent"
@@ -60,24 +77,56 @@ mentions:
   - raw: "HLE"
     value: 41.4
     unit: "percent"
-    model_config: "GPT-5.5 (no tools)"
-  - raw: "ARC-AGI"
+    model_config: "GPT-5.5; no tools"
+  - raw: "HLE"
+    value: 52.2
+    unit: "percent"
+    model_config: "GPT-5.5; with tools"
+  - raw: "ARC-AGI-2"
     value: 85.0
     unit: "percent"
-    model_config: "GPT-5.5 (Verified)"
+    model_config: "GPT-5.5; Verified"
   - raw: "ARC-AGI-1"
     value: 95.0
     unit: "percent"
-    model_config: "GPT-5.5 (Verified)"
-  - raw: "Graphwalks"
-  - raw: "MRCR"
-  - raw: "Expert-SWE"
-    weight_class: blog_headliner
+    model_config: "GPT-5.5; Verified"
   - raw: "FrontierMath"
+    value: 51.7
+    unit: "percent"
+    model_config: "GPT-5.5; Tier 1-3"
+    methodology:
+      - "Tier 4 = 35.4%; GPT-5.5 Pro 52.4% (T1-3), 39.6% (T4)"
   - raw: "GeneBench"
     weight_class: blog_headliner
+    value: 25.0
+    unit: "percent"
+    model_config: "GPT-5.5; GPT-5.5 Pro 33.2%"
   - raw: "BixBench"
     weight_class: blog_headliner
+    value: 80.5
+    unit: "percent"
+    model_config: "GPT-5.5"
+  - raw: "Graphwalks"
+    value: 73.7
+    unit: "percent"
+    model_config: "GPT-5.5; BFS 256k F1"
+    methodology:
+      - "BFS 1M F1 45.4; parents 256k 90.1; parents 1M 58.5"
+  - raw: "OpenAI MRCR v2"
+    value: 74.0
+    unit: "other"
+    model_config: "GPT-5.5; 8-needle 512K-1M"
+    methodology:
+      - "Mean Match Ratio (not a solve rate); ranges 98.1 (4-8K) down to 74.0 (512K-1M)"
+  - raw: "Investment Banking Modeling"
+    value: 88.5
+    unit: "percent"
+    model_config: "GPT-5.5; internal"
+  - raw: "Capture-the-Flag"
+    value: 88.1
+    unit: "percent"
+    model_config: "GPT-5.5; internal CTF tasks"
+  # --- Artificial Analysis Intelligence Index components (named, not individually scored here) ---
   - raw: "SciCode"
   - raw: "AA-LCR"
   - raw: "AA-Omniscience"

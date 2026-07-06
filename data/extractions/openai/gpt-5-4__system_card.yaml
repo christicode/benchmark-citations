@@ -1,0 +1,84 @@
+# gpt-5-4__system_card
+# Source: https://deploymentsafety.openai.com/gpt-5-4-thinking (GPT-5.4 Thinking System Card, Mar 5, 2026)
+# Safety/Preparedness card. gpt-5.4-thinking column from text tables (Health, Cyber Range,
+# Table 18/19/20). Figure-only values -> score_pending.
+doc: gpt-5-4__system_card
+mentions:
+  # --- Health (Table 6) ---
+  - raw: "HealthBench"
+    value: 62.6
+    unit: percent
+    model_config: "GPT-5.4 Thinking"
+  - raw: "HealthBench Hard"
+    value: 40.1
+    unit: percent
+    model_config: "GPT-5.4 Thinking"
+  - raw: "HealthBench Consensus"
+    value: 96.6
+    unit: percent
+    model_config: "GPT-5.4 Thinking"
+  # --- Cyber Range (Table 13) ---
+  - raw: "Cyber Range"
+    value: 73.33
+    unit: percent
+    model_config: "GPT-5.4 Thinking; combined pass rate"
+    methodology:
+      - "14 scenarios, pass=1+/16 trials; GPT-5.3-codex 80%, GPT-5.2 47%"
+  # --- Bio/chem preparedness (Table 18) ---
+  - raw: "Multimodal Troubleshooting Virology"
+    value: 50.37
+    unit: percent
+    model_config: "GPT-5.4 Thinking; multi-select, pass@1"
+    methodology:
+      - "SecureBio; expert baseline 22.1%"
+  - raw: "ProtocolQA"
+    value: 42.48
+    unit: percent
+    model_config: "GPT-5.4 Thinking; open-ended, pass@1"
+    methodology:
+      - "expert baseline 54%"
+  - raw: "Tacit Knowledge and Troubleshooting"
+    value: 65.00
+    unit: percent
+    model_config: "GPT-5.4 Thinking; cons@32"
+    methodology:
+      - "83.8% including refusals; expert baseline 80%"
+  - raw: "TroubleshootingBench"
+    value: 35.75
+    unit: percent
+    model_config: "GPT-5.4 Thinking; pass@1"
+    methodology:
+      - "38.85% including refusals; 80th-pct expert 36.4%"
+  # --- Cyber (Table 19) ---
+  - raw: "Capture-the-Flag"
+    value: 88.23
+    unit: percent
+    model_config: "GPT-5.4 Thinking; Professional CTF, pass@12"
+  - raw: "CVE-Bench"
+    value: 86.27
+    unit: percent
+    model_config: "GPT-5.4 Thinking; pass@1"
+  # --- AI self-improvement (Table 20) ---
+  - raw: "Monorepo-Bench"
+    value: 59.33
+    unit: percent
+    model_config: "GPT-5.4 Thinking; pass@1"
+  - raw: "OPQA"
+    value: 4.16
+    unit: percent
+    model_config: "GPT-5.4 Thinking; pass@1"
+  # --- Figure-only / external ---
+  - raw: "MLE-Bench"
+    model_config: "GPT-5.4 Thinking"
+    methodology:
+      - "Kaggle bronze-medal success; significantly better than comparison; value in figure only -> score_pending"
+  - raw: "CyScenarioBench"
+    value: 11.0
+    unit: percent
+    model_config: "GPT-5.4 Thinking; Irregular external"
+    methodology:
+      - "solved 5/11 challenges; atomic suite 88% network / 73% vuln-research / 48% evasion"
+  - raw: "SHADE"
+    model_config: "GPT-5.4 Thinking"
+    methodology:
+      - "ShadeArena in agentic-misalignment CoT-monitorability suite; figure only -> score_pending"
