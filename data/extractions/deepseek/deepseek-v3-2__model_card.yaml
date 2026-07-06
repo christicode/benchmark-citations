@@ -1,0 +1,31 @@
+# deepseek-v3-2__model_card
+# Source: https://huggingface.co/deepseek-ai/DeepSeek-V3.2 (HF README).
+# The README benchmark figure is an image; these values are from HF's structured
+# "Evaluation results" block (HF-leaderboard-verified, distinct provenance from the
+# arxiv tech report which is tracked as the system_card doc).
+doc: deepseek-v3-2__model_card
+mentions:
+  - raw: "GPQA Diamond"
+    value: 82.4
+    unit: percent
+    model_config: "DeepSeek-V3.2; HF leaderboard"
+  - raw: "SWE-bench Verified"
+    value: 70.0
+    unit: percent
+    model_config: "DeepSeek-V3.2; HF leaderboard (resolved)"
+  - raw: "Terminal-Bench 2.0"
+    value: 39.6
+    unit: percent
+    model_config: "DeepSeek-V3.2; HF leaderboard"
+  - raw: "AIME"
+    value: 94.17
+    unit: percent
+    model_config: "DeepSeek-V3.2; MathArena AIME 2026 (HF leaderboard)"
+  - raw: "Apex Agents"
+    value: 7.0
+    unit: percent
+    model_config: "DeepSeek-V3.2; Mercor APEX-Agents (HF leaderboard)"
+  - raw: "WildClawBench"
+    value: 34.0
+    unit: percent
+    model_config: "DeepSeek-V3.2; overall (HF leaderboard)"

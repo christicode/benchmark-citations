@@ -1,27 +1,75 @@
 # deepseek-v3-2__system_card
+# Source: DeepSeek-V3.2 tech report (arXiv:2512.02556, Dec 2, 2025).
+# Numbers from the main results table (Table 11) + high-compute table (Table 12).
+# Values are the DeepSeek-V3.2(-Thinking) column unless noted.
 doc: deepseek-v3-2__system_card
 mentions:
   - raw: "AIME"
+    value: 93.1
+    unit: percent
+    model_config: "DeepSeek-V3.2-Thinking; AIME 2025 Pass@1"
+    methodology:
+      - "V3.2-Speciale (high-compute) 96.0"
   - raw: "HMMT"
+    value: 92.5
+    unit: percent
+    model_config: "DeepSeek-V3.2-Thinking; HMMT Feb 2025 Pass@1"
+    methodology:
+      - "HMMT Nov 2025 90.2; Speciale 99.2 (Feb)"
   - raw: "GPQA"
+    value: 82.4
+    unit: percent
+    model_config: "DeepSeek-V3.2-Thinking; GPQA Diamond Pass@1"
   - raw: "HLE"
+    value: 25.1
+    unit: percent
+    model_config: "DeepSeek-V3.2-Thinking; Pass@1 (no tools)"
+    methodology:
+      - "search-agent HLE (with tools) 40.8; Speciale 30.6"
   - raw: "LiveCodeBench"
+    value: 83.3
+    unit: percent
+    model_config: "DeepSeek-V3.2-Thinking; Pass@1-COT"
   - raw: "Codeforces"
-  - raw: "Aider"
+    value: 2386
+    unit: other
+    model_config: "DeepSeek-V3.2-Thinking; rating"
+    methodology:
+      - "Codeforces Elo rating (not %); Speciale 2701"
   - raw: "SWE-bench Verified"
+    value: 73.1
+    unit: percent
+    model_config: "DeepSeek-V3.2-Thinking; Resolved"
   - raw: "Terminal-Bench"
     value: 46.4
-    unit: "percent"
-    model_config: "Claude Code harness"
-    methodology:
-      - "thinking-mode incompatible w/ Terminus; Terminus non-thinking 39.3"
+    unit: percent
+    model_config: "DeepSeek-V3.2-Thinking; TB 2.0 Acc"
   - raw: "tau2"
-    value: 96.2
-    unit: "percent"
-    model_config: "Telecom"
-    methodology:
-      - "model itself as user agent; Airline 63.8 / Retail 81.1"
+    value: 80.3
+    unit: percent
+    model_config: "DeepSeek-V3.2-Thinking; tau2-bench Pass@1"
   - raw: "BrowseComp"
+    value: 51.4
+    unit: percent
+    model_config: "DeepSeek-V3.2-Thinking; Pass@1"
+    methodology:
+      - "51.4 base / 67.6 with heavy setup (starred); BrowseComp-Zh 65.0"
   - raw: "MMLU-Pro"
-  - raw: "MMLU"
+    value: 85.0
+    unit: percent
+    model_config: "DeepSeek-V3.2-Thinking; EM"
   - raw: "IMOAnswerBench"
+    value: 78.3
+    unit: percent
+    model_config: "DeepSeek-V3.2-Thinking; Pass@1"
+    methodology:
+      - "Speciale 84.5"
+  # --- named but no distinct value in table ---
+  - raw: "Aider"
+    model_config: "DeepSeek-V3.2-Thinking"
+    methodology:
+      - "referenced but no numeric value in the results tables -> score_pending"
+  - raw: "MMLU"
+    model_config: "DeepSeek-V3.2-Thinking"
+    methodology:
+      - "table reports MMLU-Pro (85.0); no standalone MMLU value -> score_pending"

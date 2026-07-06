@@ -1,38 +1,170 @@
 # muse-spark__system_card
+# Source: Muse Spark Safety & Preparedness Report (Meta, Apr 8, 2026), 160pp.
+# Numbers from the Table 1 (capabilities scorecard) + Table 2 (safety/propensity scorecard),
+# Muse Spark = first data column, "Thinking" configuration. Plus prose sections.
+# This is a safety/preparedness report -> most benchmarks are safety/bio/cyber, not capability.
 doc: muse-spark__system_card
 mentions:
+  # --- Capability / coding (prose) ---
   - raw: "SWE-Bench"
+    value: 42.9
+    unit: percent
+    model_config: "Muse Spark; SWE-bench Verified hard subset"
+    methodology:
+      - "below the ~50% threshold Meta considers indicative of foundational eng capability"
   - raw: "Terminal-Bench"
     value: 59.0
-    unit: "percent"
-    model_config: "Thinking"
-  - raw: "GPQA"
-  - raw: "HLE"
-  - raw: "LiveCodeBench"
-  - raw: "CharXiv"
-  - raw: "LAB-Bench"
-  - raw: "WMDP"
-  - raw: "Cybench"
+    unit: percent
+    model_config: "Muse Spark; TB 2.0"
     methodology:
-      - "Anthropic 37/40 vs Muse full 40 - not comparable"
-  - raw: "CyScenarioBench"
-  - raw: "CyberGym"
-  - raw: "CyberSecEval"
-  - raw: "AgentHarm"
-  - raw: "OR-Bench"
-  - raw: "StrongReject"
-  - raw: "Harmbench"
-  - raw: "MASK"
-  - raw: "SHADE"
-  - raw: "Petri"
-  - raw: "DeceptionBench"
-  - raw: "PropensityBench"
-  - raw: "ImpossibleBench"
-  - raw: "IHEval"
-  - raw: "AbstentionBench"
-  - raw: "BioTIER"
-  - raw: "SimpleQA"
-  - raw: "MMLU"
+      - "GPT-5.4 75.1, Opus 4.6 65.4, Gemini 3.1 Pro 68.7"
+  - raw: "LiveCodeBench"
+    model_config: "Muse Spark"
+    methodology:
+      - "discussed but no Muse Spark numeric value in prose/table -> score_pending"
+  - raw: "GPQA"
+    model_config: "Muse Spark"
+    methodology:
+      - "referenced; no Muse Spark numeric capability value found in prose -> score_pending"
+  - raw: "HLE"
+    value: 50.3
+    unit: other
+    model_config: "Muse Spark; HLE Calibration RMS error (lower better, not a solve rate)"
+    methodology:
+      - "RMS calibration error on Humanity's Last Exam; trails GPT-5.4/Opus 4.6"
+  # --- Bio/chem preparedness (Table 1, Muse Spark col) ---
+  - raw: "WMDP"
+    value: 88.4
+    unit: percent
+    model_config: "Muse Spark; WMDP-Bio accuracy"
+    methodology:
+      - "WMDP-Chem 85.6; ~saturated across frontier models (expert baseline ~60%)"
   - raw: "ProtocolQA"
+    value: 87.3
+    unit: percent
+    model_config: "Muse Spark; LAB-Bench ProtocolQA"
   - raw: "SeqQA"
+    value: 97.3
+    unit: percent
+    model_config: "Muse Spark; with tools"
+  - raw: "LAB-Bench"
+    model_config: "Muse Spark"
+    methodology:
+      - "parent suite; ProtocolQA/SeqQA reported separately; no aggregate value -> score_pending"
+  - raw: "BioTIER"
+    value: 98.0
+    unit: percent
+    model_config: "Muse Spark; refusal rate (deployed system)"
+    methodology:
+      - "Refusals: BioTIER; higher = safer"
+  # --- Cyber preparedness (Table 1) ---
+  - raw: "Cybench"
+    value: 65.4
+    unit: percent
+    model_config: "Muse Spark; pass@1, full 40 challenges"
+    methodology:
+      - "Opus 4.6 93.0 (over 37/40); different task counts"
+  - raw: "CyberGym"
+    value: 43.5
+    unit: percent
+    model_config: "Muse Spark; pass@1"
+    methodology:
+      - "Opus 4.6 66.6"
+  - raw: "CyScenarioBench"
+    value: 0.0
+    unit: percent
+    model_config: "Muse Spark; success rate over 10 scenarios"
+  - raw: "CyberSecEval"
+    model_config: "Muse Spark"
+    methodology:
+      - "referenced; no single Muse Spark numeric value isolated -> score_pending"
+  # --- Adversarial robustness / refusals (Table 2) ---
+  - raw: "AgentHarm"
+    value: 26.0
+    unit: percent
+    model_config: "Muse Spark; compliance rate (lower safer)"
+    methodology:
+      - "benign subset false-refusal 6.8%; GPT-5.4 10.2, Opus 4.6 8.2"
+  - raw: "StrongReject"
+    value: 44.6
+    unit: percent
+    model_config: "Muse Spark; StrongREJECT v2 jailbreak"
+  - raw: "OR-Bench"
+    value: 8.0
+    unit: percent
+    model_config: "Muse Spark; false-refusal rate"
+  - raw: "Harmbench"
+    model_config: "Muse Spark"
+    methodology:
+      - "referenced; no isolated Muse Spark numeric value -> score_pending"
+  # --- Behavioral / honesty (Table 2) ---
+  - raw: "MASK"
+    value: 89.1
+    unit: percent
+    model_config: "Muse Spark; honesty rate"
+  - raw: "ImpossibleBench"
+    value: 0.0
+    unit: percent
+    model_config: "Muse Spark; cheating rate (lower better)"
+  - raw: "IHEval"
+    value: 80.3
+    unit: percent
+    model_config: "Muse Spark; instruction-hierarchy composite"
+  - raw: "SimpleQA"
+    value: 70.8
+    unit: percent
+    model_config: "Muse Spark; SimpleQA Verified F1"
+    methodology:
+      - "67.6% correct; 2nd behind Gemini 3.1 Pro (78.0)"
+  - raw: "AbstentionBench"
+    value: 59.1
+    unit: percent
+    model_config: "Muse Spark; correct abstention rate"
+  - raw: "CharXiv"
+    value: 35.0
+    unit: percent
+    model_config: "Muse Spark; hallucination rate on missing images (lower better)"
+  # --- named but figure/comparative-only ---
+  - raw: "SHADE"
+    value: 8.8
+    unit: percent
+    model_config: "Muse Spark; SHADE-Arena"
+  # --- Loss-of-Control scorecard (Table 1) ---
+  - raw: "MLE-Bench"
+    value: 15.8
+    unit: percent
+    model_config: "Muse Spark; Loss-of-Control scorecard"
+    methodology:
+      - "GPT-5.4 18.6, Opus 4.6 52.0, Gemini 3.1 Pro 40.7"
+  - raw: "AIRS-Bench"
+    value: 64.8
+    unit: percent
+    model_config: "Muse Spark; AI R&D safety"
+    methodology:
+      - "GPT-5.4 74.3, Opus 4.6 74.1, Gemini 3.1 Pro 78.5"
+  - raw: "GDM-Stealth"
+    value: 39.8
+    unit: percent
+    model_config: "Muse Spark; loss-of-control stealth (higher = more capable/risky)"
+    methodology:
+      - "GPT-5.4 14.3, Opus 4.6 18.0, Gemini 3.1 Pro 61.0"
+  - raw: "Petri"
+    model_config: "Muse Spark"
+    methodology:
+      - "behavioral-audit tool; figure only -> score_pending"
+  - raw: "DeceptionBench"
+    value: 1.6
+    unit: percent
+    model_config: "Muse Spark; deception rate (lower better)"
+  - raw: "PropensityBench"
+    model_config: "Muse Spark"
+    methodology:
+      - "referenced; no isolated numeric value -> score_pending"
+  - raw: "MMLU"
+    model_config: "Muse Spark"
+    methodology:
+      - "referenced; no Muse Spark capability value in prose -> score_pending"
   - raw: "Creative Writing"
+    model_config: "Muse Spark"
+    methodology:
+      - "no numeric value in prose -> score_pending"
