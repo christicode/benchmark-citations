@@ -175,7 +175,7 @@ models:
   citations: 32
   docs:
   - https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/
-  - https://deepmind.google/models/model-cards/gemini-3-1-pro
+  - https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-1-Pro-Model-Card.pdf
 - id: claude-sonnet-4-6
   model: Claude Sonnet 4.6
   display: Sonnet 4.6
@@ -314,9 +314,9 @@ models:
   company_category: open_weight_leader
   release_date: '2025-11-06'
   release_date_source: derived:min_pub_date
-  citations: 21
+  citations: 22
   docs:
-  - https://www.kimi.com/blog/kimi-k2-thinking
+  - https://moonshotai.github.io/Kimi-K2/thinking.html
 - id: claude-haiku-4-5
   model: Claude Haiku 4.5
   display: Haiku 4.5
@@ -397,8 +397,9 @@ models:
   company_category: open_weight_leader
   release_date: null
   release_date_source: unknown
-  citations: 6
+  citations: 12
   docs:
+  - https://platform.kimi.ai/docs/guide/kimi-k2-7-code-quickstart
   - https://www.kimi.com/resources/kimi-k2-7-code
 - id: qwen3-max
   model: Qwen3-Max
