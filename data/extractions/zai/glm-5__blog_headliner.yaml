@@ -1,0 +1,28 @@
+# glm-5__blog_headliner
+# Source: docs.z.ai/guides/llm/glm-5 (GLM-5 release page / blog, 2026-02-12).
+# Narrative leads with SWE-bench Verified (77.8) & Terminal Bench 2.0 (56.2) for coding,
+# and BrowseComp / MCP-Atlas / tau2-bench for agentic (all "leading open-model"). GLM-5 column.
+doc: glm-5__blog_headliner
+mentions:
+  - raw: "SWE-bench Verified"
+    weight_class: blog_headliner
+    value: 77.8
+    unit: percent
+    methodology:
+      - "leading open-model; surpasses Gemini 3.0 Pro overall"
+  - raw: "Terminal-Bench 2.0"
+    weight_class: blog_headliner
+    value: 56.2
+    unit: percent
+  - raw: "BrowseComp"
+    weight_class: blog_headliner
+    value: 75.9
+    unit: percent
+  - raw: "MCP-Atlas"
+    weight_class: blog_headliner
+    value: 67.8
+    unit: percent
+  - raw: "τ²-Bench"
+    weight_class: blog_headliner
+    value: 89.7
+    unit: percent

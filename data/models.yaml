@@ -4,11 +4,11 @@ _note: 'MODEL axis for the heatmap. Derived from data/citations.jsonl; release_d
   pub_date (proxy). Override display/release_date in data/models.overrides.yaml. X-axis order: most recent
   on the LEFT; undated models are grouped at the end until a real date is backfilled.'
 schema_version: 1
-count: 33
+count: 34
 undated_needs_backfill:
-- deepseek:DeepSeek-V4-Pro
 - moonshot:Kimi K2.7-Code
 - qwen:Qwen3-Max
+- zai:GLM-5.2
 models:
 - id: claude-sonnet-5
   model: Claude Sonnet 5
@@ -54,8 +54,9 @@ models:
   company_category: big5
   release_date: '2026-05-28'
   release_date_source: derived:min_pub_date
-  citations: 9
+  citations: 26
   docs:
+  - https://www-cdn.anthropic.com/0b4915911bb0d19eca5b5ee635c80fef830a37ea.pdf
   - https://www.anthropic.com/news/claude-opus-4-8
 - id: gemini-3-5-flash
   model: Gemini 3.5 Flash
@@ -69,6 +70,18 @@ models:
   docs:
   - https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/
   - https://deepmind.google/models/model-cards/gemini-3-5-flash
+- id: deepseek-v4-pro
+  model: DeepSeek-V4-Pro
+  display: DeepSeek-V4-Pro
+  company: deepseek
+  company_display: DeepSeek
+  company_category: open_weight_leader
+  release_date: '2026-04-24'
+  release_date_source: derived:min_pub_date
+  citations: 30
+  docs:
+  - https://api-docs.deepseek.com/news/news260424
+  - https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro
 - id: gpt-5-5
   model: GPT-5.5
   display: GPT-5.5
@@ -124,9 +137,10 @@ models:
   company_category: big5
   release_date: '2026-04-07'
   release_date_source: derived:min_pub_date
-  citations: 23
+  citations: 33
   docs:
   - https://www-cdn.anthropic.com/53566bf5440a10affd749724787c8913a2ae0841.pdf
+  - https://www.anthropic.com/glasswing
 - id: glm-5-1
   model: GLM-5.1
   display: GLM-5.1
@@ -158,8 +172,9 @@ models:
   company_category: big5
   release_date: '2026-02-19'
   release_date_source: derived:min_pub_date
-  citations: 16
+  citations: 32
   docs:
+  - https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/
   - https://deepmind.google/models/model-cards/gemini-3-1-pro
 - id: claude-sonnet-4-6
   model: Claude Sonnet 4.6
@@ -181,8 +196,9 @@ models:
   company_category: open_weight_leader
   release_date: '2026-02-12'
   release_date_source: derived:min_pub_date
-  citations: 15
+  citations: 20
   docs:
+  - https://docs.z.ai/guides/llm/glm-5
   - https://huggingface.co/zai-org/GLM-5
 - id: claude-opus-4-6
   model: Claude Opus 4.6
@@ -204,7 +220,7 @@ models:
   company_category: open_weight_leader
   release_date: '2026-01-27'
   release_date_source: derived:min_pub_date
-  citations: 20
+  citations: 52
   docs:
   - https://www.kimi.com/blog/kimi-k2-5
 - id: glm-4-7
@@ -226,8 +242,9 @@ models:
   company_category: big5
   release_date: '2025-12-17'
   release_date_source: derived:min_pub_date
-  citations: 23
+  citations: 28
   docs:
+  - https://blog.google/products-and-platforms/products/gemini/gemini-3-flash/
   - https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-Flash-Model-Card.pdf
 - id: gpt-5-2
   model: GPT-5.2
@@ -253,18 +270,6 @@ models:
   docs:
   - https://huggingface.co/mistralai/Mistral-Large-3-675B-Instruct-2512
   - https://mistral.ai/news/mistral-3
-- id: deepseek-v3-2
-  model: DeepSeek-V3.2
-  display: DeepSeek-V3.2
-  company: deepseek
-  company_display: DeepSeek
-  company_category: open_weight_leader
-  release_date: '2025-12-01'
-  release_date_source: derived:min_pub_date
-  citations: 20
-  docs:
-  - https://arxiv.org/abs/2512.02556
-  - https://huggingface.co/deepseek-ai/DeepSeek-V3.2
 - id: claude-opus-4-5
   model: Claude Opus 4.5
   display: Opus 4.5
@@ -347,6 +352,19 @@ models:
   docs:
   - https://assets.anthropic.com/m/12f214efcc2f457a/original/Claude-Sonnet-4-5-System-Card.pdf
   - https://www.anthropic.com/news/claude-sonnet-4-5
+- id: deepseek-v3-2
+  model: DeepSeek-V3.2
+  display: DeepSeek-V3.2
+  company: deepseek
+  company_display: DeepSeek
+  company_category: open_weight_leader
+  release_date: '2025-09-29'
+  release_date_source: derived:min_pub_date
+  citations: 34
+  docs:
+  - https://api-docs.deepseek.com/news/news250929
+  - https://arxiv.org/abs/2512.02556
+  - https://huggingface.co/deepseek-ai/DeepSeek-V3.2
 - id: gpt-5
   model: GPT-5
   display: GPT-5
@@ -359,17 +377,18 @@ models:
   docs:
   - https://cdn.openai.com/gpt-5-system-card.pdf
   - https://openai.com/index/introducing-gpt-5/
-- id: deepseek-v4-pro
-  model: DeepSeek-V4-Pro
-  display: DeepSeek-V4-Pro
-  company: deepseek
-  company_display: DeepSeek
+- id: glm-5-2
+  model: GLM-5.2
+  display: GLM-5.2
+  company: zai
+  company_display: Z.ai (Zhipu AI)
   company_category: open_weight_leader
   release_date: null
   release_date_source: unknown
-  citations: 23
+  citations: 24
   docs:
-  - https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro
+  - https://docs.z.ai/guides/llm/glm-5.2
+  - https://huggingface.co/zai-org/GLM-5.2
 - id: kimi-k2-7-code
   model: Kimi K2.7-Code
   display: Kimi K2.7-Code

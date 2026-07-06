@@ -1,0 +1,64 @@
+# kimi-k2-5__blog_headliner
+# Source: kimi.com/blog/kimi-k2-5 "Visual Agentic Intelligence".
+# Hero comparison figure (token_cost.png) leads with these benchmarks; caption:
+# "Across three agentic benchmarks - HLE, BrowseComp, and SWE-Verified - Kimi K2.5
+# delivers strong performance at a fraction of the cost." Values from the blog's
+# appendix benchmark table (Kimi K2.5 Thinking column).
+# The blog appendix also adds a Computer Use section absent from the GitHub README;
+# those two rows are recorded here at model_card weight (comparison-table rows).
+doc: kimi-k2-5__blog_headliner
+mentions:
+  # --- hero / headliner benchmarks ---
+  - raw: "HLE"
+    weight_class: blog_headliner
+    value: 50.2
+    unit: percent
+    model_config: "w/ tools (agentic)"
+    methodology:
+      - "no-tools 30.1; hero framing is agentic (w/ tools)"
+  - raw: "BrowseComp"
+    weight_class: blog_headliner
+    value: 60.6
+    unit: percent
+    methodology:
+      - "w/ ctx manage 74.9; Agent Swarm 78.4"
+  - raw: "DeepSearchQA"
+    weight_class: blog_headliner
+    value: 77.1
+    unit: percent
+  - raw: "SWE-Bench Verified"
+    weight_class: blog_headliner
+    value: 76.8
+    unit: percent
+  - raw: "SWE-Bench Multilingual"
+    weight_class: blog_headliner
+    value: 73.0
+    unit: percent
+  - raw: "MMMU-Pro"
+    weight_class: blog_headliner
+    value: 78.5
+    unit: percent
+  - raw: "MathVision"
+    weight_class: blog_headliner
+    value: 84.2
+    unit: percent
+  - raw: "OmniDocBench"
+    weight_class: blog_headliner
+    value: 88.8
+    unit: percent
+    model_config: "1.5"
+  - raw: "VideoMMMU"
+    weight_class: blog_headliner
+    value: 86.6
+    unit: percent
+  - raw: "LongVideoBench"
+    weight_class: blog_headliner
+    value: 79.8
+    unit: percent
+  # --- Computer Use: rows present only in the blog appendix (not the README) ---
+  - raw: "OSWorld-Verified"
+    value: 63.3
+    unit: percent
+  - raw: "WebArena"
+    value: 58.9
+    unit: percent

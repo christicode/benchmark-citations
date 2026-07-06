@@ -1,0 +1,69 @@
+# claude-mythos-preview__blog_headliner
+# Source: anthropic.com/glasswing (Project Glasswing, Apr 7, 2026). Claude Mythos Preview
+# capability results (vs Opus 4.6), stated inline in text. Standard config unless noted.
+doc: claude-mythos-preview__blog_headliner
+mentions:
+  - raw: "CyberGym"
+    weight_class: blog_headliner
+    value: 83.1
+    unit: percent
+    model_config: "Cybersecurity Vulnerability Reproduction"
+    methodology:
+      - "Opus 4.6 = 66.6"
+  - raw: "SWE-bench Pro"
+    weight_class: blog_headliner
+    value: 77.8
+    unit: percent
+    methodology:
+      - "Opus 4.6 = 53.4; memorization screens applied"
+  - raw: "Terminal-Bench 2.0"
+    weight_class: blog_headliner
+    value: 82.0
+    unit: percent
+    model_config: "Terminus-2 harness, adaptive thinking max, 1M token budget, avg@5"
+    methodology:
+      - "Opus 4.6 = 65.4; 92.1 with TB2.1 updates + 4h timeout"
+  - raw: "SWE-bench Multimodal"
+    weight_class: blog_headliner
+    value: 59.0
+    unit: percent
+    model_config: "internal implementation"
+    methodology:
+      - "Opus 4.6 = 27.1; not comparable to public leaderboard"
+  - raw: "SWE-bench Multilingual"
+    weight_class: blog_headliner
+    value: 87.3
+    unit: percent
+    methodology:
+      - "Opus 4.6 = 77.8"
+  - raw: "SWE-bench Verified"
+    weight_class: blog_headliner
+    value: 93.9
+    unit: percent
+    methodology:
+      - "Opus 4.6 = 80.8; memorization screens applied"
+  - raw: "GPQA Diamond"
+    weight_class: blog_headliner
+    value: 94.6
+    unit: percent
+    methodology:
+      - "Opus 4.6 = 91.3"
+  - raw: "Humanity's Last Exam"
+    weight_class: blog_headliner
+    value: 56.8
+    unit: percent
+    model_config: "without tools"
+    methodology:
+      - "with tools 64.7; Opus 4.6 40.0 (no tools) / 53.1 (tools)"
+  - raw: "BrowseComp"
+    weight_class: blog_headliner
+    value: 86.9
+    unit: percent
+    methodology:
+      - "Opus 4.6 = 83.7; 4.9x fewer tokens"
+  - raw: "OSWorld-Verified"
+    weight_class: blog_headliner
+    value: 79.6
+    unit: percent
+    methodology:
+      - "Opus 4.6 = 72.7"

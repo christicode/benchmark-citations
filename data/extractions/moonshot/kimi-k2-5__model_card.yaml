@@ -1,23 +1,179 @@
 # kimi-k2-5__model_card
+# Source: github.com/MoonshotAI/Kimi-K2.5 README "3. Evaluation Results" table.
+# Column extracted: Kimi K2.5 (Thinking). temp=1.0, top_p=0.95, 256k ctx unless noted.
 doc: kimi-k2-5__model_card
 mentions:
-  - raw: "AIME"
-  - raw: "BrowseComp"
-  - raw: "CharXiv"
-  - raw: "CyberGym"
-  - raw: "DeepSearchQA"
-  - raw: "GPQA"
+  # --- Reasoning & Knowledge ---
   - raw: "HLE"
+    value: 30.1
+    unit: percent
+    model_config: "full set (text+image), no tools"
+    methodology:
+      - "96k completion budget; text 31.5 / image 21.3 (no tools)"
+  - raw: "HLE"
+    value: 50.2
+    unit: percent
+    model_config: "full set, w/ tools"
+    methodology:
+      - "search + code-interpreter + web-browsing; simple ctx mgmt; text 51.8 / image 39.8"
+  - raw: "AIME 2025"
+    value: 96.1
+    unit: percent
+    methodology:
+      - "avg@32; 96k budget"
   - raw: "HMMT"
-  - raw: "LiveCodeBench"
-  - raw: "MMLU"
-  - raw: "MMLU-Pro"
-  - raw: "MMMU"
-  - raw: "MMMU-Pro"
-  - raw: "OSWorld"
-  - raw: "Terminal-Bench"
+    value: 95.4
+    unit: percent
+    model_config: "2025 (Feb)"
+    methodology:
+      - "avg@32; 96k budget"
   - raw: "IMO-AnswerBench"
-  - raw: "LongVideoBench"
-  - raw: "OmniDocBench"
-  - raw: "WorldVQA"
+    value: 81.8
+    unit: percent
+    methodology:
+      - "96k budget"
+  - raw: "GPQA-Diamond"
+    value: 87.6
+    unit: percent
+    methodology:
+      - "avg@8; 96k budget"
+  - raw: "MMLU-Pro"
+    value: 87.1
+    unit: percent
+  # --- Image & Video ---
+  - raw: "MMMU-Pro"
+    value: 78.5
+    unit: percent
+    methodology:
+      - "official protocol; preserve input order, prepend images"
+  - raw: "CharXiv"
+    value: 77.5
+    unit: percent
+    model_config: "RQ (Reasoning Questions)"
+  - raw: "MathVision"
+    value: 84.2
+    unit: percent
+  - raw: "MathVista"
+    value: 90.1
+    unit: percent
+    model_config: "mini"
   - raw: "ZeroBench"
+    value: 9.0
+    unit: percent
+  - raw: "ZeroBench"
+    value: 11.0
+    unit: percent
+    model_config: "w/ tools"
+    methodology:
+      - "max-tokens-per-step 24k; max-steps 30"
+  - raw: "OCRBench"
+    value: 92.3
+    unit: percent
+  - raw: "OmniDocBench"
+    value: 88.8
+    unit: percent
+    model_config: "1.5"
+    methodology:
+      - "score = (1 - normalized Levenshtein) x 100"
+  - raw: "InfoVQA"
+    value: 92.6
+    unit: percent
+    model_config: "val"
+  - raw: "SimpleVQA"
+    value: 71.2
+    unit: percent
+  - raw: "WorldVQA"
+    value: 46.3
+    unit: percent
+  - raw: "VideoMMMU"
+    value: 86.6
+    unit: percent
+  - raw: "MMVU"
+    value: 80.4
+    unit: percent
+  - raw: "MotionBench"
+    value: 70.4
+    unit: percent
+  - raw: "VideoMME"
+    value: 87.4
+    unit: percent
+  - raw: "LongVideoBench"
+    value: 79.8
+    unit: percent
+  - raw: "LVBench"
+    value: 75.9
+    unit: percent
+  # --- Coding (avg@5; internal SWE eval framework, non-thinking) ---
+  - raw: "SWE-Bench Verified"
+    value: 76.8
+    unit: percent
+    methodology:
+      - "internal eval framework (bash/createfile/insert/view/strreplace/submit); non-thinking; avg@5"
+  - raw: "SWE-Bench Pro"
+    value: 50.7
+    unit: percent
+    methodology:
+      - "internal eval framework; non-thinking; avg@5"
+  - raw: "SWE-Bench Multilingual"
+    value: 73.0
+    unit: percent
+    methodology:
+      - "internal eval framework; non-thinking; avg@5"
+  - raw: "Terminal-Bench 2.0"
+    value: 50.8
+    unit: percent
+    model_config: "Terminus-2, JSON parser"
+    methodology:
+      - "non-thinking mode (thinking ctx mgmt incompatible with Terminus-2)"
+  - raw: "PaperBench"
+    value: 63.5
+    unit: percent
+  - raw: "CyberGym"
+    value: 41.3
+    unit: percent
+  - raw: "SciCode"
+    value: 48.7
+    unit: percent
+  - raw: "OJBench"
+    value: 57.4
+    unit: percent
+    model_config: "cpp"
+  - raw: "LiveCodeBench"
+    value: 85.0
+    unit: percent
+    model_config: "v6"
+  # --- Long Context ---
+  - raw: "Longbench v2"
+    value: 61.0
+    unit: percent
+    methodology:
+      - "prompts/contexts standardized to ~128k tokens"
+  - raw: "AA-LCR"
+    value: 70.0
+    unit: percent
+    methodology:
+      - "avg@3"
+  # --- Agentic Search (search + code + browse tools) ---
+  - raw: "BrowseComp"
+    value: 60.6
+    unit: percent
+    methodology:
+      - "discard-all ctx strategy; w/ ctx manage 74.9; Agent Swarm 78.4"
+  - raw: "WideSearch"
+    value: 72.7
+    unit: percent
+    model_config: "item-f1"
+    methodology:
+      - "avg@4; Agent Swarm 79.0"
+  - raw: "DeepSearchQA"
+    value: 77.1
+    unit: percent
+  - raw: "FinSearchComp"
+    value: 67.8
+    unit: percent
+    model_config: "T2&T3"
+  - raw: "Seal-0"
+    value: 57.4
+    unit: percent
+    methodology:
+      - "avg@4"

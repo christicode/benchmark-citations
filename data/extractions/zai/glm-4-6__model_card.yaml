@@ -1,23 +1,38 @@
 # glm-4-6__model_card
+# Source: docs.z.ai/guides/llm/glm-4.6 "Introducing GLM-4.6" hero chart (glm-4.6-1.png),
+# "8 authoritative benchmarks ... including AIME 25, GPQA, LCB v6, HLE, and SWE-Bench Verified".
+# GLM-4.6 column, evaluated under 128K context. The docs page is a combined release-blog +
+# model card: the narrative-named headline benchmarks carry blog_headliner weight; the rest
+# default to model_card. GLM-4.6 == top of stacked bar is w/ tools.
 doc: glm-4-6__model_card
 mentions:
 - raw: AIME 2025
+  weight_class: blog_headliner
   value: 98.6
   unit: percent
   model_config: with tools
+  methodology:
+  - "no tools 93.9"
 - raw: GPQA Diamond
+  weight_class: blog_headliner
   value: 82.9
   unit: percent
   model_config: with tools
+  methodology:
+  - "no tools 81.0"
 - raw: LiveCodeBench
+  weight_class: blog_headliner
   value: 84.5
   unit: percent
   model_config: v6, with tools
+  methodology:
+  - "no tools 82.8"
 - raw: HLE
   value: 17.2
   unit: percent
   model_config: no tools
 - raw: HLE
+  weight_class: blog_headliner
   value: 30.4
   unit: percent
   model_config: with tools
@@ -25,6 +40,7 @@ mentions:
   value: 45.1
   unit: percent
 - raw: SWE-bench Verified
+  weight_class: blog_headliner
   value: 68.0
   unit: percent
 - raw: Terminal-Bench
@@ -33,3 +49,4 @@ mentions:
 - raw: tau2-bench
   value: 75.9
   unit: percent
+  model_config: Weighted
