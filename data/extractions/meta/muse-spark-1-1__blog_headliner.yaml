@@ -1,0 +1,140 @@
+# muse-spark-1-1__blog_headliner
+# Source: https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/ ("Introducing Muse Spark 1.1", Jul 9, 2026)
+# The blog carries (a) a model-card comparison TABLE (Muse Spark 1.1 vs Muse Spark / Gemini 3.1 Pro
+# high / Opus 4.8 max / GPT-5.5 xhigh) rendered as an image -> model_card weight (doc default), and
+# (b) dedicated per-section CHARTS that headline a single benchmark -> blog_headliner override.
+# All values read from the blog chart PNGs (curled from lookaside CDN + vision-read); the comparison
+# table is identical to Figure 44 of the eval report (cross-verified). Muse Spark 1.1 = column 1.
+doc: muse-spark-1-1__blog_headliner
+mentions:
+  # ===== Comparison table (model_card weight = doc default) =====
+  # --- Reasoning ---
+  - raw: "HLE"
+    value: 62.1
+    unit: percent
+    model_config: "Muse Spark 1.1; w/ tools"
+    methodology:
+      - "no-tools 52.2 (self-reported); Humanity's Last Exam, multidisciplinary reasoning"
+  - raw: "MRCR"
+    value: 54.1
+    unit: percent
+    model_config: "Muse Spark 1.1; 1M context window"
+    methodology:
+      - "MRCR Long Context; GPT-5.5 74.0, Gemini 3.1 Pro 26.3"
+  # --- Agent ---
+  - raw: "MCP Atlas"
+    value: 88.1
+    unit: percent
+    model_config: "Muse Spark 1.1; scaled tool use"
+  - raw: "JobBench"
+    value: 54.7
+    unit: percent
+    model_config: "Muse Spark 1.1; professional tool use"
+    methodology:
+      - "Opus 4.8 48.4, GPT-5.5 38.3, Gemini 3.1 Pro 15.9 — Muse Spark 1.1 leads"
+  - raw: "Toolathlon-Verified"
+    value: 75.6
+    unit: percent
+    model_config: "Muse Spark 1.1; personal tool use"
+    methodology:
+      - "Opus 4.8 leads at 76.2"
+  - raw: "OSWorld-Verified"
+    value: 80.8
+    unit: percent
+    model_config: "Muse Spark 1.1; agentic computer use (361-task split)"
+    methodology:
+      - "Opus 4.8 leads at 83.4"
+  - raw: "WebArena-Verified"
+    value: 69.0
+    unit: percent
+    model_config: "Muse Spark 1.1"
+  - raw: "DeepSearchQA"
+    value: 84.9
+    unit: percent
+    model_config: "Muse Spark 1.1"
+    methodology:
+      - "GPT-5.5 leads at 87.8"
+  - raw: "GDPval-AA v2"
+    value: 1381
+    unit: elo
+    model_config: "Muse Spark 1.1; Artificial Analysis GDPval-AA v2 Elo"
+    methodology:
+      - "Opus 4.8 1600, GPT-5.5 1494, Muse Spark 1.0 1145, Gemini 3.1 Pro 963"
+  - raw: "Finance Agent v2"
+    value: 57.2
+    unit: percent
+    model_config: "Muse Spark 1.1; agentic financial analysis"
+  # --- Coding (table rows) ---
+  - raw: "Terminal-Bench 2.1"
+    value: 80.0
+    unit: percent
+    model_config: "Muse Spark 1.1; bash-tool-only harness"
+    methodology:
+      - "GPT-5.5 83.4, Opus 4.8 82.7 lead; NB registry collision: Harbor holds terminal-bench@2.0 only"
+  - raw: "SWE-Bench Pro"
+    value: 61.5
+    unit: percent
+    model_config: "Muse Spark 1.1; diverse software engineering"
+    methodology:
+      - "Opus 4.8 leads at 69.2"
+  - raw: "DeepSWE"
+    value: 53.3
+    unit: percent
+    model_config: "Muse Spark 1.1; DeepSWE v1.1, long-horizon agentic coding"
+    methodology:
+      - "GPT-5.5 leads at 67.0; big jump over Muse Spark 1.0 (10.0)"
+  # --- Health ---
+  - raw: "HealthBench Professional"
+    value: 59.3
+    unit: percent
+    model_config: "Muse Spark 1.1"
+    methodology:
+      - "Muse Spark 1.1 leads the basket (Opus 4.8 55.8, GPT-5.5 51.8, Gemini 3.1 Pro 41.6)"
+  # --- Multimodal ---
+  - raw: "CharXiv Reasoning"
+    value: 88.4
+    unit: percent
+    model_config: "Muse Spark 1.1; w/ tools, chart QA"
+    methodology:
+      - "Opus 4.8 leads at 89.9"
+  # ===== Dedicated headliner charts (blog_headliner override) =====
+  - raw: "Vibe Code Bench"
+    weight_class: blog_headliner
+    value: 72.2
+    unit: percent
+    model_config: "Muse Spark 1.1; Vibe Code Bench v1.1"
+    methodology:
+      - "headliner chart: Muse Spark 1.1 72.2 vs Muse Spark 1.0 19.7"
+  - raw: "SWE Atlas – Codebase QnA"
+    weight_class: blog_headliner
+    value: 42.0
+    unit: percent
+    model_config: "Muse Spark 1.1; Codebase QnA"
+    methodology:
+      - "headliner chart: Muse Spark 1.1 42.0 vs Muse Spark 1.0 24.2"
+  - raw: "Meta Internal Coding Bench"
+    weight_class: blog_headliner
+    value: 68.3
+    unit: percent
+    model_config: "Muse Spark 1.1; primary internal coding eval"
+    methodology:
+      - "headliner chart: Opus 4.8 69.0, Muse Spark 1.1 68.3, GPT-5.5 67.1, Gemini 3.1 Pro 59.2, Muse Spark 1.0 58.8"
+  - raw: "OSWorld 2.0"
+    weight_class: blog_headliner
+    value: 47.3
+    unit: percent
+    model_config: "Muse Spark 1.1; partial credit, w/o exec (highest cost/task point)"
+    methodology:
+      - "headliner cost/task scaling chart; binary 14.2 / partial 47.3 (w/o exec); harder long-horizon successor to OSWorld-Verified"
+  - raw: "BabyVision"
+    weight_class: blog_headliner
+    value: 76.3
+    unit: percent
+    model_config: "Muse Spark 1.1; w/ tools, visual reasoning"
+    methodology:
+      - "headliner cost/task scaling chart; also in the comparison table (76.3)"
+  - raw: "WideSearch"
+    weight_class: blog_headliner
+    model_config: "Muse Spark 1.1; multi-agent vs single-agent scaling"
+    methodology:
+      - "headliner scaling chart (score vs latency proxy); multi-agent peaks ~78, single-agent ~74; no single pass@1 reported -> score_pending"

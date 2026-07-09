@@ -20,7 +20,7 @@ benchmarks:
   - canonical: agentharm
     type: agentic
     domain: safety
-    aliases: ["AgentHarm"]
+    aliases: ["AgentHarm", "AgentHarm Verified"]
   - canonical: aider-polyglot
     type: agentic
     domain: coding
@@ -466,7 +466,7 @@ benchmarks:
   - canonical: shade-arena
     type: agentic
     domain: safety
-    aliases: ["SHADE"]
+    aliases: ["SHADE", "SHADE-Arena"]
   - canonical: simpleqa
     type: chat
     domain: knowledge
@@ -488,7 +488,7 @@ benchmarks:
   - canonical: strongreject
     type: chat
     domain: safety
-    aliases: ["StrongReject"]
+    aliases: ["StrongReject", "StrongREJECT", "StrongREJECT v2"]
   - canonical: supergpqa
     type: chat
     domain: knowledge
@@ -524,7 +524,7 @@ benchmarks:
   - canonical: toolathlon
     type: agentic
     domain: computer-use
-    aliases: ["Toolathlon", "Tool-Decathlon", "Tool Decathlon"]
+    aliases: ["Toolathlon", "Tool-Decathlon", "Tool Decathlon", "Toolathlon-Verified"]
     notes: "Toolathlon == Tool-Decathlon (agentic tool-use decathlon); both spellings cited (GLM-5.1/5.2, DeepSeek-V4)."
   - canonical: troubleshootingbench
     type: chat
@@ -942,12 +942,12 @@ benchmarks:
   - canonical: molecular-biology-capabilities-test
     type: chat
     domain: science
-    aliases: ["Molecular Biology Capabilities Test"]
+    aliases: ["Molecular Biology Capabilities Test", "MBCT"]
     notes: "SecureBio expert-level molecular-biology benchmark (external bio eval on the GPT-5.6 card)."
   - canonical: human-pathogen-capabilities-test
     type: chat
     domain: science
-    aliases: ["Human Pathogen Capabilities Test"]
+    aliases: ["Human Pathogen Capabilities Test", "HPCT"]
     notes: "SecureBio expert-level human-pathogen benchmark (external bio eval on the GPT-5.6 card)."
   - canonical: world-class-bio
     type: chat
@@ -1003,3 +1003,113 @@ benchmarks:
     aliases: ["CoT-Control", "CoT Control"]
     notes: "OpenAI CoT-controllability suite (Yueh-Han 2026): control CoT properties to reduce
       monitorability; >13k tasks built on GPQA/MMLU-Pro/HLE/BFCL/SWE-Bench Verified. LOWER is safer."
+  # --- 2026-07-09: Meta Muse Spark 1.1 GA rollout — new benchmarks first cited in this batch.
+  #     Blog (model-card comparison table + dedicated headliner charts) + 112pp Evaluation Report
+  #     (Table 1 catastrophic-capability scorecard, Table 2 propensities/robustness/behavior). ---
+  - canonical: jobbench
+    type: agentic
+    domain: professional
+    aliases: ["JobBench"]
+    notes: "65 professional tasks across 35 white-collar occupations; results from the JobBench authors. Muse Spark 1.1 blog/report."
+  - canonical: vibe-code-bench
+    type: agentic
+    domain: coding
+    aliases: ["Vibe Code Bench", "Vibe Code Bench v1.1"]
+    notes: "Meta vibe-coding (web-app/UI) benchmark; Muse Spark 1.1 blog headliner (72.2 vs 1.0 19.7).
+      POSSIBLY related to vibench ('ViBench', vendor_proprietary) — kept DISTINCT until identity confirmed."
+  - canonical: swe-atlas
+    type: agentic
+    domain: coding
+    aliases: ["SWE Atlas", "SWE Atlas – Codebase QnA", "SWE Atlas - Codebase QnA", "SWE Atlas Codebase QnA"]
+    notes: "Meta agentic SWE/codebase-QA benchmark (Codebase QnA split cited); Muse Spark 1.1 blog headliner."
+  - canonical: meta-internal-coding-bench
+    type: agentic
+    domain: coding
+    aliases: ["Meta Internal Coding Bench"]
+    notes: "Meta's primary internal coding evaluation; Muse Spark 1.1 blog headliner (68.3)."
+  - canonical: osworld-2
+    type: agentic
+    domain: computer-use
+    aliases: ["OSWorld 2.0", "OSWorld-2.0", "OSWorld 2"]
+    collision: "DISTINCT from osworld (OSWorld-Verified, the Harbor-adapter 361-task split). OSWorld 2.0
+      is a harder long-horizon suite (108 workflows, ~1.6h median each). Do NOT merge with osworld."
+  - canonical: biodesign-tools
+    type: agentic
+    domain: science
+    aliases: ["BioDesign Tools", "BioDesign Tools (avg)"]
+    notes: "Meta bio design-tools capability eval (averaged); Muse Spark 1.1 report Table 1."
+  - canonical: curated-ctfs
+    type: agentic
+    domain: cyber
+    aliases: ["Curated CTFs"]
+    notes: "Meta's curated public-and-private CTF set (pass@1); distinct from OpenAI capture-the-flag. Report Table 1."
+  - canonical: social-engineering
+    type: agentic
+    domain: cyber
+    aliases: ["Social Engineering"]
+    notes: "Meta social-engineering capability eval (higher = more capable); Muse Spark 1.1 report Table 1."
+  - canonical: gdm-situational-awareness
+    type: agentic
+    domain: safety
+    aliases: ["GDM Situational Awareness", "GDM-Situational Awareness"]
+    notes: "Loss-of-control situational-awareness eval; Muse Spark 1.1 report Table 1."
+  - canonical: chemical-agents-refusal
+    type: chat
+    domain: safety
+    aliases: ["Refusals: Chemical Agents", "Chemical Agents Refusal"]
+    notes: "Meta chemical-agents refusal eval (higher = safer); Muse Spark 1.1 report Table 2."
+  - canonical: cyber-misuse-chat
+    type: chat
+    domain: cyber
+    aliases: ["Cyber Misuse Chat"]
+    notes: "Meta cyber-misuse chat eval, reported as ASR (attack success rate) and FRR (false-refusal). Report Table 2."
+  - canonical: catastrophic-cyber-misuse
+    type: agentic
+    domain: cyber
+    aliases: ["Catastrophic Cyber Misuse"]
+    notes: "Meta catastrophic cyber-misuse eval (ASR); Muse Spark 1.1 report Table 2."
+  - canonical: polyguard
+    type: chat
+    domain: safety
+    aliases: ["Poly-Guard Bench", "PolyGuard", "Poly-Guard"]
+    notes: "Multilingual safety/guard benchmark (ASR); Muse Spark 1.1 report Table 2."
+  - canonical: agentic-misalignment
+    type: agentic
+    domain: safety
+    aliases: ["Agentic Misalignment"]
+    notes: "Agentic-misalignment propensity eval (lower = safer); Muse Spark 1.1 report Table 2."
+  - canonical: fortress
+    type: chat
+    domain: safety
+    aliases: ["FORTRESS"]
+    notes: "Third-party adversarial-robustness red-team benchmark, Adversarial Robustness Score (ARS). Report §3.1.3.1."
+  - canonical: agentdojo
+    type: agentic
+    domain: safety
+    aliases: ["AgentDojo"]
+    notes: "Prompt-injection robustness benchmark for tool-using agents (pass@1 ASR); Muse Spark 1.1 report §3.2.2.1."
+  - canonical: grayswan-art
+    type: agentic
+    domain: safety
+    aliases: ["GraySwan ART", "GraySwan Agent Red Teaming"]
+    notes: "GraySwan Agent Red-Teaming prompt-injection benchmark (pass@1 ASR); Muse Spark 1.1 report §3.2.2.3."
+  - canonical: swe-pi
+    type: agentic
+    domain: safety
+    aliases: ["SWE-PI"]
+    notes: "SWE prompt-injection robustness eval; Muse Spark 1.1 report §3.2.2.2."
+  - canonical: save-bench
+    type: agentic
+    domain: safety
+    aliases: ["SAVE-Bench"]
+    notes: "Risk-escalation-in-coding-agents behavior eval (higher = safer); Muse Spark 1.1 report Table 2."
+  - canonical: internal-sycophancy
+    type: chat
+    domain: safety
+    aliases: ["Internal Sycophancy"]
+    notes: "Meta internal sycophancy eval (lower = less sycophantic); Muse Spark 1.1 report Table 2."
+  - canonical: alignment-faking
+    type: agentic
+    domain: safety
+    aliases: ["Alignment Faking"]
+    notes: "Scheming / alignment-faking propensity eval (lower = safer; can be negative); Muse Spark 1.1 report Table 2."

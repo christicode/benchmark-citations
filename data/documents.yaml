@@ -455,3 +455,20 @@ documents:
     default_weight_class: model_card
     url: "https://www.kimi.com/blog/kimi-k2-5"
     pub_date: "2026-01-27"
+  # --- 2026-07-09: Meta Muse Spark 1.1 GA (NEW model, distinct from Muse Spark 1.0 which stays as-is).
+  #     Blog carries a model-card comparison table (model_card) + dedicated chart headliners
+  #     (blog_headliner overrides). Eval report is a 112pp PDF with the catastrophic-risk scorecards. ---
+  - id: muse-spark-1-1__blog_headliner
+    lab: meta
+    model: "Muse Spark 1.1"
+    container: blog
+    default_weight_class: model_card
+    url: "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/"
+    pub_date: "2026-07-09"
+  - id: muse-spark-1-1__system_card
+    lab: meta
+    model: "Muse Spark 1.1"
+    container: pdf
+    default_weight_class: system_card
+    url: "https://ai.meta.com/static-resource/muse-spark-1-1-evaluation-report"
+    pub_date: "2026-07-09"
