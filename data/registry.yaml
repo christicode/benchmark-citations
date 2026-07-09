@@ -722,7 +722,7 @@ benchmarks:
   - canonical: capture-the-flag
     type: agentic
     domain: cyber
-    aliases: ["Capture-the-Flag"]
+    aliases: ["Capture-the-Flag", "Capture-the-Flag Challenges"]
     notes: "OpenAI 'Professional CTF' preparedness eval (pass@12); != academic cybench."
   - canonical: cyber-range
     type: agentic
@@ -1137,3 +1137,15 @@ benchmarks:
     aliases: ["RSI Index", "Recursive Self-Improvement Index"]
     notes: "OpenAI Recursive Self-Improvement Index — an AGGREGATE AI-self-improvement score, not a single
       task benchmark; GPT-5.6 blog headliner (Max Effort 57.93%). domain=coding by convention for R&D/self-improvement evals."
+  - canonical: big-finance-bench
+    type: agentic
+    domain: professional
+    aliases: ["Big Finance Bench"]
+    notes: "Agentic finance benchmark cited in the GPT-5.6 GA model-card table. Distinct from finance-agent
+      (Vals AI) and real-world-finance; keep separate until identity confirmed."
+  - canonical: arc-agi-3
+    type: chat
+    domain: knowledge
+    aliases: ["ARC-AGI-3", "ARC AGI 3"]
+    notes: "Third-generation ARC-AGI. DISTINCT from arc-agi-1 / arc-agi-2 (only arc_agi_2 is in Harbor).
+      First cited in the GPT-5.6 GA model-card table (Sol 7.78%)."
