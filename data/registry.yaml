@@ -356,8 +356,10 @@ benchmarks:
   - canonical: mle-bench
     type: agentic
     domain: coding
-    aliases: ["MLE-Bench"]
-    notes: "OpenAI ML-engineering agent eval; != Harbor ml-dev-bench / mlgym-bench adapters."
+    aliases: ["MLE-Bench", "MLE-Bench Revised", "MLEBench-Revised"]
+    notes: "OpenAI ML-engineering agent eval; != Harbor ml-dev-bench / mlgym-bench adapters.
+      'MLE-Bench Revised' (GPT-5.6, 72 problems: retained high-signal 2024 tasks + new 2025/26
+      competitions incl. Virtual Cell Challenge, OpenADMET) folded in as an alias."
   - canonical: mmlu
     type: chat
     domain: knowledge
@@ -580,8 +582,11 @@ benchmarks:
   - canonical: biorisk-tacit-knowledge
     type: chat
     domain: science
-    aliases: ["Biorisk Tacit Knowledge"]
-    notes: "OpenAI unpublished bio-risk tacit-knowledge eval."
+    aliases: ["Biorisk Tacit Knowledge", "Tacit knowledge and troubleshooting", "Tacit Knowledge and Troubleshooting", "Tacit Knowledge & Troubleshooting"]
+    notes: "OpenAI unpublished bio-risk tacit-knowledge eval. GPT-5.6 card §9.1.1.3 'Tacit
+      Knowledge and Troubleshooting' (Gryphon Scientific, 60 MCQ, tacit/troubleshooting
+      bottleneck across 5 biothreat stages) folded in as the same eval (tentative merge — split
+      if a distinct spec surfaces)."
   - canonical: blueprint-bench
     type: chat
     domain: multimodal
@@ -687,9 +692,10 @@ benchmarks:
   - canonical: vct
     type: chat
     domain: science
-    aliases: ["VCT", "Multimodal Troubleshooting Virology"]
+    aliases: ["VCT", "Multimodal Troubleshooting Virology", "Virology Capabilities Test"]
     notes: "Virology Capabilities Test (a.k.a. VMQA/VCT). SecureBio; OpenAI cards cite it as
-      'Multimodal Troubleshooting Virology' (expert baseline 22.1%) — human-confirmed same benchmark."
+      'Multimodal Troubleshooting Virology' (expert baseline 22.1%) — human-confirmed same benchmark.
+      GPT-5.6 card cites BOTH the main multimodal eval AND SecureBio's 'Virology Capabilities Test'."
   - canonical: tau3-bench
     type: agentic
     domain: computer-use
@@ -819,8 +825,9 @@ benchmarks:
   - canonical: posttrainbench
     type: agentic
     domain: coding
-    aliases: ["PostTrainBench"]
-    notes: "NEW (2026): long-horizon post-training engineering benchmark (posttrainbench.com); GLM-5.2 headliner."
+    aliases: ["PostTrainBench", "PostTrainBench Lite", "PostTrainBench-Lite"]
+    notes: "NEW (2026): long-horizon post-training engineering benchmark (posttrainbench.com); GLM-5.2 headliner.
+      'PostTrainBench Lite' (GPT-5.6; 12 combos, 5h budget) folded in as an alias (Lite = config, captured in model_config)."
   - canonical: swe-marathon
     type: agentic
     domain: coding
@@ -881,3 +888,118 @@ benchmarks:
     domain: knowledge
     aliases: ["Longform Writing", "Long-form Writing"]
     notes: "Long-form writing-quality eval; cited on the Kimi K2 Thinking card."
+  # --- 2026-07-09: GPT-5.6 (Sol/Terra/Luna) GA rollout — new benchmarks first cited in this batch.
+  #     type/domain classified from card context; classic public benchmarks (GSM8K/HumanEval) added
+  #     as they first appear here (as PostTrainBench-Lite target objectives). No Harbor adapters known. ---
+  - canonical: kernelgen-1p
+    type: agentic
+    domain: coding
+    aliases: ["KernelGen 1P", "KernelGen"]
+    notes: "OpenAI AI-self-improvement eval: write/optimize kernels for OpenAI first-party hardware
+      (correctness + latency vs baseline; anti-shortcut). GPT-5.6 system card."
+  - canonical: nanogpt
+    type: agentic
+    domain: coding
+    aliases: ["NanoGPT"]
+    notes: "OpenAI AI-self-improvement eval: improve a small-LLM training setup on 1x H100 to a target
+      val objective (reward normalized vs baseline; best human 72.38%). Not the Karpathy repo itself."
+  - canonical: aav-capsid-packaging
+    type: agentic
+    domain: science
+    aliases: ["AAV Capsid Packaging Prediction", "AAV Capsid Packaging"]
+    notes: "Dyno Therapeutics eval: predict AAV capsid packaging (Spearman vs held-out). Preparedness
+      bio Critical-threshold proxy; ESM-2 baseline 0.288, indicative threshold 0.600."
+  - canonical: hard-negative-protein-binding
+    type: agentic
+    domain: science
+    aliases: ["Hard-negative protein binding prediction", "Hard-negative protein binding"]
+    notes: "OpenAI proprietary protein-binding eval (43 targets, 492 hotspots; pass@4). Preparedness
+      bio Critical proxy; indicative threshold 30%."
+  - canonical: dna-tf-binding-design
+    type: agentic
+    domain: science
+    aliases: ["DNA sequence design for transcription factor binding", "DNA sequence design for TF binding"]
+    notes: "Nucleobench-based DNA design eval (11 TFs x 50 prompts); BPNet oracles vs Ledidi baseline.
+      Preparedness bio Critical proxy; 90% win-rate threshold."
+  - canonical: sec-bench-pro
+    type: agentic
+    domain: cyber
+    aliases: ["SEC-Bench Pro", "SEC-bench Pro"]
+    notes: "Vulnerability-discovery benchmark in large JS engines (V8 + SpiderMonkey; 2026-May version,
+      183 validated vulns; pass@1). GPT-5.6 cyber (informational)."
+  - canonical: frontiercyber
+    type: agentic
+    domain: cyber
+    aliases: ["FrontierCyber"]
+    notes: "Irregular zero-day discovery/exploitation benchmark (Easy/Medium/Hard/Elite) in off-the-shelf
+      software & hardware. External cyber eval on the GPT-5.6 card."
+  - canonical: atomic-challenges
+    type: agentic
+    domain: cyber
+    aliases: ["Atomic Challenges"]
+    notes: "Irregular offensive-cyber suite (Network Attack Simulation / Vulnerability Research &
+      Exploitation / Evasion). External cyber eval on the GPT-5.6 card."
+  - canonical: molecular-biology-capabilities-test
+    type: chat
+    domain: science
+    aliases: ["Molecular Biology Capabilities Test"]
+    notes: "SecureBio expert-level molecular-biology benchmark (external bio eval on the GPT-5.6 card)."
+  - canonical: human-pathogen-capabilities-test
+    type: chat
+    domain: science
+    aliases: ["Human Pathogen Capabilities Test"]
+    notes: "SecureBio expert-level human-pathogen benchmark (external bio eval on the GPT-5.6 card)."
+  - canonical: world-class-bio
+    type: chat
+    domain: science
+    aliases: ["World-Class Bio"]
+    notes: "SecureBio expert-level biology benchmark (external bio eval on the GPT-5.6 card)."
+  - canonical: reprobait
+    type: agentic
+    domain: science
+    aliases: ["ReproBAIT"]
+    notes: "SecureBio agentic eval: independently reproduce biological AI models (BAIMs) from published papers."
+  - canonical: abc-bench-securebio
+    type: agentic
+    domain: science
+    aliases: ["ABC-Bench"]
+    collision: "NAME COLLISION: Harbor adapters/abc-bench is OpenMOSS ABC-Bench (agentic BACKEND
+      CODING, 224 tasks, arXiv 2601.11077) — a DIFFERENT benchmark. Canonical is deliberately
+      abc-bench-securebio so sync_harbor does NOT normalize-match it to the coding adapter (that
+      would falsely mark this bio eval on_harbor). If a future doc cites the CODING ABC-Bench,
+      add a separate canonical (e.g. abc-bench-coding) rather than reusing the 'ABC-Bench' alias."
+    notes: "SecureBio agentic bio eval incl. Advanced Screening Evasion (nucleic-acid screening)."
+  - canonical: gsm8k
+    type: chat
+    domain: math
+    aliases: ["GSM8K"]
+    notes: "Classic grade-school math word-problem benchmark. First cited here as a PostTrainBench-Lite target objective."
+  - canonical: humaneval
+    type: chat
+    domain: coding
+    aliases: ["HumanEval"]
+    notes: "Classic code-generation benchmark. First cited here as a PostTrainBench-Lite target objective."
+  - canonical: metr-time-horizon
+    type: agentic
+    domain: coding
+    aliases: ["METR Time Horizon", "METR Time Horizon 1.1", "Time Horizon 1.1"]
+    notes: "METR software-task time-horizon suite (likelihood of completing tasks of a given human-time
+      length). GPT-5.6 Sol result deemed NOT a robust capability measure by METR (unusually high detected cheating)."
+  - canonical: impossible-mle-bench
+    type: agentic
+    domain: safety
+    aliases: ["ImpossibleMLEBench", "Impossible MLE Bench"]
+    notes: "UK AISI eval: ML tasks with impossibly-good target scores to observe cheating/monitorability
+      under incentive. Distinct from impossiblebench."
+  - canonical: control-arena
+    type: agentic
+    domain: safety
+    aliases: ["ControlArena", "Control Arena"]
+    notes: "UK AISI eval: whether a model can stealthily perform unwanted actions while completing a
+      legitimate task (action-only vs reasoning-based monitors)."
+  - canonical: cot-control
+    type: agentic
+    domain: safety
+    aliases: ["CoT-Control", "CoT Control"]
+    notes: "OpenAI CoT-controllability suite (Yueh-Han 2026): control CoT properties to reduce
+      monitorability; >13k tasks built on GPQA/MMLU-Pro/HLE/BFCL/SWE-Bench Verified. LOWER is safer."

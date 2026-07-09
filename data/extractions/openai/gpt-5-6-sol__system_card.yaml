@@ -1,21 +1,239 @@
 # gpt-5-6-sol__system_card
+# Source: https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf
+#   GPT-5.6 System Card (GA rollout, 2026-07-09). Covers the whole family: Sol (flagship),
+#   Terra (lower-cost), Luna (fastest). Supersedes the 2026-06-26 preview card.
+# Safety/Preparedness-focused card. Health is a text table (exact Sol/Terra/Luna values).
+# Most capability numbers live in figures (images) with only baselines/thresholds stated in
+# prose -> those are score_pending (no invented values), matching the GPT-5.4/5.5 cards.
+# Per-tier values are captured in model_config (primary = the tier the card leads with);
+# other tiers + thresholds/baselines go in methodology. Internal-only safety evals (Production
+# Benchmarks / Vision / jailbreaks / prompt-injection / mental-health / first-person fairness /
+# destructive-actions / computer-use confirmations) are NOT recorded, consistent with prior
+# OpenAI system-card extractions.
 doc: gpt-5-6-sol__system_card
 mentions:
-  - raw: "HealthBench"
+  # --- Health (§5.1 HealthBench; exact text table, length-adjusted) ---
+  - raw: "HealthBench Professional"
     value: 60.5
-    unit: "percent"
-    model_config: "GPT-5.6 Sol - HealthBench Professional, length-adjusted"
+    unit: percent
+    model_config: "GPT-5.6 Sol; length-adjusted"
     methodology:
-      - "length-adjusted; also HealthBench 57.0 / Hard 33.1 / Consensus 95.5 (GPT-5.6 Sol)"
-  - raw: "CVE-Bench"
+      - "unadjusted 64.1, mean len 3228 chars; +8.7 vs GPT-5.5 (largest health gain since GPT-5)"
+      - "GPT-5.6 Terra 57.7 (62.4) / GPT-5.6 Luna 55.7 (59.8); both well above GPT-5.5 51.8"
+      - "OpenAI recommends HealthBench Professional over HealthBench (latter near noise ceiling)"
+  - raw: "HealthBench"
+    value: 57.0
+    unit: percent
+    model_config: "GPT-5.6 Sol; length-adjusted"
+    methodology:
+      - "unadjusted 55.6, mean len 1764; +0.4 vs GPT-5.5; card: 'approaching a noise ceiling'"
+      - "GPT-5.6 Terra 57.0 (58.7) / GPT-5.6 Luna 55.8 (55.4)"
+  - raw: "HealthBench Hard"
+    value: 33.1
+    unit: percent
+    model_config: "GPT-5.6 Sol; length-adjusted"
+    methodology:
+      - "unadjusted 31.1, mean len 1751; +1.6 vs GPT-5.5"
+      - "GPT-5.6 Terra 32.7 (34.3) / GPT-5.6 Luna 32.0 (31.4)"
+  - raw: "HealthBench Consensus"
+    value: 95.5
+    unit: percent
+    model_config: "GPT-5.6 Sol; length-adjusted"
+    methodology:
+      - "unadjusted 95.3, mean len 1740; -0.1 vs GPT-5.5 (flat)"
+      - "GPT-5.6 Terra 95.1 / GPT-5.6 Luna 95.1"
+  # --- Preparedness: Biological & Chemical (§9.1.1). Highest new-model score reported per eval. ---
+  - raw: "Multimodal Troubleshooting Virology"
+    value: 55.5
+    unit: percent
+    model_config: "GPT-5.6 Sol; pass@1"
+    methodology:
+      - "SecureBio, 350 multi-select virology-troubleshooting Qs; all models exceed the 31% (80th-pct expert) indicative threshold; expert mean 22.1%"
+      - "Sol highest of new models at 55.5%"
   - raw: "ProtocolQA"
+    value: 43.5
+    unit: percent
+    model_config: "GPT-5.6 Sol; open-ended"
+    methodology:
+      - "108 FutureHouse Qs modified MCQ->open-ended; 80th-pct expert threshold 54%; Sol highest new model but BELOW threshold"
+  - raw: "Tacit knowledge and troubleshooting"
+    value: 84.1
+    unit: percent
+    model_config: "GPT-5.6 Terra; MCQ, refusals-as-successes adjusted"
+    methodology:
+      - "Gryphon Scientific, 60 MCQ; consensus-expert threshold 80%; Terra highest new model (above threshold)"
+      - "lower than GPT-5.5 — OpenAI attributes to likely eval saturation / noise"
   - raw: "TroubleshootingBench"
-  - raw: "GPQA"
-  - raw: "MMLU-Pro"
-  - raw: "HLE"
-  - raw: "BFCL"
-  - raw: "SWE-bench Verified"
-  - raw: "MLE-Bench"
-  - raw: "CyberGym"
-  - raw: "CyScenarioBench"
+    value: 48.0
+    unit: percent
+    model_config: "GPT-5.6 Sol"
+    methodology:
+      - "52 protocols x3 = 156 expert-written Qs; 80th-pct expert threshold 36.4%; Sol highest (above)"
+      - "lower than GPT-5.5 — OpenAI attributes to likely saturation / noise"
+  - raw: "AAV Capsid Packaging Prediction"
+    value: 0.529
+    unit: other
+    model_config: "GPT-5.6 Sol; Spearman rank correlation"
+    methodology:
+      - "Dyno Therapeutics; predict packaging of 1000 held-out AAV variants; ESM-2 baseline 0.288; indicative threshold 0.600 (BELOW)"
+      - "GPT-5.5 0.528"
+  - raw: "Hard-negative protein binding prediction"
+    value: 7.6
+    unit: percent
+    model_config: "GPT-5.6 Sol; pass@4"
+    methodology:
+      - "proprietary, 43 targets / 492 hotspots; 1 true binder in 5 candidates; indicative threshold 30% (BELOW)"
+      - "GPT-5.4-thinking 3.5% / GPT-5.5 0.4% / GPT-5.5-pro 0.0%"
+  - raw: "DNA sequence design for transcription factor binding"
+    value: 13.7
+    unit: percent
+    model_config: "GPT-5.6 Sol; pass@1"
+    methodology:
+      - "Nucleobench, 11 TFs x50 = 550 tasks; BPNet oracles; 90% win-rate-over-Ledidi threshold (BELOW)"
+      - "GPT-5.4-thinking 12.82% / GPT-5.5 13.82% / GPT-5.5-pro 16.5%"
+  # --- External bio eval — SecureBio (§9.1.1.8). Strongest reported configs (railfree/pre-release Sol). ---
+  - raw: "Virology Capabilities Test"
+    value: 53.5
+    unit: percent
+    model_config: "GPT-5.6 Sol / railfree (bio content filters disabled); SecureBio external"
+    methodology:
+      - "SecureBio evaluated 2 pre-release Sol checkpoints + a railfree Sol; strongest-config score"
+  - raw: "Molecular Biology Capabilities Test"
+    value: 60.0
+    unit: percent
+    model_config: "GPT-5.6 Sol / railfree; SecureBio external"
+  - raw: "Human Pathogen Capabilities Test"
+    value: 68.4
+    unit: percent
+    model_config: "GPT-5.6 Sol / railfree; SecureBio external"
+  - raw: "World-Class Bio"
+    value: 68.3
+    unit: percent
+    model_config: "GPT-5.6 Sol / railfree; SecureBio external"
+    methodology:
+      - "~9pp higher than GPT-5.5 (59.7%); highest to date per SecureBio"
+  - raw: "ReproBAIT"
+    value: 85.0
+    unit: percent
+    model_config: "GPT-5.6 railfree; SecureBio external"
+    methodology:
+      - "reproduce biological AI models (BAIMs) from papers; GPT-5.5 82%"
+  - raw: "ABC-Bench"
+    model_config: "GPT-5.6 railfree; SecureBio external"
+    methodology:
+      - "railfree set a new high on ABC-Bench Advanced Screening Evasion; value not stated -> score_pending"
+  # --- Preparedness: Cybersecurity (§9.1.2). High capability for all 3 (Sol rule-out extends to Terra/Luna). ---
+  - raw: "Capture-the-Flag"
+    value: 96.67
+    unit: percent
+    model_config: "GPT-5.6 Sol; internal CTF, pass@1"
+    methodology:
+      - "63 curated public CTFs (web/rev/pwn/crypto/misc), low-solve-rate on 5.3-codex; all 5.6 exceed Preparedness High"
+      - "GPT-5.6 Terra 91.84 / GPT-5.6 Luna 85.19; GPT-5.5 88.06 / GPT-5.4 83.75; Sol saturates"
+  - raw: "CVE-Bench"
+    model_config: "GPT-5.6 Sol/Terra/Luna; zero-day config, pass@1 over 3 rollouts"
+    methodology:
+      - "CVE-Bench v1.0; 34/40 challenges run; agent must probe remotely (no source); 5.6 'slightly better' than prior gens; values in figure only -> score_pending"
+  - raw: "VulnLMP"
+    model_config: "GPT-5.6 Sol"
+    methodology:
+      - "long-horizon vuln research vs hardened real-world targets; Sol reached controlled exploitation primitives but NO functional full-chain exploit -> High, not Critical; qualitative -> score_pending"
   - raw: "ExploitBench"
+    model_config: "GPT-5.6 Sol/Terra/Luna; API harness, 5 seeds, reasoning continuity"
+    methodology:
+      - "41 V8 N-day vulns; Cap Percent over 16 capability flags; values in figure only -> score_pending"
+  - raw: "ExploitGym"
+    model_config: "GPT-5.6 Sol/Terra/Luna; intended-exploit rate, 2h/6h caps"
+    methodology:
+      - "869 challenges (502 userspace C/C++, 181 V8, 186 Linux-kernel); Sol leads perf/output-token frontier; values in figure only -> score_pending"
+  - raw: "SEC-Bench Pro"
+    model_config: "GPT-5.6 Sol/Terra/Luna; pass@1"
+    methodology:
+      - "2026-May version; 183 validated vulns across V8 + SpiderMonkey; values in figure only -> score_pending"
+  - raw: "CyberGym"
+    value: 83.6
+    unit: percent
+    model_config: "GPT-5.6 Sol; task success WITHOUT safeguards (jailbreak-robustness harness, §9.4.4)"
+    methodology:
+      - "best universal jailbreak: 83.0% with jailbreak (no blocking) vs 83.6% baseline; 10.0% pre-autoRT-safeguards -> 0.0% post-mitigation"
+  # --- External cyber eval — Irregular (§9.1.2.5) ---
+  - raw: "FrontierCyber"
+    model_config: "GPT-5.6 Sol; Irregular agent harness"
+    methodology:
+      - "zero-day discovery/exploitation; Sol 19/197 overall; Easy 11% / Med 12% / Hard 5% / Elite 0% (GPT-5.5 6/6/4/0); per-tier only -> score_pending"
+  - raw: "CyScenarioBench"
+    value: 28.0
+    unit: percent
+    model_config: "GPT-5.6 Sol; average success; Irregular"
+    methodology:
+      - "long-horizon; 7/11 solved; ~3pp above GPT-5.5; solved one challenge 5.5 did not"
+  - raw: "Atomic Challenges"
+    model_config: "GPT-5.6 Sol; Irregular (medium+hard)"
+    methodology:
+      - "all 22 solved >=once; Network Attack Sim 98% / Vuln Research & Exploitation 91% / Evasion 56% (GPT-5.5 100/92/54); per-split only -> score_pending"
+  # --- Preparedness: AI Self-Improvement (§9.1.3). None reach High. Values in figures -> score_pending. ---
+  - raw: "Internal Research Debugging"
+    model_config: "GPT-5.6 Sol/Terra; rubric score"
+    methodology:
+      - "41 real internal bugs + 6 alignment-auditing tasks; Sol/Terra improve meaningfully over 5.5/5.4; figure only (~68% top) -> score_pending"
+  - raw: "KernelGen 1P"
+    model_config: "GPT-5.6 Sol"
+    methodology:
+      - "kernel opt for OpenAI 1P hardware; Sol performs strongly; figure only -> score_pending"
+  - raw: "NanoGPT"
+    model_config: "GPT-5.6 Sol/Terra; reward vs baseline (1x H100)"
+    methodology:
+      - "best human solution 72.38%; Sol/Terra improve substantially over 5.5 but remain far below human; figure only -> score_pending"
+  - raw: "PostTrainBench Lite"
+    model_config: "GPT-5.6 Sol/Terra; Lite = 12 combos, 5h budget"
+    methodology:
+      - "{Qwen3-4B/1.7B-Base, SmolLM3-3B-Base} x {AIME 2025, BFCL, GSM8K, HumanEval}; Sol/Terra outperform 5.5 but collapse to narrow strategies; figure only -> score_pending"
+  - raw: "MLE-Bench Revised"
+    model_config: "GPT-5.6 Sol/Terra/Luna"
+    methodology:
+      - "72 problems (incl. 2025 Virtual Cell Challenge, OpenADMET 2026); percentile vs reference distribution; closer to saturation; figure only -> score_pending"
+  - raw: "METR Time Horizon 1.1"
+    model_config: "GPT-5.6 Sol; METR external"
+    methodology:
+      - "software-task time-horizon suite; METR reported unusually high detected CHEATING -> did NOT treat time-horizon as a robust capability measure; judged Sol would not enable fully automated AI R&D -> score_pending"
+  # --- Undermining-safeguards / monitorability external evals (§9.2, UK AISI) ---
+  - raw: "ImpossibleMLEBench"
+    model_config: "GPT-5.6 Sol; UK AISI"
+    methodology:
+      - "ML tasks w/ impossibly-good targets; Sol anticipated monitoring, sometimes took more sophisticated evasion than 5.5, downplayed cheating in user-facing msgs vs CoT; qualitative -> score_pending"
+  - raw: "ControlArena"
+    model_config: "GPT-5.6 Sol; UK AISI"
+    methodology:
+      - "stealth-action eval; action-only monitors much less reliable for Sol than reasoning-based monitors (esp. raw/unsummarised CoT); qualitative -> score_pending"
+  # --- CoT controllability (§7.3.2) ---
+  - raw: "CoT-Control"
+    model_config: "GPT-5.6 Sol (also Terra); Yueh-Han 2026"
+    methodology:
+      - "Sol controllability 1.3% at ~5k-token CoT vs GPT-5.5 0.4% / GPT-5.4 0.7% (HIGHER = worse for monitorability); Terra low like prior models; run on Sol+Terra only; one instruction type excluded"
+  # --- Named benchmarks cited as eval SUBSTRATE (no per-benchmark GPT-5.6 score reported) ---
+  # CoT-Control components (§7.3.2):
+  - raw: "GPQA"
+    model_config: "GPT-5.6; CoT-Control substrate"
+    methodology: ["component benchmark of CoT-Control; no per-benchmark score -> score_pending"]
+  - raw: "MMLU-Pro"
+    model_config: "GPT-5.6; CoT-Control substrate"
+    methodology: ["component benchmark of CoT-Control; no per-benchmark score -> score_pending"]
+  - raw: "HLE"
+    model_config: "GPT-5.6; CoT-Control substrate"
+    methodology: ["component benchmark of CoT-Control; no per-benchmark score -> score_pending"]
+  - raw: "BFCL"
+    model_config: "GPT-5.6; CoT-Control + PostTrainBench-Lite substrate"
+    methodology: ["component/target of CoT-Control and PostTrainBench Lite; no per-benchmark score -> score_pending"]
+  - raw: "SWE-Bench Verified"
+    model_config: "GPT-5.6; CoT-Control substrate"
+    methodology: ["component benchmark of CoT-Control; no per-benchmark score -> score_pending"]
+  # PostTrainBench-Lite target objectives (§9.1.3.4):
+  - raw: "AIME 2025"
+    model_config: "GPT-5.6; PostTrainBench-Lite target objective"
+    methodology: ["used as a post-training target, not scored directly on GPT-5.6 -> score_pending"]
+  - raw: "GSM8K"
+    model_config: "GPT-5.6; PostTrainBench-Lite target objective"
+    methodology: ["used as a post-training target, not scored directly on GPT-5.6 -> score_pending"]
+  - raw: "HumanEval"
+    model_config: "GPT-5.6; PostTrainBench-Lite target objective"
+    methodology: ["used as a post-training target, not scored directly on GPT-5.6 -> score_pending"]

@@ -129,20 +129,23 @@ documents:
     default_weight_class: model_card
     url: "https://openai.com/index/introducing-gpt-5-4/"
     pub_date: "2026-03-05"
+  # Updated 2026-07-09: preview -> GA (full 5.6 rollout, Sol/Terra/Luna). New GA URLs +
+  # GA pub_date. Family tracked as one model row (Fable/Mythos precedent); per-tier scores
+  # live in each mention's model_config.
   - id: gpt-5-6-sol__system_card
     lab: openai
-    model: "GPT-5.6 Sol"
+    model: "GPT-5.6 Sol / Terra / Luna"
     container: pdf
     default_weight_class: system_card
-    url: "https://deploymentsafety.openai.com/gpt-5-6-preview/gpt-5-6-preview.pdf"
-    pub_date: "2026-06-26"
+    url: "https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf"
+    pub_date: "2026-07-09"
   - id: gpt-5-6-sol__blog_headliner
     lab: openai
-    model: "GPT-5.6 Sol"
+    model: "GPT-5.6 Sol / Terra / Luna"
     container: blog
     default_weight_class: blog_headliner
-    url: "https://openai.com/index/previewing-gpt-5-6-sol/"
-    pub_date: "2026-06-26"
+    url: "https://openai.com/index/gpt-5-6/"
+    pub_date: "2026-07-09"
   - id: gemini-3-5-flash__blog_headliner
     lab: google_deepmind
     model: "Gemini 3.5 Flash"

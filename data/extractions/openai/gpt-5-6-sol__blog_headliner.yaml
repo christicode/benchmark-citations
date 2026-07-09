@@ -1,22 +1,47 @@
 # gpt-5-6-sol__blog_headliner
+# Source: https://openai.com/index/gpt-5-6/ (GPT-5.6 GA launch blog, 2026-07-09)
+# PROVENANCE CAVEAT: the GA blog is JS/Cloudflare-gated — not fetchable this run (curl 403,
+# hosted fetch blocked). Benchmark NAMES + methodology are corroborated from the readable
+# preview blog (openai.com/index/previewing-gpt-5-6-sol/, which cites the same headliners with
+# no numbers) and, for Terminal-Bench 2.1, from secondary reporting (DataCamp) matching the
+# retained values. Terminal-Bench 2.1 (88.8 / 91.9 Ultra) is corroborated; GeneBench (30.0) and
+# ExploitBench (75.0) values are RETAINED from prior staging but NOT independently re-verified
+# this run -> flagged for human spot-check (see run summary). No values invented.
+# Blog is a preview-style launch post: a few hero benchmarks, no big comparison table -> all
+# mentions are blog_headliner (matches doc default_weight_class).
 doc: gpt-5-6-sol__blog_headliner
 mentions:
-- raw: Terminal-Bench 2.1
-  weight_class: blog_headliner
-  value: 88.8
-  unit: percent
-  model_config: GPT-5.6 Sol
-- raw: Terminal-Bench 2.1
-  weight_class: blog_headliner
-  value: 91.9
-  unit: percent
-  model_config: GPT-5.6 Sol Ultra
-- raw: GeneBench
-  weight_class: blog_headliner
-  value: 30.0
-  unit: percent
-  model_config: v1
-- raw: ExploitBench
-  weight_class: blog_headliner
-  value: 75.0
-  unit: percent
+  - raw: "Terminal-Bench 2.1"
+    weight_class: blog_headliner
+    value: 88.8
+    unit: percent
+    model_config: "GPT-5.6 Sol; new SOTA (command-line agentic coding)"
+    methodology:
+      - "Sol Ultra (subagents) 91.9%; corroborated by secondary reporting (DataCamp)"
+      - "NB registry collision: Harbor holds terminal-bench@2.0 only; 2.1 is a different version / harness"
+  - raw: "Terminal-Bench 2.1"
+    weight_class: blog_headliner
+    value: 91.9
+    unit: percent
+    model_config: "GPT-5.6 Sol Ultra (ultra mode / subagents)"
+  - raw: "GeneBench"
+    weight_class: blog_headliner
+    value: 30.0
+    unit: percent
+    model_config: "GPT-5.6 Sol; GeneBench v1 (long-horizon genomics / quantitative biology)"
+    methodology:
+      - "blog: stronger than GPT-5.5 while using fewer tokens (GPT-5.5 blog value was 25.0)"
+      - "value RETAINED from prior staging; GA blog not re-fetchable this run -> verify"
+  - raw: "ExploitBench"
+    weight_class: blog_headliner
+    value: 75.0
+    unit: percent
+    model_config: "GPT-5.6 Sol"
+    methodology:
+      - "blog: Sol competitive with Mythos Preview using ~1/3 of the output tokens; API harness, 5 seeds, reasoning continuity"
+      - "value RETAINED from prior staging; GA blog not re-fetchable this run -> verify"
+  - raw: "ExploitGym"
+    weight_class: blog_headliner
+    model_config: "GPT-5.6 Sol / Terra / Luna"
+    methodology:
+      - "UC Berkeley (w/ OpenAI + other labs), arXiv 2605.11086; all three tiers show strong cyber gains as reasoning increases; blog reports as a curve (no single headline number) -> score_pending"
