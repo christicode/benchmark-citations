@@ -2,7 +2,8 @@
 # Source: https://openai.com/index/gpt-5-6/ (GPT-5.6 GA launch blog, 2026-07-09)
 # PROVENANCE: GA blog is JS/Cloudflare-gated (not machine-fetchable); values human-transcribed
 # from the live blog's model-card comparison TABLE (columns: Sol | Sol Ultra | Terra | Luna).
-# The four family members are tracked as SEPARATE models via a per-mention `model:` override.
+# Family members Sol / Terra / Luna are tracked as SEPARATE models via a per-mention `model:` override.
+# 'Ultra' runs are folded into GPT-5.6 Sol as a config annotation (NOT a separate model).
 # Weight: doc default = model_card (2). The benchmarks OpenAI also HEADLINES (per operator) are
 # marked weight_class: blog_headliner (3) on the Sol tier (and on Sol Ultra for the multi-agent
 # trio Terminal-Bench / BrowseComp / SEC-Bench Pro). OpenAI's headliners use the SAME score as the
@@ -97,11 +98,13 @@ mentions:
     methodology:
       - "'multi-agent (4 agents)' headliner reported 91.91% (≈ Sol Ultra 91.9)"
   - raw: "Terminal-Bench 2.1"
-    model: "GPT-5.6 Sol Ultra"
+    model: "GPT-5.6 Sol"
     weight_class: blog_headliner
     value: 91.9
     unit: percent
-    model_config: "model-card table, Sol Ultra column"
+    model_config: "ultra mode (subagents/multi-agent); model-card Sol Ultra column"
+    methodology:
+      - "GPT-5.6 Sol at ultra effort; folded into the Sol column as a config annotation (no separate Sol Ultra model)"
   - raw: "Terminal-Bench 2.1"
     model: "GPT-5.6 Terra"
     value: 87.4
@@ -200,11 +203,13 @@ mentions:
     methodology:
       - "standalone 'multi-agent' headliner chart reported 93.3% (≈ Sol Ultra 92.2)"
   - raw: "BrowseComp"
-    model: "GPT-5.6 Sol Ultra"
+    model: "GPT-5.6 Sol"
     weight_class: blog_headliner
     value: 92.2
     unit: percent
-    model_config: "model-card table, Sol Ultra column"
+    model_config: "ultra mode (subagents/multi-agent); model-card Sol Ultra column"
+    methodology:
+      - "GPT-5.6 Sol at ultra effort; folded into the Sol column as a config annotation (no separate Sol Ultra model)"
   - raw: "BrowseComp"
     model: "GPT-5.6 Terra"
     value: 87.5
@@ -270,11 +275,13 @@ mentions:
     methodology:
       - "standalone 'multi-agent' headliner chart reported 76.23% (≈ Sol Ultra 74.3)"
   - raw: "SEC-Bench Pro"
-    model: "GPT-5.6 Sol Ultra"
+    model: "GPT-5.6 Sol"
     weight_class: blog_headliner
     value: 74.3
     unit: percent
-    model_config: "model-card table, Sol Ultra column"
+    model_config: "ultra mode (subagents/multi-agent); model-card Sol Ultra column"
+    methodology:
+      - "GPT-5.6 Sol at ultra effort; folded into the Sol column as a config annotation (no separate Sol Ultra model)"
   - raw: "SEC-Bench Pro"
     model: "GPT-5.6 Terra"
     value: 57.7
