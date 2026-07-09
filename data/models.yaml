@@ -1,15 +1,39 @@
 _generated_by: scripts/gen_models.py
-_generated_at: '2026-07-06'
+_generated_at: '2026-07-09'
 _note: 'MODEL axis for the heatmap. Derived from data/citations.jsonl; release_date is the earliest source-doc
   pub_date (proxy). Override display/release_date in data/models.overrides.yaml. X-axis order: most recent
   on the LEFT; undated models are grouped at the end until a real date is backfilled.'
 schema_version: 1
-count: 34
+count: 35
 undated_needs_backfill:
 - moonshot:Kimi K2.7-Code
 - qwen:Qwen3-Max
 - zai:GLM-5.2
 models:
+- id: gpt-5-6-sol
+  model: GPT-5.6 Sol / Terra / Luna
+  display: GPT-5.6 Sol
+  company: openai
+  company_display: OpenAI
+  company_category: big5
+  release_date: '2026-07-09'
+  release_date_source: derived:min_pub_date
+  citations: 65
+  docs:
+  - https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf
+  - https://openai.com/index/gpt-5-6/
+- id: muse-spark-1-1
+  model: Muse Spark 1.1
+  display: Muse Spark 1.1
+  company: meta
+  company_display: Meta (Meta Superintelligence Labs)
+  company_category: big5
+  release_date: '2026-07-09'
+  release_date_source: derived:min_pub_date
+  citations: 62
+  docs:
+  - https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/
+  - https://ai.meta.com/static-resource/muse-spark-1-1-evaluation-report
 - id: claude-sonnet-5
   model: Claude Sonnet 5
   display: Sonnet 5
@@ -22,18 +46,6 @@ models:
   docs:
   - https://www-cdn.anthropic.com/480e0bb54327b9622282e9c39a83a4f490ed377e/Claude%20Sonnet%205%20System%20Card.pdf
   - https://www.anthropic.com/news/claude-sonnet-5
-- id: gpt-5-6-sol
-  model: GPT-5.6 Sol
-  display: GPT-5.6 Sol
-  company: openai
-  company_display: OpenAI
-  company_category: big5
-  release_date: '2026-06-26'
-  release_date_source: derived:min_pub_date
-  citations: 17
-  docs:
-  - https://deploymentsafety.openai.com/gpt-5-6-preview/gpt-5-6-preview.pdf
-  - https://openai.com/index/previewing-gpt-5-6-sol/
 - id: claude-fable-5
   model: Claude Fable 5 / Mythos 5
   display: Fable 5
