@@ -18,7 +18,7 @@ models:
   company_category: big5
   release_date: '2026-07-09'
   release_date_source: derived:min_pub_date
-  citations: 65
+  citations: 100
   docs:
   - https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf
   - https://openai.com/index/gpt-5-6/
