@@ -836,8 +836,8 @@ benchmarks:
   - canonical: deepswe
     type: agentic
     domain: coding
-    aliases: ["DeepSWE"]
-    notes: "datacurve/deep-swe agentic SWE eval; cited on the GLM-5.2 card."
+    aliases: ["DeepSWE", "DeepSWE v1.1"]
+    notes: "datacurve/deep-swe agentic SWE eval; cited on the GLM-5.2 card and Muse Spark 1.1 / GPT-5.6 blogs (v1.1)."
   - canonical: mathvista
     type: chat
     domain: multimodal
@@ -1113,3 +1113,27 @@ benchmarks:
     domain: safety
     aliases: ["Alignment Faking"]
     notes: "Scheming / alignment-faking propensity eval (lower = safer; can be negative); Muse Spark 1.1 report Table 2."
+  # --- 2026-07-09: GPT-5.6 GA headliner blog — new benchmarks first cited here (values human-provided
+  #     from the JS/Cloudflare-gated GA blog, which is not machine-fetchable). ---
+  - canonical: agents-last-exam
+    type: agentic
+    domain: knowledge
+    aliases: ["Agents' Last Exam", "Agents’ Last Exam", "Agents Last Exam", "ALE"]
+    notes: "Agentic (tool-using) hard-reasoning exam; a play on Humanity's Last Exam but for agents.
+      DISTINCT from humanitys-last-exam (HLE). GPT-5.6 blog headliner."
+  - canonical: lifescibench
+    type: chat
+    domain: science
+    aliases: ["LifeSciBench"]
+    notes: "Life-sciences benchmark; GPT-5.6 blog headliner (Max Effort 59.94%). type tentative (chat) — refine when spec known."
+  - canonical: medchembench
+    type: chat
+    domain: science
+    aliases: ["MedChemBench"]
+    notes: "Medicinal-chemistry benchmark; GPT-5.6 blog headliner (Max Effort 48.31%). type tentative (chat) — refine when spec known."
+  - canonical: rsi-index
+    type: agentic
+    domain: coding
+    aliases: ["RSI Index", "Recursive Self-Improvement Index"]
+    notes: "OpenAI Recursive Self-Improvement Index — an AGGREGATE AI-self-improvement score, not a single
+      task benchmark; GPT-5.6 blog headliner (Max Effort 57.93%). domain=coding by convention for R&D/self-improvement evals."
