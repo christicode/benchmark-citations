@@ -296,12 +296,12 @@ USAMO =
 Vending-Bench = 
 ```
 
-### GPT-5.6 Sol / Terra / Luna — `system_card`
-[source](https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf) · doc id `gpt-5-6-sol__system_card` · **25** benchmarks need a number
+### GPT-5.6 Sol — `system_card`
+[source](https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf) · doc id `gpt-5-6__system_card` · **25** benchmarks need a number
 <sub>already have scores: AAV Capsid Packaging Prediction, Tacit knowledge and troubleshooting, Capture-the-Flag, CyberGym, CyScenarioBench, DNA sequence design for transcription factor binding, Hard-negative protein binding prediction, HealthBench, HealthBench Consensus, HealthBench Hard, HealthBench Professional, Human Pathogen Capabilities Test, Molecular Biology Capabilities Test, ProtocolQA, ReproBAIT, TroubleshootingBench, Multimodal Troubleshooting Virology, Virology Capabilities Test, World-Class Bio</sub>
 
 ```
-# gpt-5-6-sol__system_card  —  fill value after '='  (%/elo/usd; blank if not shown)
+# gpt-5-6__system_card  —  fill value after '='  (%/elo/usd; blank if not shown)
 ABC-Bench = 
 AIME 2025 = 
 Atomic Challenges = 
