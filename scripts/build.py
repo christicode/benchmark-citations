@@ -91,13 +91,18 @@ def main() -> int:
         for m in ext.get("mentions", []):
             raw = m["raw"]
             wc = m.get("weight_class", default_wc)
+            # citing_model is normally the document's model, but a single document can report a
+            # whole model FAMILY (e.g. GPT-5.6 Sol / Sol Ultra / Terra / Luna) in one blog/card.
+            # A mention may override `model` to attribute its score to a specific family member so
+            # each becomes its own column on the heatmap. Falls back to doc model (back-compatible).
+            citing_model = m.get("model", doc.get("model"))
             canon = alias2canon.get(norm(raw))
             if not canon:
                 unmatched.add(raw)
             val = m.get("value")
             rec = {
                 "benchmark_canonical": canon, "benchmark_raw": raw,
-                "source_doc": _src(doc), "citing_lab": doc["lab"], "citing_model": doc.get("model"),
+                "source_doc": _src(doc), "citing_lab": doc["lab"], "citing_model": citing_model,
                 "weight_class": wc if canon else None, "weight": points(wc) if canon else 0,
                 "reported": {"value": val, "unit": m.get("unit"),
                              "model_config": m.get("model_config")},

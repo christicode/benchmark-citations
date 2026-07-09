@@ -1,0 +1,595 @@
+# gpt-5-6__blog_headliner
+# Source: https://openai.com/index/gpt-5-6/ (GPT-5.6 GA launch blog, 2026-07-09)
+# PROVENANCE: GA blog is JS/Cloudflare-gated (not machine-fetchable); values human-transcribed
+# from the live blog's model-card comparison TABLE (columns: Sol | Sol Ultra | Terra | Luna).
+# The four family members are tracked as SEPARATE models via a per-mention `model:` override.
+# Weight: doc default = model_card (2). The benchmarks OpenAI also HEADLINES (per operator) are
+# marked weight_class: blog_headliner (3) on the Sol tier (and on Sol Ultra for the multi-agent
+# trio Terminal-Bench / BrowseComp / SEC-Bench Pro). OpenAI's headliners use the SAME score as the
+# model card, so the headliner value == the table value. Sol Ultra only exists where the table has
+# an Ultra column value (3 rows). '--' Ultra columns => no Sol Ultra mention for that row.
+doc: gpt-5-6__blog_headliner
+mentions:
+  - raw: "Agents' Last Exam"
+    model: "GPT-5.6 Sol"
+    weight_class: blog_headliner
+    value: 52.7
+    unit: percent
+    model_config: "model-card table"
+  - raw: "Agents' Last Exam"
+    model: "GPT-5.6 Terra"
+    value: 50.4
+    unit: percent
+    model_config: "model-card table"
+  - raw: "Agents' Last Exam"
+    model: "GPT-5.6 Luna"
+    value: 50.3
+    unit: percent
+    model_config: "model-card table"
+  - raw: "GDPval-AA v2"
+    model: "GPT-5.6 Sol"
+    weight_class: blog_headliner
+    value: 1747.8
+    unit: elo
+    model_config: "model-card table"
+  - raw: "GDPval-AA v2"
+    model: "GPT-5.6 Terra"
+    value: 1593
+    unit: elo
+    model_config: "model-card table"
+  - raw: "GDPval-AA v2"
+    model: "GPT-5.6 Luna"
+    value: 1591.8
+    unit: elo
+    model_config: "model-card table"
+  - raw: "Big Finance Bench"
+    model: "GPT-5.6 Sol"
+    value: 53
+    unit: percent
+    model_config: "model-card table"
+  - raw: "Big Finance Bench"
+    model: "GPT-5.6 Terra"
+    value: 51
+    unit: percent
+    model_config: "model-card table"
+  - raw: "Big Finance Bench"
+    model: "GPT-5.6 Luna"
+    value: 36
+    unit: percent
+    model_config: "model-card table"
+  - raw: "SWE-Bench Pro"
+    model: "GPT-5.6 Sol"
+    value: 64.6
+    unit: percent
+    model_config: "model-card table"
+  - raw: "SWE-Bench Pro"
+    model: "GPT-5.6 Terra"
+    value: 63.4
+    unit: percent
+    model_config: "model-card table"
+  - raw: "SWE-Bench Pro"
+    model: "GPT-5.6 Luna"
+    value: 62.7
+    unit: percent
+    model_config: "model-card table"
+  - raw: "DeepSWE v1.1"
+    model: "GPT-5.6 Sol"
+    weight_class: blog_headliner
+    value: 72.7
+    unit: percent
+    model_config: "model-card table"
+  - raw: "DeepSWE v1.1"
+    model: "GPT-5.6 Terra"
+    value: 69.6
+    unit: percent
+    model_config: "model-card table"
+  - raw: "DeepSWE v1.1"
+    model: "GPT-5.6 Luna"
+    value: 67.2
+    unit: percent
+    model_config: "model-card table"
+  - raw: "Terminal-Bench 2.1"
+    model: "GPT-5.6 Sol"
+    weight_class: blog_headliner
+    value: 88.8
+    unit: percent
+    model_config: "model-card table"
+    methodology:
+      - "'multi-agent (4 agents)' headliner reported 91.91% (≈ Sol Ultra 91.9)"
+  - raw: "Terminal-Bench 2.1"
+    model: "GPT-5.6 Sol Ultra"
+    weight_class: blog_headliner
+    value: 91.9
+    unit: percent
+    model_config: "model-card table, Sol Ultra column"
+  - raw: "Terminal-Bench 2.1"
+    model: "GPT-5.6 Terra"
+    value: 87.4
+    unit: percent
+    model_config: "model-card table"
+  - raw: "Terminal-Bench 2.1"
+    model: "GPT-5.6 Luna"
+    value: 84.7
+    unit: percent
+    model_config: "model-card table"
+  - raw: "GeneBench Pro"
+    model: "GPT-5.6 Sol"
+    weight_class: blog_headliner
+    value: 28.7
+    unit: percent
+    model_config: "model-card table"
+  - raw: "GeneBench Pro"
+    model: "GPT-5.6 Terra"
+    value: 23.3
+    unit: percent
+    model_config: "model-card table"
+  - raw: "GeneBench Pro"
+    model: "GPT-5.6 Luna"
+    value: 10.8
+    unit: percent
+    model_config: "model-card table"
+  - raw: "LifeSciBench"
+    model: "GPT-5.6 Sol"
+    weight_class: blog_headliner
+    value: 59.9
+    unit: percent
+    model_config: "model-card table"
+  - raw: "LifeSciBench"
+    model: "GPT-5.6 Terra"
+    value: 56
+    unit: percent
+    model_config: "model-card table"
+  - raw: "LifeSciBench"
+    model: "GPT-5.6 Luna"
+    value: 51.2
+    unit: percent
+    model_config: "model-card table"
+  - raw: "MedChemBench"
+    model: "GPT-5.6 Sol"
+    weight_class: blog_headliner
+    value: 48.3
+    unit: percent
+    model_config: "model-card table; Internal"
+  - raw: "MedChemBench"
+    model: "GPT-5.6 Terra"
+    value: 35
+    unit: percent
+    model_config: "model-card table; Internal"
+  - raw: "MedChemBench"
+    model: "GPT-5.6 Luna"
+    value: 30.4
+    unit: percent
+    model_config: "model-card table; Internal"
+  - raw: "HealthBench Professional"
+    model: "GPT-5.6 Sol"
+    value: 60.5
+    unit: percent
+    model_config: "model-card table"
+  - raw: "HealthBench Professional"
+    model: "GPT-5.6 Terra"
+    value: 57.7
+    unit: percent
+    model_config: "model-card table"
+  - raw: "HealthBench Professional"
+    model: "GPT-5.6 Luna"
+    value: 55.7
+    unit: percent
+    model_config: "model-card table"
+  - raw: "OSWorld 2.0"
+    model: "GPT-5.6 Sol"
+    weight_class: blog_headliner
+    value: 62.6
+    unit: percent
+    model_config: "model-card table"
+  - raw: "OSWorld 2.0"
+    model: "GPT-5.6 Terra"
+    value: 50.2
+    unit: percent
+    model_config: "model-card table"
+  - raw: "OSWorld 2.0"
+    model: "GPT-5.6 Luna"
+    value: 45.6
+    unit: percent
+    model_config: "model-card table"
+  - raw: "BrowseComp"
+    model: "GPT-5.6 Sol"
+    weight_class: blog_headliner
+    value: 90.4
+    unit: percent
+    model_config: "model-card table"
+    methodology:
+      - "standalone 'multi-agent' headliner chart reported 93.3% (≈ Sol Ultra 92.2)"
+  - raw: "BrowseComp"
+    model: "GPT-5.6 Sol Ultra"
+    weight_class: blog_headliner
+    value: 92.2
+    unit: percent
+    model_config: "model-card table, Sol Ultra column"
+  - raw: "BrowseComp"
+    model: "GPT-5.6 Terra"
+    value: 87.5
+    unit: percent
+    model_config: "model-card table"
+  - raw: "BrowseComp"
+    model: "GPT-5.6 Luna"
+    value: 83.3
+    unit: percent
+    model_config: "model-card table"
+  - raw: "BenchCAD"
+    model: "GPT-5.6 Sol"
+    value: 70.6
+    unit: percent
+    model_config: "model-card table"
+  - raw: "BenchCAD"
+    model: "GPT-5.6 Terra"
+    value: 62.3
+    unit: percent
+    model_config: "model-card table"
+  - raw: "BenchCAD"
+    model: "GPT-5.6 Luna"
+    value: 63.1
+    unit: percent
+    model_config: "model-card table"
+  - raw: "BenchCAD"
+    model: "GPT-5.6 Sol"
+    value: 83.4
+    unit: percent
+    model_config: "model-card table; python tool"
+  - raw: "BenchCAD"
+    model: "GPT-5.6 Terra"
+    value: 78.2
+    unit: percent
+    model_config: "model-card table; python tool"
+  - raw: "BenchCAD"
+    model: "GPT-5.6 Luna"
+    value: 73.9
+    unit: percent
+    model_config: "model-card table; python tool"
+  - raw: "Capture-the-Flag Challenges"
+    model: "GPT-5.6 Sol"
+    weight_class: blog_headliner
+    value: 96.7
+    unit: percent
+    model_config: "model-card table"
+  - raw: "Capture-the-Flag Challenges"
+    model: "GPT-5.6 Terra"
+    value: 91.8
+    unit: percent
+    model_config: "model-card table"
+  - raw: "Capture-the-Flag Challenges"
+    model: "GPT-5.6 Luna"
+    value: 85.2
+    unit: percent
+    model_config: "model-card table"
+  - raw: "SEC-Bench Pro"
+    model: "GPT-5.6 Sol"
+    weight_class: blog_headliner
+    value: 71.2
+    unit: percent
+    model_config: "model-card table"
+    methodology:
+      - "standalone 'multi-agent' headliner chart reported 76.23% (≈ Sol Ultra 74.3)"
+  - raw: "SEC-Bench Pro"
+    model: "GPT-5.6 Sol Ultra"
+    weight_class: blog_headliner
+    value: 74.3
+    unit: percent
+    model_config: "model-card table, Sol Ultra column"
+  - raw: "SEC-Bench Pro"
+    model: "GPT-5.6 Terra"
+    value: 57.7
+    unit: percent
+    model_config: "model-card table"
+  - raw: "SEC-Bench Pro"
+    model: "GPT-5.6 Luna"
+    value: 48.9
+    unit: percent
+    model_config: "model-card table"
+  - raw: "CyberGym"
+    model: "GPT-5.6 Sol"
+    value: 84.5
+    unit: percent
+    model_config: "model-card table"
+  - raw: "CyberGym"
+    model: "GPT-5.6 Terra"
+    value: 81.8
+    unit: percent
+    model_config: "model-card table"
+  - raw: "CyberGym"
+    model: "GPT-5.6 Luna"
+    value: 77.9
+    unit: percent
+    model_config: "model-card table"
+  - raw: "ExploitBench"
+    model: "GPT-5.6 Sol"
+    weight_class: blog_headliner
+    value: 73.5
+    unit: percent
+    model_config: "model-card table"
+  - raw: "ExploitBench"
+    model: "GPT-5.6 Terra"
+    value: 52.9
+    unit: percent
+    model_config: "model-card table"
+  - raw: "ExploitBench"
+    model: "GPT-5.6 Luna"
+    value: 33.2
+    unit: percent
+    model_config: "model-card table"
+  - raw: "ExploitGym"
+    model: "GPT-5.6 Sol"
+    weight_class: blog_headliner
+    value: 33.7
+    unit: percent
+    model_config: "model-card table"
+    methodology:
+      - "standalone headliner chart reported 24.9% at a 2-hour cap (different config)"
+  - raw: "ExploitGym"
+    model: "GPT-5.6 Terra"
+    value: 23.2
+    unit: percent
+    model_config: "model-card table"
+  - raw: "ExploitGym"
+    model: "GPT-5.6 Luna"
+    value: 12.4
+    unit: percent
+    model_config: "model-card table"
+  - raw: "KernelGen 1P"
+    model: "GPT-5.6 Sol"
+    weight_class: blog_headliner
+    value: 61.1
+    unit: percent
+    model_config: "model-card table"
+  - raw: "KernelGen 1P"
+    model: "GPT-5.6 Terra"
+    value: 49.2
+    unit: percent
+    model_config: "model-card table"
+  - raw: "KernelGen 1P"
+    model: "GPT-5.6 Luna"
+    value: 22.4
+    unit: percent
+    model_config: "model-card table"
+  - raw: "NanoGPT"
+    model: "GPT-5.6 Sol"
+    weight_class: blog_headliner
+    value: 9.69
+    unit: percent
+    model_config: "model-card table"
+  - raw: "NanoGPT"
+    model: "GPT-5.6 Terra"
+    value: 14.5
+    unit: percent
+    model_config: "model-card table"
+  - raw: "NanoGPT"
+    model: "GPT-5.6 Luna"
+    value: 1.66
+    unit: percent
+    model_config: "model-card table"
+  - raw: "PostTrainBench Lite"
+    model: "GPT-5.6 Sol"
+    value: 50.3
+    unit: percent
+    model_config: "model-card table"
+  - raw: "PostTrainBench Lite"
+    model: "GPT-5.6 Terra"
+    value: 51.5
+    unit: percent
+    model_config: "model-card table"
+  - raw: "PostTrainBench Lite"
+    model: "GPT-5.6 Luna"
+    value: 29.6
+    unit: percent
+    model_config: "model-card table"
+  - raw: "RSI Index"
+    model: "GPT-5.6 Sol"
+    weight_class: blog_headliner
+    value: 57.9
+    unit: percent
+    model_config: "model-card table"
+  - raw: "RSI Index"
+    model: "GPT-5.6 Terra"
+    value: 56.3
+    unit: percent
+    model_config: "model-card table"
+  - raw: "RSI Index"
+    model: "GPT-5.6 Luna"
+    value: 41.9
+    unit: percent
+    model_config: "model-card table"
+  - raw: "MMMU Pro"
+    model: "GPT-5.6 Sol"
+    value: 83
+    unit: percent
+    model_config: "model-card table; no tools"
+  - raw: "MMMU Pro"
+    model: "GPT-5.6 Terra"
+    value: 80.7
+    unit: percent
+    model_config: "model-card table; no tools"
+  - raw: "MMMU Pro"
+    model: "GPT-5.6 Luna"
+    value: 78.4
+    unit: percent
+    model_config: "model-card table; no tools"
+  - raw: "MMMU Pro"
+    model: "GPT-5.6 Sol"
+    value: 84.6
+    unit: percent
+    model_config: "model-card table; with tools"
+  - raw: "MMMU Pro"
+    model: "GPT-5.6 Terra"
+    value: 82
+    unit: percent
+    model_config: "model-card table; with tools"
+  - raw: "MMMU Pro"
+    model: "GPT-5.6 Luna"
+    value: 79.5
+    unit: percent
+    model_config: "model-card table; with tools"
+  - raw: "GDP.pdf"
+    model: "GPT-5.6 Sol"
+    value: 30.7
+    unit: percent
+    model_config: "model-card table"
+  - raw: "GDP.pdf"
+    model: "GPT-5.6 Terra"
+    value: 24.7
+    unit: percent
+    model_config: "model-card table"
+  - raw: "GDP.pdf"
+    model: "GPT-5.6 Luna"
+    value: 22.7
+    unit: percent
+    model_config: "model-card table"
+  - raw: "GPQA Diamond"
+    model: "GPT-5.6 Sol"
+    value: 94.6
+    unit: percent
+    model_config: "model-card table"
+  - raw: "GPQA Diamond"
+    model: "GPT-5.6 Terra"
+    value: 92.9
+    unit: percent
+    model_config: "model-card table"
+  - raw: "GPQA Diamond"
+    model: "GPT-5.6 Luna"
+    value: 92.3
+    unit: percent
+    model_config: "model-card table"
+  - raw: "FrontierMath"
+    model: "GPT-5.6 Sol"
+    value: 89
+    unit: percent
+    model_config: "model-card table; Tier 1-3 (v2)"
+  - raw: "FrontierMath"
+    model: "GPT-5.6 Terra"
+    value: 84.9
+    unit: percent
+    model_config: "model-card table; Tier 1-3 (v2)"
+  - raw: "FrontierMath"
+    model: "GPT-5.6 Luna"
+    value: 78.6
+    unit: percent
+    model_config: "model-card table; Tier 1-3 (v2)"
+  - raw: "FrontierMath"
+    model: "GPT-5.6 Sol"
+    value: 83
+    unit: percent
+    model_config: "model-card table; Tier 4 (v2)"
+  - raw: "FrontierMath"
+    model: "GPT-5.6 Terra"
+    value: 68.3
+    unit: percent
+    model_config: "model-card table; Tier 4 (v2)"
+  - raw: "FrontierMath"
+    model: "GPT-5.6 Luna"
+    value: 58.5
+    unit: percent
+    model_config: "model-card table; Tier 4 (v2)"
+  - raw: "AutomationBench"
+    model: "GPT-5.6 Sol"
+    weight_class: blog_headliner
+    value: 18.1
+    unit: percent
+    model_config: "model-card table"
+  - raw: "AutomationBench"
+    model: "GPT-5.6 Terra"
+    value: 15.2
+    unit: percent
+    model_config: "model-card table"
+  - raw: "AutomationBench"
+    model: "GPT-5.6 Luna"
+    value: 14.9
+    unit: percent
+    model_config: "model-card table"
+  - raw: "Toolathlon"
+    model: "GPT-5.6 Sol"
+    value: 58
+    unit: percent
+    model_config: "model-card table"
+  - raw: "Toolathlon"
+    model: "GPT-5.6 Terra"
+    value: 53.1
+    unit: percent
+    model_config: "model-card table"
+  - raw: "Toolathlon"
+    model: "GPT-5.6 Luna"
+    value: 53.4
+    unit: percent
+    model_config: "model-card table"
+  - raw: "OpenAI MRCR v2"
+    model: "GPT-5.6 Sol"
+    value: 91.5
+    unit: percent
+    model_config: "model-card table; 8-needle 256K-512K"
+  - raw: "OpenAI MRCR v2"
+    model: "GPT-5.6 Terra"
+    value: 89.6
+    unit: percent
+    model_config: "model-card table; 8-needle 256K-512K"
+  - raw: "OpenAI MRCR v2"
+    model: "GPT-5.6 Luna"
+    value: 41.3
+    unit: percent
+    model_config: "model-card table; 8-needle 256K-512K"
+  - raw: "OpenAI MRCR v2"
+    model: "GPT-5.6 Sol"
+    value: 73.8
+    unit: percent
+    model_config: "model-card table; 8-needle 512K-1M"
+  - raw: "OpenAI MRCR v2"
+    model: "GPT-5.6 Terra"
+    value: 72.5
+    unit: percent
+    model_config: "model-card table; 8-needle 512K-1M"
+  - raw: "OpenAI MRCR v2"
+    model: "GPT-5.6 Luna"
+    value: 41.3
+    unit: percent
+    model_config: "model-card table; 8-needle 512K-1M"
+  - raw: "GraphWalks"
+    model: "GPT-5.6 Sol"
+    value: 90.7
+    unit: percent
+    model_config: "model-card table; BFS 256k F1"
+  - raw: "GraphWalks"
+    model: "GPT-5.6 Terra"
+    value: 76.9
+    unit: percent
+    model_config: "model-card table; BFS 256k F1"
+  - raw: "GraphWalks"
+    model: "GPT-5.6 Luna"
+    value: 81.3
+    unit: percent
+    model_config: "model-card table; BFS 256k F1"
+  - raw: "GraphWalks"
+    model: "GPT-5.6 Sol"
+    value: 77.1
+    unit: percent
+    model_config: "model-card table; BFS 1M F1"
+  - raw: "GraphWalks"
+    model: "GPT-5.6 Terra"
+    value: 71.2
+    unit: percent
+    model_config: "model-card table; BFS 1M F1"
+  - raw: "GraphWalks"
+    model: "GPT-5.6 Luna"
+    value: 51.2
+    unit: percent
+    model_config: "model-card table; BFS 1M F1"
+  - raw: "ARC-AGI-3"
+    model: "GPT-5.6 Sol"
+    value: 7.78
+    unit: percent
+    model_config: "model-card table"
+  - raw: "ARC-AGI-3"
+    model: "GPT-5.6 Terra"
+    value: 0.8
+    unit: percent
+    model_config: "model-card table"
+  - raw: "ARC-AGI-3"
+    model: "GPT-5.6 Luna"
+    value: 0.18
+    unit: percent
+    model_config: "model-card table"
