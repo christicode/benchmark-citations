@@ -4,7 +4,7 @@ _note: 'MODEL axis for the heatmap. Derived from data/citations.jsonl; release_d
   pub_date (proxy). Override display/release_date in data/models.overrides.yaml. X-axis order: most recent
   on the LEFT; undated models are grouped at the end until a real date is backfilled.'
 schema_version: 1
-count: 38
+count: 37
 undated_needs_backfill:
 - moonshot:Kimi K2.7-Code
 - qwen:Qwen3-Max
@@ -18,7 +18,7 @@ models:
   company_category: big5
   release_date: '2026-07-09'
   release_date_source: derived:min_pub_date
-  citations: 79
+  citations: 82
   docs:
   - https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf
   - https://openai.com/index/gpt-5-6/
@@ -45,17 +45,6 @@ models:
   citations: 41
   docs:
   - https://deploymentsafety.openai.com/gpt-5-6/gpt-5-6.pdf
-  - https://openai.com/index/gpt-5-6/
-- id: gpt-5-6-sol-ultra
-  model: GPT-5.6 Sol Ultra
-  display: GPT-5.6 Sol Ultra
-  company: openai
-  company_display: OpenAI
-  company_category: big5
-  release_date: '2026-07-09'
-  release_date_source: derived:min_pub_date
-  citations: 3
-  docs:
   - https://openai.com/index/gpt-5-6/
 - id: muse-spark-1-1
   model: Muse Spark 1.1
