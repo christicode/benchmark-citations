@@ -1149,3 +1149,182 @@ benchmarks:
     aliases: ["ARC-AGI-3", "ARC AGI 3"]
     notes: "Third-generation ARC-AGI. DISTINCT from arc-agi-1 / arc-agi-2 (only arc_agi_2 is in Harbor).
       First cited in the GPT-5.6 GA model-card table (Sol 7.78%)."
+
+  # --- added 2026-07-09: benchmarks first cited by the Qwen3.5-397B-A17B model card
+  #     (VL flagship; text+agentic+multimodal comparison tables). type/domain classified from
+  #     each benchmark's known task; mapped to the existing 10-domain vocabulary. ---
+  - canonical: c-eval
+    type: chat
+    domain: knowledge
+    aliases: ["C-Eval"]
+    notes: "Chinese knowledge exam (C-Eval). Qwen3.5-397B-A17B model card."
+  - canonical: ifeval
+    type: chat
+    domain: knowledge
+    aliases: ["IFEval"]
+    notes: "Instruction-following eval; sibling of the already-tracked IFBench. Qwen3.5 card."
+  - canonical: multichallenge
+    type: chat
+    domain: knowledge
+    aliases: ["MultiChallenge"]
+    notes: "Multi-turn instruction-following. Qwen3.5 card."
+  - canonical: mmlu-prox
+    type: chat
+    domain: knowledge
+    aliases: ["MMLU-ProX"]
+    notes: "Multilingual MMLU-Pro extension. DISTINCT from mmlu-pro. Qwen3.5 card."
+  - canonical: nova-63
+    type: chat
+    domain: knowledge
+    aliases: ["NOVA-63"]
+    notes: "63-language multilingual eval. Qwen3.5 card."
+  - canonical: polymath
+    type: chat
+    domain: math
+    aliases: ["PolyMATH"]
+    notes: "Multilingual math reasoning. Qwen3.5 card."
+  - canonical: wmt24pp
+    type: chat
+    domain: knowledge
+    aliases: ["WMT24++"]
+    notes: "WMT24++ machine-translation benchmark. Qwen3.5 card."
+  - canonical: maxife
+    type: chat
+    domain: knowledge
+    aliases: ["MAXIFE"]
+    notes: "Multilingual instruction-following eval. Qwen3.5 card."
+  - canonical: vita-bench
+    type: agentic
+    domain: computer-use
+    aliases: ["VITA-Bench"]
+    notes: "Interactive tool-use/agent benchmark. Qwen3.5 card."
+  - canonical: deepplanning
+    type: agentic
+    domain: computer-use
+    aliases: ["DeepPlanning"]
+    notes: "Long-horizon planning agent benchmark. Qwen3.5 card."
+  - canonical: mcp-mark
+    type: agentic
+    domain: computer-use
+    aliases: ["MCP-Mark"]
+    notes: "MCP tool-use benchmark. Qwen3.5 card. cf. mcp-atlas (distinct)."
+  - canonical: seccodebench
+    type: agentic
+    domain: coding
+    aliases: ["SecCodeBench"]
+    notes: "Code-security benchmark ('Coding Agent' section). Qwen3.5 card."
+  - canonical: androidworld
+    type: agentic
+    domain: computer-use
+    aliases: ["AndroidWorld"]
+    notes: "Mobile (Android) GUI agent benchmark. Qwen3.5 card."
+  - canonical: we-math
+    type: chat
+    domain: multimodal
+    aliases: ["We-Math"]
+    notes: "Visual math reasoning. Qwen3.5 VL card."
+  - canonical: dynamath
+    type: chat
+    domain: multimodal
+    aliases: ["DynaMath"]
+    notes: "Dynamic visual math robustness. Qwen3.5 VL card."
+  - canonical: realworldqa
+    type: chat
+    domain: multimodal
+    aliases: ["RealWorldQA"]
+    notes: "Real-world spatial VQA. Qwen3.5 VL card."
+  - canonical: mmstar
+    type: chat
+    domain: multimodal
+    aliases: ["MMStar"]
+    notes: "Vision-indispensable multimodal eval. Qwen3.5 VL card."
+  - canonical: hallusionbench
+    type: chat
+    domain: multimodal
+    aliases: ["HallusionBench"]
+    notes: "Visual hallucination/illusion eval. Qwen3.5 VL card."
+  - canonical: mmbench
+    type: chat
+    domain: multimodal
+    aliases: ["MMBench"]
+    notes: "General multimodal understanding (EN-DEV v1.1). Qwen3.5 VL card."
+  - canonical: mmlongbench-doc
+    type: chat
+    domain: multimodal
+    aliases: ["MMLongBench-Doc"]
+    notes: "Long-document multimodal understanding. Qwen3.5 VL card."
+  - canonical: cc-ocr
+    type: chat
+    domain: multimodal
+    aliases: ["CC-OCR"]
+    notes: "Multilingual/mixed OCR benchmark. Qwen3.5 VL card."
+  - canonical: ai2d
+    type: chat
+    domain: multimodal
+    aliases: ["AI2D"]
+    notes: "Science-diagram VQA (AI2D TEST). Qwen3.5 VL card."
+  - canonical: countbench
+    type: chat
+    domain: multimodal
+    aliases: ["CountBench"]
+    notes: "Visual counting. Qwen3.5 VL card."
+  - canonical: refcoco
+    type: chat
+    domain: multimodal
+    aliases: ["RefCOCO"]
+    notes: "Referring-expression grounding (avg). Qwen3.5 VL card."
+  - canonical: odinw
+    type: chat
+    domain: multimodal
+    aliases: ["ODInW"]
+    notes: "Object Detection in the Wild (ODInW13). Qwen3.5 VL card."
+  - canonical: embspatialbench
+    type: chat
+    domain: multimodal
+    aliases: ["EmbSpatialBench"]
+    notes: "Embodied spatial reasoning. Qwen3.5 VL card."
+  - canonical: refspatialbench
+    type: chat
+    domain: multimodal
+    aliases: ["RefSpatialBench"]
+    notes: "Referring spatial reasoning. Qwen3.5 VL card."
+  - canonical: lingoqa
+    type: chat
+    domain: multimodal
+    aliases: ["LingoQA"]
+    notes: "Autonomous-driving video VQA. Qwen3.5 VL card."
+  - canonical: hypersim
+    type: chat
+    domain: multimodal
+    aliases: ["Hypersim"]
+    notes: "Indoor 3D-scene spatial understanding. Qwen3.5 VL card."
+  - canonical: sun-rgbd
+    type: chat
+    domain: multimodal
+    aliases: ["SUN-RGBD"]
+    notes: "RGB-D 3D scene understanding. Qwen3.5 VL card."
+  - canonical: nuscenes
+    type: chat
+    domain: multimodal
+    aliases: ["nuScenes"]
+    notes: "Autonomous-driving 3D perception. Qwen3.5 VL card."
+  - canonical: mlvu
+    type: chat
+    domain: multimodal
+    aliases: ["MLVU"]
+    notes: "Multi-task long-video understanding (M-Avg). Qwen3.5 VL card."
+  - canonical: mvbench
+    type: chat
+    domain: multimodal
+    aliases: ["MVBench"]
+    notes: "Temporal video understanding. Qwen3.5 VL card."
+  - canonical: pmc-vqa
+    type: chat
+    domain: health
+    aliases: ["PMC-VQA"]
+    notes: "Medical visual QA. Qwen3.5 VL card."
+  - canonical: slake
+    type: chat
+    domain: health
+    aliases: ["SLAKE"]
+    notes: "Medical (radiology) visual QA. Qwen3.5 VL card."

@@ -473,3 +473,28 @@ documents:
     default_weight_class: system_card
     url: "https://ai.meta.com/static-resource/muse-spark-1-1-evaluation-report"
     pub_date: "2026-07-09"
+  # --- 2026-07-09 daily run: promoted candidates Grok 4.5 / DeepSeek-V4-Flash / Qwen3.5-397B-A17B.
+  #     Grok 4.5 blog = five headline SWE charts (blog_headliner default). DeepSeek-V4-Flash and
+  #     Qwen3.5-397B-A17B HF READMEs = model cards. Qwen3.5 date = HF repo initial commit
+  #     (2026-02-16; README last updated 2026-04-24; qwen.ai blog is JS-rendered/undated). ---
+  - id: grok-4-5__blog_headliner
+    lab: xai
+    model: "Grok 4.5"
+    container: blog
+    default_weight_class: blog_headliner
+    url: "https://x.ai/news/grok-4-5"
+    pub_date: "2026-07-08"
+  - id: deepseek-v4-flash__model_card
+    lab: deepseek
+    model: "DeepSeek-V4-Flash"
+    container: hf_readme
+    default_weight_class: model_card
+    url: "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash"
+    pub_date: "2026-04-22"
+  - id: qwen3-5-397b-a17b__model_card
+    lab: qwen
+    model: "Qwen3.5-397B-A17B"
+    container: hf_readme
+    default_weight_class: model_card
+    url: "https://huggingface.co/Qwen/Qwen3.5-397B-A17B"
+    pub_date: "2026-02-16"

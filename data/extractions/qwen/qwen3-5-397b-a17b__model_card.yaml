@@ -1,0 +1,350 @@
+# qwen3-5-397b-a17b__model_card
+# Source: https://huggingface.co/Qwen/Qwen3.5-397B-A17B (HF README = model card for an
+# open-weight release). Values are the Qwen3.5-397B-A17B column of the README's two comparison
+# tables (Table 1 text/agent/coding; Table 2 multimodal/vision), machine-copied from the table.
+# Qwen3.5-Plus is the hosted counterpart. Competitor columns (GPT5.2 / Claude 4.5 Opus /
+# Gemini-3 Pro / Qwen3-Max-Thinking / K2.5-1T-A32B / Qwen3-VL-235B-A22B) are context only.
+doc: qwen3-5-397b-a17b__model_card
+mentions:
+  - raw: "MMLU-Pro"
+    value: 87.8
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; EM"
+  - raw: "MMLU-Redux"
+    value: 94.9
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "SuperGPQA"
+    value: 70.4
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "C-Eval"
+    value: 93.0
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; Chinese eval"
+  - raw: "IFEval"
+    value: 92.6
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; instruction following"
+  - raw: "IFBench"
+    value: 76.5
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "MultiChallenge"
+    value: 67.6
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; multi-turn instruction following"
+  - raw: "AA-LCR"
+    value: 68.7
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "LongBench v2"
+    value: 63.2
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "GPQA"
+    value: 88.4
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; Diamond"
+  - raw: "HLE"
+    value: 28.7
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; no tools"
+  - raw: "HLE"
+    value: 37.6
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; HLE-Verified subset"
+  - raw: "LiveCodeBench"
+    value: 83.6
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; v6"
+  - raw: "HMMT"
+    value: 94.8
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; Feb 25"
+  - raw: "HMMT"
+    value: 92.7
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; Nov 25"
+  - raw: "IMOAnswerBench"
+    value: 80.9
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "AIME 2026"
+    value: 91.3
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; 2026"
+  - raw: "BFCL-V4"
+    value: 72.9
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "TAU2-Bench"
+    value: 86.7
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "VITA-Bench"
+    value: 49.7
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "DeepPlanning"
+    value: 34.3
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "Tool Decathlon"
+    value: 38.3
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "MCP-Mark"
+    value: 46.1
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "HLE"
+    value: 48.3
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; with tools"
+  - raw: "BrowseComp"
+    value: 69.0
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+    methodology:
+      - "card reports 69.0/78.6 (two settings) for Qwen3.5-397B-A17B"
+  - raw: "BrowseComp-zh"
+    value: 70.3
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; zh"
+  - raw: "WideSearch"
+    value: 74.0
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "Seal-0"
+    value: 46.9
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "MMMLU"
+    value: 88.5
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "MMLU-ProX"
+    value: 84.7
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; multilingual"
+  - raw: "NOVA-63"
+    value: 59.1
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; multilingual"
+  - raw: "INCLUDE"
+    value: 85.6
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "Global PIQA"
+    value: 89.8
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "PolyMATH"
+    value: 73.3
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; multilingual math"
+  - raw: "WMT24++"
+    value: 78.9
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; translation"
+  - raw: "MAXIFE"
+    value: 88.2
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; multilingual instruction following"
+  - raw: "SWE-bench Verified"
+    value: 76.4
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "SWE-bench Multilingual"
+    value: 69.3
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "SecCodeBench"
+    value: 68.3
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; code security"
+  - raw: "Terminal Bench 2.0"
+    value: 52.5
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; v2"
+  - raw: "MMMU"
+    value: 85.0
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "MMMU-Pro"
+    value: 79.0
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "MathVision"
+    value: 88.6
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "MathVista"
+    value: 90.3
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; mini"
+  - raw: "We-Math"
+    value: 87.9
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "DynaMath"
+    value: 86.3
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "ZEROBench"
+    value: 12
+    unit: other
+    model_config: "Qwen3.5-397B-A17B; full set (count/100)"
+  - raw: "ZEROBench"
+    value: 41.0
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; subquestions"
+  - raw: "BabyVision"
+    value: 52.3
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+    methodology:
+      - "card reports 52.3/43.3 (two settings) for Qwen3.5-397B-A17B"
+  - raw: "RealWorldQA"
+    value: 83.9
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "MMStar"
+    value: 83.8
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "HallusionBench"
+    value: 71.4
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "MMBench"
+    value: 93.7
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; EN-DEV v1.1"
+  - raw: "SimpleVQA"
+    value: 67.1
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "OmniDocBench"
+    value: 90.8
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; 1.5"
+  - raw: "CharXiv"
+    value: 80.8
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; RQ (reasoning)"
+  - raw: "MMLongBench-Doc"
+    value: 61.5
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; document understanding"
+  - raw: "CC-OCR"
+    value: 82.0
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; OCR"
+  - raw: "AI2D"
+    value: 93.9
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; TEST"
+  - raw: "OCRBench"
+    value: 93.1
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "ERQA"
+    value: 67.5
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "CountBench"
+    value: 97.2
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "RefCOCO"
+    value: 92.3
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; avg"
+  - raw: "ODInW"
+    value: 47.0
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; 13"
+  - raw: "EmbSpatialBench"
+    value: 84.5
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; spatial"
+  - raw: "RefSpatialBench"
+    value: 73.6
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; spatial"
+  - raw: "LingoQA"
+    value: 81.6
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; driving VQA"
+  - raw: "V*"
+    value: 95.8
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+    methodology:
+      - "card reports 95.8/91.1 (two settings) for Qwen3.5-397B-A17B"
+  - raw: "Hypersim"
+    value: 12.5
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; 3D spatial"
+  - raw: "SUN-RGBD"
+    value: 38.3
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; 3D spatial"
+  - raw: "nuScenes"
+    value: 16.0
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; 3D driving"
+  - raw: "Video-MME"
+    value: 87.5
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; with subtitles"
+  - raw: "Video-MME"
+    value: 83.7
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; without subtitles"
+  - raw: "VideoMMMU"
+    value: 84.7
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "MLVU"
+    value: 86.7
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; M-Avg"
+  - raw: "MVBench"
+    value: 77.6
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "LVBench"
+    value: 75.5
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "MMVU"
+    value: 75.4
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "ScreenSpot Pro"
+    value: 65.6
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "OSWorld-Verified"
+    value: 62.2
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "AndroidWorld"
+    value: 66.8
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B"
+  - raw: "SLAKE"
+    value: 79.9
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; medical VQA"
+  - raw: "PMC-VQA"
+    value: 64.2
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; medical VQA"
+  - raw: "MedXpertQA"
+    value: 70.0
+    unit: percent
+    model_config: "Qwen3.5-397B-A17B; MM (multimodal)"

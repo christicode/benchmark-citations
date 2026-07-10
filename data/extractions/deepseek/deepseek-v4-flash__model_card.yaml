@@ -1,0 +1,104 @@
+# deepseek-v4-flash__model_card
+# Source: https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash (HF README; DeepSeek-V4 tech
+# report arXiv:2606.19348). DeepSeek-V4-Flash is the 284B/13B-active sibling of V4-Pro from the
+# same shared V4 card. Numbers = the V4-Flash Max column of the 'Comparison across Modes' instruct
+# table (Think Max reasoning mode); base rows from the Base-model table. Raw names mirror the
+# already-tracked deepseek-v4-pro__model_card so the two siblings stay directly comparable.
+doc: deepseek-v4-flash__model_card
+mentions:
+  - raw: "MMLU-Pro"
+    value: 86.2
+    unit: percent
+    model_config: "V4-Flash Max; EM"
+  - raw: "SimpleQA-Verified"
+    value: 34.1
+    unit: percent
+    model_config: "V4-Flash Max; Pass@1"
+  - raw: "Chinese-SimpleQA"
+    value: 78.9
+    unit: percent
+    model_config: "V4-Flash Max; Pass@1"
+  - raw: "GPQA Diamond"
+    value: 88.1
+    unit: percent
+    model_config: "V4-Flash Max; Pass@1"
+  - raw: "HLE"
+    value: 34.8
+    unit: percent
+    model_config: "V4-Flash Max; Pass@1 (no tools)"
+    methodology:
+      - "HLE with tools 45.1"
+  - raw: "LiveCodeBench"
+    value: 91.6
+    unit: percent
+    model_config: "V4-Flash Max; Pass@1"
+  - raw: "Codeforces"
+    value: 3052
+    unit: other
+    model_config: "V4-Flash Max; rating"
+    methodology:
+      - "Elo rating, not a solve rate"
+  - raw: "HMMT"
+    value: 94.8
+    unit: percent
+    model_config: "V4-Flash Max; HMMT 2026 Feb, Pass@1"
+  - raw: "IMOAnswerBench"
+    value: 88.4
+    unit: percent
+    model_config: "V4-Flash Max; Pass@1"
+  - raw: "Apex"
+    value: 33.0
+    unit: percent
+    model_config: "V4-Flash Max; MathArena Apex, Pass@1"
+    methodology:
+      - "Apex Shortlist 85.7"
+  - raw: "MRCR"
+    value: 78.7
+    unit: other
+    model_config: "V4-Flash Max; MRCR 1M, Mean Match Ratio"
+    methodology:
+      - "MMR (not a solve rate)"
+  - raw: "CorpusQA"
+    value: 60.5
+    unit: percent
+    model_config: "V4-Flash Max; CorpusQA 1M, accuracy"
+  - raw: "Terminal Bench 2.0"
+    value: 56.9
+    unit: percent
+    model_config: "V4-Flash Max; Acc"
+  - raw: "SWE Verified"
+    value: 79.0
+    unit: percent
+    model_config: "V4-Flash Max; Resolved"
+  - raw: "SWE Pro"
+    value: 52.6
+    unit: percent
+    model_config: "V4-Flash Max; Resolved"
+  - raw: "SWE Multilingual"
+    value: 73.3
+    unit: percent
+    model_config: "V4-Flash Max; Resolved"
+  - raw: "BrowseComp"
+    value: 73.2
+    unit: percent
+    model_config: "V4-Flash Max; Pass@1"
+  - raw: "GDPval-AA"
+    value: 1395
+    unit: elo
+    model_config: "V4-Flash Max; Elo"
+  - raw: "MCPAtlas"
+    value: 69.0
+    unit: percent
+    model_config: "V4-Flash Max; Pass@1"
+  - raw: "Toolathlon"
+    value: 47.8
+    unit: percent
+    model_config: "V4-Flash Max; Pass@1"
+  - raw: "SuperGPQA"
+    value: 46.5
+    unit: percent
+    model_config: "V4-Flash-Base; EM, 5-shot"
+  - raw: "MMLU"
+    value: 88.7
+    unit: percent
+    model_config: "V4-Flash-Base; EM, 5-shot"

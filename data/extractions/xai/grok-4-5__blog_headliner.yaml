@@ -1,0 +1,43 @@
+# grok-4-5__blog_headliner
+# Source: https://x.ai/news/grok-4-5 ("Introducing Grok 4.5", xAI/SpaceXAI, Jul 8, 2026)
+# Coding/agentic launch blog. The "Real-world engineering excellence" section headlines five SWE
+# benchmark charts (Grok 4.5 vs Fable max / GPT-5.5 xhigh / Opus 4.8 max / Opus 4.7 max / GLM 5.2)
+# -> each is a dedicated single-benchmark hero chart => blog_headliner (doc default). Chart values
+# are spelled out verbatim in the figure alt-text; Grok 4.5's own column recorded. Competitor
+# numbers "drawn from the respective developers' published system cards or benchmark leaderboards".
+doc: grok-4-5__blog_headliner
+mentions:
+  - raw: "DeepSWE"
+    value: 62.0
+    unit: percent
+    model_config: "Grok 4.5; DeepSWE 1.0, pass@1"
+    methodology:
+      - "Datacurve eval, run with each provider's own harness by Artificial Analysis"
+      - "leaderboard: Fable max 66.1, GPT-5.5 xhigh 64.31, Opus 4.8 max 55.75, Opus 4.7 max 40.12"
+  - raw: "DeepSWE"
+    value: 53.0
+    unit: percent
+    model_config: "Grok 4.5; DeepSWE 1.1, pass@1"
+    methodology:
+      - "mini-swe-agent harness, run by Datacurve"
+      - "leaderboard: Fable max 70, GPT-5.5 xhigh 67, Opus 4.8 max 59, GLM 5.2 44"
+  - raw: "SWE Marathon"
+    value: 29.0
+    unit: percent
+    model_config: "Grok 4.5; resolution rate, pass@1"
+    methodology:
+      - "leaderboard: Opus 4.8 max 26.0, Fable max 24.0, Opus 4.7 max 16.0"
+  - raw: "Terminal-Bench 2.1"
+    value: 83.3
+    unit: percent
+    model_config: "Grok 4.5"
+    methodology:
+      - "leaderboard: Fable max 84.3, GPT-5.5 xhigh 83.4, Opus 4.8 max 78.9, Opus 4.7 max 78.9"
+      - "NB Harbor holds terminal-bench@2.0; this is 2.1"
+  - raw: "SWE-bench Pro"
+    value: 64.7
+    unit: percent
+    model_config: "Grok 4.5; resolve rate"
+    methodology:
+      - "leaderboard: Fable max 80.4, Opus 4.8 max 69.2, Opus 4.7 max 64.3, GLM 5.2 62.1, GPT-5.5 xhigh 58.6"
+      - "token efficiency: Grok 4.5 avg 15,954 output tokens/task, ~4.2x fewer than Opus 4.8 max (67,020)"
