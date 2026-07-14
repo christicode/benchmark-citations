@@ -1,5 +1,5 @@
 _generated_by: scripts/gen_models.py
-_generated_at: '2026-07-10'
+_generated_at: '2026-07-14'
 _note: 'MODEL axis for the heatmap. Derived from data/citations.jsonl; release_date is the earliest source-doc
   pub_date (proxy). Override display/release_date in data/models.overrides.yaml. X-axis order: most recent
   on the LEFT; undated models are grouped at the end until a real date is backfilled.'

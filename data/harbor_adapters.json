@@ -1,7 +1,7 @@
 {
   "_comment": "Live Harbor snapshot (registry.json + adapters/) fetched by sync_harbor.py.",
   "source": "harbor-framework/harbor @ main",
-  "fetched_at": "2026-07-10",
+  "fetched_at": "2026-07-14",
   "n_adapters": 83,
   "n_registry": 75,
   "n_in_registry": 49,
