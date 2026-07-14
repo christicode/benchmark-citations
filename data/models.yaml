@@ -5,10 +5,7 @@ _note: 'MODEL axis for the heatmap. Derived from data/citations.jsonl; release_d
   on the LEFT; undated models are grouped at the end until a real date is backfilled.'
 schema_version: 1
 count: 40
-undated_needs_backfill:
-- moonshot:Kimi K2.7-Code
-- qwen:Qwen3-Max
-- zai:GLM-5.2
+undated_needs_backfill: []
 models:
 - id: gpt-5-6-sol
   model: GPT-5.6 Sol
@@ -50,7 +47,7 @@ models:
   model: Muse Spark 1.1
   display: Muse Spark 1.1
   company: meta
-  company_display: Meta (Meta Superintelligence Labs)
+  company_display: Meta
   company_category: big5
   release_date: '2026-07-09'
   release_date_source: derived:min_pub_date
@@ -81,6 +78,30 @@ models:
   docs:
   - https://www-cdn.anthropic.com/480e0bb54327b9622282e9c39a83a4f490ed377e/Claude%20Sonnet%205%20System%20Card.pdf
   - https://www.anthropic.com/news/claude-sonnet-5
+- id: glm-5-2
+  model: GLM-5.2
+  display: GLM-5.2
+  company: zai
+  company_display: Z.ai
+  company_category: open_weight_leader
+  release_date: '2026-06-16'
+  release_date_source: override
+  citations: 24
+  docs:
+  - https://docs.z.ai/guides/llm/glm-5.2
+  - https://huggingface.co/zai-org/GLM-5.2
+- id: kimi-k2-7-code
+  model: Kimi K2.7-Code
+  display: Kimi K2.7-Code
+  company: moonshot
+  company_display: Moonshot AI
+  company_category: open_weight_leader
+  release_date: '2026-06-12'
+  release_date_source: override
+  citations: 12
+  docs:
+  - https://platform.kimi.ai/docs/guide/kimi-k2-7-code-quickstart
+  - https://www.kimi.com/resources/kimi-k2-7-code
 - id: claude-fable-5
   model: Claude Fable 5 / Mythos 5
   display: Fable 5
@@ -109,7 +130,7 @@ models:
   model: Gemini 3.5 Flash
   display: Gemini 3.5 Flash
   company: google_deepmind
-  company_display: Google DeepMind
+  company_display: Google
   company_category: big5
   release_date: '2026-05-19'
   release_date_source: derived:min_pub_date
@@ -179,7 +200,7 @@ models:
   model: Muse Spark
   display: Muse Spark
   company: meta
-  company_display: Meta (Meta Superintelligence Labs)
+  company_display: Meta
   company_category: big5
   release_date: '2026-04-08'
   release_date_source: derived:min_pub_date
@@ -203,7 +224,7 @@ models:
   model: GLM-5.1
   display: GLM-5.1
   company: zai
-  company_display: Z.ai (Zhipu AI)
+  company_display: Z.ai
   company_category: open_weight_leader
   release_date: '2026-04-07'
   release_date_source: derived:min_pub_date
@@ -226,7 +247,7 @@ models:
   model: Gemini 3.1 Pro
   display: Gemini 3.1 Pro
   company: google_deepmind
-  company_display: Google DeepMind
+  company_display: Google
   company_category: big5
   release_date: '2026-02-19'
   release_date_source: derived:min_pub_date
@@ -250,7 +271,7 @@ models:
   model: Qwen3.5-397B-A17B
   display: Qwen3.5-397B-A17B
   company: qwen
-  company_display: Qwen (Alibaba)
+  company_display: Alibaba
   company_category: open_weight_leader
   release_date: '2026-02-16'
   release_date_source: derived:min_pub_date
@@ -261,7 +282,7 @@ models:
   model: GLM-5
   display: GLM-5
   company: zai
-  company_display: Z.ai (Zhipu AI)
+  company_display: Z.ai
   company_category: open_weight_leader
   release_date: '2026-02-12'
   release_date_source: derived:min_pub_date
@@ -296,7 +317,7 @@ models:
   model: GLM-4.7
   display: GLM-4.7
   company: zai
-  company_display: Z.ai (Zhipu AI)
+  company_display: Z.ai
   company_category: open_weight_leader
   release_date: '2025-12-22'
   release_date_source: derived:min_pub_date
@@ -307,7 +328,7 @@ models:
   model: Gemini 3 Flash
   display: Gemini 3 Flash
   company: google_deepmind
-  company_display: Google DeepMind
+  company_display: Google
   company_category: big5
   release_date: '2025-12-17'
   release_date_source: derived:min_pub_date
@@ -355,7 +376,7 @@ models:
   model: Gemini 3 Pro
   display: Gemini 3 Pro
   company: google_deepmind
-  company_display: Google DeepMind
+  company_display: Google
   company_category: big5
   release_date: '2025-11-18'
   release_date_source: derived:min_pub_date
@@ -402,7 +423,7 @@ models:
   model: GLM-4.6
   display: GLM-4.6
   company: zai
-  company_display: Z.ai (Zhipu AI)
+  company_display: Z.ai
   company_category: open_weight_leader
   release_date: '2025-09-30'
   release_date_source: derived:min_pub_date
@@ -434,6 +455,17 @@ models:
   - https://api-docs.deepseek.com/news/news250929
   - https://arxiv.org/abs/2512.02556
   - https://huggingface.co/deepseek-ai/DeepSeek-V3.2
+- id: qwen3-max
+  model: Qwen3-Max
+  display: Qwen3-Max
+  company: qwen
+  company_display: Alibaba
+  company_category: open_weight_leader
+  release_date: '2025-09-23'
+  release_date_source: override
+  citations: 8
+  docs:
+  - https://qwen.ai/blog?id=qwen3-max
 - id: gpt-5
   model: GPT-5
   display: GPT-5
@@ -446,38 +478,3 @@ models:
   docs:
   - https://cdn.openai.com/gpt-5-system-card.pdf
   - https://openai.com/index/introducing-gpt-5/
-- id: glm-5-2
-  model: GLM-5.2
-  display: GLM-5.2
-  company: zai
-  company_display: Z.ai (Zhipu AI)
-  company_category: open_weight_leader
-  release_date: null
-  release_date_source: unknown
-  citations: 24
-  docs:
-  - https://docs.z.ai/guides/llm/glm-5.2
-  - https://huggingface.co/zai-org/GLM-5.2
-- id: kimi-k2-7-code
-  model: Kimi K2.7-Code
-  display: Kimi K2.7-Code
-  company: moonshot
-  company_display: Moonshot AI
-  company_category: open_weight_leader
-  release_date: null
-  release_date_source: unknown
-  citations: 12
-  docs:
-  - https://platform.kimi.ai/docs/guide/kimi-k2-7-code-quickstart
-  - https://www.kimi.com/resources/kimi-k2-7-code
-- id: qwen3-max
-  model: Qwen3-Max
-  display: Qwen3-Max
-  company: qwen
-  company_display: Qwen (Alibaba)
-  company_category: open_weight_leader
-  release_date: null
-  release_date_source: unknown
-  citations: 8
-  docs:
-  - https://qwen.ai/blog?id=qwen3-max

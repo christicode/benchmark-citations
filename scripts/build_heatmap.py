@@ -256,16 +256,13 @@ input[type="text"]:focus, input[type="date"]:focus {
 </div>
 
 <div class=bar>
-  <div class=grp><b>search</b>
-    <input type=text id=search-input placeholder="Search benchmarks..." oninput="setSearch(this.value)" style="border-radius:999px;width:170px;"></div>
-  <div class=grp><b>type</b>
+  <div class=grp><b>benchmarks</b>
     <span class=chip data-ty=all onclick='setTy(this)'>all</span>
     <span class=chip data-ty=agentic onclick='setTy(this)'>agentic</span>
-    <span class=chip data-ty=chat onclick='setTy(this)'>chat</span></div>
-  <div class=grp><b>harbor</b>
-    <span class=chip id=harb onclick='toggleHarb(this)'>Harbor-compatible only</span></div>
-  <div class=grp><b>tail</b>
-    <span class=chip id=tail onclick='toggleTail(this)'>show single-citation</span></div>
+    <span class=chip data-ty=chat onclick='setTy(this)'>chat</span>
+    <span class=chip id=harb onclick='toggleHarb(this)'>Harbor</span>
+    <input type=text id=search-input placeholder="Search..." oninput="setSearch(this.value)" style="border-radius:999px;width:150px;margin-left:4px;">
+  </div>
   <div class=grp><b>timeframe</b>
     <span class=chip data-tf=all onclick='setTf(this)'>all time</span>
     <span class=chip data-tf=3m onclick='setTf(this)'>3 months</span>
@@ -277,8 +274,6 @@ input[type="text"]:focus, input[type="date"]:focus {
       to <input type=date id=date-end onchange="setCustomDates()">
     </div>
   </div>
-  <div class=grp><b>options</b>
-    <span class=chip id=undated onclick='toggleUndated(this)'>include undated</span></div>
   <div class=grp id=cos><b>company</b><span class=co-btn onclick="setAllCos(true)">all</span>/<span class=co-btn onclick="setAllCos(false)">none</span></div>
 </div>
 
@@ -305,11 +300,9 @@ var DATA = /*__DATA__*/;
 var state = {
   ty: 'all',
   harb: false,
-  tail: false,
   timeframe: 'all',
   customStart: '',
   customEnd: '',
-  includeUndated: true,
   search: '',
   cos: {}
 };
@@ -324,7 +317,6 @@ DATA.companies.forEach(function(c){
 });
 document.querySelector('.chip[data-ty=all]').classList.add('on');
 document.querySelector('.chip[data-tf=all]').classList.add('on');
-document.getElementById('undated').classList.add('on');
 
 // Theme init & handler
 function toggleTheme() {
@@ -342,7 +334,6 @@ function setTy(el){ state.ty=el.dataset.ty;
   document.querySelectorAll('.chip[data-ty]').forEach(function(x){x.classList.remove('on')});
   el.classList.add('on'); render(); }
 function toggleHarb(el){ state.harb=!state.harb; el.classList.toggle('on'); render(); }
-function toggleTail(el){ state.tail=!state.tail; el.classList.toggle('on'); render(); }
 
 function setTf(el) {
   state.timeframe = el.dataset.tf;
@@ -360,12 +351,6 @@ function setTf(el) {
 function setCustomDates() {
   state.customStart = document.getElementById('date-start').value;
   state.customEnd = document.getElementById('date-end').value;
-  render();
-}
-
-function toggleUndated(el) {
-  state.includeUndated = !state.includeUndated;
-  el.classList.toggle('on');
   render();
 }
 
@@ -388,7 +373,7 @@ function setAllCos(val) {
 
 function inTimeframe(dateStr) {
   if (!dateStr) {
-    return state.includeUndated;
+    return true;
   }
   if (state.timeframe === 'all') return true;
   
@@ -461,8 +446,6 @@ function render(){
     vmids.forEach(function(id){ var c=b.cells[id]; if(c){ pts+=c.pts; nm++;
       if(c.score!=null && (sat==null || c.score>sat)){ sat=c.score; satMid=id; } } });
     if(nm===0) return;                          // no citation in visible columns
-    if(!state.tail && b.n_models<2) return;     // long-tail cut (GLOBAL count, so a company
-                                                // filter still re-ranks densely 1,2,3,4...)
     rows.push({b:b, pts:pts, sat:sat, satMid:satMid, nm:nm});
   });
   rows.sort(function(x,y){ return (y.pts-x.pts) || (y.nm-x.nm) || (x.b.canon<y.b.canon?-1:1); });
@@ -501,15 +484,14 @@ function render(){
   H.push('</tbody>');
   if(rows.length===0){
     H=['<tbody><tr><td class=yl style="padding:14px 10px;white-space:normal;color:var(--mut)">'+
-       'No benchmarks match. Try enabling <b>show single-citation</b> or re-adding companies.'+
+       'No benchmarks match. Try re-adding companies.'+
        '</td></tr></tbody>'];
   }
   t.innerHTML=H.join('');
   var yl=t.querySelector('td.yl');
   document.documentElement.style.setProperty('--gutL',(yl?yl.getBoundingClientRect().width:220)+'px');
   document.getElementById('count').textContent =
-    rows.length+' benchmarks × '+vm.length+' models shown'+
-    (state.tail?'':' (single-citation benchmarks hidden)');
+    rows.length+' benchmarks × '+vm.length+' models shown';
 }
 
 // model header tooltip text

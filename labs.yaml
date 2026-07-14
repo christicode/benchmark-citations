@@ -59,7 +59,7 @@ labs:
       GPT-5 (anchor), 5.1, 5.2, 5.4, 5.5, 5.6 Sol + Codex variants. NOTE: openai.com/news is
       JS-rendered and mostly yields category links; the discoverable posts live under /index/.
   - id: google_deepmind
-    display_name: Google DeepMind
+    display_name: Google
     category: big5
     in_scope: true
     source_index_urls:
@@ -71,7 +71,7 @@ labs:
     notes: "Gemini 3 Pro / 3 Deep Think (blog-only, NO system card) / 3.1 Pro / 3.5 Flash / 3.5 Pro."
 
   - id: meta
-    display_name: Meta (Meta Superintelligence Labs)
+    display_name: Meta
     category: big5
     in_scope: true
     source_index_urls:
@@ -107,7 +107,7 @@ labs:
     notes: "V3.2 / V4-Pro / V4-Flash. HF README serves as the card. api-docs.deepseek.com/news 404s — HF org is the live feed."
 
   - id: qwen
-    display_name: Qwen (Alibaba)
+    display_name: Alibaba
     category: open_weight_leader
     in_scope: true
     source_index_urls:
@@ -143,11 +143,12 @@ labs:
     notes: "Kimi K2.5 / K2.6 / K2.7-Code / K2 Thinking. kimi.com/blog is JS-rendered; HF moonshotai org is the reliable feed."
 
   - id: zai
-    display_name: Z.ai (Zhipu AI)
+    display_name: Z.ai
     category: open_weight_leader
     in_scope: true
     source_index_urls:
       - https://huggingface.co/zai-org
     candidate_patterns:
       - "huggingface\\.co/zai-org/GLM-[0-9.]+$"                 # flagship numeric GLM cards (deny-suffixes drop -FP8/-Air/-V variants via suffix)
+      - "huggingface\\.co/zai-org/GLM-[0-9.]+(-Pro)?$"
     notes: "GLM-4.6 (Sep 2025), GLM-4.7, GLM-5 / 5.1 / 5.2. z.ai/blog 404s — HF zai-org is the live feed."
