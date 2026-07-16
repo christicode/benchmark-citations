@@ -1,0 +1,98 @@
+# gpt-rosalind-5-5__system_card
+# Source: https://deploymentsafety.openai.com/gpt-rosalind-5-5/gpt-rosalind-5-5.pdf
+#   ("GPT-Rosalind-5.5 System Card", OpenAI, June 3, 2026). 11pp text PDF, exact numeric tables.
+# GPT-Rosalind-5.5 = OpenAI frontier reasoning model for biology/drug-discovery/translational
+#   medicine, incrementally trained from GPT-5.5 (research-preview, trusted-access only). Outside
+#   biology it "is comparable to GPT-5.5" and the card gives NO general-capability evals — only the
+#   incremental BIO capabilities. So every mention below is a bio/science eval.
+# Citing model = GPT-Rosalind-5.5 (the doc model). Every table's LEFT value column is Rosalind;
+#   GPT-5.5 (and, for Preparedness tables, GPT-5.5 Pro at ~10x inference budget) are comparison
+#   columns, captured verbatim in `methodology`. All rows are system-card rows => system_card (1),
+#   the doc default (no per-mention overrides).
+# TENTATIVE identity calls flagged for human review (see registry notes):
+#   * "Medicinal chemistry" (§3.1) is an UNNAMED multimodal medchem eval -> folded into medchembench.
+#   * "Multi-select Virology Troubleshooting" (§4.1.1.4, SecureBio) -> folded into vct (format differs
+#     from the multimodal VCT phrasing on prior OpenAI cards).
+# NOT recorded (referenced, not scored here): SecureBio (question provider, §4.1.1.4); Nucleobench
+#   (source of TFs for the DNA-design eval, §4.1.1.6); LAB-Bench (References [1], origin of ProtocolQA).
+doc: gpt-rosalind-5-5__system_card
+mentions:
+  # ===== Beneficial Capability Evaluations (§3) =====
+  - raw: "Medicinal chemistry"
+    value: 27.5
+    unit: percent
+    model_config: "GPT-Rosalind-5.5; pass@1; multimodal medchem workflows (SAR/ADME/potency/tox/retrosynthesis)"
+    methodology:
+      - "GPT-5.5 25.1% (Table 1)"
+      - "avg output tokens: Rosalind 27133.5 vs GPT-5.5 29231.8"
+      - "TENTATIVE identity: card gives no benchmark name; folded into MedChemBench — confirm"
+  - raw: "Genebench"
+    value: 21.6
+    unit: percent
+    model_config: "GPT-Rosalind-5.5; pass@1; agentic long-horizon genomics analysis"
+    methodology:
+      - "GPT-5.5 20.4% (Table 2)"
+      - "avg output tokens: Rosalind 16721 vs GPT-5.5 24270"
+      - "spans functional genomics, spatial transcriptomics, proteomics, epigenomics, applied genetics"
+  - raw: "LifeSciBench"
+    value: 63.4
+    unit: percent
+    model_config: "GPT-Rosalind-5.5; pass@1; externally expert-judged, end-to-end life-sciences tasks"
+    methodology:
+      - "GPT-5.5 58.8% (Table 3)"
+      - "avg output tokens: Rosalind 34439 vs GPT-5.5 33351"
+  - raw: "Labwork Bench"
+    value: 63.2
+    unit: percent
+    model_config: "GPT-Rosalind-5.5; pass@1; proprietary/uncontaminated wet-lab protocols"
+    methodology:
+      - "GPT-5.5 55.8% (Table 4)"
+      - "avg output tokens: Rosalind 45390.8 vs GPT-5.5 47950.8"
+      - "links perturbations to experimental outcomes (troubleshooting -> optimization)"
+  # ===== Preparedness: Biological and Chemical (§4.1.1) — High capability, below Critical =====
+  # Tables here add a GPT-5.5 Pro column (~10x inference budget), captured in methodology.
+  - raw: "ProtocolQA Open-Ended"
+    value: 36.4
+    unit: percent
+    model_config: "GPT-Rosalind-5.5; pass@1; open-ended short-answer variant (108 Qs from FutureHouse ProtocolQA)"
+    methodology:
+      - "GPT-5.5 37.3%; GPT-5.5 Pro 36.73% (Table 6)"
+      - "open-ended is harder/more realistic than the MCQ version"
+  - raw: "TroubleshootingBench"
+    value: 53.31
+    unit: percent
+    model_config: "GPT-Rosalind-5.5; pass@1; 52 expert-written protocols x3 troubleshooting Qs (non-public)"
+    methodology:
+      - "GPT-5.5 44.1%; GPT-5.5 Pro 49.58% (Table 7)"
+      - "tacit, hands-on knowledge; uncontaminated (not online)"
+  - raw: "Biorisk knowledge"
+    value: 81.1
+    unit: percent
+    model_config: "GPT-Rosalind-5.5; cons@32; closed-ended MCQ (Gryphon Scientific)"
+    methodology:
+      - "GPT-5.5 78.3%; GPT-5.5 Pro 81.67% (Table 8)"
+      - "spans all 5 biothreat-creation stages; tacit-knowledge bottlenecks; uncontaminated"
+  - raw: "Multi-select Virology Troubleshooting"
+    value: 51.2
+    unit: percent
+    model_config: "GPT-Rosalind-5.5; pass@1; held-out SecureBio virology, multi-select format"
+    methodology:
+      - "GPT-5.5 53.7%; GPT-5.5 Pro 55.34% (Table 9)"
+      - "only eval where Rosalind does NOT exceed GPT-5.5 (not trained on virology/biothreat)"
+      - "TENTATIVE identity: folded into VCT (SecureBio virology); confirm vs distinct multi-select variant"
+  - raw: "Hard-negative protein binding prediction"
+    value: 3.13
+    unit: percent
+    model_config: "GPT-Rosalind-5.5; pass@4; agentic (PDB files + computer + browser)"
+    methodology:
+      - "GPT-5.5 0.4%; GPT-5.5 Pro 0.0% (Table 10)"
+      - "43 protein targets, 492 hotspots; 5 candidates/hotspot (>=0.85 sim, AF2 ipTM >=0.8), 1 true binder"
+      - "proposed 50% correctness threshold for biorisk concern (all models far below)"
+  - raw: "DNA sequence design for Transcription Factor binding"
+    value: 13.64
+    unit: percent
+    model_config: "GPT-Rosalind-5.5; pass@1; 11 TFs (Nucleobench) x50 prompts, 3000bp start"
+    methodology:
+      - "GPT-5.5 13.82%; GPT-5.5 Pro 16.5% (Table 11)"
+      - "scored by BPNet-family oracles (Basenji2 secondary); baseline = Ledidi gradient method"
+      - "80% win-rate-over-Ledidi threshold for significant capability; Rosalind well below"

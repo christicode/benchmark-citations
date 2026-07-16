@@ -306,6 +306,14 @@ benchmarks:
     domain: science
     aliases: ["LAB-Bench", "LAB-Bench FigQA", "LAB-Bench: ProtocolQA", "LAB-Bench: SeqQA"]
     collision: "Cited protocolqa/seqqa/cloning-scenarios may be LAB-Bench subtasks — verify Harbor labbench subtask coverage."
+  - canonical: labwork-bench
+    type: chat
+    domain: science
+    aliases: ["Labwork Bench"]
+    vendor_proprietary: true
+    notes: "OpenAI proprietary (uncontaminated) wet-lab eval: links perturbations to experimental
+      outcomes in real lab protocols (troubleshooting→optimization). First cited in the
+      GPT-Rosalind-5.5 system card §3.4 (pass@1). Distinct from TroubleshootingBench/ProtocolQA."
   - canonical: legal-agent-benchmark
     type: agentic
     domain: professional
@@ -441,7 +449,10 @@ benchmarks:
   - canonical: protocolqa
     type: chat
     domain: science
-    aliases: ["ProtocolQA"]
+    aliases: ["ProtocolQA", "ProtocolQA Open-Ended"]
+    notes: "GPT-Rosalind-5.5 card cites the open-ended short-answer variant (108 Qs modified
+      from FutureHouse's ProtocolQA/LAB-Bench to be harder than the MCQ version) — folded in
+      as the same benchmark."
   - canonical: real-world-finance
     type: agentic
     domain: professional
@@ -582,11 +593,12 @@ benchmarks:
   - canonical: biorisk-tacit-knowledge
     type: chat
     domain: science
-    aliases: ["Biorisk Tacit Knowledge", "Tacit knowledge and troubleshooting", "Tacit Knowledge and Troubleshooting", "Tacit Knowledge & Troubleshooting"]
+    aliases: ["Biorisk Tacit Knowledge", "Tacit knowledge and troubleshooting", "Tacit Knowledge and Troubleshooting", "Tacit Knowledge & Troubleshooting", "Biorisk knowledge"]
     notes: "OpenAI unpublished bio-risk tacit-knowledge eval. GPT-5.6 card §9.1.1.3 'Tacit
       Knowledge and Troubleshooting' (Gryphon Scientific, 60 MCQ, tacit/troubleshooting
       bottleneck across 5 biothreat stages) folded in as the same eval (tentative merge — split
-      if a distinct spec surfaces)."
+      if a distinct spec surfaces). GPT-Rosalind-5.5 card §4.1.1.3 labels the same Gryphon
+      Scientific tacit-knowledge/troubleshooting MCQ set 'Biorisk knowledge' (cons@32)."
   - canonical: blueprint-bench
     type: chat
     domain: multimodal
@@ -692,10 +704,13 @@ benchmarks:
   - canonical: vct
     type: chat
     domain: science
-    aliases: ["VCT", "Multimodal Troubleshooting Virology", "Virology Capabilities Test"]
+    aliases: ["VCT", "Multimodal Troubleshooting Virology", "Virology Capabilities Test", "Multi-select Virology Troubleshooting"]
     notes: "Virology Capabilities Test (a.k.a. VMQA/VCT). SecureBio; OpenAI cards cite it as
       'Multimodal Troubleshooting Virology' (expert baseline 22.1%) — human-confirmed same benchmark.
-      GPT-5.6 card cites BOTH the main multimodal eval AND SecureBio's 'Virology Capabilities Test'."
+      GPT-5.6 card cites BOTH the main multimodal eval AND SecureBio's 'Virology Capabilities Test'.
+      TENTATIVE: GPT-Rosalind-5.5 card §4.1.1.4 'Multi-select Virology Troubleshooting' (held-out
+      SecureBio virology Qs, multi-select format) folded in here — confirm it's the same VCT set and
+      not a distinct multi-select variant (review)."
   - canonical: tau3-bench
     type: agentic
     domain: computer-use
@@ -1129,8 +1144,10 @@ benchmarks:
   - canonical: medchembench
     type: chat
     domain: science
-    aliases: ["MedChemBench"]
-    notes: "Medicinal-chemistry benchmark; GPT-5.6 blog headliner (Max Effort 48.31%). type tentative (chat) — refine when spec known."
+    aliases: ["MedChemBench", "Medicinal chemistry"]
+    notes: "Medicinal-chemistry benchmark; GPT-5.6 blog headliner (Max Effort 48.31%). type tentative (chat) — refine when spec known.
+      TENTATIVE: GPT-Rosalind-5.5 card §3.1 scores an unnamed 'multimodal medicinal chemistry' eval (SAR/ADME/retrosynthesis, pass@1)
+      — folded in here as OpenAI's medicinal-chemistry benchmark; confirm it's MedChemBench and not a distinct eval (review)."
   - canonical: rsi-index
     type: agentic
     domain: coding

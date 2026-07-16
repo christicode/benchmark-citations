@@ -498,3 +498,15 @@ documents:
     default_weight_class: model_card
     url: "https://huggingface.co/Qwen/Qwen3.5-397B-A17B"
     pub_date: "2026-02-16"
+  # --- 2026-07-16 daily run: promoted GPT-Rosalind-5.5, an OpenAI first-party system card found on
+  #     the deployment-safety hub that automated discovery MISSED (deploymentsafety.openai.com yields
+  #     no candidates — root-path index defeats discover.py's path-hint link heuristic, and the OpenAI
+  #     candidate_patterns only cover openai.com/index). Bio/life-sciences specialist, incrementally
+  #     trained from GPT-5.5. Text-based 11pp PDF with exact numeric tables (no image-only scores). ---
+  - id: gpt-rosalind-5-5__system_card
+    lab: openai
+    model: "GPT-Rosalind-5.5"
+    container: pdf
+    default_weight_class: system_card
+    url: "https://deploymentsafety.openai.com/gpt-rosalind-5-5/gpt-rosalind-5-5.pdf"
+    pub_date: "2026-06-03"
