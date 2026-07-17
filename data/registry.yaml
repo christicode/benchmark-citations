@@ -876,7 +876,15 @@ benchmarks:
     type: agentic
     domain: coding
     aliases: ["DeepSWE", "DeepSWE v1.1"]
-    notes: "datacurve/deep-swe agentic SWE eval; cited on the GLM-5.2 card and Muse Spark 1.1 / GPT-5.6 blogs (v1.1)."
+    harbor_native: true
+    harbor_native_source: "https://huggingface.co/datasets/datacurve/deep-swe"
+    notes: "datacurve/deep-swe agentic SWE eval; cited on the GLM-5.2 card and Muse Spark 1.1 / GPT-5.6 blogs (v1.1).
+      NATIVE HARBOR FORMAT (human-verified 2026-07-16): the dataset is authored directly in the Harbor task format
+      (task.toml / instruction.md / environment/ / tests/ / solution/), is HF-tagged 'harbor', and runs via Pier
+      (a Harbor-compatible runner, fork of Harbor). It is NOT in harbor-framework/harbor's registry.json or adapters/
+      (it's an external Harbor-native dataset in its own repo), so the automatic monorepo sync marks it not_in_harbor.
+      This curated, sourced `harbor_native` flag records the verified native-format status (sync_harbor.py overlays it:
+      on_harbor=true, harbor_type=native)."
   - canonical: mathvista
     type: chat
     domain: multimodal

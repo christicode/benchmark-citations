@@ -6,7 +6,9 @@ This replaces the retired tables dashboard. Grid:
     (scripts/scoring.py): blog_headliner 3 / model_card 2 / system_card 1, counted as
     MAX per (benchmark, document, model) then SUMMED across documents (same as rank.py) —
     a benchmark headlined + tabled in one blog counts 3, headlined in 3 blogs counts 9.
-    (H) suffix = currently Harbor-compatible (live-synced by sync_harbor.py).
+    (H) suffix = currently Harbor-compatible (live-synced by sync_harbor.py); a DEEPER-GREEN (H)
+    marks NATIVE Harbor format (registry entry with no adapter, incl. curated external-native
+    datasets like deepswe), vs the regular-green (H) for adapter-backed benchmarks.
   * X axis = citing model, MOST RECENT ON THE LEFT (models.yaml release_date; undated last).
   * cell (benchmark × model) = increasing DARKNESS OF BLUE for the highest source class in
     which that model cites it: Headliner (darkest) > Model card > System card (lightest).
@@ -62,7 +64,7 @@ def main() -> int:
 
     # ---- aggregate: MAX weight per (benchmark, model, document); collect per-doc display ----
     def newbench():
-        return {"type": None, "domain": None, "on_harbor": False,
+        return {"type": None, "domain": None, "on_harbor": False, "harbor_native": False,
                 # model_id -> doc_id -> {p, wc, url, container, val, unit, cfg, dev}
                 "m": collections.defaultdict(lambda: collections.defaultdict(
                     lambda: {"p": 0, "wc": None, "url": None, "container": None,
@@ -83,6 +85,9 @@ def main() -> int:
         b["type"] = b["type"] or r.get("type")
         b["domain"] = b["domain"] or r.get("domain")
         b["on_harbor"] = b["on_harbor"] or bool(r.get("on_harbor"))
+        # native Harbor format = registry entry with no adapter (harbor_type "native"),
+        # incl. the curated external-native overlay (e.g. deepswe) sync_harbor.py sets to "native".
+        b["harbor_native"] = b["harbor_native"] or (r.get("harbor_type") == "native")
         d = b["m"][mid][did]
         if p >= d["p"]:                                # keep the DOC's max-class mention for display
             d["p"] = p
@@ -122,7 +127,8 @@ def main() -> int:
             if score is not None:
                 sat = score if sat is None else max(sat, score)
         benchmarks.append({"canon": canon, "type": b["type"] or "?", "domain": b["domain"] or "?",
-                           "on_harbor": b["on_harbor"], "points": total, "sat": sat,
+                           "on_harbor": b["on_harbor"], "harbor_native": b["harbor_native"],
+                           "points": total, "sat": sat,
                            "n_models": len(cells), "cells": cells})
     benchmarks.sort(key=lambda x: (-x["points"], x["canon"]))
 
@@ -155,11 +161,11 @@ PAGE = r"""<!doctype html><html lang=en><head><meta charset=utf-8>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel=stylesheet>
 <style>
 :root{--bg:#ffffff;--panel:#f7f8fa;--b:#e6e8eb;--fg:#3d4451;--emph:#0d0f13;--mut:#9aa1ac;
-  --blue:#2563eb;--green:#16a34a;--amber:#d97706;--red:#dc2626;--violet:#7c3aed;
+  --blue:#2563eb;--green:#16a34a;--green-deep:#166534;--amber:#d97706;--red:#dc2626;--violet:#7c3aed;
   /* blue citation ramp: System card (light) -> Model card -> Headliner (dark) */
   --t1:#dbeafe;--t2:#7fb0ee;--t3:#1e56b0;--empty:#fbfcfd}
 body.dark{--bg:#0f172a;--panel:#1e293b;--b:#334155;--fg:#94a3b8;--emph:#f8fafc;--mut:#64748b;
-  --blue:#3b82f6;--green:#22c55e;--amber:#f59e0b;--red:#ef4444;--violet:#8b5cf6;
+  --blue:#3b82f6;--green:#22c55e;--green-deep:#15803d;--amber:#f59e0b;--red:#ef4444;--violet:#8b5cf6;
   --t1:#1e3a8a;--t2:#3b82f6;--t3:#60a5fa;--empty:#1e293b}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);
@@ -198,6 +204,7 @@ td.yl .rank{color:var(--mut);display:inline-block;min-width:22px;font-variant-nu
 td.yl .nm{cursor:pointer;font-weight:500;color:var(--emph)}
 td.yl .nm:hover{color:var(--blue);text-decoration:underline}
 td.yl .h{color:var(--green);font-weight:700}
+td.yl .h.hn{color:var(--green-deep)}
 td.yl .ty{font-size:10px;color:var(--mut);margin-left:6px}
 td.yl .ty.ag{color:var(--green)}
 td.sat{position:sticky;left:var(--gutL);z-index:2;background:var(--bg);width:78px;
@@ -286,7 +293,7 @@ input[type="text"]:focus, input[type="date"]:focus {
   <span><span class=sw style=background:var(--t2)></span>Model card (2)</span>
   <span><span class=sw style=background:var(--t1)></span>System card (1)</span>
   <span><span class=sw style=background:var(--empty)></span>not cited</span>
-  <span>· <b class=h style=color:var(--green)>(H)</b> = Harbor-compatible</span>
+  <span>· <b class=h style=color:var(--green)>(H)</b> = Harbor-compatible (adapter); <b class="h hn" style=color:var(--green-deep)>(H)</b> = native Harbor format</span>
   <span>· Saturation = max reported % (hover for the model + source)</span>
 </div>
 <p class=foot>Points: Headliner 3 · Model card 2 · System card 1, max per document then summed.
@@ -462,7 +469,9 @@ function render(){
     var b=r.b;
     var ty = b.type==='agentic'?'<span class="ty ag">agentic</span>'
             : b.type==='chat'?'<span class=ty>chat</span>':'';
-    var h = b.on_harbor? ' <span class=h title="Harbor-compatible">(H)</span>':'';
+    var h = b.on_harbor? ' <span class="h'+(b.harbor_native?' hn':'')+'" title="'+
+            (b.harbor_native?'Native Harbor format (no adapter)':'Harbor-compatible (via adapter)')+
+            '">(H)</span>':'';
     H.push('<tr><td class=yl><span class=rank>'+(i+1)+'</span>'+
       '<span class=nm onclick="openRec(\''+esc(b.canon)+'\')" title="see citation records on GitHub">'+
       esc(b.canon)+'</span>'+h+ty+'</td>');

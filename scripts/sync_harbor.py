@@ -33,6 +33,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 SNAP = ROOT / "data" / "harbor_adapters.json"
 CITES = ROOT / "data" / "citations.jsonl"
 CHANGELOG = ROOT / "data" / "changelog.jsonl"
+REGISTRY = ROOT / "data" / "registry.yaml"
 
 REGISTRY_RAW = "https://raw.githubusercontent.com/harbor-framework/harbor/main/registry.json"
 ADAPTERS_API = "https://api.github.com/repos/harbor-framework/harbor/contents/adapters?ref=main"
@@ -42,6 +43,29 @@ ADAPTERS_API = "https://api.github.com/repos/harbor-framework/harbor/contents/ad
 BRIDGE = {
     "humanitys-last-exam": "hle",   # HLE = Humanity's Last Exam
 }
+
+
+def native_curated():
+    """Canonicals explicitly flagged `harbor_native: true` in data/registry.yaml.
+
+    These are benchmarks authored in the Harbor TASK FORMAT but living OUTSIDE the
+    harbor-framework/harbor monorepo (their own repo/HF dataset, run via a Harbor-compatible
+    runner) — e.g. datacurve/deep-swe. The automatic registry.json + adapters/ scan can never
+    see them, so this is a small, human-curated, SOURCED overlay (each entry carries a
+    `harbor_native_source:` URL in registry.yaml). It only ever marks a benchmark as native
+    Harbor format; it never hides or downgrades an automatic match. Returns {canonical: source}.
+    """
+    try:
+        import yaml
+        reg = yaml.safe_load(REGISTRY.read_text()) or {}
+    except Exception as e:
+        print(f"harbor: could not read registry.yaml for native overlay ({e})", file=sys.stderr)
+        return {}
+    out = {}
+    for b in reg.get("benchmarks", []):
+        if b.get("harbor_native"):
+            out[b["canonical"]] = b.get("harbor_native_source") or "registry.yaml:harbor_native"
+    return out
 
 
 def norm(s):
@@ -151,6 +175,7 @@ def committed_prev_status():
 def main():
     snap = load_snapshot()
     reg_by_norm, ad_by_norm = build_index(snap)
+    native_ext = native_curated()      # curated external-native overlay (e.g. deepswe)
     rows = [json.loads(l) for l in open(CITES) if l.strip()]
 
     # Compare against the committed state, not build.py's placeholder reset.
@@ -162,6 +187,10 @@ def main():
         if not c:
             continue  # image/chart-only or gated doc -> stays a human review issue; untouched
         on, status, htype, hname, hadapter = resolve(c, reg_by_norm, ad_by_norm)
+        # Curated native-format overlay: only applies when the automatic monorepo scan found
+        # NOTHING (never overrides a real adapter/registry match), and only ever ADDS native status.
+        if not on and c in native_ext:
+            on, status, htype, hname, hadapter = True, "confirmed", "native", native_ext[c], None
         r["on_harbor"] = on
         r["harbor_status"] = status
         r["harbor_type"] = htype
@@ -195,8 +224,12 @@ def main():
             fh.write(json.dumps(r, ensure_ascii=False) + "\n")
 
     on_n = sum(1 for r in rows if r.get("on_harbor"))
+    nat_n = sum(1 for r in rows if r.get("harbor_type") == "native")
+    ext_n = len({r["benchmark_canonical"] for r in rows
+                 if r.get("harbor_type") == "native" and r["benchmark_canonical"] in native_ext})
     print(f"sync_harbor: {len(rows)} records | on_harbor now True on "
-          f"{on_n} | {len(changes)} benchmark status change(s)")
+          f"{on_n} | {nat_n} native-format record(s) ({ext_n} via curated overlay) | "
+          f"{len(changes)} benchmark status change(s)")
 
     if changes:
         entry = {"ts": datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"),
