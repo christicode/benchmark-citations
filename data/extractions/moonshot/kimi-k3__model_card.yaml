@@ -1,0 +1,274 @@
+# kimi-k3__model_card
+# Source: https://www.kimi.com/blog/kimi-k3  ("Kimi K3: Open Frontier Intelligence", Moonshot AI).
+#   Human-promoted 2026-07-16. Kimi K3 = first open 3T-class model (2.8T params, KDA+AttnRes,
+#   native vision, 1M context). Weights to be released by 2026-07-27; blog is the release headliner.
+# WEIGHT CLASS: scores come from the single "Full Benchmark Table" (a multi-benchmark comparison
+#   table) => model_card (doc default). The blog's prose "headliner" sections (kernel optimization,
+#   GPU compiler / MiniTriton, game dev, chip design, coding-for-research, knowledge-work cases) are
+#   qualitative demos with NO numbers of their own. BUT the blog ALSO carries dedicated per-benchmark
+#   HEADLINER CHART images whose values duplicate the table. Human-reviewed 2026-07-16 (charts read
+#   off-thread): the 14 benchmarks below carry `weight_class: blog_headliner` (3) reusing the table
+#   score; every other row stays model_card (2). Since build.py takes MAX weight per (doc, model,
+#   benchmark), marking one config-split (CharXiv/ZeroBench = the w/tool i.e. 'with python' chart)
+#   is enough to lift that benchmark to headliner. Headliner set (per human): GDPval-AA v2, AA-Briefcase,
+#   Automation Bench, Job Bench, SpreadsheetBench 2, BrowseComp, DeepSWE, FrontierSWE, Kimi Code
+#   Bench 2.0, Program Bench, Terminal Bench 2.1, SWE Marathon, CharXiv (RQ) w/python, ZeroBench_main w/python.
+# CITING MODEL = Kimi K3 (max). Confirmed COLUMN 1 of 6. Competitor columns (captured verbatim in
+#   methodology, in this order): Claude Fable 5 (max, w/ fallback) / GPT-5.6 Sol (max) /
+#   Claude Opus 4.8 (max) / GPT-5.5 (xhigh) / GLM-5.2 (max). '*' on a competitor cell = harness-
+#   adjusted per the blog footnotes; Kimi K3's own column carries no '*'.
+# GLOBAL CONFIG (footnote): all K3 results at reasoning effort 'max', temperature=1.0, top-p=1.0.
+#   Per-benchmark agentic harness (KimiCode / Claude Code / Codex) recorded from the footnotes.
+# Config splits (w/ tools, w/ python, pass@k) are recorded as SEPARATE mentions of the SAME
+#   canonical with a distinguishing model_config (build.py takes MAX weight per doc, so no double-count).
+# TENTATIVE identity calls (flagged in registry notes): 'SpreadsheetBench 2' folded into
+#   spreadsheetbench as a version bump; DECK-Bench/PerceptionBench/AA-Briefcase are NEW canonicals.
+doc: kimi-k3__model_card
+mentions:
+  # ================= Coding =================
+  - raw: "DeepSWE"
+    weight_class: blog_headliner
+    value: 67.5
+    unit: percent
+    model_config: "Kimi K3 (max); KimiCode harness; temp=1.0 top-p=1.0"
+    methodology:
+      - "vs Fable5 70.0 / GPT-5.6 Sol 73.0 / Opus 4.8 59.0 / GPT-5.5 67.0 / GLM-5.2 46.2"
+      - "K3 also 67.3 with mini-SWE-agent harness (official DeepSWE leaderboard deepswe.datacurve.ai)"
+      - "GLM-5.2 from z.ai/blog/glm-5.2; other competitors from the DeepSWE leaderboard"
+  - raw: "Program Bench"
+    weight_class: blog_headliner
+    value: 77.8
+    unit: percent
+    model_config: "Kimi K3 (max); KimiCode harness"
+    methodology:
+      - "vs Fable5 76.8 / GPT-5.6 Sol 77.6 / Opus 4.8 71.9 / GPT-5.5 70.8 / GLM-5.2 63.7"
+      - "competitors from vals.ai/benchmarks/programbench; GLM-5.2 from z.ai/blog/glm-5.2"
+  - raw: "Terminal Bench 2.1"
+    weight_class: blog_headliner
+    value: 88.3
+    unit: percent
+    model_config: "Kimi K3 (max); KimiCode harness"
+    methodology:
+      - "vs Fable5 84.6 / GPT-5.6 Sol 88.8 / Opus 4.8 84.6 / GPT-5.5 83.4 / GLM-5.2 82.7"
+      - "competitors = best score across harnesses (Opus 4.8 & Fable5 via Terminus 2; GPT-5.5 & 5.6 Sol via Codex; GLM-5.2 via Claude Code)"
+      - "NB Harbor holds terminal-bench@2.0; this is 2.1"
+  - raw: "FrontierSWE"
+    weight_class: blog_headliner
+    value: 81.2
+    unit: percent
+    model_config: "Kimi K3 (max); KimiCode harness; dominance score"
+    methodology:
+      - "vs Fable5 86.6 / GPT-5.6 Sol 71.3 / Opus 4.8 66.7 / GPT-5.5 64.9 / GLM-5.2 67.3"
+      - "GPT-5.6 Sol via Codex harness; others from frontierswe.com; dominance recomputed via official script, current as of 2026-07-16"
+  - raw: "SWE Marathon"
+    weight_class: blog_headliner
+    value: 42.0
+    unit: percent
+    model_config: "Kimi K3 (max); Claude Code harness"
+    methodology:
+      - "vs Fable5 35.0 / GPT-5.6 Sol 39.0 / Opus 4.8 40.0 / GPT-5.5 14.0 / GLM-5.2 13.0"
+      - "K3, Opus 4.8, Fable5 via Claude Code; GPT-5.6 Sol via Codex; GLM-5.2 from z.ai/blog/glm-5.2"
+  - raw: "PostTrain Bench"
+    value: 36.6
+    unit: percent
+    model_config: "Kimi K3 (max); Claude Code harness; official Harbor impl, avg of 3 runs"
+    methodology:
+      - "vs Fable5 41.4 / GPT-5.6 Sol 34.6 / Opus 4.8 34.1 / GPT-5.5 28.4 / GLM-5.2 34.3"
+      - "K3 & Fable5 via Claude Code, GPT-5.6 Sol via Codex; GLM-5.2/GPT-5.5/Opus 4.8 = official PostTrainBench results"
+      - "Fable5 Claude-Code refusals auto-fall-back to Opus 4.8"
+  - raw: "MLS Bench"
+    value: 48.3
+    unit: percent
+    model_config: "Kimi K3 (max); KimiCode harness"
+    methodology:
+      - "vs Fable5 49.9 / GPT-5.6 Sol 46.2 / Opus 4.8 42.8 / GPT-5.5 35.5 / GLM-5.2 40.4"
+      - "footnote header calls it 'MLS Bench Lite'; GLM-5.2 & Claude models via Claude Code; GPT-5.5 & 5.6 Sol via Codex"
+  - raw: "Kimi Code Bench 2.0"
+    weight_class: blog_headliner
+    value: 72.9
+    unit: percent
+    model_config: "Kimi K3 (max); KimiCode + Claude Code harness (internal eval)"
+    methodology:
+      - "vs Fable5 76.9 / GPT-5.6 Sol 64.8 / Opus 4.8 71.7 / GPT-5.5 69.0 / GLM-5.2 64.2"
+      - "GLM-5.2/Opus 4.8/Fable5 via Claude Code; GPT-5.5 & 5.6 Sol via Codex; max effort (GPT-5.5 xhigh)"
+  # ================= Agentic =================
+  - raw: "GDPval-AA v2"
+    weight_class: blog_headliner
+    value: 1668.0
+    unit: other
+    model_config: "Kimi K3 (max); Elo score"
+    methodology:
+      - "vs Fable5 1760.0 / GPT-5.6 Sol 1748.0 / Opus 4.8 1600.0 / GPT-5.5 1494.0 / GLM-5.2 1514.0"
+      - "scores cited from artificialanalysis.ai"
+  - raw: "BrowseComp"
+    weight_class: blog_headliner
+    value: 91.2
+    unit: percent
+    model_config: "Kimi K3 (max); context-compaction at 300K (Claude-card strategy)"
+    methodology:
+      - "vs Fable5 88.0 / GPT-5.6 Sol 90.4 / Opus 4.8 84.3 / GPT-5.5 84.4 / GLM-5.2 —"
+      - "K3 with 1M context and no context management = 90.4"
+      - "competitors cited from anthropic.com/news/claude-fable-5-mythos-5 and openai.com/index/gpt-5-6"
+  - raw: "DeepSearchQA"
+    value: 95.0
+    unit: percent
+    model_config: "Kimi K3 (max); f1-score"
+    methodology:
+      - "vs Fable5 94.2 / GPT-5.6 Sol — / Opus 4.8 93.1 / GPT-5.5 — / GLM-5.2 —"
+  - raw: "Toolathlon-Verified"
+    value: 73.2
+    unit: percent
+    model_config: "Kimi K3 (max)"
+    methodology:
+      - "vs Fable5 77.9 / GPT-5.6 Sol 74.9 / Opus 4.8 76.2 / GPT-5.5 73.5 / GLM-5.2 59.9"
+  - raw: "MCP Atlas"
+    value: 84.2
+    unit: percent
+    model_config: "Kimi K3 (max); 500-task public subset, 100-turn limit, Gemini 3.1 Pro judge"
+    methodology:
+      - "vs Fable5 84.7 / GPT-5.6 Sol 83.6 / Opus 4.8 83.6 / GPT-5.5 82.8 / GLM-5.2 82.6"
+  - raw: "Automation Bench"
+    weight_class: blog_headliner
+    value: 30.8
+    unit: percent
+    model_config: "Kimi K3 (max); 600-task public subset, official GitHub setup"
+    methodology:
+      - "vs Fable5 29.1 / GPT-5.6 Sol 29.7 / Opus 4.8 27.2 / GPT-5.5 22.7 / GLM-5.2 12.9"
+  - raw: "Job Bench"
+    weight_class: blog_headliner
+    value: 52.9
+    unit: percent
+    model_config: "Kimi K3 (max)"
+    methodology:
+      - "vs Fable5 57.4 / GPT-5.6 Sol 46.5 / Opus 4.8 48.4 / GPT-5.5 38.3 / GLM-5.2 43.4"
+  - raw: "AA-Briefcase"
+    weight_class: blog_headliner
+    value: 1548.0
+    unit: other
+    model_config: "Kimi K3 (max); Elo score"
+    methodology:
+      - "vs Fable5 1583.0 / GPT-5.6 Sol 1495.0 / Opus 4.8 1354.0 / GPT-5.5 1158.0 / GLM-5.2 1260.0"
+      - "scores cited from artificialanalysis.ai"
+  - raw: "APEX-Agents"
+    value: 37.6
+    unit: percent
+    model_config: "Kimi K3 (max)"
+    methodology:
+      - "vs Fable5 43.3 / GPT-5.6 Sol 39.9 / Opus 4.8 39.4 / GPT-5.5 38.5 / GLM-5.2 35.6"
+  - raw: "Office QA Pro"
+    value: 63.3
+    unit: percent
+    model_config: "Kimi K3 (max); Claude Code harness"
+    methodology:
+      - "vs Fable5 69.9* / GPT-5.6 Sol 63.2* / Opus 4.8 63.9* / GPT-5.5 60.9* / GLM-5.2 41.4"
+      - "K3/GLM-5.2/Opus 4.8/Fable5 via Claude Code; GPT-5.5 & 5.6 Sol via Codex (* = harness-adjusted)"
+  - raw: "SpreadsheetBench 2"
+    weight_class: blog_headliner
+    value: 34.8
+    unit: percent
+    model_config: "Kimi K3 (max); SpreadsheetBench v2; Claude Code harness"
+    methodology:
+      - "vs Fable5 34.7* / GPT-5.6 Sol 32.4* / Opus 4.8 31.6* / GPT-5.5 29.1* / GLM-5.2 28.1"
+      - "K3/GLM-5.2/Opus 4.8/Fable5 via Claude Code; GPT-5.5 & 5.6 Sol via Codex (* = harness-adjusted)"
+      - "TENTATIVE identity: 'SpreadsheetBench 2' folded into spreadsheetbench as a version bump — confirm vs distinct v2 benchmark"
+  - raw: "DECK-Bench"
+    value: 73.5
+    unit: percent
+    model_config: "Kimi K3 (max); internal eval"
+    methodology:
+      - "vs Fable5 73.0 / GPT-5.6 Sol 74.7 / Opus 4.8 66.9 / GPT-5.5 68.2 / GLM-5.2 68.6"
+      - "marked '(Internal)' on the blog table"
+  # ================= Reasoning & Knowledge =================
+  - raw: "GPQA-Diamond"
+    value: 93.5
+    unit: percent
+    model_config: "Kimi K3 (max)"
+    methodology:
+      - "vs Fable5 92.6 / GPT-5.6 Sol 94.1 / Opus 4.8 91.0 / GPT-5.5 93.5 / GLM-5.2 91.2"
+  - raw: "HLE-Full"
+    value: 43.5
+    unit: percent
+    model_config: "Kimi K3 (max); no tools"
+    methodology:
+      - "vs Fable5 53.3 / GPT-5.6 Sol 44.5 / Opus 4.8 49.8* / GPT-5.5 41.4* / GLM-5.2 —"
+  - raw: "HLE-Full"
+    value: 56.0
+    unit: percent
+    model_config: "Kimi K3 (max); with tools"
+    methodology:
+      - "vs Fable5 63.0 / GPT-5.6 Sol 58.0 / Opus 4.8 57.9* / GPT-5.5 52.2* / GLM-5.2 —"
+  # ================= Vision =================
+  - raw: "MMMU-Pro"
+    value: 81.6
+    unit: percent
+    model_config: "Kimi K3 (max); avg of 3 runs; official protocol (images prepended to text)"
+    methodology:
+      - "vs Fable5 81.2 / GPT-5.6 Sol 83.0 / Opus 4.8 78.9 / GPT-5.5 81.2 / GLM-5.2 —"
+  - raw: "MMMU-Pro"
+    value: 83.4
+    unit: percent
+    model_config: "Kimi K3 (max); with python; avg of 3 runs"
+    methodology:
+      - "vs Fable5 86.5 / GPT-5.6 Sol 84.6 / Opus 4.8 82.7 / GPT-5.5 83.2 / GLM-5.2 —"
+  - raw: "CharXiv (RQ)"
+    value: 84.8
+    unit: percent
+    model_config: "Kimi K3 (max); Reasoning Q; avg of 3 runs"
+    methodology:
+      - "vs Fable5 88.9 / GPT-5.6 Sol 84.6 / Opus 4.8 80.5 / GPT-5.5 84.1 / GLM-5.2 —"
+  - raw: "CharXiv (RQ)"
+    weight_class: blog_headliner
+    value: 91.3
+    unit: percent
+    model_config: "Kimi K3 (max); Reasoning Q, with python; avg of 3 runs"
+    methodology:
+      - "vs Fable5 93.5 / GPT-5.6 Sol 89.1 / Opus 4.8 89.9 / GPT-5.5 89.0 / GLM-5.2 —"
+  - raw: "MathVision"
+    value: 94.3
+    unit: percent
+    model_config: "Kimi K3 (max); avg of 3 runs"
+    methodology:
+      - "vs Fable5 94.8 / GPT-5.6 Sol 95.8 / Opus 4.8 86.7 / GPT-5.5 92.2 / GLM-5.2 —"
+  - raw: "MathVision"
+    value: 97.8
+    unit: percent
+    model_config: "Kimi K3 (max); with python; avg of 3 runs"
+    methodology:
+      - "vs Fable5 98.6 / GPT-5.6 Sol 97.8 / Opus 4.8 97.1 / GPT-5.5 96.8 / GLM-5.2 —"
+  - raw: "BabyVision"
+    value: 85.7
+    unit: percent
+    model_config: "Kimi K3 (max); with python; avg of 3 runs"
+    methodology:
+      - "vs Fable5 90.5 / GPT-5.6 Sol 88.9 / Opus 4.8 81.2 / GPT-5.5 83.6 / GLM-5.2 —"
+  - raw: "ZeroBench_main"
+    value: 23.0
+    unit: percent
+    model_config: "Kimi K3 (max); pass@5; 5 runs (official setting)"
+    methodology:
+      - "vs Fable5 23.0 / GPT-5.6 Sol 17.0 / Opus 4.8 17.0 / GPT-5.5 22.0 / GLM-5.2 —"
+  - raw: "ZeroBench_main"
+    weight_class: blog_headliner
+    value: 41.0
+    unit: percent
+    model_config: "Kimi K3 (max); pass@5, with python; 5 runs"
+    methodology:
+      - "vs Fable5 46.0 / GPT-5.6 Sol 35.0 / Opus 4.8 34.0 / GPT-5.5 41.0 / GLM-5.2 —"
+  - raw: "WorldVQA ForceAnswer"
+    value: 51.0
+    unit: percent
+    model_config: "Kimi K3 (max); ForceAnswer split; avg of 3 runs"
+    methodology:
+      - "vs Fable5 56.7 / GPT-5.6 Sol 41.8 / Opus 4.8 39.1 / GPT-5.5 38.5 / GLM-5.2 —"
+  - raw: "OmniDocBench"
+    value: 91.1
+    unit: percent
+    model_config: "Kimi K3 (max); avg of 3 runs"
+    methodology:
+      - "vs Fable5 89.8 / GPT-5.6 Sol 85.8 / Opus 4.8 87.9 / GPT-5.5 89.4 / GLM-5.2 —"
+  - raw: "PerceptionBench"
+    value: 58.5
+    unit: percent
+    model_config: "Kimi K3 (max); in-house atomic-visual-perception eval; avg of 3 runs"
+    methodology:
+      - "vs Fable5 57.2 / GPT-5.6 Sol 59.7 / Opus 4.8 47.2 / GPT-5.5 55.8 / GLM-5.2 —"

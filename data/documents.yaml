@@ -510,3 +510,16 @@ documents:
     default_weight_class: system_card
     url: "https://deploymentsafety.openai.com/gpt-rosalind-5-5/gpt-rosalind-5-5.pdf"
     pub_date: "2026-06-03"
+  # --- 2026-07-16 daily run: human-promoted Kimi K3 (Moonshot's first open 3T-class model, 2.8T
+  #     params, native vision). ONE release blog carrying the "Full Benchmark Table" (Kimi K3 max vs
+  #     Fable 5 / GPT-5.6 Sol / Opus 4.8 / GPT-5.5 / GLM-5.2) => model_card weight. The prose
+  #     "headliner" sections (kernel optimization, GPU compiler, game dev, chip design, knowledge-work
+  #     cases) are qualitative demos with NO benchmark scores, so they yield no scored citations.
+  #     Server-side render is readable via curl (unlike prior JS-only Kimi pages). ---
+  - id: kimi-k3__model_card
+    lab: moonshot
+    model: "Kimi K3"
+    container: blog
+    default_weight_class: model_card
+    url: "https://www.kimi.com/blog/kimi-k3"
+    pub_date: "2026-07-16"

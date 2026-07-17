@@ -9,6 +9,13 @@ benchmarks:
     domain: knowledge
     aliases: ["AA-LCR"]
     notes: "Artificial Analysis Long-Context Reasoning. Merged adapter (adapters/aa-lcr), not yet in registry.json."
+  - canonical: aa-briefcase
+    type: agentic
+    domain: professional
+    aliases: ["AA-Briefcase", "Artificial Analysis Briefcase"]
+    notes: "Artificial Analysis 'Briefcase' agentic knowledge-work eval, reported as an Elo score
+      (unit=other). First cited on the Kimi K3 blog comparison table (scores cited from
+      artificialanalysis.ai, alongside GDPval-AA v2). No Harbor adapter known."
   - canonical: aa-omniscience
     type: chat
     domain: knowledge
@@ -117,7 +124,7 @@ benchmarks:
   - canonical: charxiv
     type: chat
     domain: multimodal
-    aliases: ["CharXiv", "CharXiv Reasoning"]
+    aliases: ["CharXiv", "CharXiv Reasoning", "CharXiv (RQ)", "CharXiv RQ"]
     notes: "'CharXiv Reasoning' (RQ split) folded in; == the 'CharXiv' RQ figure cited by Moonshot."
   - canonical: chinese-simpleqa
     type: chat
@@ -175,6 +182,14 @@ benchmarks:
     type: chat
     domain: safety
     aliases: ["DeceptionBench"]
+  - canonical: deck-bench
+    type: agentic
+    domain: professional
+    aliases: ["DECK-Bench", "DECK Bench"]
+    vendor_proprietary: true
+    notes: "Kimi INTERNAL agentic benchmark (marked '(Internal)' on the Kimi K3 blog table); grouped
+      under Agentic/knowledge-work. Likely slide/deck-generation (Kimi Slides). No public spec or
+      Harbor adapter; type/domain tentative — refine when a spec surfaces."
   - canonical: deepsearchqa
     type: agentic
     domain: knowledge
@@ -282,7 +297,7 @@ benchmarks:
   - canonical: humanitys-last-exam
     type: chat
     domain: knowledge
-    aliases: ["HLE", "Humanity's Last Exam", "Humanity’s Last Exam"]
+    aliases: ["HLE", "Humanity's Last Exam", "Humanity’s Last Exam", "HLE-Full"]
     notes: "Harbor ADAPTER merged + parity-validated (adapters/hle) but NOT yet in registry.json (registry-only check mislabeled it not_in_harbor). with-tools vs no-tools split; grader-model restatements common (e.g. Sonnet 4.6 HLE restated 34.6->46.8)."
   - canonical: ifbench
     type: chat
@@ -401,7 +416,7 @@ benchmarks:
   - canonical: officeqa-pro
     type: agentic
     domain: professional
-    aliases: ["OfficeQA Pro"]
+    aliases: ["OfficeQA Pro", "Office QA Pro"]
     notes: "Databricks harder OfficeQA variant (document reasoning); cited on the Opus 4.7 blog. Distinct from officeqa."
   - canonical: ojbench
     type: chat
@@ -430,6 +445,13 @@ benchmarks:
     type: agentic
     domain: science
     aliases: ["PaperBench"]
+  - canonical: perceptionbench
+    type: chat
+    domain: multimodal
+    aliases: ["PerceptionBench"]
+    vendor_proprietary: true
+    notes: "Kimi in-house benchmark focused on atomic visual-perception capabilities (per the Kimi K3
+      blog footnote). First cited on the Kimi K3 blog table. No public spec or Harbor adapter."
   - canonical: petri
     type: agentic
     domain: safety
@@ -437,7 +459,7 @@ benchmarks:
   - canonical: programbench
     type: agentic
     domain: coding
-    aliases: ["ProgramBench"]
+    aliases: ["ProgramBench", "Program Bench"]
   - canonical: propensitybench
     type: chat
     domain: safety
@@ -494,8 +516,10 @@ benchmarks:
   - canonical: spreadsheetbench
     type: agentic
     domain: coding
-    aliases: ["SpreadSheetBench", "SpreadSheetBench-v1"]
-    notes: "RESOLVED: cited 'SpreadSheetBench' == Harbor spreadsheetbench-verified (verified_400 split + 11 correctness fixes). Same benchmark."
+    aliases: ["SpreadSheetBench", "SpreadSheetBench-v1", "SpreadsheetBench 2"]
+    notes: "RESOLVED: cited 'SpreadSheetBench' == Harbor spreadsheetbench-verified (verified_400 split + 11 correctness fixes). Same benchmark.
+      TENTATIVE: Kimi K3 card cites 'SpreadsheetBench 2' — folded into this canonical as a version bump (version recorded in model_config),
+      mirroring how terminal-bench 2.1 / gdpval-aa v2 are handled; split into a distinct entry if v2 proves to be a materially different benchmark (review)."
   - canonical: strongreject
     type: chat
     domain: safety
@@ -580,11 +604,11 @@ benchmarks:
   - canonical: worldvqa
     type: chat
     domain: multimodal
-    aliases: ["WorldVQA"]
+    aliases: ["WorldVQA", "WorldVQA ForceAnswer"]
   - canonical: zerobench
     type: chat
     domain: multimodal
-    aliases: ["ZeroBench"]
+    aliases: ["ZeroBench", "ZeroBench_main", "ZeroBench main"]
   # --- manual backfill (2026-07-05): benchmarks newly cited in the backfill batch ---
   - canonical: amc
     type: chat
@@ -639,7 +663,7 @@ benchmarks:
   - canonical: kimi-code-bench
     type: agentic
     domain: coding
-    aliases: ["Kimi Code Bench v2", "Kimi Code Bench"]
+    aliases: ["Kimi Code Bench v2", "Kimi Code Bench", "Kimi Code Bench 2.0"]
   - canonical: latchbio
     type: agentic
     domain: science
@@ -840,7 +864,7 @@ benchmarks:
   - canonical: posttrainbench
     type: agentic
     domain: coding
-    aliases: ["PostTrainBench", "PostTrainBench Lite", "PostTrainBench-Lite"]
+    aliases: ["PostTrainBench", "PostTrainBench Lite", "PostTrainBench-Lite", "PostTrain Bench"]
     notes: "NEW (2026): long-horizon post-training engineering benchmark (posttrainbench.com); GLM-5.2 headliner.
       'PostTrainBench Lite' (GPT-5.6; 12 combos, 5h budget) folded in as an alias (Lite = config, captured in model_config)."
   - canonical: swe-marathon
@@ -1024,7 +1048,7 @@ benchmarks:
   - canonical: jobbench
     type: agentic
     domain: professional
-    aliases: ["JobBench"]
+    aliases: ["JobBench", "Job Bench"]
     notes: "65 professional tasks across 35 white-collar occupations; results from the JobBench authors. Muse Spark 1.1 blog/report."
   - canonical: vibe-code-bench
     type: agentic
