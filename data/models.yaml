@@ -1,12 +1,23 @@
 _generated_by: scripts/gen_models.py
-_generated_at: '2026-07-14'
+_generated_at: '2026-07-17'
 _note: 'MODEL axis for the heatmap. Derived from data/citations.jsonl; release_date is the earliest source-doc
   pub_date (proxy). Override display/release_date in data/models.overrides.yaml. X-axis order: most recent
   on the LEFT; undated models are grouped at the end until a real date is backfilled.'
 schema_version: 1
-count: 40
+count: 42
 undated_needs_backfill: []
 models:
+- id: kimi-k3
+  model: Kimi K3
+  display: Kimi K3
+  company: moonshot
+  company_display: Moonshot AI
+  company_category: open_weight_leader
+  release_date: '2026-07-16'
+  release_date_source: derived:min_pub_date
+  citations: 35
+  docs:
+  - https://www.kimi.com/blog/kimi-k3
 - id: gpt-5-6-sol
   model: GPT-5.6 Sol
   display: GPT-5.6 Sol
@@ -114,6 +125,17 @@ models:
   docs:
   - https://www-cdn.anthropic.com/d00db56fa754a1b115b6dd7cb2e3c342ee809620.pdf
   - https://www.anthropic.com/news/claude-fable-5-mythos-5
+- id: gpt-rosalind-5-5
+  model: GPT-Rosalind-5.5
+  display: GPT-Rosalind-5.5
+  company: openai
+  company_display: OpenAI
+  company_category: big5
+  release_date: '2026-06-03'
+  release_date_source: derived:min_pub_date
+  citations: 10
+  docs:
+  - https://deploymentsafety.openai.com/gpt-rosalind-5-5/gpt-rosalind-5-5.pdf
 - id: claude-opus-4-8
   model: Claude Opus 4.8
   display: Opus 4.8
