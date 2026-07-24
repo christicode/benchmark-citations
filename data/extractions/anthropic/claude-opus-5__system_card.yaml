@@ -1,0 +1,67 @@
+# claude-opus-5__system_card
+# Source: Claude Opus 5 System Card (Anthropic, 2026-07-24), Table 8.1.A "Capability evaluation
+# summary" (Opus 5 column). Standard config: adaptive thinking at max effort, default sampling,
+# averaged over 5 trials; context <= 1M tokens. Best per row bolded; competitor figures from the
+# respective developers' published cards/leaderboards.
+# NB: the card additionally reports ~30 per-domain benchmarks in S8.2-8.17 and 5 cyber evals
+# (ExploitBench/OSS-Fuzz/Firefox 147/CyScenarioBench/ExploitGym); consistent with prior system-card
+# extractions we capture the S8.1 capability summary table here.
+doc: claude-opus-5__system_card
+mentions:
+  - raw: "SWE-bench Pro"
+    value: 79.2
+    unit: percent
+  - raw: "SWE-bench Multilingual"
+    value: 89.5
+    unit: percent
+  - raw: "SWE-bench Multimodal"
+    value: 59.4
+    unit: percent
+  - raw: "DeepSWE v1.1"
+    value: 68.8
+    unit: percent
+    methodology: ["GPT-5.6 Sol 72.7 (row winner)"]
+  - raw: "FrontierCode 1.1 (Main)"
+    value: 53.4
+    unit: percent
+  - raw: "FrontierBench v0.1"
+    value: 43.3
+    unit: percent
+    methodology: ["GPT-5.6 Sol figure (37.5) is via Codex"]
+  - raw: "BrowseComp"
+    value: 90.8
+    unit: percent
+  - raw: "Humanity's Last Exam"
+    value: 56.3
+    unit: percent
+    model_config: "no tools"
+    methodology: ["with tools 64.7"]
+  - raw: "OSWorld 2.0"
+    value: 70.6
+    unit: percent
+  - raw: "HealthBench Professional"
+    value: 59.8
+    unit: percent
+    methodology: ["Fable 5 column shows Mythos 5 result (66.0)"]
+  - raw: "GDPval-AA v2"
+    value: 1861
+    unit: elo
+  - raw: "AA-Briefcase"
+    value: 1720
+    unit: elo
+  - raw: "AutomationBench"
+    value: 26.0
+    unit: percent
+  - raw: "ARC-AGI-1"
+    value: 97.5
+    unit: percent
+    methodology: ["GPT-5.6 Sol 97.5 (xhigh)"]
+  - raw: "ARC-AGI-2"
+    value: 90.4
+    unit: percent
+    methodology: ["GPT-5.6 Sol 92.5 (row winner); Opus 4.8 72.1"]
+  - raw: "ARC-AGI-3"
+    value: 30.2
+    unit: percent
+    model_config: "high"
+    methodology: ["Opus 4.8 1.5 / GPT-5.6 Sol 7.8"]

@@ -1,0 +1,94 @@
+# claude-opus-5__blog_headliner
+# Source: https://www.anthropic.com/news/claude-opus-5 (Anthropic, 2026-07-24)
+# The blog carries a model-card comparison TABLE (image, READ by vision: Opus 5 vs Fable 5 /
+# Opus 4.8 / GPT-5.6 Sol) => model_card (doc default). Benchmarks that ALSO have their own
+# solo effort/per-domain chart in the post are marked weight_class: blog_headliner (higher class;
+# weight is MAX per doc). CursorBench / AA Coding Agent Index / DeepSearchQA are solo charts with
+# no single legible number => score_pending. BrowseComp is table-only (absent from blog prose).
+doc: claude-opus-5__blog_headliner
+mentions:
+  # --- solo charts in the post -> blog_headliner (override) ---
+  - raw: "Frontier-Bench v0.1"
+    weight_class: blog_headliner
+    value: 43.3
+    unit: percent
+    model_config: "Claude Opus 5; agentic terminal coding"
+    methodology:
+      - "effort plot; mini-SWE-agent harness on a GKE backend, mean reward over 5 attempts/task"
+      - "Opus 4.8 was fallback on safety-classifier refusals for Opus 5 and Fable 5"
+      - "Fable 5 33.7 / Opus 4.8 21.1 / GPT-5.6 Sol 34.4"
+  - raw: "GDPval-AA v2"
+    weight_class: blog_headliner
+    value: 1861
+    unit: elo
+    model_config: "Claude Opus 5; knowledge work"
+    methodology: ["Fable 5 1747 / Opus 4.8 1593 / GPT-5.6 Sol 1736"]
+  - raw: "ARC-AGI-3"
+    weight_class: blog_headliner
+    value: 30.2
+    unit: percent
+    model_config: "Claude Opus 5; novel problem-solving"
+    methodology: ["~3x next-best; Opus 4.8 1.5 / GPT-5.6 Sol 7.8 / Fable 5 n/a"]
+  - raw: "OSWorld 2.0"
+    weight_class: blog_headliner
+    value: 70.6
+    unit: percent
+    model_config: "Claude Opus 5; computer use"
+    methodology: ["beats Fable 5 peak (66.1) at ~1/3 cost; Opus 4.8 55.7 / GPT-5.6 Sol 62.6"]
+  - raw: "Humanity's Last Exam"
+    weight_class: blog_headliner
+    value: 56.3
+    unit: percent
+    model_config: "Claude Opus 5; no tools"
+    methodology: ["with tools 64.7; Fable 5 56.5/63.9 / Opus 4.8 49.8/57.9"]
+  - raw: "AutomationBench"
+    weight_class: blog_headliner
+    value: 26.0
+    unit: percent
+    model_config: "Claude Opus 5; business workflows (Zapier)"
+    methodology: ["~1.5x next-best at same cost/task; Fable 5 17.4 / Opus 4.8 17.0 / GPT-5.6 Sol 18.1"]
+  - raw: "CursorBench"
+    weight_class: blog_headliner
+    model_config: "Claude Opus 5; CursorBench 3.2 (Cursor)"
+    methodology:
+      - "effort plot, no single headline number -> score_pending"
+      - "at max effort within 0.5% of Fable 5 peak at ~half cost/task; partner quote: 'just under Fable 5'"
+  - raw: "AA Coding Agent Index"
+    weight_class: blog_headliner
+    model_config: "Claude Opus 5 (Artificial Analysis)"
+    methodology: ["effort plot, no single headline number -> score_pending"]
+  - raw: "DeepSearchQA"
+    weight_class: blog_headliner
+    model_config: "Claude Opus 5"
+    methodology: ["own chart in the post; value not legible -> score_pending"]
+  # --- comparison-table only -> model_card (doc default) ---
+  - raw: "BrowseComp"
+    value: 90.8
+    unit: percent
+    model_config: "Claude Opus 5; agentic search"
+    methodology: ["table-only (absent from blog prose); Fable 5 87.4 / Opus 4.8 84.3 / GPT-5.6 Sol 90.4"]
+  - raw: "DeepSWE v1.1"
+    value: 68.8
+    unit: percent
+    model_config: "Claude Opus 5; agentic coding"
+    methodology: ["row winner GPT-5.6 Sol 72.7; Fable 5 69.7 / Opus 4.8 59.0"]
+  - raw: "FrontierCode 1.1 (Main)"
+    value: 53.4
+    unit: percent
+    model_config: "Claude Opus 5; agentic coding (Cognition)"
+    methodology: ["Fable 5 53.5 / Opus 4.8 46.5 / GPT-5.6 Sol 47.5"]
+  - raw: "Legal Agent Benchmark"
+    value: 11.7
+    unit: percent
+    model_config: "Claude Opus 5; Held-out (Harvey)"
+    methodology: ["Fable 5 13.3 / Opus 4.8 10.4 / GPT-5.6 Sol 2.5"]
+  - raw: "HealthBench Professional"
+    value: 59.8
+    unit: percent
+    model_config: "Claude Opus 5"
+    methodology: ["Fable 5 column shows Mythos 5 66.0; Opus 4.8 57.4 / GPT-5.6 Sol 60.5"]
+  - raw: "BioMysteryBench"
+    value: 49.4
+    unit: percent
+    model_config: "Claude Opus 5; hard split"
+    methodology: ["human-solved split 90.1; Fable 5 col = Mythos 5 (46.5 / 89.0); Opus 4.8 42.4 / 88.5"]

@@ -1,0 +1,30 @@
+# gemini-3-6-flash__blog_headliner
+# Source: https://blog.google/.../gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/ (Google, 2026-07-21)
+# 3.6 Flash headline stats stated in prose (each vs Gemini 3.5 Flash). Multi-model post; ONLY the
+# 3.6 Flash citations are recorded here (3.5 Flash-Lite / 3.5 Flash Cyber are separate models).
+doc: gemini-3-6-flash__blog_headliner
+mentions:
+  - raw: "DeepSWE"
+    value: 49
+    unit: percent
+    model_config: "Gemini 3.6 Flash"
+    methodology:
+      - "3.5 Flash 37 for reference; token savings up to 65% cited on this eval"
+  - raw: "MLE-Bench"
+    value: 63.9
+    unit: percent
+    model_config: "Gemini 3.6 Flash; ML research"
+    methodology:
+      - "3.5 Flash 49.7 for reference"
+  - raw: "OSWorld-Verified"
+    value: 83.0
+    unit: percent
+    model_config: "Gemini 3.6 Flash; computer use (built-in client-side tool)"
+    methodology:
+      - "3.5 Flash 78.4 for reference"
+  - raw: "GDPval-AA v2"
+    value: 1421
+    unit: elo
+    model_config: "Gemini 3.6 Flash; knowledge work"
+    methodology:
+      - "3.5 Flash 1349 for reference"

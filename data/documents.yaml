@@ -523,3 +523,36 @@ documents:
     default_weight_class: model_card
     url: "https://www.kimi.com/blog/kimi-k3"
     pub_date: "2026-07-16"
+  # --- 2026-07-24 daily run: human-promoted Gemini 3.6 Flash + Claude Opus 5.
+  #     Gemini blog = per-model headline stats (blog_headliner) + separate model-card PDF (the
+  #     6-competitor results table, values are an IMAGE). Opus 5 blog carries the model-card
+  #     comparison table (chart IMAGE, read by vision) with solo per-domain/effort charts
+  #     (blog_headliner overrides); system card = S8.1 capability summary table. ---
+  - id: gemini-3-6-flash__blog_headliner
+    lab: google_deepmind
+    model: "Gemini 3.6 Flash"
+    container: blog
+    default_weight_class: blog_headliner
+    url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/"
+    pub_date: "2026-07-21"
+  - id: gemini-3-6-flash__model_card
+    lab: google_deepmind
+    model: "Gemini 3.6 Flash"
+    container: pdf
+    default_weight_class: model_card
+    url: "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-6-Flash-Model-Card.pdf"
+    pub_date: "2026-07-21"
+  - id: claude-opus-5__blog_headliner
+    lab: anthropic
+    model: "Claude Opus 5"
+    container: blog
+    default_weight_class: model_card
+    url: "https://www.anthropic.com/news/claude-opus-5"
+    pub_date: "2026-07-24"
+  - id: claude-opus-5__system_card
+    lab: anthropic
+    model: "Claude Opus 5"
+    container: pdf
+    default_weight_class: system_card
+    url: "https://www.anthropic.com/claude-opus-5-system-card"
+    pub_date: "2026-07-24"

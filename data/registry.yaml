@@ -232,12 +232,14 @@ benchmarks:
   - canonical: frontierbench
     type: agentic
     domain: coding
-    aliases: ["FrontierBench"]
-    notes: "!= FrontierCode (frontiercode) — Anthropic Fable-blog partner eval."
+    aliases: ["FrontierBench", "FrontierBench v0.1", "Frontier-Bench", "Frontier-Bench v0.1"]
+    notes: "!= FrontierCode (frontiercode) — Anthropic Fable-blog partner eval. Cognition; successor
+      to Terminal-Bench 2.1. Opus 5 blog hyphenates ('Frontier-Bench v0.1'); system card writes
+      'FrontierBench v0.1' — same benchmark, folded."
   - canonical: frontiercode
     type: agentic
     domain: coding
-    aliases: ["Cognition FrontierCode", "FrontierCode"]
+    aliases: ["Cognition FrontierCode", "FrontierCode", "FrontierCode 1.1", "FrontierCode 1.1 (Main)", "FrontierCode v1.1, Main"]
     vendor_proprietary: true
   - canonical: frontiermath
     type: chat
@@ -1377,3 +1379,17 @@ benchmarks:
     domain: health
     aliases: ["SLAKE"]
     notes: "Medical (radiology) visual QA. Qwen3.5 VL card."
+  # --- 2026-07-24: NEW benchmarks first cited by Gemini 3.6 Flash + Claude Opus 5 ---
+  - canonical: aa-coding-agent-index
+    type: agentic
+    domain: coding
+    aliases: ["AA Coding Agent Index", "Artificial Analysis Coding Agent Index"]
+    notes: "Artificial Analysis aggregate coding-agent index; cited as a cost-vs-score effort plot on
+      the Claude Opus 5 blog. Aggregate index (not a single-task solve rate). No Harbor adapter known."
+  - canonical: gdm-mrcr
+    type: chat
+    domain: knowledge
+    aliases: ["GDM-MRCR", "GDM-MRCR v2"]
+    collision: "DISTINCT from mrcr (OpenAI MRCR). GDM-MRCR is Google DeepMind's multi-round
+      coreference-resolution long-context eval; kept separate from the OpenAI variant (no confirmed
+      identity between the two) — do NOT merge. Reported with 8-needle 128k-average and 1M-pointwise splits."
