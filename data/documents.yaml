@@ -588,3 +588,21 @@ documents:
     default_weight_class: model_card
     url: "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813"
     pub_date: "2026-08-13"
+  # --- 2026-08-13 run (2nd batch, human-provided URLs): Meta Muse Glimmer + Muse Spark 1.2.
+  #     Muse Glimmer = 30B open agentic model; full comparison table on HF (same table shown as an
+  #     image on the research.meta.ai blog). Muse Spark 1.2 = proprietary Meta Model API model; its
+  #     4 benchmarks are chart IMAGES on the JS-rendered dev page (read via headless render + vision). ---
+  - id: muse-glimmer__model_card
+    lab: meta
+    model: "Muse Glimmer"
+    container: hf_readme
+    default_weight_class: model_card
+    url: "https://huggingface.co/meta-models/Muse-Glimmer-30B"
+    pub_date: "2026-08-10"
+  - id: muse-spark-1-2__blog_headliner
+    lab: meta
+    model: "Muse Spark 1.2"
+    container: blog
+    default_weight_class: blog_headliner   # 4 dedicated per-benchmark chart images
+    url: "https://developer.meta.com/ai/models/muse-spark/"
+    pub_date: null                         # dev page carries no publish date; cited by Gemini 3.7 Flash card (<= 2026-08-13)

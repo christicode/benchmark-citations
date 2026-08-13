@@ -1,0 +1,35 @@
+# muse-spark-1-2__blog_headliner
+# Source: https://developer.meta.com/ai/models/muse-spark/ (Muse Spark 1.2 model page; JS-rendered).
+# Benchmarks are published as FOUR dedicated bar-chart images (headliners) — read via headless
+# render + vision (curl/static HTML only expose the promo og:image). Each chart is one benchmark
+# => default weight_class = blog_headliner. Citing model = Muse Spark 1.2 (proprietary Meta Model
+# API model; muse-spark-1.2 tier, 1M context). Muse Spark 1.2's own harness label = "Muse Code".
+# Only these 4 benchmarks are published on the page (no full comparison table / no HF weights).
+# TerminalBench 2.1 = 82.9 (2.1-only; not 3.0). Confirms the 82.9 competitor value on Gemini 3.7's card.
+doc: muse-spark-1-2__blog_headliner
+mentions:
+  - raw: "Terminal-Bench 2.1"
+    value: 82.9
+    unit: percent
+    model_config: "Muse Spark 1.2; Muse Code harness"
+    methodology:
+      - "chart (bar): Opus 5 max 86.7 (Claude Code) / GPT-5.6 Terra max 81.8 (Codex) / Grok 4.5 high 81.6 (Grok Build) / Gemini 3.6 Flash high 78.9 (Antigravity CLI) / Muse Spark 1.1 76.2 (mini-swe-agent)"
+  - raw: "DeepSWE 1.1"
+    value: 59.3
+    unit: percent
+    model_config: "Muse Spark 1.2; Muse Code harness"
+    methodology:
+      - "chart (bar): Opus 5 max 65.0 (Claude Code) / GPT-5.6 Terra max 64.8 (Codex) / Grok 4.5 high 56.6 / Muse Spark 1.1 53.0 / Gemini 3.6 Flash high 40.0"
+  - raw: "Meta Internal Coding Bench"
+    value: 70.6
+    unit: percent
+    model_config: "Muse Spark 1.2"
+    methodology:
+      - "chart (bar): Opus 5 max 79.4 / Muse Spark 1.1 68.3 / GPT-5.6 Terra max 65.4 / Gemini 3.6 Flash high 63.9"
+  - raw: "GDPVal-AA v2"
+    value: 1631
+    unit: elo
+    model_config: "Muse Spark 1.2; knowledge work"
+    methodology:
+      - "chart (bar): Opus 5 max 1852 / GPT-5.6 Terra max 1577 / Grok 4.5 high 1526 / Gemini 3.6 Flash high 1423 / Muse Spark 1.1 1371"
+      - "Gemini 3.7 Flash card lists Muse Spark 1.2 GDPVal-AA v2 as 1628 (harness/rounding diff)"

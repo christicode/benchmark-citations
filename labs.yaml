@@ -83,12 +83,22 @@ labs:
     source_index_urls:
       - https://ai.meta.com/blog/
       - https://ai.meta.com/research/publications/   # Safety & Preparedness Reports
+      - https://research.meta.ai/blog/               # MSL model launches (e.g. Muse Glimmer)
+      - https://developer.meta.com/ai/models/        # Meta Model API product pages (e.g. Muse Spark 1.2)
+      - https://huggingface.co/meta-models           # open Meta weights (Muse Glimmer-30B, ...)
     candidate_patterns:
       - "ai\\.meta\\.com/blog/[a-z0-9-]*(muse|llama|superintelligence|preparedness)"
+      - "research\\.meta\\.ai/blog/[a-z0-9-]*(muse|glimmer|spark|llama)"
+      - "developer\\.meta\\.com/ai/models/(muse-[a-z0-9-]+|llama[a-z0-9-]*)/?$"
+      - "huggingface\\.co/meta-models/Muse-[A-Za-z]+-[0-9]+B$"   # flagship open weights (deny-suffixes drop -GGUF/-assistant/-ExecuTorch)
     notes: >-
-      In-window first-party doc is the Muse Spark 'Safety & Preparedness Report'
-      (NOT titled 'System Card' but is 1st-party and cites benchmarks). Llama 4 (Apr
-      2025) is pre-window. Muse Spark Contemplating is a follow-up report.
+      Meta docs are SPREAD across domains — miss any and you miss the model: ai.meta.com/blog
+      (Muse Spark 1.0/1.1 + Safety & Preparedness Reports), research.meta.ai/blog (MSL launches,
+      e.g. Muse Glimmer — open, HF card at huggingface.co/meta-models/Muse-Glimmer-30B), and
+      developer.meta.com/ai/models (Meta Model API pages, e.g. Muse Spark 1.2 — benchmarks are
+      JS-rendered chart IMAGES needing a headless render + vision). Muse Spark 1.2 was first seen
+      only as a competitor column on Gemini 3.7 Flash's card; added these feeds so it's discoverable
+      first-party. Llama 4 (Apr 2025) is pre-window.
 
   - id: xai
     display_name: xAI

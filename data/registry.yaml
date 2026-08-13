@@ -193,7 +193,7 @@ benchmarks:
   - canonical: deepsearchqa
     type: agentic
     domain: knowledge
-    aliases: ["DeepSearchQA"]
+    aliases: ["DeepSearchQA", "DeepSearch QA"]
   - canonical: draco
     type: agentic
     domain: knowledge
@@ -764,7 +764,7 @@ benchmarks:
   - canonical: tau3-bench
     type: agentic
     domain: computer-use
-    aliases: ["tau3-bench", "Tau3 Bench", "Tau3-bench"]
+    aliases: ["tau3-bench", "Tau3 Bench", "Tau3-bench", "τ3-Banking", "Tau3-Banking", "tau3 banking"]
   # --- manual backfill (agent run, current): benchmarks newly cited in the second-source
   #     backfill batch. Each is a clearly-named, distinct benchmark (no risk of a wrong MERGE);
   #     type/domain classified from the citing-card context. See GAPS/report for the 3 names
@@ -1159,7 +1159,7 @@ benchmarks:
   - canonical: agentdojo
     type: agentic
     domain: safety
-    aliases: ["AgentDojo"]
+    aliases: ["AgentDojo", "Siren AgentDojo"]
     notes: "Prompt-injection robustness benchmark for tool-using agents (pass@1 ASR); Muse Spark 1.1 report §3.2.2.1."
   - canonical: grayswan-art
     type: agentic
@@ -1507,3 +1507,20 @@ benchmarks:
     aliases: ["QwenSVGBench"]
     vendor_proprietary: true
     notes: "Qwen in-house SVG-codegen eval, BT/Elo (unit=elo), bilingual EN/CN. Qwen3.8 card. Single-vendor."
+  # --- 2026-08-13 (2nd batch): NEW benchmarks first cited by Muse Glimmer / Muse Spark 1.2. ---
+  - canonical: gaia2
+    type: agentic
+    domain: knowledge
+    aliases: ["Gaia2", "GAIA2", "GAIA v2", "GAIA-2"]
+    notes: "GAIA v2 general-assistant agentic eval. Muse Glimmer card. Distinct version from GAIA (v1)."
+  - canonical: beam128k
+    type: chat
+    domain: knowledge
+    aliases: ["Beam128K", "Beam 128K", "Beam-128K"]
+    notes: "Long-context (128k) eval. Muse Glimmer card."
+  - canonical: ci-memories
+    type: agentic
+    domain: safety
+    aliases: ["CI Memories", "Contextual Integrity Memories"]
+    notes: "Privacy/contextual-integrity memory eval; reports Violation% (LOWER is safer) + Coverage.
+      Muse Glimmer card. Not in Harbor."

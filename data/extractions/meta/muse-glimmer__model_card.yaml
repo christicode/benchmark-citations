@@ -1,0 +1,167 @@
+# muse-glimmer__model_card
+# Source: https://huggingface.co/meta-models/Muse-Glimmer-30B (HF README, pub 2026-08-10).
+# Muse Glimmer = MSL's 30B open (Apache-2.0) on-device agentic model. The research.meta.ai blog
+# shows this SAME comparison table as an image; HF README is the readable authoritative source.
+# TWO tables:
+#  T1 columns: Muse Glimmer-30B (High Reasoning) | Gemma4-31B (Thinking) | Qwen3.6-27B (Thinking)
+#  T2 columns: Muse Glimmer-30B | Gemma4-31B | Qwen3.6-27B | Kimi K3
+# Citing model = Muse Glimmer-30B (first data column). default weight_class = model_card.
+# TerminalBench 2.1 (with terminus2) = 51.7 (2.1-only; not 3.0). Config parentheticals -> model_config.
+doc: muse-glimmer__model_card
+mentions:
+  # ---- T1: General Agentic ----
+  - raw: "MCP Atlas"
+    value: 75.5
+    unit: percent
+    model_config: "Muse Glimmer-30B High Reasoning; Public split"
+    methodology: ["row winner; Gemma4-31B 54.2 / Qwen3.6-27B 62.5"]
+  - raw: "DeepSearch QA"
+    value: 74.6
+    unit: percent
+    model_config: "Muse Glimmer-30B High Reasoning"
+    methodology: ["row winner; Gemma4-31B 61.7 / Qwen3.6-27B 71.1"]
+  - raw: "τ3-Banking"
+    value: 23.5
+    unit: percent
+    model_config: "Muse Glimmer-30B High Reasoning"
+    methodology: ["row winner; Gemma4-31B 15.1 / Qwen3.6-27B 16.7"]
+  - raw: "WildClawBench"
+    value: 47.6
+    unit: percent
+    model_config: "Muse Glimmer-30B High Reasoning"
+    methodology: ["row winner; Gemma4-31B 37.6 / Qwen3.6-27B 43.2"]
+  - raw: "GDPVal-AA v2"
+    value: 953
+    unit: elo
+    model_config: "Muse Glimmer-30B High Reasoning; knowledge work"
+    methodology: ["Gemma4-31B 811 / Qwen3.6-27B 1141 (row winner)"]
+  - raw: "Gaia2"
+    value: 43.3
+    unit: percent
+    model_config: "Muse Glimmer-30B High Reasoning"
+    methodology: ["row winner; Gemma4-31B 36.4 / Qwen3.6-27B 40.0"]
+  - raw: "SkillsBench"
+    value: 44.3
+    unit: percent
+    model_config: "Muse Glimmer-30B High Reasoning; with skills"
+    methodology: ["Gemma4-31B 32.4 / Qwen3.6-27B 46.6 (row winner)"]
+  - raw: "OSWorld-Verified"
+    value: 65.9
+    unit: percent
+    model_config: "Muse Glimmer-30B High Reasoning; agentic computer use"
+    methodology: ["Gemma4-31B 58.5 / Qwen3.6-27B 75.6 (row winner)"]
+  # ---- T1: Agentic Coding ----
+  - raw: "SWE-Bench Pro"
+    value: 51.2
+    unit: percent
+    model_config: "Muse Glimmer-30B High Reasoning"
+    methodology: ["row winner; Gemma4-31B 36.9 / Qwen3.6-27B 50.2"]
+  - raw: "SWE-Bench Verified"
+    value: 76.0
+    unit: percent
+    model_config: "Muse Glimmer-30B High Reasoning"
+    methodology: ["Gemma4-31B 66.6 / Qwen3.6-27B 77.2 (row winner)"]
+  - raw: "TerminalBench 2.1"
+    value: 51.7
+    unit: percent
+    model_config: "Muse Glimmer-30B High Reasoning; with terminus2 harness"
+    methodology: ["2.1-only (not 3.0); Gemma4-31B 43.4 / Qwen3.6-27B 60.7 (row winner)"]
+  - raw: "SciCode"
+    value: 43.6
+    unit: percent
+    model_config: "Muse Glimmer-30B High Reasoning"
+    methodology: ["row winner; Gemma4-31B 43.4 / Qwen3.6-27B 39.8"]
+  # ---- T1: Multimodal ----
+  - raw: "CharXiv Reasoning"
+    value: 78.8
+    unit: percent
+    model_config: "Muse Glimmer-30B High Reasoning"
+    methodology: ["row winner; Gemma4-31B 77.7 / Qwen3.6-27B 78.4"]
+  - raw: "ScreenSpot Pro"
+    value: 75.4
+    unit: percent
+    model_config: "Muse Glimmer-30B High Reasoning"
+    methodology: ["Gemma4-31B 75.9 / Qwen3.6-27B 76.1 (row winner)"]
+  - raw: "OmniDocBench"
+    value: 75.8
+    unit: percent
+    model_config: "Muse Glimmer-30B High Reasoning; v1.5"
+    methodology: ["Gemma4-31B 72.5 / Qwen3.6-27B 77.8 (row winner)"]
+  - raw: "MMMU Pro"
+    value: 74
+    unit: percent
+    model_config: "Muse Glimmer-30B High Reasoning"
+    methodology: ["Gemma4-31B 73 / Qwen3.6-27B 75 (row winner)"]
+  # ---- T1: Security and Privacy (↓ lower is better on the harm metric) ----
+  - raw: "CI Memories"
+    value: 26.4
+    unit: percent
+    model_config: "Muse Glimmer-30B; Violation% (lower=better) 26.4 / Coverage 64.8"
+    methodology: ["Gemma4-31B violation 12.1 (best) / coverage 53.0; Qwen3.6-27B violation 53.4 / coverage 66.9"]
+  - raw: "Siren AgentDojo"
+    value: 28.4
+    unit: percent
+    model_config: "Muse Glimmer-30B; Attack Success Rate (lower=better) 28.4 / Utility 94.2 (best)"
+    methodology: ["Gemma4-31B ASR 25.6 (best) / utility 90.8; Qwen3.6-27B ASR 40.3 / utility 92.7"]
+  # ---- T1: General Capabilities and Reasoning ----
+  - raw: "IFBench"
+    value: 77.0
+    unit: percent
+    model_config: "Muse Glimmer-30B High Reasoning"
+    methodology: ["row winner; Gemma4-31B 76.0 / Qwen3.6-27B 70.8"]
+  - raw: "AIME 2026"
+    value: 94.7
+    unit: percent
+    model_config: "Muse Glimmer-30B High Reasoning"
+    methodology: ["row winner; Gemma4-31B 89.2 / Qwen3.6-27B 94.1"]
+  - raw: "GPQA Diamond"
+    value: 83.5
+    unit: percent
+    model_config: "Muse Glimmer-30B High Reasoning; AA"
+    methodology: ["Gemma4-31B 85.7 (row winner) / Qwen3.6-27B 84.2"]
+  - raw: "HLE"
+    value: 22.0
+    unit: percent
+    model_config: "Muse Glimmer-30B High Reasoning; Text, no tools (AA)"
+    methodology: ["Gemma4-31B 23.6 (row winner) / Qwen3.6-27B 23.1"]
+  - raw: "AA-LCR"
+    value: 80.0
+    unit: percent
+    model_config: "Muse Glimmer-30B High Reasoning"
+    methodology: ["row winner; Gemma4-31B 68.3 / Qwen3.6-27B 73.3"]
+  - raw: "Beam128K"
+    value: 65.1
+    unit: percent
+    model_config: "Muse Glimmer-30B High Reasoning; long-context"
+    methodology: ["row winner; Gemma4-31B 58.2 / Qwen3.6-27B 63.0"]
+  # ---- T2: safety / bio (competitors incl. Kimi K3) ----
+  - raw: "MBCT"
+    value: 41.5
+    unit: percent
+    model_config: "Muse Glimmer-30B"
+    methodology: ["Gemma4-31B 50.6 / Qwen3.6-27B 45.9 / Kimi K3 58.9"]
+  - raw: "HPCT"
+    value: 52.3
+    unit: percent
+    model_config: "Muse Glimmer-30B"
+    methodology: ["Gemma4-31B 54.0 / Qwen3.6-27B 48.7 / Kimi K3 59.6"]
+  - raw: "VCT"
+    value: 37.0
+    unit: percent
+    model_config: "Muse Glimmer-30B"
+    methodology: ["Gemma4-31B 43.5 / Qwen3.6-27B 33.7 / Kimi K3 48.0"]
+  - raw: "WMDP (Bio)"
+    value: 86.5
+    unit: percent
+    model_config: "Muse Glimmer-30B"
+    methodology: ["row winner among peers; Gemma4-31B 85.9 / Qwen3.6-27B 84.8 / Kimi K3 89.1"]
+  - raw: "WMDP (Chem)"
+    value: 75.2
+    unit: percent
+    model_config: "Muse Glimmer-30B"
+    methodology: ["Gemma4-31B 80.5 / Qwen3.6-27B 74.8 / Kimi K3 84.2"]
+  - raw: "Lab Bench (ProtocolQA)"
+    value: 80.2
+    unit: percent
+    model_config: "Muse Glimmer-30B"
+    methodology: ["Gemma4-31B 75.8 / Qwen3.6-27B 69.1 / Kimi K3 81.9"]
