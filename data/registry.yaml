@@ -154,7 +154,7 @@ benchmarks:
   - canonical: cursorbench
     type: agentic
     domain: coding
-    aliases: ["CursorBench"]
+    aliases: ["CursorBench", "CursorBench v3.2", "CursorBench 3.2"]
     vendor_proprietary: true
   - canonical: cve-bench
     type: agentic
@@ -233,13 +233,13 @@ benchmarks:
     type: agentic
     domain: coding
     aliases: ["FrontierBench", "FrontierBench v0.1", "Frontier-Bench", "Frontier-Bench v0.1"]
-    notes: "!= FrontierCode (frontiercode) — Anthropic Fable-blog partner eval. Cognition; successor
-      to Terminal-Bench 2.1. Opus 5 blog hyphenates ('Frontier-Bench v0.1'); system card writes
-      'FrontierBench v0.1' — same benchmark, folded."
+    notes: "!= FrontierCode (frontiercode) AND != terminal-bench-3.0 — Cognition's own successor to
+      Terminal-Bench 2.1 (Fable/Opus-5 blog partner eval). Opus 5 blog hyphenates ('Frontier-Bench v0.1');
+      system card writes 'FrontierBench v0.1' — same benchmark, folded. Opus 5 cites THIS, not TB 2.1/3.0."
   - canonical: frontiercode
     type: agentic
     domain: coding
-    aliases: ["Cognition FrontierCode", "FrontierCode", "FrontierCode 1.1", "FrontierCode 1.1 (Main)", "FrontierCode v1.1, Main"]
+    aliases: ["Cognition FrontierCode", "FrontierCode", "FrontierCode 1.1", "FrontierCode 1.1 (Main)", "FrontierCode v1.1, Main", "FrontierCode v1.1 (Extended)", "FrontierCode 1.1 (Extended)", "FrontierCode 1.1 Extended"]
     vendor_proprietary: true
   - canonical: frontiermath
     type: chat
@@ -299,7 +299,7 @@ benchmarks:
   - canonical: humanitys-last-exam
     type: chat
     domain: knowledge
-    aliases: ["HLE", "Humanity's Last Exam", "Humanity’s Last Exam", "HLE-Full"]
+    aliases: ["HLE", "Humanity's Last Exam", "Humanity’s Last Exam", "HLE-Full", "HLE-Verified", "HLE Verified"]
     notes: "Harbor ADAPTER merged + parity-validated (adapters/hle) but NOT yet in registry.json (registry-only check mislabeled it not_in_harbor). with-tools vs no-tools split; grader-model restatements common (e.g. Sonnet 4.6 HLE restated 34.6->46.8)."
   - canonical: ifbench
     type: chat
@@ -321,7 +321,7 @@ benchmarks:
   - canonical: lab-bench
     type: chat
     domain: science
-    aliases: ["LAB-Bench", "LAB-Bench FigQA", "LAB-Bench: ProtocolQA", "LAB-Bench: SeqQA"]
+    aliases: ["LAB-Bench", "LAB-Bench FigQA", "LAB-Bench: ProtocolQA", "LAB-Bench: SeqQA", "LABBench2", "LAB-Bench 2", "LAB-Bench2"]
     collision: "Cited protocolqa/seqqa/cloning-scenarios may be LAB-Bench subtasks — verify Harbor labbench subtask coverage."
   - canonical: labwork-bench
     type: chat
@@ -334,7 +334,7 @@ benchmarks:
   - canonical: legal-agent-benchmark
     type: agentic
     domain: professional
-    aliases: ["Legal Agent Benchmark"]
+    aliases: ["Legal Agent Benchmark", "Harvey LAB", "Harvey LAB (Vals)", "Harvey LAB-AA", "LAB (Vals)"]
   - canonical: livecodebench
     type: chat
     domain: coding
@@ -409,7 +409,7 @@ benchmarks:
   - canonical: mrcr
     type: chat
     domain: knowledge
-    aliases: ["MRCR", "OpenAI MRCR v2"]
+    aliases: ["MRCR", "OpenAI MRCR v2", "MRCR v2", "MRCR v2 256K (8-needle)", "MRCR v2 256K"]
     notes: "OpenAI MRCR v2 (Mean Match Ratio, not a solve rate) folded in as an alias."
   - canonical: officeqa
     type: agentic
@@ -553,11 +553,32 @@ benchmarks:
     domain: computer-use
     aliases: ["Tau2-Bench", "tau2", "tau2-bench", "tau2-bench telecom", "τ2-bench", "τ²-Bench"]
     notes: "NB: Harbor has adapters/tau3-bench (tau3), which is a DIFFERENT version."
+  # Terminal-Bench is VERSIONED and each major version is a materially different benchmark
+  # (task set + harness change the score). We keep THREE distinct canonicals so citations to
+  # 2.0 / 2.1 / 3.0 are counted separately (never folded). Bare "Terminal-Bench" (no version)
+  # stays on the base 2.0 canonical — that's the Harbor-native one; do NOT re-version bare
+  # mentions by guessing. See FrontierBench (frontierbench) for Cognition's separate successor.
   - canonical: terminal-bench
     type: agentic
     domain: coding
-    aliases: ["Terminal Bench", "Terminal Bench 2.0-Terminus", "Terminal-Bench", "Terminal-Bench 2.0", "Terminal-Bench 2.1"]
-    collision: "NATIVE: Harbor is TB2.0's official harness. registry holds terminal-bench@2.0 ONLY; cited 'Terminal-Bench 2.1' is a DIFFERENT version. Harness materially changes score."
+    aliases: ["Terminal Bench", "Terminal Bench 2.0-Terminus", "Terminal-Bench", "Terminal-Bench 2.0", "Terminal Bench 2.0"]
+    collision: "NATIVE: Harbor is TB2.0's official harness; registry.json holds terminal-bench@2.0 ONLY.
+      Base canonical = TB 2.0 + bare/unversioned 'Terminal-Bench'. TB 2.1 and TB 3.0 are SEPARATE
+      canonicals (terminal-bench-2.1 / terminal-bench-3.0) — different task set + harness."
+  - canonical: terminal-bench-2.1
+    type: agentic
+    domain: coding
+    aliases: ["Terminal-Bench 2.1", "Terminal Bench 2.1", "Terminal-bench 2.1", "Terminal-Bench v2.1", "Terminal Bench v2.1", "TerminalBench 2.1"]
+    collision: "NOT in Harbor (Harbor holds terminal-bench@2.0 only). Distinct version from 2.0 (harness
+      materially changes score; commonly run via Terminus-2 / Claude Code / Codex). Split out from the
+      base terminal-bench canonical 2026-08 so 2.1 vs 3.0 are counted separately."
+  - canonical: terminal-bench-3.0
+    type: agentic
+    domain: coding
+    aliases: ["Terminal-Bench 3.0", "Terminal-Bench v3.0", "Terminal Bench 3.0", "Terminal-bench 3.0", "Terminal Bench v3.0", "Terminal-Bench 3", "Terminal-Bench v3", "TerminalBench 3.0"]
+    collision: "NOT in Harbor. NEW version first cited 2026-08 (Grok 4.6, Gemini 3.7 Flash). Much harder /
+      broader (general agent tasks) than 2.1 — solve rates drop sharply (e.g. ~15-35% vs ~80%+ on 2.1),
+      so a doc citing BOTH 2.1 and 3.0 yields TWO separate citations. Distinct from Cognition's FrontierBench."
   - canonical: toolathlon
     type: agentic
     domain: computer-use
@@ -697,7 +718,7 @@ benchmarks:
   - canonical: nl2repo
     type: agentic
     domain: coding
-    aliases: ["NL2Repo"]
+    aliases: ["NL2Repo", "NL2Repo-Bench"]
   - canonical: oj-bench
     type: chat
     domain: coding
@@ -877,7 +898,7 @@ benchmarks:
   - canonical: deepswe
     type: agentic
     domain: coding
-    aliases: ["DeepSWE", "DeepSWE v1.1"]
+    aliases: ["DeepSWE", "DeepSWE v1.1", "DeepSWE 1.1"]
     harbor_native: true
     harbor_native_source: "https://huggingface.co/datasets/datacurve/deep-swe"
     notes: "datacurve/deep-swe agentic SWE eval; cited on the GLM-5.2 card and Muse Spark 1.1 / GPT-5.6 blogs (v1.1).
@@ -1167,7 +1188,7 @@ benchmarks:
   - canonical: agents-last-exam
     type: agentic
     domain: knowledge
-    aliases: ["Agents' Last Exam", "Agents’ Last Exam", "Agents Last Exam", "ALE"]
+    aliases: ["Agents' Last Exam", "Agents’ Last Exam", "Agents Last Exam", "ALE", "Agent's Last Exam", "Agent’s Last Exam"]
     notes: "Agentic (tool-using) hard-reasoning exam; a play on Humanity's Last Exam but for agents.
       DISTINCT from humanitys-last-exam (HLE). GPT-5.6 blog headliner."
   - canonical: lifescibench
@@ -1389,7 +1410,97 @@ benchmarks:
   - canonical: gdm-mrcr
     type: chat
     domain: knowledge
-    aliases: ["GDM-MRCR", "GDM-MRCR v2"]
+    aliases: ["GDM-MRCR", "GDM-MRCR v2", "GDM-MRCR v2 (8-needle)"]
     collision: "DISTINCT from mrcr (OpenAI MRCR). GDM-MRCR is Google DeepMind's multi-round
       coreference-resolution long-context eval; kept separate from the OpenAI variant (no confirmed
       identity between the two) — do NOT merge. Reported with 8-needle 128k-average and 1M-pointwise splits."
+  # --- 2026-08-13: NEW benchmarks first cited by the Aug-2026 batch (Grok 4.6, Qwen3.8,
+  #     Gemini 3.7 Flash, DeepSeek-V4-Pro-0813). ---
+  - canonical: aa-intelligence-index
+    type: chat
+    domain: knowledge
+    aliases: ["AA Intelligence Index", "Artificial Analysis Intelligence Index", "AA Intelligence"]
+    notes: "Artificial Analysis composite 'intelligence' index (~9 benchmarks). Aggregate index, not a
+      single-task solve rate (unit=index). Cited by Grok 4.6 blog + Gemini 3.7 Flash card. No Harbor adapter."
+  - canonical: apex-swe
+    type: agentic
+    domain: coding
+    aliases: ["APEX-SWE"]
+    notes: "xAI APEX suite agentic-SWE eval (Grok 4.6 blog). != apex-agents and != matharena-apex — do NOT merge."
+  - canonical: code-arena
+    type: agentic
+    domain: coding
+    aliases: ["Code Arena", "CodeArena"]
+    notes: "Web-development head-to-head arena reported as an Elo (unit=elo). Gemini 3.7 Flash card."
+  - canonical: androidbench
+    type: agentic
+    domain: computer-use
+    aliases: ["AndroidBench"]
+    notes: "Mobile/Android agentic tasks; Qwen3.8 card reports the 95-task public subset (avg@3)."
+  - canonical: skillsbench
+    type: agentic
+    domain: professional
+    aliases: ["SkillsBench", "SkillsBench v1.1"]
+    notes: "Public SkillsBench (v1.1, 87 tasks). Harness-dependent (Claude Code / Codex / OpenCode). Qwen3.8 card."
+  - canonical: workspacebench
+    type: agentic
+    domain: professional
+    aliases: ["WorkSpaceBench", "WorkspaceBench"]
+    notes: "Agentic workspace/productivity eval. Qwen3.8 card."
+  - canonical: onemillion-bench
+    type: chat
+    domain: knowledge
+    aliases: ["$OneMillion-Bench", "OneMillion-Bench", "OneMillion Bench"]
+    notes: "Qwen expert-knowledge eval (expert score); judged by gemini-3.1-pro-preview. Qwen3.8 card."
+  - canonical: plawbench
+    type: chat
+    domain: professional
+    aliases: ["PLawBench"]
+    notes: "Professional-law reasoning eval; judged by gemini-3.1-pro-preview. Qwen3.8 card. != Harbor lawbench (Chinese legal)."
+  - canonical: prbench-legal
+    type: chat
+    domain: professional
+    aliases: ["PRBench-Legal", "PRBench Legal"]
+    notes: "Professional Reasoning Bench (legal split). Qwen3.8 card. Kept separate from prbench-finance (different domain)."
+  - canonical: prbench-finance
+    type: chat
+    domain: professional
+    aliases: ["PRBench-Finance", "PRBench Finance"]
+    notes: "Professional Reasoning Bench (finance split). Qwen3.8 card. Kept separate from prbench-legal."
+  - canonical: dsbench
+    type: agentic
+    domain: coding
+    aliases: ["DSBench", "DSBench-FullStack", "DSBench-Hard"]
+    vendor_proprietary: true
+    notes: "DeepSeek in-house data-science/software bench; FullStack + Hard splits reported on the
+      DeepSeek-V4-Pro-0813 card (split recorded in model_config). vendor_proprietary — not in Harbor."
+  - canonical: coworkbench
+    type: agentic
+    domain: professional
+    aliases: ["CoWorkBench"]
+    vendor_proprietary: true
+    notes: "Qwen in-house long-horizon 'cowork' eval across CS/finance/law/medical. Qwen3.8 card."
+  - canonical: qwenswebench
+    type: agentic
+    domain: coding
+    aliases: ["QwenSWEBench"]
+    vendor_proprietary: true
+    notes: "Qwen in-house SWE eval (Claude Code harness, avg@3). Qwen3.8 card. Single-vendor."
+  - canonical: qwenqoderbench
+    type: agentic
+    domain: coding
+    aliases: ["QwenQoderBench"]
+    vendor_proprietary: true
+    notes: "Qwen in-house Qoder-UX eval (avg@5). Qwen3.8 card. Single-vendor."
+  - canonical: qwenreactbench
+    type: agentic
+    domain: coding
+    aliases: ["QwenReactBench"]
+    vendor_proprietary: true
+    notes: "Qwen in-house React-build eval, BT/Elo (unit=elo), bilingual EN/CN. Qwen3.8 card. Single-vendor."
+  - canonical: qwensvgbench
+    type: agentic
+    domain: coding
+    aliases: ["QwenSVGBench"]
+    vendor_proprietary: true
+    notes: "Qwen in-house SVG-codegen eval, BT/Elo (unit=elo), bilingual EN/CN. Qwen3.8 card. Single-vendor."

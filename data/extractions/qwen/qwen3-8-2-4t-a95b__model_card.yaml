@@ -1,0 +1,169 @@
+# qwen3-8-2-4t-a95b__model_card
+# Source: https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B (HF README, 2026-08-08). Full benchmark
+# table. Columns: Opus 4.8 | Fable 5 | GPT 5.6 Sol (max) | Qwen3.7-Max | Qwen3.8-Max.
+# Citing model = Qwen3.8-Max (the flagship 2.4T-A95B open-weight release; last column).
+# default weight_class = model_card (HF README card table). Reports Terminal Bench 2.1 ONLY (not 3.0).
+# Footnote methodology captured for the notable rows (esp. TB 2.1). Many QwenXBench rows are the
+# lab's own in-house evals (vendor_proprietary).
+doc: qwen3-8-2-4t-a95b__model_card
+mentions:
+  # ---- Coding Agent ----
+  - raw: "Terminal Bench 2.1"
+    value: 86.6
+    unit: percent
+    model_config: "Qwen3.8-Max; Claude Code harness, avg@10, 5h timeout, max_tokens=131072"
+    methodology:
+      - "competitors best-published across harnesses: Opus 4.8 84.6 & Fable 5 84.6 via Terminus 2 (Artificial Analysis); GPT-5.6 Sol 88.8 via Codex"
+      - "Qwen3.7-Max 74.5"
+  - raw: "SWE-bench Pro"
+    value: 67.7
+    unit: percent
+    model_config: "Qwen3.8-Max; Claude Code harness, temp=1.0, top_p=0.95, 256K ctx (refined benchmark)"
+    methodology: ["Opus 4.8 69.2 / Fable 5 80.0 (row winner) / GPT-5.6 Sol 64.6 / Qwen3.7-Max 60.6"]
+  - raw: "DeepSWE 1.1"
+    value: 56.6
+    unit: percent
+    model_config: "Qwen3.8-Max; best of Claude Code & mini-SWE-agent (best on Claude Code)"
+    methodology: ["Opus 4.8 59.0 / Fable 5 70.0 / GPT-5.6 Sol 73.0 (row winner) / Qwen3.7-Max 21.6"]
+  - raw: "NL2Repo-Bench"
+    value: 55.9
+    unit: percent
+    model_config: "Qwen3.8-Max; Claude Code harness (bash/pip/git-clone disabled to prevent reward hacking)"
+    methodology: ["Opus 4.8 69.4 (row winner) / Qwen3.7-Max 47.2; Fable 5 & GPT-5.6 Sol n/a"]
+  - raw: "FrontierSWE"
+    value: 73.5
+    unit: percent
+    model_config: "Qwen3.8-Max; Claude Code harness (others: official FrontierSWE MEAN@5 leaderboard)"
+    methodology: ["Opus 4.8 70.0 / Fable 5 88.8 (row winner) / Qwen3.7-Max 40.7"]
+  - raw: "MLS-Bench-Lite"
+    value: 41.0
+    unit: percent
+    model_config: "Qwen3.8-Max; Claude Code, 5h timeout, max_tokens=131072"
+    methodology: ["Opus 4.8 42.8 / Fable 5 49.9 (row winner) / GPT-5.6 Sol 46.2 / Qwen3.7-Max 31.7"]
+  - raw: "PaperBench"
+    value: 93.0
+    unit: percent
+    model_config: "Qwen3.8-Max; BasicAgent + Code-Dev, judged by Opus 4.6, avg@3"
+    methodology: ["row winner; Opus 4.8 80.3 / Fable 5 88.8 / GPT-5.6 Sol 90.5 / Qwen3.7-Max 64.8"]
+  - raw: "AndroidBench"
+    value: 75.1
+    unit: percent
+    model_config: "Qwen3.8-Max; 95-task public subset, avg@3"
+    methodology: ["Opus 4.8 69.8 / Fable 5 84.5 (row winner) / GPT-5.6 Sol 74.0 / Qwen3.7-Max 56.5"]
+  - raw: "QwenSWEBench"
+    value: 80.7
+    unit: percent
+    model_config: "Qwen3.8-Max; in-house, Claude Code harness, avg@3, 8h timeout (vendor_proprietary)"
+    methodology: ["Opus 4.8 84.0 / Fable 5 86.3 (row winner) / GPT-5.6 Sol 73.5 / Qwen3.7-Max 63.4"]
+  - raw: "QwenQoderBench"
+    value: 58.4
+    unit: percent
+    model_config: "Qwen3.8-Max; in-house Qoder UX eval, avg@5 (vendor_proprietary)"
+    methodology: ["Opus 4.8 62.7 / Fable 5 63.1 (row winner) / GPT-5.6 Sol 53.8 / Qwen3.7-Max 36.8"]
+  - raw: "QwenReactBench"
+    value: 1724
+    unit: elo
+    model_config: "Qwen3.8-Max; in-house React build, bilingual, BT/Elo (vendor_proprietary)"
+    methodology: ["Opus 4.8 1694 / Fable 5 1770 (row winner) / GPT-5.6 Sol 1564 / Qwen3.7-Max 1538"]
+  - raw: "QwenSVGBench"
+    value: 1713
+    unit: elo
+    model_config: "Qwen3.8-Max; in-house SVG codegen, bilingual, BT/Elo (vendor_proprietary)"
+    methodology: ["Opus 4.8 1648 / Fable 5 1690 / GPT-5.6 Sol 1758 (row winner) / Qwen3.7-Max 1499"]
+  # ---- General Agent ----
+  - raw: "CoWorkBench"
+    value: 74.8
+    unit: percent
+    model_config: "Qwen3.8-Max; in-house long-horizon cowork eval (vendor_proprietary)"
+    methodology: ["Opus 4.8 72.3 / Fable 5 75.9 (row winner) / GPT-5.6 Sol 71.5 / Qwen3.7-Max 64.6"]
+  - raw: "WorkSpaceBench"
+    value: 67.7
+    unit: percent
+    model_config: "Qwen3.8-Max"
+    methodology: ["Opus 4.8 66.8 / Fable 5 68.7 (row winner) / GPT-5.6 Sol 65.6 / Qwen3.7-Max 61.4"]
+  - raw: "JobBench"
+    value: 53.4
+    unit: percent
+    model_config: "Qwen3.8-Max"
+    methodology: ["Opus 4.8 48.4 / Fable 5 57.4 (row winner) / GPT-5.6 Sol 45.4 / Qwen3.7-Max 31.3"]
+  - raw: "SkillsBench"
+    value: 70.2
+    unit: percent
+    model_config: "Qwen3.8-Max; public SkillsBench v1.1, 87 tasks, avg@3, OpenCode harness"
+    methodology: ["Opus 4.8 65.1 (Claude Code) / Fable 5 70.9 (Claude Code) / GPT-5.6 Sol 73.5 (Codex, row winner) / Qwen3.7-Max 61.2"]
+  - raw: "Agents' Last Exam"
+    value: 52.4
+    unit: percent
+    model_config: "Qwen3.8-Max; Pass 27.0 / Score 52.4"
+    methodology: ["Opus 4.8 27.0/45.1 / GPT-5.6 Sol 30.6/53.6 (score winner) / Qwen3.7-Max 11.8/31.1; Fable 5 n/a"]
+  - raw: "Automation-Bench"
+    value: 27.3
+    unit: percent
+    model_config: "Qwen3.8-Max; Pass@1, 600-task public subset"
+    methodology: ["Opus 4.8 27.2 / Fable 5 29.1 / GPT-5.6 Sol 29.7 (row winner) / Qwen3.7-Max 14.2"]
+  - raw: "Toolathlon Verified"
+    value: 72.5
+    unit: percent
+    model_config: "Qwen3.8-Max; Pass@1"
+    methodology: ["Opus 4.8 76.2 / Fable 5 77.9 (row winner) / GPT-5.6 Sol 74.9 / Qwen3.7-Max 49.7"]
+  - raw: "WideSearch"
+    value: 81.9
+    unit: percent
+    model_config: "Qwen3.8-Max; Qwen-Agent harness (others Claude Code), avg item-F1 over 4 runs"
+    methodology: ["row winner; Opus 4.8 72.9 / Fable 5 81.2 / Qwen3.7-Max 75.2; GPT-5.6 Sol n/a"]
+  - raw: "HLE"
+    value: 56.2
+    unit: percent
+    model_config: "Qwen3.8-Max; with tools"
+    methodology: ["Opus 4.8 57.9 / Fable 5 64.5 (row winner) / GPT-5.6 Sol 58.0 / Qwen3.7-Max 53.5"]
+  # ---- General Capabilities ----
+  - raw: "GPQA Diamond"
+    value: 92.6
+    unit: percent
+    model_config: "Qwen3.8-Max"
+    methodology: ["Opus 4.8 92.0 / Fable 5 92.6 / GPT-5.6 Sol 94.1 (row winner) / Qwen3.7-Max 92.4"]
+  - raw: "HLE"
+    value: 43.6
+    unit: percent
+    model_config: "Qwen3.8-Max; no tools"
+    methodology: ["Opus 4.8 45.7 / Fable 5 53.3 (row winner) / GPT-5.6 Sol 47.2 / Qwen3.7-Max 41.4"]
+  - raw: "IFBench"
+    value: 82.8
+    unit: percent
+    model_config: "Qwen3.8-Max"
+    methodology: ["row winner; Opus 4.8 62.2 / Fable 5 63.5 / GPT-5.6 Sol 72.7 / Qwen3.7-Max 79.1"]
+  - raw: "$OneMillion-Bench"
+    value: 52.5
+    unit: percent
+    model_config: "Qwen3.8-Max; expert score; judged by gemini-3.1-pro-preview"
+    methodology: ["Opus 4.8 41.8 / Fable 5 55.9 (row winner) / GPT-5.6 Sol 53.8 / Qwen3.7-Max 44.4"]
+  - raw: "HealthBench"
+    value: 60.2
+    unit: percent
+    model_config: "Qwen3.8-Max"
+    methodology: ["row winner; Opus 4.8 52.4 / GPT-5.6 Sol 55.3 / Qwen3.7-Max 54.5; Fable 5 n/a"]
+  - raw: "PLawBench"
+    value: 73.2
+    unit: percent
+    model_config: "Qwen3.8-Max; judged by gemini-3.1-pro-preview"
+    methodology: ["row winner; Opus 4.8 69.6 / Fable 5 70.2 / GPT-5.6 Sol 72.3 / Qwen3.7-Max 58.9"]
+  - raw: "PRBench-Legal"
+    value: 57.6
+    unit: percent
+    model_config: "Qwen3.8-Max"
+    methodology: ["Opus 4.8 52.7 / Fable 5 57.6 / GPT-5.6 Sol 57.6 / Qwen3.7-Max 48.5 (3-way tie top 57.6)"]
+  - raw: "PRBench-Finance"
+    value: 58.3
+    unit: percent
+    model_config: "Qwen3.8-Max"
+    methodology: ["row winner; Opus 4.8 51.9 / Fable 5 55.8 / GPT-5.6 Sol 55.5 / Qwen3.7-Max 46.8"]
+  - raw: "MRCR v2 256K (8-needle)"
+    value: 92.9
+    unit: percent
+    model_config: "Qwen3.8-Max; 256K, 8-needle"
+    methodology: ["Opus 4.8 83.2 / GPT-5.6 Sol 93.8 (row winner) / Qwen3.7-Max 86.7; Fable 5 n/a"]
+  - raw: "LongBench v2"
+    value: 66.3
+    unit: percent
+    model_config: "Qwen3.8-Max"
+    methodology: ["Opus 4.8 69.1 (row winner) / GPT-5.6 Sol 67.1 / Qwen3.7-Max 65.3; Fable 5 n/a"]

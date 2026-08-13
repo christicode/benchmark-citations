@@ -1,0 +1,62 @@
+# deepseek-v4-pro-0813__model_card
+# Source: https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813 (HF README, 2026-08-13).
+# GA release, "the official release of DeepSeek-V4-Pro, superseding the preview version"
+# (the tracked DeepSeek-V4-Pro is the 2026-04-22 Preview). Benchmark table columns:
+#   DeepSeek-V4-Pro-0813 | V4-Flash-0731 | V4-Pro (Preview) | V4-Flash (Preview) | GLM-5.2 | Kimi K3
+#   | Opus-4.8 | Fable-5 (w/ fallback). Citing model = DeepSeek-V4-Pro-0813 (first column).
+# default weight_class = model_card. Code-agent tasks: DeepSeek Harness minimal mode, `max` effort,
+# temp=1.0, top_p=0.95 (footnote 1). Reports Terminal Bench 2.1 ONLY (not 3.0). † = in-house DSBench.
+doc: deepseek-v4-pro-0813__model_card
+mentions:
+  - raw: "HLE"
+    value: 42.7
+    unit: percent
+    model_config: "DeepSeek-V4-Pro-0813; no tools"
+    methodology: ["with tools 60.0; Kimi K3 43.5 (wo) / Fable 5 53.3 (row winner, wo) / Opus 4.8 49.8 (wo)"]
+  - raw: "Terminal Bench 2.1"
+    value: 87.9
+    unit: percent
+    model_config: "DeepSeek-V4-Pro-0813; DeepSeek Harness minimal mode, max effort"
+    methodology:
+      - "V4-Pro Preview 72.1 -> 0813 87.9 (big agentic gain); V4-Flash-0731 82.7"
+      - "GLM-5.2 81.0 / Kimi K3 88.3 (row winner) / Opus-4.8 85.0 / Fable-5 88.0"
+  - raw: "NL2Repo"
+    value: 61.5
+    unit: percent
+    model_config: "DeepSeek-V4-Pro-0813"
+    methodology: ["Opus-4.8 69.7 (row winner); V4-Pro Preview 38.5 / V4-Flash-0731 54.2 / GLM-5.2 48.9"]
+  - raw: "Cybergym"
+    value: 83.3
+    unit: percent
+    model_config: "DeepSeek-V4-Pro-0813"
+    methodology: ["row winner; Kimi K3 80.0 / Opus-4.8 78.3 / Fable-5 83.1 / V4-Pro Preview 52.7"]
+  - raw: "DeepSWE"
+    value: 62.7
+    unit: percent
+    model_config: "DeepSeek-V4-Pro-0813"
+    methodology: ["Kimi K3 67.5 / Opus-4.8 58.0 / Fable-5 70.0 (row winner); V4-Pro Preview 12.8"]
+  - raw: "Toolathlon-Verified"
+    value: 74.1
+    unit: percent
+    model_config: "DeepSeek-V4-Pro-0813"
+    methodology: ["Kimi K3 76.5 / Opus-4.8 76.2 / Fable-5 77.9 (row winner); V4-Pro Preview 55.9"]
+  - raw: "Agents' Last Exam"
+    value: 25.7
+    unit: percent
+    model_config: "DeepSeek-V4-Pro-0813"
+    methodology: ["Kimi K3 27.6 (row winner) / Opus-4.8 25.7 / GLM-5.2 23.8; V4-Pro Preview 16.5; Fable-5 n/a"]
+  - raw: "AutomationBench"
+    value: 31.8
+    unit: percent
+    model_config: "DeepSeek-V4-Pro-0813; public subset"
+    methodology: ["row winner; Kimi K3 30.8 / Opus-4.8 27.2 / Fable-5 29.1 / GLM-5.2 12.9; V4-Pro Preview 12.8"]
+  - raw: "DSBench-FullStack"
+    value: 71.1
+    unit: percent
+    model_config: "DeepSeek-V4-Pro-0813; in-house DSBench (vendor_proprietary)"
+    methodology: ["Kimi K3 73.7 / Opus-4.8 71.6 / Fable-5 77.2 (row winner); V4-Pro Preview 41.8"]
+  - raw: "DSBench-Hard"
+    value: 67.2
+    unit: percent
+    model_config: "DeepSeek-V4-Pro-0813; in-house DSBench (vendor_proprietary)"
+    methodology: ["Opus-4.8 71.7 (row winner) / Fable-5 68.3 / Kimi K3 63.0 / GLM-5.2 54.5; V4-Pro Preview 31.1"]

@@ -65,10 +65,16 @@ labs:
     source_index_urls:
       - https://deepmind.google/models/            # model cards index
       - https://blog.google/technology/google-deepmind/
+      - https://blog.google/innovation-and-ai/models-and-research/gemini-models/   # where Gemini launch blogs actually live
     candidate_patterns:
-      - "deepmind\\.google/models/model-cards/[a-z0-9-]+"   # model cards
-      - "blog\\.google/.*/gemini-[0-9]"                     # Gemini launch blogs
-    notes: "Gemini 3 Pro / 3 Deep Think (blog-only, NO system card) / 3.1 Pro / 3.5 Flash / 3.5 Pro."
+      - "deepmind\\.google/models/model-cards/[a-z0-9-]+"   # model cards (capability results page)
+      - "blog\\.google/.*gemini-[0-9]"                      # Gemini launch blogs incl. 'introducing-gemini-3-7-flash'
+    notes: >-
+      Gemini 3 Pro / 3 Deep Think (blog-only, NO system card) / 3.1 Pro / 3.5 Flash / 3.6 Flash / 3.7 Flash.
+      Capability tables live on the deepmind.google model-card PAGE; the Gemini-3-7-Flash CDN PDF is a
+      Frontier-Safety report ONLY (no capability scores). Launch blogs live under
+      /innovation-and-ai/models-and-research/gemini-models/ (added above) — the old blog pattern required
+      a '/gemini-N' segment and missed 'introducing-gemini-3-7-flash'.
 
   - id: meta
     display_name: Meta
@@ -114,8 +120,13 @@ labs:
       - https://huggingface.co/Qwen
     candidate_patterns:
       - "huggingface\\.co/Qwen/Qwen[0-9.]+-Max$"                 # Qwen3-Max, Qwen3.6-Max
-      - "huggingface\\.co/Qwen/Qwen3\\.[0-9]+-[0-9]+B(-A[0-9]+B)?$"  # flagship dense/MoE instruct cards
-    notes: "Qwen3-Max (Sep 2025) + 3.5/3.6-Max. qwenlm.github.io/blog redirects — HF Qwen org is the live feed."
+      - "huggingface\\.co/Qwen/Qwen[0-9]\\.[0-9]+-[0-9.]+[TB](-A[0-9.]+B)?$"  # flagship dense/MoE instruct cards (total size in B OR T)
+    notes: >-
+      Qwen3-Max (Sep 2025) + 3.5/3.6-Max; flagship open-weights are the largest MoE card
+      (e.g. Qwen3.5-397B-A17B, Qwen3.8-2.4T-A95B). NB the pattern must allow TRILLION-scale totals
+      (…-2.4T-A95B) — the old …-[0-9]+B$ form silently missed Qwen3.8-2.4T-A95B (same lesson as
+      Mythos/Fable: discover by index, and don't bake a size UNIT into the pattern). Pick the big one.
+      qwenlm.github.io/blog redirects — HF Qwen org is the live feed.
 
   - id: mistral
     display_name: Mistral AI

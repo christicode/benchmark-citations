@@ -1,0 +1,71 @@
+# grok-4-6__blog_headliner
+# Source: https://x.ai/news/grok-4-6 (xAI, 2026-08-12)
+# The "Evals" section is ONE comparison table (columns: Grok 4.6 High | Grok 4.5 High |
+# GPT-5.6 Sol Max | Fable 5 Max) => model_card (doc default). Five of the ten benchmarks also
+# appear as a headline bar-chart widget at the top (AA Intelligence, GDPVal-AA, DeepSWE 1.1,
+# CursorBench 3.2, FrontierCode 1.1) => weight_class: blog_headliner override (weight = MAX per doc).
+# Citing model = Grok 4.6 (High effort). "Best score per evaluation in bold. Third-party model
+# scores are the best of self-reported or publicly available results."
+# NB Terminal-Bench v3.0 (26%) is the NEW harder version (distinct canonical from TB 2.1); Grok 4.6
+# does NOT report TB 2.1. No separate xAI model-card PDF exists for 4.6 (data.x.ai 404; blog only).
+doc: grok-4-6__blog_headliner
+mentions:
+  # --- top headline bar-chart widget -> blog_headliner ---
+  - raw: "AA Intelligence Index"
+    weight_class: blog_headliner
+    value: 61
+    unit: index
+    model_config: "Grok 4.6 High; composite of nine benchmarks (Artificial Analysis)"
+    methodology: ["matches GPT-5.6 Sol Max (61); Fable 5 Max 62 / Grok 4.5 High 56"]
+  - raw: "GDPVal-AA v2"
+    weight_class: blog_headliner
+    value: 1753
+    unit: elo
+    model_config: "Grok 4.6 High; knowledge work"
+    methodology: ["Grok 4.5 High 1526 / GPT-5.6 Sol Max 1728 / Fable 5 Max 1741"]
+  - raw: "CursorBench v3.2"
+    weight_class: blog_headliner
+    value: 69.9
+    unit: percent
+    model_config: "Grok 4.6 High; agentic coding (Cursor)"
+    methodology: ["Grok 4.5 High 66.7 / GPT-5.6 Sol Max 67.2 / Fable 5 Max 70.5"]
+  - raw: "DeepSWE v1.1"
+    weight_class: blog_headliner
+    value: 65.9
+    unit: percent
+    model_config: "Grok 4.6 High; agentic coding"
+    methodology: ["Grok 4.5 High 54 / GPT-5.6 Sol Max 73 (row winner) / Fable 5 Max 70"]
+  - raw: "FrontierCode v1.1 (Extended)"
+    weight_class: blog_headliner
+    value: 61.3
+    unit: percent
+    model_config: "Grok 4.6 High; agentic coding (Cognition)"
+    methodology: ["Grok 4.5 High 56.6 / GPT-5.6 Sol Max 60.6 / Fable 5 Max 63.6 (row winner)"]
+  # --- comparison-table only -> model_card (doc default) ---
+  - raw: "APEX-Agents"
+    value: 57.5
+    unit: percent
+    model_config: "Grok 4.6 High"
+    methodology: ["Grok 4.5 High 47.1 / GPT-5.6 Sol Max 56.7 / Fable 5 Max 59.2 (row winner)"]
+  - raw: "Terminal-Bench v3.0"
+    value: 26
+    unit: percent
+    model_config: "Grok 4.6 High; agentic terminal coding"
+    methodology:
+      - "NEW harder TB version (distinct from Terminal-Bench 2.1; not in Harbor which holds TB 2.0)"
+      - "Grok 4.5 High 15.7 / GPT-5.6 Sol Max 34.6 / Fable 5 Max 34.1 (row winner)"
+  - raw: "APEX-SWE"
+    value: 56.4
+    unit: percent
+    model_config: "Grok 4.6 High"
+    methodology: ["Grok 4.5 High 53.6 / GPT-5.6 Sol Max — / Fable 5 Max 58.8 (row winner)"]
+  - raw: "AA-Briefcase"
+    value: 1577
+    unit: elo
+    model_config: "Grok 4.6 High; agentic knowledge work (Artificial Analysis)"
+    methodology: ["Grok 4.5 High 1313 / GPT-5.6 Sol Max 1502 / Fable 5 Max 1574"]
+  - raw: "Harvey LAB (Vals)"
+    value: 15.8
+    unit: percent
+    model_config: "Grok 4.6 High; complex legal workflows (Harvey, via Vals)"
+    methodology: ["row winner Grok 4.6; Grok 4.5 High 12.9 / GPT-5.6 Sol Max 2.5 / Fable 5 Max 11.3"]

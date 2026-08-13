@@ -1,0 +1,103 @@
+# gemini-3-7-flash__model_card
+# Source: https://deepmind.google/models/model-cards/gemini-3-7-flash (Google DeepMind model-card
+# PAGE, "Results as of August 2026"). Capability results table. Columns:
+#   Gemini 3.7 Flash | Gemini 3.6 Flash | Claude Sonnet 5 | GPT-5.6 Terra | Muse Spark 1.2
+# Citing model = Gemini 3.7 Flash (first column). default weight_class = model_card (one card table;
+# the separate Gemini-3-7-Flash PDF is a Frontier-Safety report with NO capability scores; the
+# release blog carries no benchmark numbers). Methodology: deepmind.com/models/evals-methodology/gemini-3-7-flash.
+# NB: reports BOTH Terminal-bench 2.1 (85.8) AND Terminal-bench 3.0 (14.9) => TWO separate citations
+# (distinct canonicals). Surfaced NEW competitor labels: GPT-5.6 Terra, Muse Spark 1.2.
+doc: gemini-3-7-flash__model_card
+mentions:
+  - raw: "Artificial Analysis Intelligence Index"
+    value: 56
+    unit: index
+    model_config: "Gemini 3.7 Flash; composite model intelligence"
+    methodology: ["3.6 Flash 52 / Sonnet 5 55 / GPT-5.6 Terra 57 / Muse Spark 1.2 57"]
+  - raw: "FrontierCode 1.1 Main"
+    value: 43.6
+    unit: percent
+    model_config: "Gemini 3.7 Flash; production code quality"
+    methodology: ["row winner Gemini 3.7 Flash; 3.6 Flash 34.4 / Sonnet 5 42.7 / GPT-5.6 Terra 41.3 / Muse Spark 1.2 —"]
+  - raw: "DeepSWE v1.1"
+    value: 65.3
+    unit: percent
+    model_config: "Gemini 3.7 Flash; long-horizon software engineering"
+    methodology: ["3.6 Flash 48.6 / Sonnet 5 53.8 / GPT-5.6 Terra 69.6 (row winner) / Muse Spark 1.2 54.9"]
+  - raw: "Code Arena"
+    value: 1588
+    unit: elo
+    model_config: "Gemini 3.7 Flash; web development"
+    methodology: ["row winner; 3.6 Flash 1538 / Sonnet 5 1541 / GPT-5.6 Terra 1523 / Muse Spark 1.2 1535"]
+  - raw: "Terminal-bench 2.1"
+    value: 85.8
+    unit: percent
+    model_config: "Gemini 3.7 Flash; agentic terminal coding"
+    methodology: ["3.6 Flash 78.0 / Sonnet 5 80.4 / GPT-5.6 Terra 87.4 (row winner) / Muse Spark 1.2 82.9"]
+  - raw: "Terminal-bench 3.0"
+    value: 14.9
+    unit: percent
+    model_config: "Gemini 3.7 Flash; general agent capabilities (harder successor to 2.1)"
+    methodology:
+      - "NEW harder TB version (distinct canonical from 2.1); solve rates far lower than 2.1"
+      - "3.6 Flash 5.4 / Sonnet 5 14.6 / GPT-5.6 Terra 20.8 (row winner) / Muse Spark 1.2 —"
+  - raw: "AutomationBench"
+    value: 30.4
+    unit: percent
+    model_config: "Gemini 3.7 Flash; enterprise workflow automation (private set)"
+    methodology: ["row winner; 3.6 Flash 17.0 / Sonnet 5 10.7 / GPT-5.6 Terra 23.6 / Muse Spark 1.2 —"]
+  - raw: "GDPVal-AA v2"
+    value: 1525
+    unit: elo
+    model_config: "Gemini 3.7 Flash; knowledge work"
+    methodology: ["3.6 Flash 1422 / Sonnet 5 1598 / GPT-5.6 Terra 1578 / Muse Spark 1.2 1628 (row winner)"]
+  - raw: "Harvey LAB-AA"
+    value: 90.7
+    unit: percent
+    model_config: "Gemini 3.7 Flash; complex legal workflows (Harvey)"
+    methodology: ["row winner; 3.6 Flash 85.1 / Sonnet 5 90.1 / GPT-5.6 Terra 85.2 / Muse Spark 1.2 —"]
+  - raw: "GDP.pdf"
+    value: 34.0
+    unit: percent
+    model_config: "Gemini 3.7 Flash; expert PDF document comprehension"
+    methodology: ["row winner; 3.6 Flash 22.0 / Sonnet 5 28.0 / GPT-5.6 Terra 24.7 / Muse Spark 1.2 16.0"]
+  - raw: "CharXiv Reasoning"
+    value: 84.5
+    unit: percent
+    model_config: "Gemini 3.7 Flash; no tools (information synthesis from charts)"
+    methodology: ["with tools 88.7; no-tools 3.6 Flash 85.2 / Sonnet 5 77.0 / GPT-5.6 Terra 85.9"]
+  - raw: "LVBench"
+    value: 85.4
+    unit: percent
+    model_config: "Gemini 3.7 Flash; long video understanding"
+    methodology: ["row winner; 3.6 Flash 84.2 / Sonnet 5 68.5 / GPT-5.6 Terra 78.9 / Muse Spark 1.2 —"]
+  - raw: "GDM-MRCR v2 (8-needle)"
+    value: 97.0
+    unit: percent
+    model_config: "Gemini 3.7 Flash; 128k average (long-context)"
+    methodology: ["row winner; 3.6 Flash 91.8 / Sonnet 5 81.5 / GPT-5.6 Terra 93.5 / Muse Spark 1.2 —"]
+  - raw: "OSWorld-2.0"
+    value: 47.9
+    unit: percent
+    model_config: "Gemini 3.7 Flash; agentic computer use"
+    methodology: ["3.6 Flash 33.8 / Sonnet 5 — / GPT-5.6 Terra 50.2 (row winner) / Muse Spark 1.2 —"]
+  - raw: "Agent's Last Exam"
+    value: 26.3
+    unit: percent
+    model_config: "Gemini 3.7 Flash; multimodal desktop/OS agent tasks (pass rate)"
+    methodology: ["3.6 Flash 24.2 / Sonnet 5 33.3 (row winner) / GPT-5.6 Terra 28.0 / Muse Spark 1.2 —"]
+  - raw: "HLE-Verified"
+    value: 53.6
+    unit: percent
+    model_config: "Gemini 3.7 Flash; multidisciplinary expert reasoning"
+    methodology: ["row winner; 3.6 Flash 51.2 / Sonnet 5 31.0 / GPT-5.6 Terra 51.1 / Muse Spark 1.2 —"]
+  - raw: "BioMysteryBench"
+    value: 43.5
+    unit: percent
+    model_config: "Gemini 3.7 Flash; human-difficult split"
+    methodology: ["human-solvable split 87.1; difficult 3.6 Flash 41.2 / Sonnet 5 34.1 / GPT-5.6 Terra 49.4 (row winner)"]
+  - raw: "LABBench2"
+    value: 82.1
+    unit: percent
+    model_config: "Gemini 3.7 Flash; biology real-world research tasks"
+    methodology: ["row winner; 3.6 Flash 76.1 / Sonnet 5 80.1 / GPT-5.6 Terra 81.2 / Muse Spark 1.2 —"]

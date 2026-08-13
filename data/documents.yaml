@@ -556,3 +556,35 @@ documents:
     default_weight_class: system_card
     url: "https://www.anthropic.com/claude-opus-5-system-card"
     pub_date: "2026-07-24"
+  # --- 2026-08-13 run: human-promoted new releases (Grok 4.6, Qwen3.8, Gemini 3.7 Flash,
+  #     DeepSeek-V4-Pro-0813). These are the first docs citing Terminal-Bench 3.0 (Grok 4.6,
+  #     Gemini 3.7 Flash) — TB 3.0 is now a distinct canonical from TB 2.1 (see registry.yaml).
+  #     Gemini 3.7 Flash reports BOTH TB 2.1 and TB 3.0 in one table (two separate citations). ---
+  - id: grok-4-6__blog_headliner
+    lab: xai
+    model: "Grok 4.6"
+    container: blog
+    default_weight_class: model_card   # blog carries ONE comparison table; 5 charted benchmarks override to blog_headliner
+    url: "https://x.ai/news/grok-4-6"
+    pub_date: "2026-08-12"
+  - id: qwen3-8-2-4t-a95b__model_card
+    lab: qwen
+    model: "Qwen3.8-2.4T-A95B"         # flagship "big one" (open-weight); table column labels it Qwen3.8-Max
+    container: hf_readme
+    default_weight_class: model_card
+    url: "https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B"
+    pub_date: "2026-08-08"
+  - id: gemini-3-7-flash__model_card
+    lab: google_deepmind
+    model: "Gemini 3.7 Flash"
+    container: blog                     # deepmind.google model-card PAGE (the capability results table)
+    default_weight_class: model_card
+    url: "https://deepmind.google/models/model-cards/gemini-3-7-flash"
+    pub_date: "2026-08-13"
+  - id: deepseek-v4-pro-0813__model_card
+    lab: deepseek
+    model: "DeepSeek-V4-Pro-0813"       # GA release, supersedes the tracked V4-Pro (Preview, 2026-04-22)
+    container: hf_readme
+    default_weight_class: model_card
+    url: "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813"
+    pub_date: "2026-08-13"
