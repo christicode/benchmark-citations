@@ -3,6 +3,7 @@
 {"lab": "deepseek", "url": "https://huggingface.co/deepseek-ai/DeepSeek-V3", "discovered_from": "hf:deepseek-ai", "first_seen": "2026-08-13", "status": "candidate"}
 {"lab": "deepseek", "url": "https://huggingface.co/deepseek-ai/DeepSeek-V3.1", "discovered_from": "hf:deepseek-ai", "first_seen": "2026-08-13", "status": "candidate"}
 {"lab": "deepseek", "url": "https://huggingface.co/deepseek-ai/DeepSeek-V3.2-Speciale", "discovered_from": "hf:deepseek-ai", "first_seen": "2026-08-13", "status": "candidate"}
+{"lab": "google_deepmind", "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash", "discovered_from": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/", "first_seen": "2026-08-13", "status": "candidate"}
 {"lab": "meta", "url": "https://ai.meta.com/blog/introducing-muse-image-muse-video-msl", "discovered_from": "https://ai.meta.com/blog/", "first_seen": "2026-08-13", "status": "candidate"}
 {"lab": "mistral", "url": "https://mistral.ai/news/mistral-large", "discovered_from": "https://mistral.ai/news/", "first_seen": "2026-08-13", "status": "candidate"}
 {"lab": "mistral", "url": "https://mistral.ai/news/mistral-large-2407", "discovered_from": "https://mistral.ai/news/", "first_seen": "2026-08-13", "status": "candidate"}
@@ -16,6 +17,7 @@
 {"lab": "moonshot", "url": "https://huggingface.co/moonshotai/Kimi-K2.6", "discovered_from": "hf:moonshotai", "first_seen": "2026-08-13", "status": "candidate"}
 {"lab": "moonshot", "url": "https://huggingface.co/moonshotai/Kimi-K2.7-Code", "discovered_from": "hf:moonshotai", "first_seen": "2026-08-13", "status": "candidate"}
 {"lab": "moonshot", "url": "https://huggingface.co/moonshotai/Kimi-K3", "discovered_from": "hf:moonshotai", "first_seen": "2026-08-13", "status": "candidate"}
+{"lab": "qwen", "url": "https://huggingface.co/Qwen/Qwen3.5-0.8B", "discovered_from": "hf:Qwen", "first_seen": "2026-08-13", "status": "candidate"}
 {"lab": "qwen", "url": "https://huggingface.co/Qwen/Qwen3.5-122B-A10B", "discovered_from": "hf:Qwen", "first_seen": "2026-08-13", "status": "candidate"}
 {"lab": "qwen", "url": "https://huggingface.co/Qwen/Qwen3.5-27B", "discovered_from": "hf:Qwen", "first_seen": "2026-08-13", "status": "candidate"}
 {"lab": "qwen", "url": "https://huggingface.co/Qwen/Qwen3.5-2B", "discovered_from": "hf:Qwen", "first_seen": "2026-08-13", "status": "candidate"}
@@ -32,7 +34,6 @@
 {"lab": "xai", "url": "https://x.ai/news/grok-4", "discovered_from": "https://x.ai/news", "first_seen": "2026-08-13", "status": "candidate"}
 {"lab": "xai", "url": "https://x.ai/news/grok-4-1-fast", "discovered_from": "https://x.ai/news", "first_seen": "2026-08-13", "status": "candidate"}
 {"lab": "xai", "url": "https://x.ai/news/grok-4-5-everywhere", "discovered_from": "https://x.ai/news", "first_seen": "2026-08-13", "status": "candidate"}
-{"lab": "xai", "url": "https://x.ai/news/grok-4-6", "discovered_from": "https://x.ai/news", "first_seen": "2026-08-13", "status": "candidate"}
 {"lab": "xai", "url": "https://x.ai/news/grok-4-fast", "discovered_from": "https://x.ai/news", "first_seen": "2026-08-13", "status": "candidate"}
 {"lab": "zai", "url": "https://huggingface.co/zai-org/GLM-4.5", "discovered_from": "hf:zai-org", "first_seen": "2026-08-13", "status": "candidate"}
 {"lab": "zai", "url": "https://huggingface.co/zai-org/GLM-4.6", "discovered_from": "hf:zai-org", "first_seen": "2026-08-13", "status": "candidate"}

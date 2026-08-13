@@ -1,8 +1,8 @@
 {
   "_comment": "Live Harbor snapshot (registry.json + adapters/) fetched by sync_harbor.py.",
   "source": "harbor-framework/harbor @ main",
-  "fetched_at": "2026-07-24",
-  "n_adapters": 83,
+  "fetched_at": "2026-08-13",
+  "n_adapters": 84,
   "n_registry": 75,
   "n_in_registry": 49,
   "adapters": [
@@ -228,6 +228,11 @@
     },
     {
       "name": "llmsr_bench",
+      "in_registry": false,
+      "registry_name": null
+    },
+    {
+      "name": "locomo",
       "in_registry": false,
       "registry_name": null
     },
