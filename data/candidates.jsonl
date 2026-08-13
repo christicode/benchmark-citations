@@ -5,6 +5,10 @@
 {"lab": "deepseek", "url": "https://huggingface.co/deepseek-ai/DeepSeek-V3.2-Speciale", "discovered_from": "hf:deepseek-ai", "first_seen": "2026-08-13", "status": "candidate"}
 {"lab": "google_deepmind", "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash", "discovered_from": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/", "first_seen": "2026-08-13", "status": "candidate"}
 {"lab": "meta", "url": "https://ai.meta.com/blog/introducing-muse-image-muse-video-msl", "discovered_from": "https://ai.meta.com/blog/", "first_seen": "2026-08-13", "status": "candidate"}
+{"lab": "meta", "url": "https://research.meta.ai/blog/introducing-muse-code-and-muse-spark-1-2", "discovered_from": "https://research.meta.ai/blog/", "first_seen": "2026-08-13", "status": "candidate"}
+{"lab": "meta", "url": "https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model", "discovered_from": "https://research.meta.ai/blog/", "first_seen": "2026-08-13", "status": "candidate"}
+{"lab": "meta", "url": "https://research.meta.ai/blog/introducing-muse-spark-meta-model-api", "discovered_from": "https://research.meta.ai/blog/", "first_seen": "2026-08-13", "status": "candidate"}
+{"lab": "meta", "url": "https://research.meta.ai/blog/introducing-muse-spark-msl", "discovered_from": "https://research.meta.ai/blog/", "first_seen": "2026-08-13", "status": "candidate"}
 {"lab": "mistral", "url": "https://mistral.ai/news/mistral-large", "discovered_from": "https://mistral.ai/news/", "first_seen": "2026-08-13", "status": "candidate"}
 {"lab": "mistral", "url": "https://mistral.ai/news/mistral-large-2407", "discovered_from": "https://mistral.ai/news/", "first_seen": "2026-08-13", "status": "candidate"}
 {"lab": "mistral", "url": "https://mistral.ai/news/mistral-medium-3", "discovered_from": "https://mistral.ai/news/", "first_seen": "2026-08-13", "status": "candidate"}
