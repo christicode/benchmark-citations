@@ -229,13 +229,10 @@ benchmarks:
     type: agentic
     domain: coding
     aliases: ["Frontier SWE"]
-  - canonical: frontierbench
-    type: agentic
-    domain: coding
-    aliases: ["FrontierBench", "FrontierBench v0.1", "Frontier-Bench", "Frontier-Bench v0.1"]
-    notes: "!= FrontierCode (frontiercode) AND != terminal-bench-3.0 — Cognition's own successor to
-      Terminal-Bench 2.1 (Fable/Opus-5 blog partner eval). Opus 5 blog hyphenates ('Frontier-Bench v0.1');
-      system card writes 'FrontierBench v0.1' — same benchmark, folded. Opus 5 cites THIS, not TB 2.1/3.0."
+  # NOTE: 'frontierbench' (FrontierBench v0.1) was FOLDED INTO terminal-bench-3.0 on 2026-08-13 —
+  # FrontierBench v0.1 was RENAMED to Terminal-Bench 3.0 (same benchmark, same team; it was the
+  # 'successor to Terminal-Bench 2.1'). Its aliases now live on terminal-bench-3.0 so Opus 5's
+  # headliner counts as a Terminal-Bench 3.0 citation.
   - canonical: frontiercode
     type: agentic
     domain: coding
@@ -557,7 +554,7 @@ benchmarks:
   # (task set + harness change the score). We keep THREE distinct canonicals so citations to
   # 2.0 / 2.1 / 3.0 are counted separately (never folded). Bare "Terminal-Bench" (no version)
   # stays on the base 2.0 canonical — that's the Harbor-native one; do NOT re-version bare
-  # mentions by guessing. See FrontierBench (frontierbench) for Cognition's separate successor.
+  # mentions by guessing. FrontierBench v0.1 == Terminal-Bench 3.0 (renamed) — folded into 3.0 below.
   - canonical: terminal-bench
     type: agentic
     domain: coding
@@ -575,10 +572,16 @@ benchmarks:
   - canonical: terminal-bench-3.0
     type: agentic
     domain: coding
-    aliases: ["Terminal-Bench 3.0", "Terminal-Bench v3.0", "Terminal Bench 3.0", "Terminal-bench 3.0", "Terminal Bench v3.0", "Terminal-Bench 3", "Terminal-Bench v3", "TerminalBench 3.0"]
+    aliases: ["Terminal-Bench 3.0", "Terminal-Bench v3.0", "Terminal Bench 3.0", "Terminal-bench 3.0", "Terminal Bench v3.0", "Terminal-Bench 3", "Terminal-Bench v3", "TerminalBench 3.0",
+              "FrontierBench", "FrontierBench v0.1", "Frontier-Bench", "Frontier-Bench v0.1", "FrontierBench 0.1"]
     collision: "NOT in Harbor. NEW version first cited 2026-08 (Grok 4.6, Gemini 3.7 Flash). Much harder /
       broader (general agent tasks) than 2.1 — solve rates drop sharply (e.g. ~15-35% vs ~80%+ on 2.1),
-      so a doc citing BOTH 2.1 and 3.0 yields TWO separate citations. Distinct from Cognition's FrontierBench."
+      so a doc citing BOTH 2.1 and 3.0 yields TWO separate citations."
+    notes: "IDENTITY: 'FrontierBench v0.1' (the Terminal-Bench-team successor to TB 2.1) was RENAMED to
+      Terminal-Bench 3.0 — same benchmark, folded here 2026-08-13. Opus 5 blog ('Frontier-Bench v0.1')
+      + system card ('FrontierBench v0.1') therefore count as Terminal-Bench 3.0 citations. Opus 5's
+      43.3% is on the mini-SWE-agent harness (GKE, mean reward/5) — score is harness/model dependent;
+      != Cognition's FrontierCode (frontiercode)."
   - canonical: toolathlon
     type: agentic
     domain: computer-use

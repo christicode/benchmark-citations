@@ -636,7 +636,7 @@ Vending-Bench =
 
 ### Claude Opus 5 — `model_card`
 [source](https://www.anthropic.com/news/claude-opus-5) · doc id `claude-opus-5__blog_headliner` · **3** benchmarks need a number
-<sub>already have scores: ARC-AGI-3, AutomationBench, BioMysteryBench, BrowseComp, DeepSWE v1.1, Frontier-Bench v0.1, FrontierCode 1.1 (Main), GDPval-AA v2, HealthBench Professional, Humanity's Last Exam, Legal Agent Benchmark, OSWorld 2.0</sub>
+<sub>already have scores: ARC-AGI-3, AutomationBench, BioMysteryBench, BrowseComp, DeepSWE v1.1, FrontierCode 1.1 (Main), GDPval-AA v2, HealthBench Professional, Humanity's Last Exam, Legal Agent Benchmark, OSWorld 2.0, Frontier-Bench v0.1</sub>
 
 ```
 # claude-opus-5__blog_headliner  —  fill value after '='  (%/elo/usd; blank if not shown)

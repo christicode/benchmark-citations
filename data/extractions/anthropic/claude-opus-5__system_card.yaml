@@ -27,7 +27,9 @@ mentions:
   - raw: "FrontierBench v0.1"
     value: 43.3
     unit: percent
-    methodology: ["GPT-5.6 Sol figure (37.5) is via Codex"]
+    methodology:
+      - "FrontierBench v0.1 was RENAMED to Terminal-Bench 3.0 -> maps to terminal-bench-3.0 (S8.5: successor to TB 2.1, same team)"
+      - "GPT-5.6 Sol figure (37.5) is via Codex"
   - raw: "BrowseComp"
     value: 90.8
     unit: percent

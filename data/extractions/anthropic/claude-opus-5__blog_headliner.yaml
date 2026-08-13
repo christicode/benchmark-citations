@@ -14,6 +14,7 @@ mentions:
     unit: percent
     model_config: "Claude Opus 5; agentic terminal coding"
     methodology:
+      - "FrontierBench v0.1 was RENAMED to Terminal-Bench 3.0 -> maps to terminal-bench-3.0"
       - "effort plot; mini-SWE-agent harness on a GKE backend, mean reward over 5 attempts/task"
       - "Opus 4.8 was fallback on safety-classifier refusals for Opus 5 and Fable 5"
       - "Fable 5 33.7 / Opus 4.8 21.1 / GPT-5.6 Sol 34.4"
