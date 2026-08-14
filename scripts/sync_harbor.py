@@ -27,6 +27,7 @@ import os
 import pathlib
 import subprocess
 import sys
+import urllib.error
 import urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -42,6 +43,13 @@ ADAPTERS_API = "https://api.github.com/repos/harbor-framework/harbor/contents/ad
 # connect them. Keep this tiny and obvious; everything else is matched automatically.
 BRIDGE = {
     "humanitys-last-exam": "hle",   # HLE = Humanity's Last Exam
+    # Terminal-Bench is a Harbor-NATIVE benchmark (Harbor is its official harness). Harbor's
+    # registry.json name is version-agnostic ("terminal-bench", currently pinned at 2.0), so the
+    # version/variant canonicals we split for CITATION COUNTING don't normalize-match it. Bridge the
+    # whole family to the native terminal-bench so Harbor-COVERAGE is correct (all TB = native/on-Harbor);
+    # the split only affects usage counts, not Harbor status. Add future TB majors (3.1/4.0/...) here.
+    "terminal-bench-3": "terminal-bench",
+    "terminal-bench-hard": "terminal-bench",
 }
 
 
@@ -73,12 +81,24 @@ def norm(s):
 
 
 def _get(url):
-    req = urllib.request.Request(url, headers={"User-Agent": "benchmark-citations-sync"})
-    tok = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
-    if tok and url.startswith("https://api.github.com"):
-        req.add_header("Authorization", f"Bearer {tok}")
-    with urllib.request.urlopen(req, timeout=90) as r:
-        return json.load(r)
+    def _fetch(use_auth):
+        req = urllib.request.Request(url, headers={"User-Agent": "benchmark-citations-sync"})
+        tok = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
+        if use_auth and tok and url.startswith("https://api.github.com"):
+            req.add_header("Authorization", f"Bearer {tok}")
+        with urllib.request.urlopen(req, timeout=90) as r:
+            return json.load(r)
+    try:
+        return _fetch(use_auth=True)
+    except urllib.error.HTTPError as e:
+        # A placeholder / invalid / over-scoped token 401/403s the REST API. The Harbor adapters
+        # listing is PUBLIC, so retry UNAUTHENTICATED rather than letting fetch_live() fail and fall
+        # back to the stale committed snapshot — that's what keeps native/adapter status genuinely
+        # live and up to date. A real CI token (GITHUB_TOKEN) just buys the higher rate limit.
+        if e.code in (401, 403) and url.startswith("https://api.github.com"):
+            print(f"harbor: api returned {e.code} with token; retrying unauthenticated", file=sys.stderr)
+            return _fetch(use_auth=False)
+        raise
 
 
 def fetch_live():
