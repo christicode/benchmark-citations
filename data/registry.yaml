@@ -59,7 +59,10 @@ benchmarks:
   - canonical: automationbench
     type: agentic
     domain: computer-use
-    aliases: ["AutomationBench"]
+    aliases: ["AutomationBench", "Automation Bench", "Automation-Bench"]
+    notes: "Enterprise/business-workflow automation agent eval (e.g. Zapier). MERGED 2026-08-13: the
+      former 'automation-bench' canonical (Opus 4.8 system-card 'Automation Bench' + Qwen3.8 'Automation-Bench')
+      is the SAME benchmark — folded here. Domain kept as computer-use (agentic automation)."
   - canonical: babyvision
     type: chat
     domain: multimodal
@@ -945,12 +948,8 @@ benchmarks:
     domain: knowledge
     aliases: ["Longbench v2", "LongBench v2", "LongBench-v2", "LongBench-V2"]
     notes: "Long-context understanding (standardized ~128k); cited on the Kimi K2.5 card."
-  - canonical: automation-bench
-    type: agentic
-    domain: professional
-    aliases: ["Automation Bench"]
-    notes: "Agentic automation eval in the Opus 4.8 system-card capability table; type/domain classified from context."
-  # --- 2026-07 (batch 2): human-reviewed identity for the Apex Shortlist flag + Kimi K2 Thinking writing eval ---
+  # NOTE: 'automation-bench' was MERGED INTO 'automationbench' (2026-08-13) — same benchmark
+  # (AutomationBench == Automation-Bench == 'Automation Bench'); its aliases now live there.
   - canonical: apex-shortlist
     type: chat
     domain: math
