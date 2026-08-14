@@ -3,5 +3,8 @@ models:
     release_date: '2026-06-16'
   kimi-k2-7-code:
     release_date: '2026-06-12'
+  muse-spark-1-2:
+    # developer.meta.com product page carries no publish date; release date human-provided (Aug 5 2026).
+    release_date: '2026-08-05'
   qwen3-max:
     release_date: '2025-09-23'

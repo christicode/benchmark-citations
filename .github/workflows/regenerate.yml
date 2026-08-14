@@ -9,6 +9,7 @@ on:
       - data/registry.yaml
       - data/documents.yaml
       - data/extractions/**
+      - data/models.overrides.yaml
       - .github/workflows/regenerate.yml
 concurrency:
   group: regenerate
