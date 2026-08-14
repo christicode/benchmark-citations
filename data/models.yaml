@@ -5,8 +5,7 @@ _note: 'MODEL axis for the heatmap. Derived from data/citations.jsonl; release_d
   on the LEFT; undated models are grouped at the end until a real date is backfilled.'
 schema_version: 1
 count: 50
-undated_needs_backfill:
-- meta:Muse Spark 1.2
+undated_needs_backfill: []
 models:
 - id: deepseek-v4-pro-0813
   model: DeepSeek-V4-Pro-0813
@@ -63,6 +62,17 @@ models:
   citations: 31
   docs:
   - https://huggingface.co/Qwen/Qwen3.8-2.4T-A95B
+- id: muse-spark-1-2
+  model: Muse Spark 1.2
+  display: Muse Spark 1.2
+  company: meta
+  company_display: Meta
+  company_category: big5
+  release_date: '2026-08-05'
+  release_date_source: override
+  citations: 4
+  docs:
+  - https://developer.meta.com/ai/models/muse-spark/
 - id: claude-opus-5
   model: Claude Opus 5
   display: Opus 5
@@ -580,14 +590,3 @@ models:
   docs:
   - https://cdn.openai.com/gpt-5-system-card.pdf
   - https://openai.com/index/introducing-gpt-5/
-- id: muse-spark-1-2
-  model: Muse Spark 1.2
-  display: Muse Spark 1.2
-  company: meta
-  company_display: Meta
-  company_category: big5
-  release_date: null
-  release_date_source: unknown
-  citations: 4
-  docs:
-  - https://developer.meta.com/ai/models/muse-spark/
