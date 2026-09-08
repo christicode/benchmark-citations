@@ -652,3 +652,18 @@ documents:
     default_weight_class: blog_headliner
     url: "https://deepmind.google/models/gemini/flash/"
     pub_date: "2026-09-02"
+  # --- 2026-09-08 sweep, Batch 2 ---
+  - id: glm-5-3__model_card
+    lab: zai
+    model: "GLM-5.3"
+    container: hf_readme
+    default_weight_class: model_card
+    url: "https://huggingface.co/zai-org/GLM-5.3"
+    pub_date: "2026-08-14"          # launch 2026-08-14; open weights ~2026-08-28. Post-training-only upgrade on GLM-5.2 base.
+  - id: grok-4-6__model_card
+    lab: xai
+    model: "Grok 4.6"
+    container: pdf                   # media.x.ai card PDF (text), 42pp; supplements the tracked Grok 4.6 blog
+    default_weight_class: model_card
+    url: "https://media.x.ai/v1/website/card-4p6-4cd2dc57.pdf"
+    pub_date: "2026-08-12"          # card cover date (revision 2026-08-17)

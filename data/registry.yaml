@@ -254,7 +254,7 @@ benchmarks:
   - canonical: gdpval-aa
     type: agentic
     domain: professional
-    aliases: ["GDPval AA", "GDPval-AA", "GDPval-AA v2"]
+    aliases: ["GDPval AA", "GDPval-AA", "GDPval-AA v2", "AA GDPVal"]
     notes: "Distinct from OpenAI's GDPval gold (gdpval-gold). v1 vs v2 versions."
   - canonical: gdpval-gold
     type: agentic
@@ -1637,3 +1637,54 @@ benchmarks:
     aliases: ["Firefox 147"]
     notes: "Anthropic cyber eval (Mozilla collaboration): develop exploits for Firefox 147
       vulnerabilities, ~50 crash categories x 5 trials. Claude Fable 5.1 system card §3.3.3."
+  # --- 2026-09-08: Batch 2 (Grok 4.6 model card) — physical-engineering / AI-R&D / cyber evals.
+  #     Many are xAI-internal (vendor_proprietary). Ecosystem coding/knowledge benches already live
+  #     on the tracked Grok 4.6 blog; these are the card-specific additions. ---
+  - canonical: eebench
+    type: agentic
+    domain: science
+    aliases: ["EEBench"]
+    notes: "xAI electrical-engineering & chip-design benchmark (design circuits). Grok 4.6 card §4.1."
+  - canonical: threedcodebench
+    type: agentic
+    domain: coding
+    aliases: ["3DCodeBench", "3D CodeBench"]
+    notes: "Agentic procedural 3D modeling via code. Grok 4.6 card §4.2."
+  - canonical: partbench
+    type: agentic
+    domain: science
+    aliases: ["PartBench"]
+    notes: "Physical-engineering part/CAD benchmark. Grok 4.6 card §4.3."
+  - canonical: cadgenbench
+    type: agentic
+    domain: science
+    aliases: ["CADGenBench"]
+    notes: "CAD model construction from design prompts (generation split, executability + geometric correctness). Grok 4.6 card §4.4."
+  - canonical: cadbench
+    type: agentic
+    domain: science
+    aliases: ["CADBench"]
+    notes: "Parametric CAD / part-generation benchmark (Grok Build harness, run by gNucleus). Grok 4.6 card §4.5."
+  - canonical: spacexai-mts-eval
+    type: agentic
+    domain: coding
+    aliases: ["SpaceXAI MTS Eval", "MTS Eval"]
+    vendor_proprietary: true
+    notes: "xAI internal AI-R&D eval. Grok 4.6 card §5.1. Single-vendor, not in Harbor."
+  - canonical: inferenceeval
+    type: agentic
+    domain: coding
+    aliases: ["InferenceEval"]
+    vendor_proprietary: true
+    notes: "xAI internal inference-engineering AI-R&D eval. Grok 4.6 card §5.2."
+  - canonical: kernelbench-internal
+    type: agentic
+    domain: coding
+    aliases: ["KernelBenchInternal v1.1", "KernelBenchInternal", "KernelBench Internal"]
+    vendor_proprietary: true
+    notes: "xAI internal kernel-optimization AI-R&D eval (v1.1, harder task split). Grok 4.6 card §5.3. != OpenAI KernelGen."
+  - canonical: securecodereview
+    type: agentic
+    domain: cyber
+    aliases: ["SecureCodeReview", "Secure Code Review"]
+    notes: "Defensive security-code-review benchmark (Grok Build harness). Grok 4.6 card §7.3."

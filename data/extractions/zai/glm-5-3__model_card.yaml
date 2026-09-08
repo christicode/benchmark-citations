@@ -1,0 +1,89 @@
+# glm-5-3__model_card
+# Source: https://huggingface.co/zai-org/GLM-5.3 (HF README = card; open weights, ~2026-08-28;
+# launch 2026-08-14). Clean markdown comparison table (parsed from /raw/main/README.md). Columns:
+# GLM-5.3 | GLM-5.2 | Kimi K3 | DeepSeek-V4 Pro-0813 | Qwen3.8-Max | Opus 4.8 | Fable 5 (w/ fallback)
+# | GPT-5.6 Sol. Citing model = GLM-5.3 (first column); ** = row winner (recorded in methodology).
+# GLM-5.3 is a post-training-only upgrade on the GLM-5.2 base. Agentic rows: Claude Code 2.1.207,
+# reasoning_effort=max, avg@3, isolated container per rollout (per the card's methodology note).
+doc: glm-5-3__model_card
+mentions:
+  - raw: "Terminal Bench 2.1"
+    value: 88.2
+    unit: percent
+    model_config: "GLM-5.3; Claude Code harness"
+    methodology: ["GPT-5.6 Sol 88.8 (row winner); GLM-5.2 81.0 / Kimi K3 88.3 / DeepSeek-V4-Pro-0813 87.9 / Qwen3.8-Max 86.6 / Opus 4.8 85.0 / Fable 5 88.0"]
+  - raw: "Terminal Bench 3.0"
+    value: 28.3
+    unit: percent
+    model_config: "GLM-5.3; Claude Code harness (SOTA among open models)"
+    methodology: ["GPT-5.6 Sol 34.6 (row winner); GLM-5.2 4.6 / Kimi K3 17.4 / Opus 4.8 21.1 / Fable 5 33.7 (DeepSeek/Qwen n/a)"]
+  - raw: "DeepSWE (v1.1)"
+    value: 66.9
+    unit: percent
+    model_config: "GLM-5.3"
+    methodology: ["GPT-5.6 Sol 72.7 (row winner); GLM-5.2 46.2 / Kimi K3 67.5 / DeepSeek-V4-Pro-0813 62.7 / Qwen3.8-Max 56.6 / Opus 4.8 58.0 / Fable 5 69.7"]
+  - raw: "NL2Repo"
+    value: 58.0
+    unit: percent
+    model_config: "GLM-5.3"
+    methodology: ["Opus 4.8 69.7 (row winner); GLM-5.2 48.9 / Kimi K3 58.0 / DeepSeek-V4-Pro-0813 61.1 / Qwen3.8-Max 55.9"]
+  - raw: "ProgramBench"
+    value: 19.0
+    unit: percent
+    model_config: "GLM-5.3; Almost Solved metric"
+    methodology: ["Fable 5 33.0 (row winner); GLM-5.2 9.5 / Kimi K3 17.5 / Qwen3.8-Max 10.5 / Opus 4.8 15.5 / GPT-5.6 Sol 23.0"]
+  - raw: "FrontierSWE"
+    value: 78.1
+    unit: percent
+    model_config: "GLM-5.3"
+    methodology: ["Fable 5 88.2 (row winner); GLM-5.2 67.5 / Opus 4.8 66.5"]
+  - raw: "SWE-Marathon"
+    value: 42.5
+    unit: percent
+    model_config: "GLM-5.3; v1.1"
+    methodology: ["Opus 4.8 48.8 (row winner); GLM-5.2 19.4 / Kimi K3 48.1 / Fable 5 33.1 / GPT-5.6 Sol 42.5"]
+  - raw: "PostTrainBench"
+    value: 39.8
+    unit: percent
+    model_config: "GLM-5.3"
+    methodology: ["Fable 5 41.8 (row winner); GLM-5.2 31.7 / Kimi K3 32.0 / Opus 4.8 32.9 / GPT-5.6 Sol 36.2"]
+  - raw: "CyberGym"
+    value: 84.5
+    unit: percent
+    model_config: "GLM-5.3; Claude Code 2.1.207 max, no web tools, pass@1 over 1,507 tasks (row winner)"
+    methodology: ["GLM-5.2 77.2 / Kimi K3 80.0 / DeepSeek-V4-Pro-0813 83.3 / Qwen3.8-Max 78.5 / Opus 4.8 78.1 / Fable 5 83.8 / GPT-5.6 Sol 83.6"]
+  - raw: "ExploitGym"
+    value: 130
+    unit: other
+    model_config: "GLM-5.3; 6h count (2h count 105)"
+    methodology: ["counts not %; GPT-5.6 Sol 216/293 (row winner); GLM-5.2 29/39 / Kimi K3 36/70 / Qwen3.8-Max 14/26 / Opus 4.8 80/120 / Fable 5 181/247"]
+  - raw: "ExploitBench"
+    value: 54.4
+    unit: percent
+    model_config: "GLM-5.3"
+    methodology: ["Fable 5 78.0 (row winner); GLM-5.2 24.4 / Kimi K3 32.2 / Qwen3.8-Max 28.8 / Opus 4.8 40.0 / GPT-5.6 Sol 76.5"]
+  - raw: "Toolathlon Verified"
+    value: 73.0
+    unit: percent
+    model_config: "GLM-5.3"
+    methodology: ["Kimi K3 76.5 (row winner); GLM-5.2 59.9 / DeepSeek-V4-Pro-0813 74.1 / Qwen3.8-Max 72.5 / Opus 4.8 76.2 / Fable 5 74.7 / GPT-5.6 Sol 74.9"]
+  - raw: "AutomationBench"
+    value: 48.2
+    unit: percent
+    model_config: "GLM-5.3; v1.0.6 (row winner)"
+    methodology: ["GLM-5.2 26.2 / Kimi K3 46.7 / DeepSeek-V4-Pro-0813 43.2 / Qwen3.8-Max 39.8 / Opus 4.8 41.0 / Fable 5 46.2 / GPT-5.6 Sol 45.8"]
+  - raw: "Agents' Last Exam"
+    value: 28.5
+    unit: percent
+    model_config: "GLM-5.3; ALE-CLI"
+    methodology: ["GPT-5.6 Sol 28.6 (row winner); GLM-5.2 23.8 / Kimi K3 27.6 / DeepSeek-V4-Pro-0813 25.7 / Qwen3.8-Max 27.0 / Opus 4.8 25.7 / Fable 5 23.8"]
+  - raw: "HLE"
+    value: 62.5
+    unit: percent
+    model_config: "GLM-5.3; with tools"
+    methodology: ["GPT-5.6 Sol 64.5 (row winner); GLM-5.2 54.7 / Kimi K3 59.8 / DeepSeek-V4-Pro-0813 60.0 / Qwen3.8-Max 56.2 / Opus 4.8 57.9 / Fable 5 63.9"]
+  - raw: "GDPval-AA v2"
+    value: 1769
+    unit: elo
+    model_config: "GLM-5.3 (row winner)"
+    methodology: ["GLM-5.2 1508 / Kimi K3 1682 / DeepSeek-V4-Pro-0813 1590 / Qwen3.8-Max 1739 / Opus 4.8 1588 / Fable 5 1743 / GPT-5.6 Sol 1730"]

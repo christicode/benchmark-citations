@@ -1,0 +1,107 @@
+# grok-4-6__model_card
+# Source: https://media.x.ai/v1/website/card-4p6-4cd2dc57.pdf (Grok 4.6 Model Card, 42pp, cover
+# 2026-08-12 / revision 2026-08-17; text PDF, pdftotext). This SUPPLEMENTS the already-tracked Grok
+# 4.6 launch blog (grok-4-6__blog_headliner) with per-section HARNESS detail and the card-specific
+# physical-engineering / AI-R&D / cyber benchmarks. Values are Grok 4.6 at high thinking effort unless
+# noted (xhigh where the card leads with it). Ecosystem coding rows that render only as figures on the
+# card (CursorBench 3.2, APEX-SWE, FrontierCode v1.1) -> score_pending (their numbers are on the blog).
+# Bio §8 rows are dual-use compliance/refusal-rate safety evals (lower better) -> NOT recorded, per the
+# internal-safety convention. citing model = Grok 4.6. default weight_class = model_card.
+doc: grok-4-6__model_card
+mentions:
+  # ===== §2 Coding =====
+  - raw: "CursorBench 3.2"
+    model_config: "Grok 4.6; §2.1"
+    methodology: ["figure-only on the card -> score_pending (blog carries the number)"]
+  - raw: "APEX-SWE"
+    model_config: "Grok 4.6; §2.2 Terminus-2 harness"
+    methodology: ["figure-only on the card -> score_pending (blog carries the number)"]
+  - raw: "FrontierCode"
+    model_config: "Grok 4.6; §2.3 v1.1, Grok Build harness"
+    methodology: ["figure-only on the card -> score_pending (blog carries the number)"]
+  - raw: "DeepSWE v1.1"
+    value: 65.9
+    unit: percent
+    model_config: "Grok 4.6; §2.4 mini-swe-agent harness"
+  - raw: "SWE-Marathon"
+    value: 31.9
+    unit: percent
+    model_config: "Grok 4.6; §2.5 v1.1, provider harnesses"
+  - raw: "Terminal-Bench 3.0"
+    value: 26.0
+    unit: percent
+    model_config: "Grok 4.6; §2.6 Grok Build harness (formerly FrontierBench)"
+  # ===== §3 Knowledge work =====
+  - raw: "AA GDPVal"
+    value: 1753
+    unit: elo
+    model_config: "Grok 4.6; §3.1 GDPVal-AA v2 harness"
+  - raw: "AA-Briefcase"
+    value: 1577
+    unit: elo
+    model_config: "Grok 4.6; §3.2"
+  - raw: "APEX-Agents"
+    value: 57.5
+    unit: percent
+    model_config: "Grok 4.6; §3.3 Mercor harness"
+  - raw: "OfficeQA Pro"
+    value: 63.2
+    unit: percent
+    model_config: "Grok 4.6; §3.4 Databricks harness"
+  - raw: "Legal Agent Benchmark"
+    value: 15.8
+    unit: percent
+    model_config: "Grok 4.6; §3.5 Vals AI (Valkyrie) harness"
+  # ===== §4 Physical engineering =====
+  - raw: "EEBench"
+    value: 60.0
+    unit: percent
+    model_config: "Grok 4.6; §4.1 xhigh (high 53.0); electrical engineering & chip design"
+  - raw: "3DCodeBench"
+    value: 54.0
+    unit: percent
+    model_config: "Grok 4.6; §4.2 agentic procedural 3D modeling via code"
+  - raw: "PartBench"
+    value: 58.5
+    unit: percent
+    model_config: "Grok 4.6; §4.3 xhigh; provider harnesses"
+  - raw: "CADGenBench"
+    value: 40.9
+    unit: percent
+    model_config: "Grok 4.6; §4.4 CAD generation split, Grok Build harness"
+  - raw: "CADBench"
+    value: 88.4
+    unit: percent
+    model_config: "Grok 4.6; §4.5 xhigh (high 87.8); Grok Build harness (run by gNucleus)"
+  # ===== §5 AI R&D (xAI internal) =====
+  - raw: "SpaceXAI MTS Eval"
+    value: 61.1
+    unit: percent
+    model_config: "Grok 4.6; §5.1 Grok Build harness (vendor_proprietary)"
+  - raw: "InferenceEval"
+    value: 46.9
+    unit: percent
+    model_config: "Grok 4.6; §5.2 (vendor_proprietary)"
+  - raw: "KernelBenchInternal v1.1"
+    value: 37.2
+    unit: percent
+    model_config: "Grok 4.6; §5.3 (vendor_proprietary)"
+    methodology: ["improves on Grok 4.5 high 29.7%"]
+  # ===== §6 Factuality / agentic search =====
+  - raw: "DeepSearchQA"
+    value: 81.6
+    unit: percent
+    model_config: "Grok 4.6; §6.2 Grok Build harness"
+  # ===== §7 Cybersecurity =====
+  - raw: "CyberGym"
+    value: 79.7
+    unit: percent
+    model_config: "Grok 4.6; §7.1 Grok Build harness"
+  - raw: "CVE-Bench"
+    value: 39.8
+    unit: percent
+    model_config: "Grok 4.6; §7.2 Grok Build harness"
+  - raw: "SecureCodeReview"
+    value: 58.7
+    unit: percent
+    model_config: "Grok 4.6; §7.3 Grok Build harness (defensive)"
