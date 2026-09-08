@@ -56,6 +56,13 @@ def main() -> int:
     models = mdoc.get("models", [])
     model_meta = {m["id"]: m for m in models}
 
+    # Optional per-benchmark render label (registry.yaml `display:`). Keeps canonical IDs/keys stable
+    # (used for search-links + citation joins) while the heatmap shows a human label — e.g. the
+    # Terminal-Bench buckets render "Terminal-Bench 1.0, 2.0, 2.1" / "Terminal-Bench 3.0+" instead of
+    # the hyphenated slug. Render-only; nothing downstream depends on it.
+    reg = yaml.safe_load((ROOT / "data" / "registry.yaml").read_text()) or {}
+    disp = {b["canonical"]: b["display"] for b in reg.get("benchmarks", []) if b.get("display")}
+
     companies = []
     seen = set()
     for m in models:
@@ -127,7 +134,8 @@ def main() -> int:
             total += pts
             if score is not None:
                 sat = score if sat is None else max(sat, score)
-        benchmarks.append({"canon": canon, "type": b["type"] or "?", "domain": b["domain"] or "?",
+        benchmarks.append({"canon": canon, "display": disp.get(canon, canon),
+                           "type": b["type"] or "?", "domain": b["domain"] or "?",
                            "on_harbor": b["on_harbor"], "harbor_native": b["harbor_native"],
                            "points": total, "sat": sat,
                            "n_models": len(cells), "cells": cells})
@@ -420,7 +428,7 @@ function rowVisible(b){
   if(state.harb && !b.on_harbor) return false;
   if(state.search) {
     var q = state.search.toLowerCase();
-    if(b.canon.toLowerCase().indexOf(q) === -1) return false;
+    if(b.canon.toLowerCase().indexOf(q) === -1 && (b.display||'').toLowerCase().indexOf(q) === -1) return false;
   }
   return true;
 }
@@ -464,7 +472,7 @@ function render(){
             '">(H)</span>':'';
     H.push('<tr><td class=yl><span class=rank>'+(i+1)+'</span>'+
       '<span class=nm onclick="openRec(\''+esc(b.canon)+'\')" title="see citation records on GitHub">'+
-      esc(b.canon)+'</span>'+h+ty+'</td>');
+      esc(b.display||b.canon)+'</span>'+h+ty+'</td>');
     vm.forEach(function(m){
       var c=b.cells[m.id];
       if(!c){ H.push('<td class=cell></td>'); return; }
@@ -492,10 +500,10 @@ var pinned=null;
 function cellData(el){
   var b=el.dataset.b, m=el.dataset.m;
   var rec=DATA.benchmarks.find(function(x){return x.canon===b;});
-  return {b:b, c:rec.cells[m], mm:DATA.models.find(function(x){return x.id===m;})};
+  return {b:b, bdisp:(rec.display||rec.canon), c:rec.cells[m], mm:DATA.models.find(function(x){return x.id===m;})};
 }
 function tipHTML(d){
-  var s='<h4>'+esc(d.b)+' × '+esc(d.mm.display)+'</h4>';
+  var s='<h4>'+esc(d.bdisp)+' × '+esc(d.mm.display)+'</h4>';
   d.c.docs.forEach(function(doc){
     var lab=DATA.wc_label[doc.wc]||doc.wc||'cited';
     var v=(doc.val!=null)?(' — '+esc(String(doc.val))+(doc.unit==='percent'?'%':(doc.unit&&doc.unit!=='other'?(' '+doc.unit):''))):'';

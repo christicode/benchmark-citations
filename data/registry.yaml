@@ -571,6 +571,7 @@ benchmarks:
   - canonical: terminal-bench-1-2-2.1
     type: agentic
     domain: coding
+    display: "Terminal-Bench 1.0, 2.0, 2.1"
     aliases: ["Terminal Bench", "Terminal Bench 2.0-Terminus", "Terminal-Bench", "Terminal-Bench 1.0", "Terminal Bench 1.0", "Terminal-Bench 1", "Terminal Bench 1",
               "Terminal-Bench 2", "Terminal Bench 2", "Terminal-Bench 2.0", "Terminal Bench 2.0",
               "Terminal-Bench 2.1", "Terminal Bench 2.1", "Terminal-bench 2.1", "Terminal-Bench v2.1", "Terminal Bench v2.1", "TerminalBench 2.1"]
@@ -585,6 +586,7 @@ benchmarks:
   - canonical: terminal-bench-3-plus
     type: agentic
     domain: coding
+    display: "Terminal-Bench 3.0+"
     aliases: ["Terminal-Bench 3", "Terminal-Bench 3.0", "Terminal-Bench v3.0", "Terminal Bench 3.0", "Terminal-bench 3.0", "Terminal Bench v3.0", "Terminal-Bench v3", "TerminalBench 3.0", "TerminalBench 3",
               "Terminal-Bench 3.1", "Terminal Bench 3.1", "Terminal-bench 3.1",
               "Terminal-Bench 4", "Terminal-Bench 4.0", "Terminal Bench 4.0", "Terminal-bench 4.0", "Terminal Bench 4", "Terminal-Bench v4.0", "Terminal Bench v4.0", "Terminal-Bench v4", "TerminalBench 4.0", "TerminalBench 4",
@@ -605,6 +607,7 @@ benchmarks:
   - canonical: terminal-bench-science
     type: agentic
     domain: science
+    display: "Terminal-Bench Science"
     harbor_native: true
     harbor_native_source: "https://github.com/harbor-framework/terminal-bench-science"
     aliases: ["Terminal-Bench-Science", "Terminal-Bench Science", "Terminal Bench Science", "TerminalBench-Science", "TB-Science", "TB Science",
@@ -787,6 +790,7 @@ benchmarks:
   - canonical: terminal-bench-hard
     type: agentic
     domain: coding
+    display: "Terminal-Bench Hard"
     aliases: ["Terminal-Bench Hard"]
   - canonical: vct
     type: chat
