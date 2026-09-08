@@ -193,14 +193,18 @@ body{margin:0;background:var(--bg);color:var(--fg);
   font:14px/1.55 "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;transition:background-color 0.2s, color 0.2s}
 .wrap{max-width:1400px;margin:0 auto;padding:26px 22px 40px}
-.hdr{display:flex;justify-content:space-between;align-items:center;margin:0 0 14px}
+.hdr{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;margin:0 0 14px}
+.hdr-tools{display:flex;gap:8px;align-items:center;margin-left:auto}
+.hdr-tools input{width:180px;height:34px}
 h1{font-family:var(--mono);font-size:23px;font-weight:700;letter-spacing:-.01em;color:var(--emph);margin:0}
-.theme-btn{cursor:pointer;border:1px solid var(--b);background:var(--panel);color:var(--emph);padding:6px 12px;border-radius:8px;font-family:var(--mono);font-size:14px;transition:.12s;user-select:none}
+.theme-btn{cursor:pointer;border:1px solid var(--b);background:var(--panel);color:var(--emph);width:34px;height:34px;padding:0;border-radius:0;font-family:var(--mono);font-size:14px;transition:.12s;user-select:none}
 .theme-btn:hover{border-color:var(--accent);color:var(--accent)}
 a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
-.bar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:0 0 14px;font-family:var(--mono);
+.bar{display:flex;flex-direction:column;gap:10px;align-items:stretch;margin:0 0 14px;font-family:var(--mono);
   background:var(--bg);border:1px solid var(--b);border-radius:0;padding:9px 12px}
-.bar .grp{display:flex;gap:8px;align-items:center}
+.bar .grp{display:flex;gap:8px;align-items:center;min-width:0;overflow-x:auto}
+.bar .grp>*{flex-shrink:0}
+.bar .grp>b{width:80px}
 .bar b{color:var(--mut);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.06em;margin-right:1px}
 /* segmented control (Harbor-Hub style): squared group, hairline dividers, subtle grey active */
 .seg{display:inline-flex;border:1px solid var(--b);border-radius:0;overflow:hidden}
@@ -281,7 +285,10 @@ input[type="text"]:focus, input[type="date"]:focus {
 </style></head><body><div class=wrap>
 <div class=hdr>
   <h1>Benchmark-Bench</h1>
-  <button id=theme-toggle class=theme-btn onclick="toggleTheme()">🌙</button>
+  <div class=hdr-tools>
+    <input type=text id=search-input placeholder="Search…" aria-label="Search benchmarks" oninput="setSearch(this.value)">
+    <button id=theme-toggle class=theme-btn onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
+  </div>
 </div>
 
 <div class=bar>
@@ -292,7 +299,6 @@ input[type="text"]:focus, input[type="date"]:focus {
       <span class=chip data-ty=chat onclick='setTy(this)'>chat</span>
       <span class=chip data-ty=harbor onclick='setTy(this)'>Harbor</span>
     </div>
-    <input type=text id=search-input placeholder="Search…" oninput="setSearch(this.value)" style="width:150px;">
   </div>
   <div class=grp><b>timeframe</b>
     <div class=range id=range title="drag the handles to set the release-date window">
