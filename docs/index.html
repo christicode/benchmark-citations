@@ -58,6 +58,9 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 .legend{color:var(--mut);font-size:12px;margin:12px 2px 0;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .sw{display:inline-block;width:12px;height:12px;border:1px solid var(--b);vertical-align:-2px;margin-right:4px;border-radius:3px}
 .grid-scroll{overflow:auto;max-height:80vh;border:1px solid var(--b);border-radius:0}
+.more{position:sticky;left:0;width:fit-content;padding:12px}
+.more button{font-family:var(--mono);font-size:12px;font-weight:400;color:var(--emph);background:var(--bg);border:1px solid var(--b);border-radius:0;padding:7px 12px;cursor:pointer}
+.more button:hover{background:var(--seghov)}
 table.hm{border-collapse:separate;border-spacing:0;margin-right:110px}
 table.hm th,table.hm td{padding:0;margin:0}
 thead{position:sticky;top:0;z-index:3;background:var(--bg)}
@@ -116,10 +119,7 @@ input[type="text"]:focus, input[type="date"]:focus {
       <span class=chip data-ty=all onclick='setTy(this)'>all</span>
       <span class=chip data-ty=agentic onclick='setTy(this)'>agentic</span>
       <span class=chip data-ty=chat onclick='setTy(this)'>chat</span>
-    </div>
-    <div class=seg>
-      <span class=chip id=harb onclick='toggleHarb(this)'>Harbor</span>
-      <span class=chip id=multi onclick='toggleMulti(this)'>2+ cites</span>
+      <span class=chip data-ty=harbor onclick='setTy(this)'>Harbor</span>
     </div>
     <input type=text id=search-input placeholder="Search…" oninput="setSearch(this.value)" style="width:150px;">
   </div>
@@ -137,7 +137,10 @@ input[type="text"]:focus, input[type="date"]:focus {
   </div>
 </div>
 
-<div class=grid-scroll><table class=hm id=hm></table></div>
+<div class=grid-scroll>
+  <table class=hm id=hm></table>
+  <div class=more id=more-wrap><button type=button id=more-button onclick="toggleMulti()" aria-controls=hm aria-expanded=false>Expand to see more</button></div>
+</div>
 
 <div class=legend>
   <span><span class=sw style=background:var(--t3)></span>Headliner (3)</span>
@@ -153,7 +156,6 @@ var DATA = {"as_of": "2026-09-08", "repo": "christicode/benchmark-citations", "w
 
 var state = {
   ty: 'all',
-  harb: false,
   multi: true,          // "2+ cites" ON by default -> hide single-citation benchmarks
   rangeStart: null,     // release-date window as day-numbers (set in initRange)
   rangeEnd: null,
@@ -170,7 +172,6 @@ DATA.companies.forEach(function(c){
   cos.appendChild(s);
 });
 document.querySelector('.chip[data-ty=all]').classList.add('on');
-document.getElementById('multi').classList.add('on');
 
 // Theme init & handler
 function toggleTheme() {
@@ -187,8 +188,7 @@ if (localStorage.getItem('theme') === 'dark') {
 function setTy(el){ state.ty=el.dataset.ty;
   document.querySelectorAll('.chip[data-ty]').forEach(function(x){x.classList.remove('on')});
   el.classList.add('on'); render(); }
-function toggleHarb(el){ state.harb=!state.harb; el.classList.toggle('on'); render(); }
-function toggleMulti(el){ state.multi=!state.multi; el.classList.toggle('on'); render(); }
+function toggleMulti(){ state.multi=!state.multi; render(); }
 
 // ---- release-date range slider (dual handle, Google-Flights style) ----
 function dayNum(d){ return Math.floor(new Date(d+'T00:00:00Z').getTime()/86400000); }
@@ -249,8 +249,8 @@ function visibleModels(){
 
 function rowVisible(b){
   if(/internal/i.test(b.canon+' '+(b.display||''))) return false;
-  if(state.ty!=='all' && b.type!==state.ty) return false;
-  if(state.harb && !b.on_harbor) return false;
+  if(state.ty==='harbor'){ if(!b.on_harbor) return false; }
+  else if(state.ty!=='all' && b.type!==state.ty) return false;
   if(state.search) {
     var q = state.search.toLowerCase();
     if(b.canon.toLowerCase().indexOf(q) === -1 && (b.display||'').toLowerCase().indexOf(q) === -1) return false;
@@ -272,13 +272,14 @@ function render(){
   document.getElementById('select-all-cos').classList.toggle('on',allSelected);
   var vm = visibleModels();
   var vmids = vm.map(function(m){return m.id;});
-  var rows=[];
+  var rows=[], singleCount=0;
   DATA.benchmarks.forEach(function(b){
     if(!rowVisible(b)) return;
     var pts=0, nm=0, nc=0;
     vmids.forEach(function(id){ var c=b.cells[id]; if(c){ pts+=c.pts; nm++;
       nc+=(c.docs?c.docs.length:1); } });
     if(nm===0) return;                          // no citation in visible columns
+    if(nc<=1) singleCount++;
     if(state.multi && nc<=1) return;            // hide single-citation benchmarks ("2+ cites")
     rows.push({b:b, pts:pts, nm:nm});
   });
@@ -317,6 +318,10 @@ function render(){
        '</td></tr></tbody>'];
   }
   t.innerHTML=H.join('');
+  document.getElementById('more-wrap').hidden=singleCount===0;
+  var more=document.getElementById('more-button');
+  more.textContent=state.multi?'Expand to see more':'Show only 2+ citations';
+  more.setAttribute('aria-expanded',String(!state.multi));
 }
 
 // model header tooltip text
