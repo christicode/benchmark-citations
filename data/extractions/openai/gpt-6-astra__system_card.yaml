@@ -1,0 +1,126 @@
+# gpt-6-astra__system_card
+# Source: https://deploymentsafety.openai.com/gpt-6-astra/gpt-6-astra.pdf (GPT-6 Astra System Card,
+# 117pp, 2026-09-03; text PDF, pdftotext). §10.1 Preparedness Capabilities Assessment: Bio/Chem
+# (§10.1.1), Cybersecurity (§10.1.2), AI Self-Improvement (§10.1.3). Astra meets the CRITICAL
+# cybersecurity threshold. Values recorded where STATED IN TEXT; figure-only results -> score_pending
+# (no invented numbers), matching prior OpenAI system-card extractions. Internal safety evals
+# (disallowed content, jailbreaks, prompt injection, alignment/monitorability) are NOT recorded.
+# citing model = GPT-6 Astra. default weight_class = system_card.
+doc: gpt-6-astra__system_card
+mentions:
+  # ===== Bio/Chem (§10.1.1): internal Preparedness evals (mostly figure-only) =====
+  - raw: "Multimodal Troubleshooting Virology"
+    model_config: "GPT-6 Astra; §10.1.1.1.1"
+    methodology: ["figure only -> score_pending"]
+  - raw: "ProtocolQA Open-Ended"
+    model_config: "GPT-6 Astra; §10.1.1.1.2"
+    methodology: ["figure only -> score_pending"]
+  - raw: "Tacit Knowledge and Troubleshooting"
+    model_config: "GPT-6 Astra; §10.1.1.1.3 (Gryphon Scientific MCQ)"
+    methodology: ["figure only -> score_pending"]
+  - raw: "TroubleshootingBench"
+    model_config: "GPT-6 Astra; §10.1.1.1.4"
+    methodology: ["figure only -> score_pending"]
+  - raw: "AAV Capsid Packaging Prediction"
+    model_config: "GPT-6 Astra; §10.1.1.2.1 (Critical-threshold proxy)"
+    methodology: ["figure only -> score_pending"]
+  - raw: "SHP2 Protein Function Prediction"
+    model_config: "GPT-6 Astra; §10.1.1.2.2 (Critical proxy)"
+    methodology: ["figure only -> score_pending"]
+  - raw: "Coronavirus-ACE2 Cell-Entry Screen"
+    model_config: "GPT-6 Astra; §10.1.1.2.3 (Critical proxy)"
+    methodology: ["figure only -> score_pending"]
+  - raw: "Phage-plasmid Co-evolution"
+    model_config: "GPT-6 Astra; §10.1.1.2.4 (Critical proxy)"
+    methodology: ["figure only -> score_pending"]
+  - raw: "Hard-negative Protein Binding Prediction"
+    model_config: "GPT-6 Astra; §10.1.1.3 (retiring)"
+    methodology: ["figure only -> score_pending"]
+  - raw: "DNA Sequence Design for Transcription Factor Binding"
+    model_config: "GPT-6 Astra; §10.1.1.3 (retiring)"
+    methodology: ["figure only -> score_pending"]
+  # --- SecureBio external (§10.1.1.4): stated values ---
+  - raw: "Virology Capabilities Test"
+    value: 57.8
+    unit: percent
+    model_config: "GPT-6 Astra; SecureBio external (highest SecureBio had observed)"
+    methodology: ["VCT-v2 57.7 (also a new high)"]
+  - raw: "VCT-v2"
+    value: 57.7
+    unit: percent
+    model_config: "GPT-6 Astra; SecureBio external"
+  - raw: "Human Pathogen Capabilities Test"
+    value: 65.9
+    unit: percent
+    model_config: "GPT-6 Astra; SecureBio external"
+    methodology: ["comparable to GPT-5.6 Sol 66.5"]
+  - raw: "WCB"
+    value: 61.6
+    unit: percent
+    model_config: "GPT-6 Astra; SecureBio World-Class Bio, external"
+    methodology: ["lower than GPT-5.6 Sol 67.6"]
+  - raw: "BioTIER"
+    value: 83
+    unit: percent
+    model_config: "GPT-6 Astra; % of published performance blocked"
+    methodology: ["vs 69% for GPT-5.6 Sol (counts full + model-jury 'soft' blocks)"]
+  - raw: "Advanced Screening Evasion"
+    value: 0.728
+    unit: other
+    model_config: "GPT-6 Astra; SecureBio (ABC-Bench Advanced Screening Evasion)"
+    methodology: ["vs 0.726 for GPT-5.6 Sol helpful-only"]
+  # ===== Cybersecurity (§10.1.2): meets Critical threshold =====
+  - raw: "ExploitBench"
+    value: 100.0
+    unit: percent
+    model_config: "GPT-6 Astra; Cap % (full score even at lowest effort); without production safeguards"
+    methodology: ["16 grader-verified capability flags across 5 seeds; arbitrary code execution = full completion"]
+  - raw: "ExploitBench (June-Aug 2026)"
+    model_config: "GPT-6 Astra; internal port, 20 recent V8 vulns (vendor_proprietary)"
+    methodology: ["much higher arbitrary-code-execution rate than Sol; found+used 2 zero-days (disclosed); §10.1.2.2 -> score_pending"]
+  - raw: "SRE-Bench"
+    value: 88.0
+    unit: percent
+    model_config: "GPT-6 Astra; pass@1 (binary reverse engineering, arXiv 2608.11469, §10.1.2.3)"
+    methodology: ["pass@4 99.2% vs GPT-5.6 Sol 68.7%, ~1/4 output tokens"]
+  - raw: "Sandbox Bench"
+    value: 45.5
+    unit: percent
+    model_config: "GPT-6 Astra; §10.1.2.4 (10/22 targets)"
+    methodology: ["vs 1/22 (4.5%) for GPT-5.6 Sol; successes span all 3 categories"]
+  - raw: "ExploitGym"
+    value: 42.4
+    unit: percent
+    model_config: "GPT-6 Astra; no 6h time limit"
+    methodology: ["vs Sol 30.3, fewer output tokens"]
+  - raw: "FrontierCyber"
+    model_config: "GPT-6 Astra; Irregular external (§10.1.2.6)"
+    methodology: ["solved 86/226; neither model solved any of 7 Elite -> score_pending (per-tier)"]
+  - raw: "CyScenarioBench"
+    value: 59
+    unit: percent
+    model_config: "GPT-6 Astra; Irregular, long-horizon offensive (avg success)"
+    methodology: ["+32pp over prior"]
+  - raw: "Atomic Challenges"
+    model_config: "GPT-6 Astra; Irregular"
+    methodology: ["20/22 solved; VR&E 100% / network-attack-sim 100% / evasion 52% -> score_pending (per-split)"]
+  - raw: "SEC-Bench Pro"
+    model_config: "GPT-6 Astra"
+    methodology: ["blog reports 85.4 (vs Sol 79.1); card figure -> score_pending"]
+  # ===== AI Self-Improvement (§10.1.3): none reach High =====
+  - raw: "Internal Research Debugging"
+    value: 78.05
+    unit: percent
+    model_config: "GPT-6 Astra; §10.1.3.1 (below indicative threshold)"
+  - raw: "KernelGen 1P"
+    model_config: "GPT-6 Astra; §10.1.3.2"
+    methodology: ["figure only -> score_pending"]
+  - raw: "NanoGPT"
+    model_config: "GPT-6 Astra; §10.1.3.3 (reward vs baseline; best-human 72.38%)"
+    methodology: ["figure only -> score_pending"]
+  - raw: "PostTrainBench Lite"
+    model_config: "GPT-6 Astra; §10.1.3.4"
+    methodology: ["figure only -> score_pending"]
+  - raw: "MLE-Bench Revised"
+    model_config: "GPT-6 Astra; §10.1.3.5 (72 problems)"
+    methodology: ["figure only -> score_pending"]

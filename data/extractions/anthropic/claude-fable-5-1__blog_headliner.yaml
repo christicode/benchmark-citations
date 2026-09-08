@@ -1,0 +1,57 @@
+# claude-fable-5-1__blog_headliner
+# Source: https://www.anthropic.com/claude-fable-and-mythos-5-1 (Anthropic launch blog, 2026-09-01).
+# The comparison-table chart data is embedded as CSV in the page (columns: Claude Fable 5.1 |
+# Claude Fable 5 | Claude Opus 5 | GPT-5.6 Sol) => model_card (doc default). The two NEW headline
+# benchmarks with dedicated cost-vs-score charts (Terminal-Bench-Science 0.1, Terminal-Bench 4.0) and
+# the SOTA CursorBench + HLE-with-tools callouts override to blog_headliner. Citing model = Claude
+# Fable 5.1 (safeguards ON); Mythos 5.1 = same weights, safeguards off (recorded in model_config).
+# CONFIG-DEPENDENT: with safeguards on, cyber requests fall back to Opus 4.8 and biology to Opus 5;
+# on tasks where safeguards fired, Fable 5.1/Fable 5 scored 0 on OSWorld 2.0 (footnotes on the page).
+doc: claude-fable-5-1__blog_headliner
+mentions:
+  - raw: "Terminal-Bench-Science 0.1"
+    weight_class: blog_headliner
+    value: 52.6
+    unit: percent
+    model_config: "Claude Fable 5.1 (safeguards on); Claude Code, --bare mode"
+    methodology:
+      - "Fable 5 24.7 / Opus 5 29.0 / GPT-5.6 Sol 22.4; standard error +/-3.5-4.5 pts"
+      - "public leaderboard (3 trials, Claude Code): Opus 5 30.0 / Fable 5 21.4; Anthropic reproduced 29.0 / 24.7"
+  - raw: "Terminal-Bench 4.0"
+    weight_class: blog_headliner
+    value: 55.8
+    unit: percent
+    model_config: "Claude Fable 5.1 (safeguards on); Mythos 5.1 (unblocked) 60.9; Claude Code --bare"
+    methodology: ["Fable 5 42.0 / Opus 5 52.3 / GPT-5.6 Sol 37.3; 5.1pp Fable->Mythos gap attributed to cyber safeguards firing"]
+  - raw: "CursorBench 3.2.0"
+    weight_class: blog_headliner
+    value: 73.4
+    unit: percent
+    model_config: "Claude Fable 5.1; max effort (Cursor-run, state-of-the-art)"
+    methodology: ["row winner; Fable 5 70.5 / Opus 5 70.0 / GPT-5.6 Sol 67.2"]
+  - raw: "AutomationBench"
+    value: 31.4
+    unit: percent
+    model_config: "Claude Fable 5.1"
+    methodology: ["row winner; Fable 5 17.1 / Opus 5 26.9 / GPT-5.6 Sol 19.6; Fable 5 scored 0 where safeguards fired"]
+  - raw: "OSWorld 2.0"
+    value: 77.9
+    unit: percent
+    model_config: "Claude Fable 5.1; partial score; benchmark authors' Aug-2026 task release"
+    methodology: ["Fable 5 72.9 / Opus 5 75.4 (no competitor GPT figure); safeguard interventions -> Fable 5.1/Fable 5 zero on some tasks"]
+  - raw: "OSWorld 2.0"
+    value: 41.7
+    unit: percent
+    model_config: "Claude Fable 5.1; strict pass rate; Aug-2026 task release"
+    methodology: ["Fable 5 36.1 / Opus 5 39.6"]
+  - raw: "Humanity's Last Exam"
+    value: 65.0
+    unit: percent
+    weight_class: blog_headliner
+    model_config: "Claude Fable 5.1; with tools"
+    methodology: ["Fable 5 63.8 / Opus 5 63.6"]
+  - raw: "Humanity's Last Exam"
+    value: 60.9
+    unit: percent
+    model_config: "Claude Fable 5.1; no tools"
+    methodology: ["Fable 5 57.8 / Opus 5 56.6"]

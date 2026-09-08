@@ -1,0 +1,153 @@
+# claude-fable-5-1__system_card
+# Source: Claude Fable 5.1 & Claude Mythos 5.1 System Card (212pp PDF, 2026-09-01; pdftotext).
+# §8 Capabilities (§8.1 evaluation summary + per-benchmark sections), §3.3 Cyber (ExploitBench,
+# OSS-Fuzz, Firefox 147, ExploitGym), §6.5.2 MASK, §2 bio. Values are Claude Fable 5.1 (safeguards on)
+# unless noted Mythos 5.1 (unblocked). Stated text values recorded; figure/table-only or ambiguously
+# attributed rows -> score_pending. citing model = "Claude Fable 5.1 / Mythos 5.1". default = system_card.
+# CyberGym was RETIRED from this card due to saturation (noted, not a citation).
+doc: claude-fable-5-1__system_card
+mentions:
+  # ===== §8 Capabilities (stated values) =====
+  - raw: "SWE-bench Pro"
+    value: 81.2
+    unit: percent
+    model_config: "Claude Fable 5.1; §8.2 (large multi-file diffs)"
+  - raw: "SWE-bench Multilingual"
+    value: 89.1
+    unit: percent
+    model_config: "Claude Fable 5.1; §8.2"
+  - raw: "SWE-bench Multimodal"
+    value: 54.7
+    unit: percent
+    model_config: "Claude Fable 5.1; §8.2"
+  - raw: "DeepSWE v1.1"
+    model_config: "Claude Fable 5.1; §8.3"
+    methodology: ["value not cleanly captured in text pass -> score_pending (blog table: Fable 5.1 67.4)"]
+  - raw: "FrontierCode"
+    model_config: "Claude Fable 5.1; §8.4"
+    methodology: ["per-config figure -> score_pending (blog: 1.1 Main 50.9 / Extended 63.6)"]
+  - raw: "FrontierSWE v2"
+    value: 0.57
+    unit: other
+    model_config: "Claude Fable 5.1; §8.5 (highest of models Proximal ran; score 0-1)"
+  - raw: "Terminal-Bench 4.0"
+    value: 55.8
+    unit: percent
+    model_config: "Claude Fable 5.1; §8.6; Mythos 5.1 60.9; Claude Code --bare, avg over 10 trials"
+    methodology: ["Opus 5 52.3 / Fable 5 42.0"]
+  - raw: "Terminal-Bench-Science 0.1"
+    value: 52.6
+    unit: percent
+    model_config: "Claude Fable 5.1; §8.7; avg over 10 trials/task (700 trials)"
+    methodology: ["Opus 5 29.0 / Fable 5 24.7"]
+  - raw: "CursorBench 3.2.0"
+    value: 73.4
+    unit: percent
+    model_config: "Claude Fable 5.1; §8.8; max effort (state-of-the-art, +2.9 pts)"
+    methodology: ["68.0% for $3.53/task; GPT-5.6 Sol max 67.2%"]
+  - raw: "CritPt-Corrected"
+    model_config: "Claude Fable 5.1; §8.9"
+    methodology: ["figure only -> score_pending"]
+  - raw: "ArXivMath"
+    model_config: "Claude Fable 5.1; §8.10 (Mythos 5.1 91.33 no-tools / 93.88 with-tools per MathArena)"
+    methodology: ["attribution/config ambiguous in text pass -> score_pending"]
+  - raw: "ProgramBench"
+    model_config: "Claude Fable 5.1; §8.11.1 (long context)"
+    methodology: ["figure only -> score_pending"]
+  - raw: "HLE"
+    model_config: "Claude Fable 5.1; §8.12.1 (agentic search)"
+    methodology: ["SC agentic-search config; blog table: 60.9 no-tools / 65.0 with-tools -> score_pending here"]
+  - raw: "DRACO"
+    model_config: "Claude Fable 5.1; §8.12.2 (agentic search)"
+    methodology: ["figure only -> score_pending"]
+  - raw: "Multi-Agent ProgramBench"
+    model_config: "Claude Fable 5.1; §8.13.1"
+    methodology: ["figure only -> score_pending"]
+  - raw: "Chartography"
+    model_config: "Claude Fable 5.1; §8.14.1 (multimodal)"
+    methodology: ["figure only -> score_pending"]
+  - raw: "BenchCAD"
+    value: 0.376
+    unit: other
+    model_config: "Claude Fable 5.1; §8.14.2 Vision2Code, voxel IoU, no tools (with tools 0.675)"
+    methodology: ["1,000-file subset; Opus 5 0.366 / 0.821"]
+  - raw: "OSWorld 2.0"
+    value: 77.9
+    unit: percent
+    model_config: "Claude Fable 5.1; §8.14.3 partial (strict 41.7); Aug-2026 task release"
+    methodology: ["Opus 5 75.4 partial/39.6 strict; Fable 5 72.9/36.1"]
+  - raw: "GDP.pdf"
+    value: 85.4
+    unit: percent
+    model_config: "Claude Fable 5.1; §8.14.4 mean criteria pass, no tools (with tools 85.1)"
+    methodology: ["Fable 5 82.7/87.1; Opus 5 83.4/85.5"]
+  - raw: "OfficeQA"
+    value: 80.2
+    unit: percent
+    model_config: "Claude Fable 5.1; §8.15.1"
+  - raw: "OfficeQA Pro"
+    value: 69.0
+    unit: percent
+    model_config: "Claude Fable 5.1; §8.15.1"
+  - raw: "Legal Agent Benchmark"
+    value: 77.8
+    unit: percent
+    model_config: "Claude Fable 5.1; §8.15.2 Pass@1 (Harvey)"
+    methodology: ["11/324 trials (3.4%) hit a safety refusal; distinct config from Harvey held-out (Vals ~6.7)"]
+  - raw: "GDPval-AA v2"
+    model_config: "Claude Fable 5.1; §8.15.3"
+    methodology: ["figure only -> score_pending"]
+  - raw: "AA-Briefcase"
+    model_config: "Claude Fable 5.1; §8.15.4"
+    methodology: ["figure only -> score_pending"]
+  - raw: "Toolathlon Verified"
+    model_config: "Claude Fable 5.1; §8.15.5"
+    methodology: ["figure only -> score_pending"]
+  - raw: "AutomationBench"
+    value: 31.4
+    unit: percent
+    model_config: "Claude Fable 5.1; §8.15.6, max effort"
+  - raw: "ARC-AGI-1"
+    value: 97.5
+    unit: percent
+    model_config: "Claude Fable 5.1; §8.16 (ARC Prize verified)"
+  - raw: "ARC-AGI-2"
+    model_config: "Claude Fable 5.1; §8.16 (ARC Prize)"
+    methodology: ["figure only -> score_pending (blog table: 90.0)"]
+  - raw: "HealthBench"
+    value: 66.7
+    unit: percent
+    model_config: "Claude Fable 5.1; §8.17.1 raw (60% length-adjusted)"
+  - raw: "HealthBench Professional"
+    value: 74.2
+    unit: percent
+    model_config: "Claude Fable 5.1; §8.17.2 raw"
+  - raw: "GMMLU"
+    model_config: "Claude Fable 5.1; §8.18.1"
+    methodology: ["figure only -> score_pending"]
+  - raw: "MILU"
+    model_config: "Claude Fable 5.1; §8.18.2"
+    methodology: ["figure only -> score_pending"]
+  # ===== §3.3 Cyber (Mythos 5.1, safeguards off) =====
+  - raw: "ExploitBench"
+    value: 11.80
+    unit: other
+    model_config: "Mythos 5.1; §3.3.1 mean capability flags across 41 V8 envs (plain arm); AutoNudge 12.61"
+    methodology: ["strongest cyber Anthropic has released; unit = mean flags, not %"]
+  - raw: "OSS-Fuzz"
+    model_config: "Mythos 5.1; §3.3.2 (~830 entry points)"
+    methodology: ["top score 1.0 on 17 targets -> score_pending (per-target)"]
+  - raw: "Firefox 147"
+    model_config: "Mythos 5.1; §3.3.3 (Mozilla collaboration, ~50 crash categories x5)"
+    methodology: ["figure only -> score_pending"]
+  - raw: "ExploitGym"
+    model_config: "Mythos 5.1; §3.3.4 (502 userspace targets; improvement over Mythos 5)"
+    methodology: ["bars = challenge counts -> score_pending"]
+  # ===== §6.5.2 MASK / §2 bio =====
+  - raw: "MASK"
+    model_config: "Mythos 5.1; §6.5.2 honesty-under-pressure"
+    methodology: ["'less honest under pressure than recent Claude models' -> score_pending"]
+  - raw: "Virology Capabilities Test"
+    value: 58
+    unit: percent
+    model_config: "Mythos 5.1; §2 multimodal virology (0.58); long-form virology end-to-end 0.81"

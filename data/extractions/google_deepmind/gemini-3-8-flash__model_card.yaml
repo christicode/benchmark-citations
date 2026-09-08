@@ -1,0 +1,80 @@
+# gemini-3-8-flash__model_card
+# Source: https://deepmind.google/models/model-cards/gemini-3-8-flash (Google DeepMind model-card
+# PAGE, "Results as of September, 2026"). The capability table is a PNG image (vision-read with the
+# image reader). Columns: Gemini 3.8 Flash | Gemini 3.7 Flash | Claude Opus 5 | Claude Sonnet 5 |
+# GPT-5.6 Sol | GPT-5.6 Terra. Citing model = Gemini 3.8 Flash (first column). default = model_card.
+# The bundled Gemini-3-8-Flash CDN PDF is a safety-only card (defers architecture to the 3.7 Flash
+# card); capability scores live only on this page's image table. Methodology page:
+# deepmind.com/models/evals-methodology/gemini-3-8-flash. Input/output price rows omitted (not benchmarks).
+doc: gemini-3-8-flash__model_card
+mentions:
+  - raw: "DeepSWE v1.1"
+    value: 73.7
+    unit: percent
+    model_config: "Gemini 3.8 Flash; long-horizon software engineering"
+    methodology: ["3.7 Flash 65.3 / Opus 5 74.0 (row winner) / Sonnet 5 53.8 / GPT-5.6 Sol 72.7 / Terra 69.6"]
+  - raw: "GDPVal-AA v2"
+    value: 1545
+    unit: elo
+    model_config: "Gemini 3.8 Flash; knowledge work"
+    methodology: ["3.7 Flash 1482 / Opus 5 1824 (row winner) / Sonnet 5 1584 / GPT-5.6 Sol 1710 / Terra 1528"]
+  - raw: "Vals Finance Agent v2"
+    value: 61.4
+    unit: percent
+    model_config: "Gemini 3.8 Flash; financial analyst tasks"
+    methodology: ["row winner; 3.7 Flash 59.0 / Opus 5 58.6 / Sonnet 5 53.9 / GPT-5.6 Sol 53.8 / Terra 54.4"]
+  - raw: "Harvey's Legal Agent Benchmark"
+    value: 10.0
+    unit: percent
+    model_config: "Gemini 3.8 Flash; all pass rate, complex legal workflows"
+    methodology: ["row winner; 3.7 Flash 8.8 / Opus 5 6.7 / Sonnet 5 5.0 / GPT-5.6 Sol 2.5 / Terra 0.8"]
+  - raw: "Terminal-bench 2.1"
+    value: 89.4
+    unit: percent
+    model_config: "Gemini 3.8 Flash; agentic terminal coding"
+    methodology: ["row winner; 3.7 Flash 85.8 / Opus 5 89.1 / Sonnet 5 80.4 / GPT-5.6 Sol 88.8 / Terra 87.4"]
+  - raw: "Terminal-bench 4.0"
+    value: 19.1
+    unit: percent
+    model_config: "Gemini 3.8 Flash; general agent capabilities"
+    methodology: ["3.7 Flash 11.2 / Opus 5 51.8 (row winner) / Sonnet 5 12.4 / GPT-5.6 Sol 37.3 / Terra 23.6"]
+  - raw: "GDP.PDF"
+    value: 35.0
+    unit: percent
+    model_config: "Gemini 3.8 Flash; all pass rate, expert PDF comprehension"
+    methodology: ["GPT-5.6 Sol 40.0 (row winner) / 3.7 Flash 34.0 / Opus 5 37.0 / Sonnet 5 28.0 / Terra 29.0"]
+  - raw: "CharXiv Reasoning"
+    value: 86.2
+    unit: percent
+    model_config: "Gemini 3.8 Flash; no tools (info synthesis from charts)"
+    methodology: ["row winner; 3.7 Flash 84.5 / Opus 5 83.7 / Sonnet 5 70.1 / GPT-5.6 Sol 85.8 / Terra 85.9"]
+  - raw: "LVBench"
+    value: 87.8
+    unit: percent
+    model_config: "Gemini 3.8 Flash; agentic (static split 87.1); long video understanding"
+    methodology: ["row winner; 3.7 Flash 85.4 / Opus 5 75.4 / Sonnet 5 68.5 / GPT-5.6 Sol 82.1 / Terra 78.9"]
+  - raw: "HLE-Verified"
+    value: 54.9
+    unit: percent
+    model_config: "Gemini 3.8 Flash; multidisciplinary expert reasoning"
+    methodology: ["row winner; 3.7 Flash 53.6 / Opus 5 54.4 / Sonnet 5 31.0 / GPT-5.6 Sol 54.5 / Terra 51.1"]
+  - raw: "OSWorld-2.0"
+    value: 59.0
+    unit: percent
+    model_config: "Gemini 3.8 Flash; partial score, batch tool enabled; agentic computer use"
+    methodology: ["3.7 Flash 50.6 / Opus 5 75.4 (row winner) / Sonnet 5 42.6 / GPT-5.6 Sol 62.6 / Terra 50.2"]
+  - raw: "BioMysteryBench"
+    value: 88.8
+    unit: percent
+    model_config: "Gemini 3.8 Flash; human-solvable split"
+    methodology: ["Opus 5 90.1 (row winner) / 3.7 Flash 87.1 / Sonnet 5 87.5 / GPT-5.6 Sol 79.5 / Terra 83.8"]
+  - raw: "BioMysteryBench"
+    value: 56.5
+    unit: percent
+    model_config: "Gemini 3.8 Flash; human-difficult split"
+    methodology: ["row winner; 3.7 Flash 43.5 / Opus 5 49.4 / Sonnet 5 34.1 / GPT-5.6 Sol 44.7 / Terra 49.4"]
+  - raw: "LABBench2"
+    value: 86.2
+    unit: percent
+    model_config: "Gemini 3.8 Flash; biology real-world research tasks"
+    methodology: ["row winner; 3.7 Flash 82.1 / Opus 5 84.2 / Sonnet 5 80.1 / GPT-5.6 Sol 82.1 / Terra 81.2"]

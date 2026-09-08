@@ -4,9 +4,45 @@ _note: 'MODEL axis for the heatmap. Derived from data/citations.jsonl; release_d
   pub_date (proxy). Override display/release_date in data/models.overrides.yaml. X-axis order: most recent
   on the LEFT; undated models are grouped at the end until a real date is backfilled.'
 schema_version: 1
-count: 50
+count: 53
 undated_needs_backfill: []
 models:
+- id: gpt-6-astra
+  model: GPT-6 Astra
+  display: GPT-6 Astra
+  company: openai
+  company_display: OpenAI
+  company_category: big5
+  release_date: '2026-09-03'
+  release_date_source: derived:min_pub_date
+  citations: 64
+  docs:
+  - https://deploymentsafety.openai.com/gpt-6-astra/gpt-6-astra.pdf
+  - https://openai.com/index/gpt-6-astra/
+- id: gemini-3-8-flash
+  model: Gemini 3.8 Flash
+  display: Gemini 3.8 Flash
+  company: google_deepmind
+  company_display: Google
+  company_category: big5
+  release_date: '2026-09-02'
+  release_date_source: derived:min_pub_date
+  citations: 18
+  docs:
+  - https://deepmind.google/models/gemini/flash/
+  - https://deepmind.google/models/model-cards/gemini-3-8-flash
+- id: claude-fable-5-1
+  model: Claude Fable 5.1 / Mythos 5.1
+  display: Fable 5.1
+  company: anthropic
+  company_display: Anthropic
+  company_category: big5
+  release_date: '2026-09-01'
+  release_date_source: derived:min_pub_date
+  citations: 46
+  docs:
+  - https://www-cdn.anthropic.com/0339e6a7c5c7b87f5c07798616dc32c215d14235/Claude%20Fable%205.1%20&%20Claude%20Mythos%205.1%20System%20Card.pdf
+  - https://www.anthropic.com/claude-fable-and-mythos-5-1
 - id: deepseek-v4-pro-0813
   model: DeepSeek-V4-Pro-0813
   display: DeepSeek-V4-Pro-0813

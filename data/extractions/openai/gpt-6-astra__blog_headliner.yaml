@@ -1,0 +1,202 @@
+# gpt-6-astra__blog_headliner
+# Source: https://openai.com/index/gpt-6-astra/ (OpenAI launch blog, 2026-09-03). Read as primary
+# text via web_fetch. Carries ONE big comparison table (columns: GPT-6 Astra | GPT-5.6 Sol |
+# Claude Fable 5.1 | Claude Fable 5 | Claude Opus 5 | Gemini 3.8 Flash) => model_card (doc default);
+# benchmarks with a dedicated per-capability chart/callout in the post override to blog_headliner.
+# Citing model = GPT-6 Astra (first column). Competitor values recorded in methodology for context.
+# "Evaluation scores are the maximum at any effort." Internal lower-is-better ALIGNMENT safety rows
+# (computer-use safety, circumvention, honeypot, hallucination) are NOT recorded, per OpenAI convention.
+doc: gpt-6-astra__blog_headliner
+mentions:
+  # ===== Computer use =====
+  - raw: "Agents' Last Exam"
+    weight_class: blog_headliner
+    value: 59.3
+    unit: percent
+    model_config: "GPT-6 Astra; max at any effort"
+    methodology: ["row winner; Sol 53.6 / Opus 5 55.5 / Fable 5 48.7; Astra uses ~65% fewer output tokens than Opus 5"]
+  - raw: "OSWorld 2.0"
+    weight_class: blog_headliner
+    value: 72.6
+    unit: percent
+    model_config: "GPT-6 Astra; v2026.08.08 offline set, partial score"
+    methodology: ["Sol 65.7 / Opus 5 70.2; ~47% less time/task than Sol (~40min vs ~75min)"]
+  - raw: "ScreenSpot-Pro"
+    value: 92.7
+    unit: percent
+    model_config: "GPT-6 Astra; no tools"
+    methodology: ["Sol 76.9 / Fable 5 87.3 (Fable=Mythos, footnote 17)"]
+  # ===== Professional =====
+  - raw: "AutomationBench"
+    weight_class: blog_headliner
+    value: 41.4
+    unit: percent
+    model_config: "GPT-6 Astra"
+    methodology: ["row winner; Sol 18.1 / Fable 5.1 31.4 / Fable 5 17.4 / Opus 5 26.9"]
+  - raw: "BenchCAD"
+    weight_class: blog_headliner
+    value: 95.9
+    unit: percent
+    model_config: "GPT-6 Astra; with tools, geometric-overlap score"
+    methodology: ["row winner; Sol 83.3 / Fable 5.1 84.3 / Fable 5 67.5 / Opus 5 82.1 (Claude scores reflect 3 eval mods, footnote 5)"]
+  - raw: "BrowseComp"
+    value: 91.5
+    unit: percent
+    model_config: "GPT-6 Astra"
+    methodology: ["row winner; Sol 90.4 / Opus 5 90.8 / Fable 5 87.4"]
+  - raw: "OpenScore String Quartets"
+    value: 0.84
+    unit: other
+    model_config: "GPT-6 Astra; metric = 1 - OMR-NED"
+    methodology: ["Sol 0.19; optical music recognition"]
+  - raw: "Internal Design Tasks"
+    value: 50.0
+    unit: percent
+    model_config: "GPT-6 Astra; OpenAI internal (vendor_proprietary)"
+    methodology: ["Sol 47.4 / Fable 5 35.8"]
+  - raw: "Internal Data Science Tasks"
+    value: 40.9
+    unit: percent
+    model_config: "GPT-6 Astra; OpenAI internal (vendor_proprietary)"
+    methodology: ["Sol 30.5 / Fable 5 34.7"]
+  - raw: "Artificial Analysis Intelligence Index"
+    value: 61.2
+    unit: other
+    model_config: "GPT-6 Astra; AA Intelligence Index v4.1.1 (composite, unit=index)"
+    methodology: ["Sol 60.9 / Fable 5.1 65.7 (row winner) / Fable 5 62.1 / Opus 5 63.1 / Gemini 3.8 Flash 58.7"]
+  # ===== Coding =====
+  - raw: "Terminal-Bench 4.0"
+    weight_class: blog_headliner
+    value: 57.9
+    unit: percent
+    model_config: "GPT-6 Astra"
+    methodology: ["row winner; Sol 37.3 / Fable 5.1 55.8 / Fable 5 44.5 / Opus 5 52.6 / Gemini 3.8 Flash 19.1; ~9%/63% lower cost/task vs Sol/Fable 5.1"]
+  - raw: "DeepSWE v1.1"
+    value: 74.1
+    unit: percent
+    model_config: "GPT-6 Astra"
+    methodology: ["row winner; Sol 72.7 / Fable 5.1 67.4 / Fable 5 69.9 / Opus 5 73.7 / Gemini 3.8 Flash 73.8"]
+  - raw: "FrontierCode 1.1 Extended"
+    value: 64.5
+    unit: percent
+    model_config: "GPT-6 Astra; score metric; ran with a Codex-like developer message (footnote 8)"
+    methodology: ["Sol 60.6 / Fable 5.1 63.6 / Fable 5 64.9 (row winner) / Opus 5 63.6 / Gemini 3.8 Flash 56.3"]
+  - raw: "FrontierCode 1.1 Main"
+    value: 53.3
+    unit: percent
+    model_config: "GPT-6 Astra; score metric; Codex-like developer message (footnote 8)"
+    methodology: ["Sol 47.5 / Fable 5.1 50.9 / Fable 5 53.5 (row winner) / Opus 5 53.4 / Gemini 3.8 Flash 43.6"]
+  - raw: "Internal Database Migration Tasks"
+    value: 63.9
+    unit: percent
+    model_config: "GPT-6 Astra; OpenAI internal (vendor_proprietary)"
+    methodology: ["row winner; Sol 42.7 / Fable 5.1 57.8 / Fable 5 50.3"]
+  - raw: "Artificial Analysis Coding Agent Index"
+    value: 67.0
+    unit: other
+    model_config: "GPT-6 Astra; AA Coding Agent Index v1.4 (unit=index)"
+    methodology: ["Sol 65.1 / Fable 5 67.2 / Opus 5 68.1 (row winner) / Gemini 3.8 Flash 61.2"]
+  # ===== Academic =====
+  - raw: "Terminal-Bench Science 0.1"
+    weight_class: blog_headliner
+    value: 64.6
+    unit: percent
+    model_config: "GPT-6 Astra; new high"
+    methodology:
+      - "row winner; Sol 22.4 / Fable 5.1 52.6 / Fable 5 21.4 / Opus 5 30.0"
+      - "~31% lower cost vs Fable 5.1; lower-cost setting 61.1 vs Sol best 22.4"
+  - raw: "FrontierMath Tier 4"
+    weight_class: blog_headliner
+    value: 97.6
+    unit: percent
+    model_config: "GPT-6 Astra; Tier 4 (v2)"
+    methodology: ["row winner (blog prose: 'saturates ... with a 98% score'); Sol 83.0 / Fable 5.1 87.8 / Fable 5 90.2 / Opus 5 73.2"]
+  - raw: "GPQA Diamond"
+    weight_class: blog_headliner
+    value: 96.0
+    unit: percent
+    model_config: "GPT-6 Astra"
+    methodology: ["row winner; Sol 94.6 / Fable 5.1 93.7 / Fable 5 92.6 / Opus 5 93.7 / Gemini 3.8 Flash 95.3; lower-cost 94.9 > Sol 94.6"]
+  - raw: "Humanity's Last Exam"
+    value: 57.2
+    unit: percent
+    model_config: "GPT-6 Astra; with tools"
+    methodology: ["Astra trails: Fable 5.1 65.0 (row winner) / Fable 5 63.8 / Opus 5 63.6"]
+  # ===== Science & health =====
+  - raw: "GeneBench Pro"
+    value: 37.1
+    unit: percent
+    model_config: "GPT-6 Astra"
+    methodology: ["Sol 32.3; Fable 5/5.1 excluded (refuse majority), footnote 12"]
+  - raw: "MedChemBench"
+    value: 49.3
+    unit: percent
+    model_config: "GPT-6 Astra; Internal"
+    methodology: ["Sol 47.4; Fable excluded (refusals)"]
+  - raw: "LifeSciBench"
+    value: 60.3
+    unit: percent
+    model_config: "GPT-6 Astra"
+    methodology: ["Sol 59.9; Fable excluded (refusals)"]
+  - raw: "HealthBench Professional"
+    value: 63.4
+    unit: percent
+    model_config: "GPT-6 Astra; length-adjusted (GPT-5.4 grading, footnote 11)"
+    methodology: ["row winner; Sol 60.5 / Fable 5.1 58.1 / Fable 5 60.9 / Opus 5 56.4 / Gemini 3.8 Flash 52.1"]
+  # ===== Cybersecurity ===== (Astra meets Critical threshold; run without production safeguards)
+  - raw: "ExploitBench"
+    weight_class: blog_headliner
+    value: 100.0
+    unit: percent
+    model_config: "GPT-6 Astra; without production safeguards (perfect score)"
+    methodology: ["Sol 78.5 / Opus 5 70"]
+  - raw: "ExploitGym"
+    weight_class: blog_headliner
+    value: 42.4
+    unit: percent
+    model_config: "GPT-6 Astra; no 6h time limit (footnote 13)"
+    methodology: ["Sol 30.3 / Fable 5.1 30.4 / Fable 5 28.4 / Opus 5 22.0 (Fable=Mythos, footnote 17)"]
+  - raw: "ExploitBench (June-Aug 2026)"
+    value: 39.0
+    unit: percent
+    model_config: "GPT-6 Astra; OpenAI internal port, 20 recent V8 vulns (vendor_proprietary)"
+    methodology: ["Sol 5.5 (300-turn artifact; 11.5 with fewer limits); Astra found+used 2 zero-days (disclosed)"]
+  - raw: "SRE-Bench"
+    weight_class: blog_headliner
+    value: 88.0
+    unit: percent
+    model_config: "GPT-6 Astra; pass@1 (binary reverse-engineering, arXiv 2608.11469)"
+    methodology: ["99.2 within 4 attempts; Sol 55.9 (68.7 @4) / Opus 5 12.5"]
+  - raw: "SEC-Bench Pro"
+    value: 85.4
+    unit: percent
+    model_config: "GPT-6 Astra"
+    methodology: ["Sol 79.1"]
+  # ===== Long context =====
+  - raw: "OpenAI MRCR v2"
+    value: 100.0
+    unit: percent
+    model_config: "GPT-6 Astra; 8-needle, 256K-512K"
+    methodology: ["Sol 91.5"]
+  - raw: "OpenAI MRCR v2"
+    value: 96.3
+    unit: percent
+    model_config: "GPT-6 Astra; 8-needle, 512K-1M"
+    methodology: ["Sol 73.8"]
+  # ===== Abstract reasoning =====
+  - raw: "ARC-AGI-3"
+    weight_class: blog_headliner
+    value: 99.9
+    unit: percent
+    model_config: "GPT-6 Astra; responses-API harness (footnote 1)"
+    methodology: ["row winner (saturates); Sol 7.8 / Opus 5 30.2; surpassed human action-efficiency on 96% of levels"]
+  - raw: "ARC-AGI-2"
+    value: 95.0
+    unit: percent
+    model_config: "GPT-6 Astra"
+    methodology: ["row winner; Sol 92.5 / Fable 5.1 90.0 / Fable 5 89.2 / Opus 5 90.4"]
+  - raw: "ARC-AGI-1"
+    value: 98.5
+    unit: percent
+    model_config: "GPT-6 Astra"
+    methodology: ["Sol 97.5 / Fable 5.1 97.5 / Fable 5 98.5 / Opus 5 97.5"]

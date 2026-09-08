@@ -606,3 +606,49 @@ documents:
     default_weight_class: blog_headliner   # 4 dedicated per-benchmark chart images
     url: "https://developer.meta.com/ai/models/muse-spark/"
     pub_date: null                         # dev page carries no publish date; cited by Gemini 3.7 Flash card (<= 2026-08-13)
+  # --- 2026-09-08 sweep, Batch 1: new flagships (GPT-6 Astra, Fable 5.1/Mythos 5.1, Gemini 3.8 Flash).
+  #     Headline comparison tables read from PRIMARY sources: OpenAI launch blog (full table, text),
+  #     Anthropic launch blog (chart-data embedded as CSV in page), Gemini model-card PAGE (table is a
+  #     PNG, vision-read). System cards tracked separately (Astra 117pp PDF, Fable 212pp PDF). ---
+  - id: gpt-6-astra__blog_headliner
+    lab: openai
+    model: "GPT-6 Astra"
+    container: blog
+    default_weight_class: model_card       # one big comparison table; solo-chart benchmarks override to blog_headliner
+    url: "https://openai.com/index/gpt-6-astra/"
+    pub_date: "2026-09-03"
+  - id: gpt-6-astra__system_card
+    lab: openai
+    model: "GPT-6 Astra"
+    container: pdf
+    default_weight_class: system_card
+    url: "https://deploymentsafety.openai.com/gpt-6-astra/gpt-6-astra.pdf"
+    pub_date: "2026-09-03"
+  - id: claude-fable-5-1__blog_headliner
+    lab: anthropic
+    model: "Claude Fable 5.1 / Mythos 5.1"
+    container: blog
+    default_weight_class: model_card       # blog comparison table; solo-chart benchmarks override to blog_headliner
+    url: "https://www.anthropic.com/claude-fable-and-mythos-5-1"
+    pub_date: "2026-09-01"
+  - id: claude-fable-5-1__system_card
+    lab: anthropic
+    model: "Claude Fable 5.1 / Mythos 5.1"
+    container: pdf
+    default_weight_class: system_card
+    url: "https://www-cdn.anthropic.com/0339e6a7c5c7b87f5c07798616dc32c215d14235/Claude%20Fable%205.1%20&%20Claude%20Mythos%205.1%20System%20Card.pdf"
+    pub_date: "2026-09-01"
+  - id: gemini-3-8-flash__model_card
+    lab: google_deepmind
+    model: "Gemini 3.8 Flash"
+    container: blog                          # deepmind.google model-card PAGE; capability table is a PNG (vision-read)
+    default_weight_class: model_card
+    url: "https://deepmind.google/models/model-cards/gemini-3-8-flash"
+    pub_date: "2026-09-02"
+  - id: gemini-3-8-flash__blog_headliner
+    lab: google_deepmind
+    model: "Gemini 3.8 Flash"
+    container: blog
+    default_weight_class: blog_headliner
+    url: "https://deepmind.google/models/gemini/flash/"
+    pub_date: "2026-09-02"

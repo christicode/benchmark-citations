@@ -153,11 +153,11 @@ benchmarks:
   - canonical: critpt
     type: chat
     domain: science
-    aliases: ["CritPt"]
+    aliases: ["CritPt", "CritPt-Corrected"]
   - canonical: cursorbench
     type: agentic
     domain: coding
-    aliases: ["CursorBench", "CursorBench v3.2", "CursorBench 3.2"]
+    aliases: ["CursorBench", "CursorBench v3.2", "CursorBench 3.2", "CursorBench 3.2.0"]
     vendor_proprietary: true
   - canonical: cve-bench
     type: agentic
@@ -222,7 +222,7 @@ benchmarks:
   - canonical: finance-agent
     type: agentic
     domain: professional
-    aliases: ["Finance Agent", "Finance Agent v1.1", "Finance Agent v2"]
+    aliases: ["Finance Agent", "Finance Agent v1.1", "Finance Agent v2", "Vals Finance Agent v2", "Vals Finance Agent V2"]
     notes: "Vals AI Finance Agent; v1.1/v2 folded in as aliases (cited across the Anthropic blogs)."
   - canonical: frontier-science-research
     type: agentic
@@ -244,8 +244,9 @@ benchmarks:
   - canonical: frontiermath
     type: chat
     domain: math
-    aliases: ["FrontierMath"]
-    notes: "Epoch AI research-math. No Harbor adapter."
+    aliases: ["FrontierMath", "FrontierMath Tier 4"]
+    notes: "Epoch AI research-math. No Harbor adapter. 'FrontierMath Tier 4' (the hardest tier; v2)
+      folded in as an alias — the tier/version is captured per-mention in model_config."
   - canonical: gdp-pdf
     type: chat
     domain: multimodal
@@ -334,7 +335,7 @@ benchmarks:
   - canonical: legal-agent-benchmark
     type: agentic
     domain: professional
-    aliases: ["Legal Agent Benchmark", "Harvey LAB", "Harvey LAB (Vals)", "Harvey LAB-AA", "LAB (Vals)"]
+    aliases: ["Legal Agent Benchmark", "Harvey LAB", "Harvey LAB (Vals)", "Harvey LAB-AA", "LAB (Vals)", "Harvey's Legal Agent Benchmark"]
   - canonical: livecodebench
     type: chat
     domain: coding
@@ -705,7 +706,7 @@ benchmarks:
   - canonical: frontier-swe
     type: agentic
     domain: coding
-    aliases: ["FrontierSWE", "Frontier SWE"]
+    aliases: ["FrontierSWE", "Frontier SWE", "FrontierSWE v2"]
   - canonical: gmmlu
     type: chat
     domain: knowledge
@@ -790,7 +791,7 @@ benchmarks:
   - canonical: vct
     type: chat
     domain: science
-    aliases: ["VCT", "Multimodal Troubleshooting Virology", "Virology Capabilities Test", "Multi-select Virology Troubleshooting"]
+    aliases: ["VCT", "VCT-v2", "Multimodal Troubleshooting Virology", "Virology Capabilities Test", "Multi-select Virology Troubleshooting"]
     notes: "Virology Capabilities Test (a.k.a. VMQA/VCT). SecureBio; OpenAI cards cite it as
       'Multimodal Troubleshooting Virology' (expert baseline 22.1%) — human-confirmed same benchmark.
       GPT-5.6 card cites BOTH the main multimodal eval AND SecureBio's 'Virology Capabilities Test'.
@@ -1057,7 +1058,7 @@ benchmarks:
   - canonical: world-class-bio
     type: chat
     domain: science
-    aliases: ["World-Class Bio"]
+    aliases: ["World-Class Bio", "WCB"]
     notes: "SecureBio expert-level biology benchmark (external bio eval on the GPT-5.6 card)."
   - canonical: reprobait
     type: agentic
@@ -1067,7 +1068,7 @@ benchmarks:
   - canonical: abc-bench-securebio
     type: agentic
     domain: science
-    aliases: ["ABC-Bench"]
+    aliases: ["ABC-Bench", "Advanced Screening Evasion"]
     collision: "NAME COLLISION: Harbor adapters/abc-bench is OpenMOSS ABC-Bench (agentic BACKEND
       CODING, 224 tasks, arXiv 2601.11077) — a DIFFERENT benchmark. Canonical is deliberately
       abc-bench-securebio so sync_harbor does NOT normalize-match it to the coding adapter (that
@@ -1556,3 +1557,83 @@ benchmarks:
     aliases: ["CI Memories", "Contextual Integrity Memories"]
     notes: "Privacy/contextual-integrity memory eval; reports Violation% (LOWER is safer) + Coverage.
       Muse Glimmer card. Not in Harbor."
+  # --- 2026-09-08: Batch 1 (GPT-6 Astra, Claude Fable 5.1/Mythos 5.1, Gemini 3.8 Flash) ---
+  #     New, clearly-named benchmarks first cited in this batch. type/domain from card context.
+  - canonical: openscore-string-quartets
+    type: chat
+    domain: multimodal
+    aliases: ["OpenScore String Quartets"]
+    notes: "Optical music recognition eval (score = 1 - OMR-NED) on the OpenScore String Quartet
+      corpus. Cited on the GPT-6 Astra blog (Astra 0.84 vs GPT-5.6 Sol 0.19). unit=other."
+  - canonical: openai-internal-design-tasks
+    type: agentic
+    domain: professional
+    aliases: ["Internal Design Tasks", "Design Tasks (Internal)"]
+    vendor_proprietary: true
+    notes: "OpenAI internal design-tasks eval; GPT-6 Astra blog. Single-vendor, not in Harbor."
+  - canonical: openai-internal-data-science-tasks
+    type: agentic
+    domain: coding
+    aliases: ["Internal Data Science Tasks", "Data Science Tasks (Internal)"]
+    vendor_proprietary: true
+    notes: "OpenAI internal data-science-tasks eval; GPT-6 Astra blog. Single-vendor, not in Harbor."
+  - canonical: openai-database-migration-tasks
+    type: agentic
+    domain: coding
+    aliases: ["Internal Database Migration Tasks", "Database Migration Tasks (Internal)"]
+    vendor_proprietary: true
+    notes: "OpenAI internal database-migration eval; GPT-6 Astra blog. Single-vendor, not in Harbor."
+  - canonical: exploitbench-internal-port
+    type: agentic
+    domain: cyber
+    aliases: ["ExploitBench (June-Aug 2026)", "ExploitBench (June–August 2026)", "ExploitBench - Internal Port", "ExploitBench Internal Port"]
+    vendor_proprietary: true
+    collision: "DISTINCT from exploitbench (the public Lee & Brumley 2026 benchmark). This is OpenAI's
+      internal refresh (20 high-severity V8 vulns across 13 Chrome releases, June–Aug 2026) — do NOT
+      merge; kept separate so the public-vs-internal solve rates (100% vs 39%) aren't conflated."
+  - canonical: sre-bench-re
+    type: agentic
+    domain: cyber
+    aliases: ["SRE-Bench"]
+    collision: "Binary REVERSE-ENGINEERING benchmark (Spence et al., arXiv 2608.11469): reverse
+      engineer software binaries without source. Cited by GPT-6 Astra (blog 88.0% pass@1 / system
+      card §10.1.2.3). NAME COLLISION: DISTINCT from Vals AI 'SRE Bench' (site-reliability engineering,
+      cited on the Fable 5.1 Vals results) — if that one is extracted, give it a separate canonical."
+  # --- 2026-09-08: Batch 1 system cards (GPT-6 Astra 117pp PDF, Fable 5.1/Mythos 5.1 212pp PDF) ---
+  - canonical: shp2-protein-function
+    type: agentic
+    domain: science
+    aliases: ["SHP2 Protein Function Prediction", "SHP2 Protein Function"]
+    notes: "OpenAI Preparedness bio Critical-threshold proxy (predict effect of protein changes). GPT-6 Astra system card §10.1.1.2.2."
+  - canonical: coronavirus-ace2-entry
+    type: agentic
+    domain: science
+    aliases: ["Coronavirus-ACE2 Cell-Entry Screen", "Coronavirus–ACE2 Cell-Entry Screen", "Coronavirus ACE2 Cell-Entry Screen"]
+    notes: "OpenAI Preparedness bio Critical proxy (predict coronavirus cell entry via ACE2). GPT-6 Astra system card §10.1.1.2.3."
+  - canonical: phage-plasmid-coevolution
+    type: chat
+    domain: science
+    aliases: ["Phage-plasmid Co-evolution", "Phage–plasmid Co-evolution", "Phage plasmid Co-evolution"]
+    notes: "OpenAI Preparedness bio Critical proxy (complex phage/plasmid interactions). GPT-6 Astra system card §10.1.1.2.4."
+  - canonical: sandbox-bench
+    type: agentic
+    domain: cyber
+    aliases: ["Sandbox Bench", "Sandbox-Bench"]
+    notes: "OpenAI internal cyber eval: escape/operate within sandboxed targets (recovery of protected flags). GPT-6 Astra system card §10.1.2.4 (Astra 10/22 = 45.5% vs Sol 4.5%)."
+  - canonical: chartography
+    type: chat
+    domain: multimodal
+    aliases: ["Chartography"]
+    notes: "Anthropic multimodal chart-understanding eval. Claude Fable 5.1 system card §8.14.1."
+  - canonical: oss-fuzz
+    type: agentic
+    domain: cyber
+    aliases: ["OSS-Fuzz"]
+    notes: "Anthropic internal cyber eval: find vulnerabilities in a subset (~830 entry points) of
+      Google's OSS-Fuzz corpus. Claude Fable 5.1 system card §3.3.2 (Mythos 5.1 top score 1.0 on 17 targets)."
+  - canonical: firefox-147
+    type: agentic
+    domain: cyber
+    aliases: ["Firefox 147"]
+    notes: "Anthropic cyber eval (Mozilla collaboration): develop exploits for Firefox 147
+      vulnerabilities, ~50 crash categories x 5 trials. Claude Fable 5.1 system card §3.3.3."

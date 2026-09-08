@@ -1,0 +1,23 @@
+# gemini-3-8-flash__blog_headliner
+# Source: https://deepmind.google/models/gemini/flash/ (Gemini 3.8 Flash launch/marketing page,
+# 2026-09-02). Prose highlights specific benchmarks as headliners; only HLE-Verified carries an
+# explicit number in the prose (54.9%). DeepSWE v1.1, Vals Finance Agent v2, and Harvey's Legal Agent
+# Benchmark are called out qualitatively ("outperforms 3.7 Flash and other frontier models") with the
+# exact figures living in the model-card table (gemini-3-8-flash__model_card) -> score_pending here.
+# Built on Gemini 3.7 Flash; knowledge cutoff March 2026. A sibling "Gemini 3.8 Flash Cyber" ships
+# gated via the Fairwind Program (separate model; not tracked here).
+doc: gemini-3-8-flash__blog_headliner
+mentions:
+  - raw: "HLE-Verified"
+    value: 54.9
+    unit: percent
+    model_config: "Gemini 3.8 Flash; multi-step reasoning across STEM, humanities, professional fields"
+  - raw: "DeepSWE v1.1"
+    model_config: "Gemini 3.8 Flash; long-horizon software engineering"
+    methodology: ["launch-page headliner (qualitative: 'outperforms most larger frontier models'); exact 73.7 in the model card -> score_pending"]
+  - raw: "Vals Finance Agent v2"
+    model_config: "Gemini 3.8 Flash"
+    methodology: ["launch-page headliner (qualitative); exact 61.4 in the model card -> score_pending"]
+  - raw: "Harvey's Legal Agent Benchmark"
+    model_config: "Gemini 3.8 Flash"
+    methodology: ["launch-page headliner (qualitative); exact 10.0 in the model card -> score_pending"]
