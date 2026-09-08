@@ -4,7 +4,7 @@ _note: 'MODEL axis for the heatmap. Derived from data/citations.jsonl; release_d
   pub_date (proxy). Override display/release_date in data/models.overrides.yaml. X-axis order: most recent
   on the LEFT; undated models are grouped at the end until a real date is backfilled.'
 schema_version: 1
-count: 58
+count: 57
 undated_needs_backfill: []
 models:
 - id: gpt-6-astra
@@ -42,17 +42,6 @@ models:
   citations: 12
   docs:
   - https://research.meta.ai/blog/introducing-muse-spark-1-3
-- id: qwen3-8-max-0902
-  model: Qwen3.8-Max-0902
-  display: Qwen3.8-Max-0902
-  company: qwen
-  company_display: Alibaba
-  company_category: open_weight_leader
-  release_date: '2026-09-02'
-  release_date_source: derived:min_pub_date
-  citations: 1
-  docs:
-  - https://qwen.ai/blog?id=qwen3.8-max-0902
 - id: claude-fable-5-1
   model: Claude Fable 5.1 / Mythos 5.1
   display: Fable 5.1
