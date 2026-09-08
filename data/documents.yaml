@@ -689,3 +689,10 @@ documents:
     default_weight_class: model_card    # one benchmark scorecard image (vision-read); no per-benchmark solo charts
     url: "https://research.meta.ai/blog/introducing-muse-spark-1-3"
     pub_date: "2026-09-02"
+  - id: qwen3-8-max-0902__blog_headliner
+    lab: qwen
+    model: "Qwen3.8-Max-0902"
+    container: blog
+    default_weight_class: model_card
+    url: "https://qwen.ai/blog?id=qwen3.8-max-0902"
+    pub_date: "2026-09-02"              # Sep-2 post-training snapshot of Qwen3.8-Max; flagged unreadable (see extraction)

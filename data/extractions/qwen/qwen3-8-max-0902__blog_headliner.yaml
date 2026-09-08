@@ -1,0 +1,11 @@
+# qwen3-8-max-0902__blog_headliner
+# Qwen3.8-Max-0902 (2026-09-02): a post-training snapshot upgrade of Qwen3.8-Max (whose Aug base card,
+# Qwen3.8-2.4T-A95B, is already tracked). FLAGGED, not extracted: the qwen.ai blog is a JS-rendered SPA
+# and Alibaba Model Studio pages are gated, so neither curl nor web_fetch returns a machine-readable
+# benchmark table, and there is no distinct HF card for the 0902 snapshot. Secondary coverage reports a
+# Code Arena WebDev Elo of ~1691 (1st), but that is not a primary source — do not record it as a
+# citation. Needs a headless render (or human-provided numbers) to extract the primary table.
+doc: qwen3-8-max-0902__blog_headliner
+unreadable:
+  reason: "Qwen3.8-Max-0902 blog is a JS-rendered SPA (qwen.ai) with no machine-readable benchmark table; Model Studio gated. Needs headless render / human extraction."
+  review_issue: null
