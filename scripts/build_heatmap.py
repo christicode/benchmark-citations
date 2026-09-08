@@ -6,9 +6,8 @@ This replaces the retired tables dashboard. Grid:
     (scripts/scoring.py): blog_headliner 3 / model_card 2 / system_card 1, counted as
     MAX per (benchmark, document, model) then SUMMED across documents (same as rank.py) —
     a benchmark headlined + tabled in one blog counts 3, headlined in 3 blogs counts 9.
-    (H) suffix = currently Harbor-compatible (live-synced by sync_harbor.py); a DEEPER-BLUE (H)
-    marks NATIVE Harbor format (registry entry with no adapter, incl. curated external-native
-    datasets like deepswe), vs the regular deep-blue (H) for adapter-backed benchmarks.
+    (H) suffix = currently Harbor-compatible (live-synced by sync_harbor.py),
+    with the same marker for native and adapter-backed benchmarks.
   * X axis = citing model, MOST RECENT ON THE LEFT (models.yaml release_date; undated last).
   * cell (benchmark × model) = increasing DARKNESS OF GREY for the highest source class in
     which that model cites it: Headliner (near-black) > Model card (mid-grey) > System card
@@ -179,13 +178,13 @@ PAGE = r"""<!doctype html><html lang=en><head><meta charset=utf-8>
 :root{--bg:#ffffff;--panel:#f6f7f8;--b:#e6e7ea;--fg:#40454e;--emph:#0a0c10;--mut:#969ca6;
   --accent:#0a0c10;--amber:#d97706;--segon:#eceef1;--seghov:#f4f5f7;
   /* two reserved accents: agentic (deep blue) + Harbor (deep indigo, native = deeper) */
-  --acc-agentic:#1d4ed8;--acc-harbor:#4338ca;--acc-harbor-native:#312e81;
+  --acc-agentic:#1d4ed8;--acc-harbor:#4338ca;
   /* GRAYSCALE citation ramp: System card (lightest grey) -> Model card (mid) -> Headliner (near-black) */
   --t1:#d8dbdf;--t2:#8b9198;--t3:#16181d;--empty:#fafbfc;
   --mono:"Google Sans Code",ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace}
 body.dark{--bg:#0c0d10;--panel:#15171c;--b:#262a31;--fg:#9aa1ac;--emph:#f2f4f7;--mut:#6b7280;
   --accent:#f2f4f7;--amber:#f59e0b;--segon:#262b34;--seghov:#1b1e24;
-  --acc-agentic:#60a5fa;--acc-harbor:#a5b4fc;--acc-harbor-native:#c7d2fe;
+  --acc-agentic:#60a5fa;--acc-harbor:#a5b4fc;
   /* inverted grayscale: Headliner (near-white, strongest) -> Model card (mid) -> System card (dark grey) */
   --t1:#3a3f47;--t2:#8b9198;--t3:#f2f4f7;--empty:#141619}
 *{box-sizing:border-box}
@@ -250,8 +249,7 @@ td.yl.active-row{background:var(--panel)!important;color:var(--accent)!important
 td.yl .rank{color:var(--mut);display:inline-block;min-width:22px;margin-right:8px;font-variant-numeric:tabular-nums}
 td.yl .nm{cursor:pointer;font-weight:500;color:var(--emph)}
 td.yl .nm:hover{color:var(--accent);text-decoration:underline}
-td.yl .h{color:var(--acc-harbor);font-weight:700}
-td.yl .h.hn{color:var(--acc-harbor-native)}
+.h{color:var(--acc-harbor);font-weight:700}
 td.yl .ty{font-size:10px;color:var(--mut);margin-left:6px}
 td.yl .ty.ag{color:var(--acc-agentic);font-weight:600}
 th.corner{position:sticky;left:0;z-index:6;background:var(--bg);border-right:1px solid var(--b)}
@@ -323,6 +321,7 @@ input[type="text"]:focus, input[type="date"]:focus {
   <span><span class=sw style=background:var(--t2)></span>Model card (2)</span>
   <span><span class=sw style=background:var(--t1)></span>System card (1)</span>
   <span><span class=sw style=background:var(--empty)></span>not cited</span>
+  <span><span class=h>(H)</span> Harbor-compatible</span>
   <div class=more id=more-wrap><button type=button id=more-button onclick="toggleMulti()" aria-controls=hm aria-expanded=false>Expand to see more</button></div>
 </div>
 </div>
@@ -474,9 +473,7 @@ function render(){
     var b=r.b;
     var ty = b.type==='agentic'?'<span class="ty ag">agentic</span>'
             : b.type==='chat'?'<span class=ty>chat</span>':'';
-    var h = b.on_harbor? ' <span class="h'+(b.harbor_native?' hn':'')+'" title="'+
-            (b.harbor_native?'Native Harbor format (no adapter)':'Harbor-compatible (via adapter)')+
-            '">(H)</span>':'';
+    var h = b.on_harbor? ' <span class=h title="Harbor-compatible">(H)</span>':'';
     H.push('<tr><td class=yl><span class=rank>'+(i+1)+'</span>'+
       '<span class=nm onclick="openRec(\''+esc(b.canon)+'\')" title="see citation records on GitHub">'+
       esc(b.display||b.canon)+'</span>'+h+ty+'</td>');
