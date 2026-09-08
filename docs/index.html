@@ -39,9 +39,7 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 .chip:hover{background:var(--seghov);color:var(--emph)}
 .chip.on{background:var(--segon);color:var(--emph);font-weight:400}
 .chip.co.on{background:var(--segon);color:var(--emph);font-weight:400}
-.co-btn{font-size:12px;color:var(--accent);cursor:pointer;user-select:none}
-.co-btn:hover{text-decoration:underline}
-.co-sep{color:var(--mut);margin:0 3px}
+.chip.select-all{font-family:inherit;line-height:inherit}
 /* dual-handle range slider (Google-Flights style) for the release-date window */
 .range{position:relative;width:230px;height:22px;margin:0 2px}
 .range-track{position:absolute;left:0;right:0;top:9px;height:4px;background:var(--b);border-radius:3px}
@@ -135,8 +133,7 @@ input[type="text"]:focus, input[type="date"]:focus {
     <span class=range-lbl id=range-lbl>all time</span>
   </div>
   <div class=grp><b>company</b>
-    <span class=co-btn onclick="setAllCos(true)">all</span><span class=co-sep>/</span><span class=co-btn onclick="setAllCos(false)">none</span>
-    <div class=seg id=cos-seg></div>
+    <div class=seg id=cos-seg><button type=button class="chip select-all" id=select-all-cos onclick="setAllCos(true)">Select All</button></div>
   </div>
 </div>
 
@@ -270,6 +267,8 @@ function highlightCrosshair(el, show) {
 }
 
 function render(){
+  var allSelected=DATA.companies.every(function(c){return state.cos[c.id];});
+  document.getElementById('select-all-cos').classList.toggle('on',allSelected);
   var vm = visibleModels();
   var vmids = vm.map(function(m){return m.id;});
   var rows=[];
