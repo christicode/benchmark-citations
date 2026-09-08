@@ -419,6 +419,7 @@ function visibleModels(){
 }
 
 function rowVisible(b){
+  if(/internal/i.test(b.canon+' '+(b.display||''))) return false;
   if(state.ty!=='all' && b.type!==state.ty) return false;
   if(state.harb && !b.on_harbor) return false;
   if(state.search) {
