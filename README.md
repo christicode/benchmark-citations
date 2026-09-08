@@ -1,4 +1,4 @@
-# PaperTrail
+# Benchmark-Bench
 <https://autobenchmark.ai>
 
 Tracks **benchmark citations** across the LLM ecosystem - a heatmap sorted by benchmarks and models.
