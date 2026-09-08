@@ -192,17 +192,17 @@ h1{font-family:var(--mono);font-size:23px;font-weight:700;letter-spacing:-.01em;
 .theme-btn:hover{border-color:var(--accent);color:var(--accent)}
 a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 .bar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:0 0 14px;font-family:var(--mono);
-  background:var(--bg);border:1px solid var(--b);border-radius:8px;padding:9px 12px}
+  background:var(--bg);border:1px solid var(--b);border-radius:0;padding:9px 12px}
 .bar .grp{display:flex;gap:8px;align-items:center}
-.bar b{color:var(--mut);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-right:1px}
+.bar b{color:var(--mut);font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.06em;margin-right:1px}
 /* segmented control (Harbor-Hub style): squared group, hairline dividers, subtle grey active */
-.seg{display:inline-flex;border:1px solid var(--b);border-radius:6px;overflow:hidden}
-.chip{font-size:12px;font-weight:500;padding:5px 11px;border:0;border-right:1px solid var(--b);
+.seg{display:inline-flex;border:1px solid var(--b);border-radius:0;overflow:hidden}
+.chip{font-size:12px;font-weight:400;padding:5px 11px;border:0;border-right:1px solid var(--b);
   background:transparent;color:var(--mut);cursor:pointer;user-select:none;transition:.12s;white-space:nowrap}
 .chip:last-child{border-right:0}
 .chip:hover{background:var(--seghov);color:var(--emph)}
-.chip.on{background:var(--segon);color:var(--emph);font-weight:600}
-.chip.co.on{background:var(--segon);color:var(--emph);font-weight:600}
+.chip.on{background:var(--segon);color:var(--emph);font-weight:400}
+.chip.co.on{background:var(--segon);color:var(--emph);font-weight:400}
 .co-btn{font-size:12px;color:var(--accent);cursor:pointer;user-select:none}
 .co-btn:hover{text-decoration:underline}
 .co-sep{color:var(--mut);margin:0 3px}
@@ -223,14 +223,15 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 .range-lbl{font-size:11px;color:var(--emph);font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:.01em}
 .legend{color:var(--mut);font-size:12px;margin:12px 2px 0;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .sw{display:inline-block;width:12px;height:12px;border:1px solid var(--b);vertical-align:-2px;margin-right:4px;border-radius:3px}
-.grid-scroll{overflow:auto;max-height:80vh;border:1px solid var(--b);border-radius:12px}
-table.hm{border-collapse:separate;border-spacing:0}
+.grid-scroll{overflow:auto;max-height:80vh;border:1px solid var(--b);border-radius:0}
+table.hm{border-collapse:separate;border-spacing:0;margin-right:110px}
 table.hm th,table.hm td{padding:0;margin:0}
-thead th{position:sticky;top:0;z-index:3;background:var(--bg)}
-th.mh{height:120px;vertical-align:bottom;padding-bottom:8px;transition:background-color 0.15s}
+thead{position:sticky;top:0;z-index:3;background:var(--bg)}
+thead th{position:relative}
+th.mh{height:170px;min-width:28px;vertical-align:bottom;transition:background-color 0.15s}
 th.mh.active-col{background:var(--panel)!important}
-th.mh .lab{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;
-  font-size:11.5px;font-weight:600;color:var(--emph);max-height:104px;overflow:hidden}
+th.mh .lab{position:absolute;z-index:1;bottom:12px;left:50%;transform:rotate(-55deg);transform-origin:0 50%;white-space:nowrap;
+  font-size:11.5px;font-weight:500;color:var(--emph)}
 td.yl{position:sticky;left:0;z-index:2;background:var(--bg);border-right:1px solid var(--b);
   padding:0 14px 0 10px;white-space:nowrap;font-size:12.5px;color:var(--emph);border-bottom:1px solid var(--b);transition:background-color 0.15s}
 td.yl.active-row{background:var(--panel)!important;color:var(--accent)!important}
@@ -241,13 +242,12 @@ td.yl .h{color:var(--acc-harbor);font-weight:700}
 td.yl .h.hn{color:var(--acc-harbor-native)}
 td.yl .ty{font-size:10px;color:var(--mut);margin-left:6px}
 td.yl .ty.ag{color:var(--acc-agentic);font-weight:600}
-th.corner{left:0;z-index:6;background:var(--bg);border-right:1px solid var(--b)}
+th.corner{position:sticky;left:0;z-index:6;background:var(--bg);border-right:1px solid var(--b)}
 td.cell{width:23px;height:30px;text-align:center;border-right:1px solid var(--b);
   border-bottom:1px solid var(--b);cursor:default;background:var(--empty)}
 td.cell.f{cursor:pointer}
 td.cell.t1{background:var(--t1)}td.cell.t2{background:var(--t2)}td.cell.t3{background:var(--t3)}
 td.cell.pin{outline:2px solid var(--acc-agentic);outline-offset:-2px}
-.count{color:var(--mut);font-size:12.5px;margin:10px 2px}
 #tip{position:fixed;z-index:20;max-width:360px;background:var(--bg);color:var(--fg);border:1px solid var(--b);
   border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.2);padding:11px 13px;display:none;font-size:12.5px}
 #tip h4{margin:0 0 5px;font-size:13px;font-weight:600;color:var(--emph)}
@@ -256,10 +256,9 @@ td.cell.pin{outline:2px solid var(--acc-agentic);outline-offset:-2px}
 #tip .g{color:var(--amber)}
 #tip .cl{color:var(--mut);font-size:11.5px}
 #tip a{font-weight:600;color:var(--accent)}
-.foot{color:var(--mut);font-size:12px;margin:16px 0 0}
 input[type="text"], input[type="date"] {
   border: 1px solid var(--b);
-  border-radius: 5px;
+  border-radius: 0;
   padding: 5px 9px;
   font-family: var(--mono);
   font-size: 12px;
@@ -306,18 +305,13 @@ input[type="text"]:focus, input[type="date"]:focus {
 </div>
 
 <div class=grid-scroll><table class=hm id=hm></table></div>
-<div class=count id=count></div>
 
 <div class=legend>
-  <span><b style="color:var(--mut);font-weight:600">cell — cited in a:</b></span>
   <span><span class=sw style=background:var(--t3)></span>Headliner (3)</span>
   <span><span class=sw style=background:var(--t2)></span>Model card (2)</span>
   <span><span class=sw style=background:var(--t1)></span>System card (1)</span>
   <span><span class=sw style=background:var(--empty)></span>not cited</span>
-  <span>· <b class=h style=color:var(--acc-harbor)>(H)</b> = Harbor-compatible (adapter); <b class="h hn" style=color:var(--acc-harbor-native)>(H)</b> = native Harbor format</span>
 </div>
-<p class=foot>Points: Headliner 3 · Model card 2 · System card 1, max per document then summed.
-Click a cell to pin its source links. christicode/benchmark-citations.</p>
 </div>
 
 <div id=tip></div>
@@ -487,8 +481,6 @@ function render(){
        '</td></tr></tbody>'];
   }
   t.innerHTML=H.join('');
-  document.getElementById('count').textContent =
-    rows.length+' benchmarks × '+vm.length+' models shown';
 }
 
 // model header tooltip text
