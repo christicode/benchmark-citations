@@ -6,19 +6,20 @@ This replaces the retired tables dashboard. Grid:
     (scripts/scoring.py): blog_headliner 3 / model_card 2 / system_card 1, counted as
     MAX per (benchmark, document, model) then SUMMED across documents (same as rank.py) —
     a benchmark headlined + tabled in one blog counts 3, headlined in 3 blogs counts 9.
-    (H) suffix = currently Harbor-compatible (live-synced by sync_harbor.py); a DEEPER-GREEN (H)
+    (H) suffix = currently Harbor-compatible (live-synced by sync_harbor.py); a DEEPER-BLUE (H)
     marks NATIVE Harbor format (registry entry with no adapter, incl. curated external-native
-    datasets like deepswe), vs the regular-green (H) for adapter-backed benchmarks.
+    datasets like deepswe), vs the regular deep-blue (H) for adapter-backed benchmarks.
   * X axis = citing model, MOST RECENT ON THE LEFT (models.yaml release_date; undated last).
-  * cell (benchmark × model) = increasing DARKNESS OF BLUE for the highest source class in
-    which that model cites it: Headliner (darkest) > Model card > System card (lightest).
-  * Saturation gutter (left of the grid) = max reported % for that benchmark (headroom),
-    on a green→amber→red ramp; hover shows which model set it + a source link.
+  * cell (benchmark × model) = increasing DARKNESS OF GREY for the highest source class in
+    which that model cites it: Headliner (near-black) > Model card (mid-grey) > System card
+    (light-grey). In dark mode the ramp inverts (Headliner near-white, strongest).
   * hover / click-to-pin a cell → the source link(s) (headliner / model card / system card)
     with the reported score, for verifiability.
 
 Filters (agentic/chat · Harbor-only · company) re-rank live over the VISIBLE columns.
-Self-contained (embeds a compact JSON blob; modern sans UI via Inter). Reads
+Self-contained (embeds a compact JSON blob). Muted, Terminal-Bench-style monochrome UI:
+grayscale citation ramp, two reserved blue accents (agentic label + Harbor (H) marks), and
+Google Sans Code for the top toggles/selectors (body copy stays Inter). Reads
 data/citations.jsonl (built by build.py, Harbor-synced by sync_harbor.py) + data/models.yaml.
 """
 from __future__ import annotations
@@ -158,15 +159,20 @@ PAGE = r"""<!doctype html><html lang=en><head><meta charset=utf-8>
 <title>PaperTrail</title>
 <link rel=preconnect href="https://fonts.googleapis.com">
 <link rel=preconnect href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel=stylesheet>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel=stylesheet>
 <style>
-:root{--bg:#ffffff;--panel:#f7f8fa;--b:#e6e8eb;--fg:#3d4451;--emph:#0d0f13;--mut:#9aa1ac;
-  --blue:#2563eb;--green:#16a34a;--green-deep:#166534;--amber:#d97706;--red:#dc2626;--violet:#7c3aed;
-  /* blue citation ramp: System card (light) -> Model card -> Headliner (dark) */
-  --t1:#dbeafe;--t2:#7fb0ee;--t3:#1e56b0;--empty:#fbfcfd}
-body.dark{--bg:#0f172a;--panel:#1e293b;--b:#334155;--fg:#94a3b8;--emph:#f8fafc;--mut:#64748b;
-  --blue:#3b82f6;--green:#22c55e;--green-deep:#15803d;--amber:#f59e0b;--red:#ef4444;--violet:#8b5cf6;
-  --t1:#1e3a8a;--t2:#3b82f6;--t3:#60a5fa;--empty:#1e293b}
+:root{--bg:#ffffff;--panel:#f6f7f8;--b:#e6e7ea;--fg:#40454e;--emph:#0a0c10;--mut:#969ca6;
+  --accent:#0a0c10;--amber:#d97706;
+  /* two reserved accents: agentic (deep blue) + Harbor (deep indigo, native = deeper) */
+  --acc-agentic:#1d4ed8;--acc-harbor:#4338ca;--acc-harbor-native:#312e81;
+  /* GRAYSCALE citation ramp: System card (lightest grey) -> Model card (mid) -> Headliner (near-black) */
+  --t1:#d8dbdf;--t2:#8b9198;--t3:#16181d;--empty:#fafbfc;
+  --mono:"Google Sans Code",ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace}
+body.dark{--bg:#0c0d10;--panel:#15171c;--b:#262a31;--fg:#9aa1ac;--emph:#f2f4f7;--mut:#6b7280;
+  --accent:#f2f4f7;--amber:#f59e0b;
+  --acc-agentic:#60a5fa;--acc-harbor:#a5b4fc;--acc-harbor-native:#c7d2fe;
+  /* inverted grayscale: Headliner (near-white, strongest) -> Model card (mid) -> System card (dark grey) */
+  --t1:#3a3f47;--t2:#8b9198;--t3:#f2f4f7;--empty:#141619}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);
   font:14px/1.55 "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
@@ -174,19 +180,19 @@ body{margin:0;background:var(--bg);color:var(--fg);
 .wrap{max-width:1400px;margin:0 auto;padding:26px 22px 40px}
 .hdr{display:flex;justify-content:space-between;align-items:center;margin:0 0 14px}
 h1{font-size:24px;font-weight:700;letter-spacing:-.02em;color:var(--emph);margin:0}
-.theme-btn{cursor:pointer;border:1px solid var(--b);background:var(--panel);color:var(--emph);padding:6px 12px;border-radius:8px;font-size:14px;transition:.12s;user-select:none}
-.theme-btn:hover{border-color:var(--blue);color:var(--blue)}
-a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
-.bar{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin:0 0 14px;
+.theme-btn{cursor:pointer;border:1px solid var(--b);background:var(--panel);color:var(--emph);padding:6px 12px;border-radius:8px;font-family:var(--mono);font-size:14px;transition:.12s;user-select:none}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent)}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+.bar{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin:0 0 14px;font-family:var(--mono);
   background:var(--panel);border:1px solid var(--b);border-radius:12px;padding:10px 14px}
 .bar .grp{display:flex;gap:6px;align-items:center}
 .bar b{color:var(--mut);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-right:2px}
-.chip{font-size:12.5px;font-weight:500;padding:4px 11px;border:1px solid var(--b);
+.chip{font-size:12px;font-weight:500;padding:4px 11px;border:1px solid var(--b);
   background:var(--bg);color:var(--fg);border-radius:999px;cursor:pointer;user-select:none;transition:.12s}
-.chip:hover{border-color:var(--blue);color:var(--blue)}
-.chip.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip.on{background:var(--accent);color:var(--bg);border-color:var(--accent)}
 .chip.co.on{background:var(--emph);color:var(--bg);border-color:var(--emph)}
-body.dark .chip.co.on{background:var(--emph);color:#0f172a;border-color:var(--emph)}
+body.dark .chip.co.on{background:var(--emph);color:var(--bg);border-color:var(--emph)}
 .legend{color:var(--mut);font-size:12px;margin:12px 2px 0;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .sw{display:inline-block;width:12px;height:12px;border:1px solid var(--b);vertical-align:-2px;margin-right:4px;border-radius:3px}
 .grid-scroll{overflow:auto;max-height:80vh;border:1px solid var(--b);border-radius:12px}
@@ -199,29 +205,20 @@ th.mh .lab{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;
   font-size:11.5px;font-weight:600;color:var(--emph);max-height:104px;overflow:hidden}
 td.yl{position:sticky;left:0;z-index:2;background:var(--bg);border-right:1px solid var(--b);
   padding:0 10px;white-space:nowrap;font-size:12.5px;color:var(--emph);border-bottom:1px solid var(--b);transition:background-color 0.15s}
-td.yl.active-row{background:var(--panel)!important;color:var(--blue)!important}
+td.yl.active-row{background:var(--panel)!important;color:var(--accent)!important}
 td.yl .rank{color:var(--mut);display:inline-block;min-width:22px;font-variant-numeric:tabular-nums}
 td.yl .nm{cursor:pointer;font-weight:500;color:var(--emph)}
-td.yl .nm:hover{color:var(--blue);text-decoration:underline}
-td.yl .h{color:var(--green);font-weight:700}
-td.yl .h.hn{color:var(--green-deep)}
+td.yl .nm:hover{color:var(--accent);text-decoration:underline}
+td.yl .h{color:var(--acc-harbor);font-weight:700}
+td.yl .h.hn{color:var(--acc-harbor-native)}
 td.yl .ty{font-size:10px;color:var(--mut);margin-left:6px}
-td.yl .ty.ag{color:var(--green)}
-td.sat{position:sticky;left:var(--gutL);z-index:2;background:var(--bg);width:78px;
-  border-right:1px solid var(--b);border-bottom:1px solid var(--b);padding:0 8px}
-td.sat.hs{cursor:help}
-.satbar{height:9px;background:#eef1f4;border-radius:999px;position:relative;overflow:hidden}
-body.dark .satbar{background:#334155}
-.satbar>i{display:block;height:100%;border-radius:999px}
-.satnum{font-size:10px;color:var(--mut);font-variant-numeric:tabular-nums}
+td.yl .ty.ag{color:var(--acc-agentic);font-weight:600}
 th.corner{left:0;z-index:6;background:var(--bg);border-right:1px solid var(--b)}
-th.corner.sat2{left:var(--gutL);z-index:6;vertical-align:bottom;padding:0 8px 8px}
-th.corner.sat2 .satlbl{font-size:10px;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.03em}
 td.cell{width:22px;height:22px;text-align:center;border-right:1px solid var(--b);
   border-bottom:1px solid var(--b);cursor:default;background:var(--empty)}
 td.cell.f{cursor:pointer}
 td.cell.t1{background:var(--t1)}td.cell.t2{background:var(--t2)}td.cell.t3{background:var(--t3)}
-td.cell.pin{outline:2px solid var(--red);outline-offset:-2px}
+td.cell.pin{outline:2px solid var(--acc-agentic);outline-offset:-2px}
 .count{color:var(--mut);font-size:12.5px;margin:10px 2px}
 #tip{position:fixed;z-index:20;max-width:360px;background:var(--bg);color:var(--fg);border:1px solid var(--b);
   border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.2);padding:11px 13px;display:none;font-size:12.5px}
@@ -230,7 +227,7 @@ td.cell.pin{outline:2px solid var(--red);outline-offset:-2px}
 #tip .dt{font-weight:600;color:var(--emph)}
 #tip .g{color:var(--amber)}
 #tip .cl{color:var(--mut);font-size:11.5px}
-#tip a{font-weight:600;color:var(--blue)}
+#tip a{font-weight:600;color:var(--accent)}
 .foot{color:var(--mut);font-size:12px;margin:16px 0 0}
 input[type="text"], input[type="date"] {
   border: 1px solid var(--b);
@@ -244,11 +241,11 @@ input[type="text"], input[type="date"] {
 }
 input[type="text"]:focus, input[type="date"]:focus {
   outline: none;
-  border-color: var(--blue);
+  border-color: var(--accent);
 }
 .co-btn {
   font-size:12px;
-  color:var(--blue);
+  color:var(--accent);
   cursor:pointer;
   margin: 0 4px;
   user-select:none;
@@ -293,8 +290,7 @@ input[type="text"]:focus, input[type="date"]:focus {
   <span><span class=sw style=background:var(--t2)></span>Model card (2)</span>
   <span><span class=sw style=background:var(--t1)></span>System card (1)</span>
   <span><span class=sw style=background:var(--empty)></span>not cited</span>
-  <span>· <b class=h style=color:var(--green)>(H)</b> = Harbor-compatible (adapter); <b class="h hn" style=color:var(--green-deep)>(H)</b> = native Harbor format</span>
-  <span>· Saturation = max reported % (hover for the model + source)</span>
+  <span>· <b class=h style=color:var(--acc-harbor)>(H)</b> = Harbor-compatible (adapter); <b class="h hn" style=color:var(--acc-harbor-native)>(H)</b> = native Harbor format</span>
 </div>
 <p class=foot>Points: Headliner 3 · Model card 2 · System card 1, max per document then summed.
 Click a cell to pin its source links. christicode/benchmark-citations.</p>
@@ -438,28 +434,22 @@ function highlightCrosshair(el, show) {
   if (rowHeader) rowHeader.classList.toggle('active-row', show);
 }
 
-function highlightRow(el, show) {
-  var rowHeader = el.parentElement.querySelector('td.yl');
-  if (rowHeader) rowHeader.classList.toggle('active-row', show);
-}
-
 function render(){
   var vm = visibleModels();
   var vmids = vm.map(function(m){return m.id;});
   var rows=[];
   DATA.benchmarks.forEach(function(b){
     if(!rowVisible(b)) return;
-    var pts=0, sat=null, satMid=null, nm=0;
-    vmids.forEach(function(id){ var c=b.cells[id]; if(c){ pts+=c.pts; nm++;
-      if(c.score!=null && (sat==null || c.score>sat)){ sat=c.score; satMid=id; } } });
+    var pts=0, nm=0;
+    vmids.forEach(function(id){ var c=b.cells[id]; if(c){ pts+=c.pts; nm++; } });
     if(nm===0) return;                          // no citation in visible columns
-    rows.push({b:b, pts:pts, sat:sat, satMid:satMid, nm:nm});
+    rows.push({b:b, pts:pts, nm:nm});
   });
   rows.sort(function(x,y){ return (y.pts-x.pts) || (y.nm-x.nm) || (x.b.canon<y.b.canon?-1:1); });
 
   var t=document.getElementById('hm');
   var H=[];
-  H.push('<thead><tr><th class=corner>&nbsp;</th><th class="corner sat2"><span class=satlbl>Saturation</span></th>');
+  H.push('<thead><tr><th class=corner>&nbsp;</th>');
   vm.forEach(function(m){
     H.push('<th class="mh'+(m.dated?'':' new')+'" data-m-id="'+m.id+'" title="'+esc(m.model_title(m))+'">'+
       '<div class=lab>'+esc(m.display)+'</div></th>');
@@ -475,13 +465,6 @@ function render(){
     H.push('<tr><td class=yl><span class=rank>'+(i+1)+'</span>'+
       '<span class=nm onclick="openRec(\''+esc(b.canon)+'\')" title="see citation records on GitHub">'+
       esc(b.canon)+'</span>'+h+ty+'</td>');
-    if(r.sat!=null){
-      var col = r.sat>=85?'var(--red)':r.sat>=70?'var(--amber)':'var(--green)';
-      H.push('<td class="sat hs" data-b="'+esc(b.canon)+'" data-m="'+r.satMid+
-        '" onmouseenter="showSat(event,this);highlightRow(this,true)" onmouseleave="hideTip();highlightRow(this,false)">'+
-        '<div class=satbar><i style="width:'+Math.max(3,Math.round(r.sat))+
-        '%;background:'+col+'"></i></div><span class=satnum>'+Math.round(r.sat)+'%</span></td>');
-    } else { H.push('<td class=sat><span class=satnum>&mdash;</span></td>'); }
     vm.forEach(function(m){
       var c=b.cells[m.id];
       if(!c){ H.push('<td class=cell></td>'); return; }
@@ -497,8 +480,6 @@ function render(){
        '</td></tr></tbody>'];
   }
   t.innerHTML=H.join('');
-  var yl=t.querySelector('td.yl');
-  document.documentElement.style.setProperty('--gutL',(yl?yl.getBoundingClientRect().width:220)+'px');
   document.getElementById('count').textContent =
     rows.length+' benchmarks × '+vm.length+' models shown';
 }
@@ -526,22 +507,6 @@ function tipHTML(d){
   });
   return s;
 }
-function satHTML(el){
-  var b=el.dataset.b, m=el.dataset.m;
-  var rec=DATA.benchmarks.find(function(x){return x.canon===b;});
-  var mm=DATA.models.find(function(x){return x.id===m;});
-  var cell=rec.cells[m], best=null;
-  cell.docs.forEach(function(dd){ if(dd.unit==='percent'&&dd.val!=null&&(best==null||dd.val>best.val)) best=dd; });
-  var pct=best?best.val:cell.score;
-  var s='<h4>'+esc(b)+' · saturation</h4>';
-  s+='<div class=r>max <b>'+esc(String(Math.round(pct)))+'%</b> · '+esc(mm.display)+'</div>';
-  if(best){
-    var lab=DATA.wc_label[best.wc]||best.wc||'source';
-    s+='<div class=r><a href="'+esc(best.url)+'" target=_blank rel=noopener>'+esc(lab)+' source ↗</a>'+
-       (best.cfg?(' <span class=cl>'+esc(best.cfg)+'</span>'):'')+'</div>';
-  }
-  return s;
-}
 function pos(el){ var tip=document.getElementById('tip'); var r=el.getBoundingClientRect();
   var x=r.right+10, y=r.top; var t=tip.getBoundingClientRect();
   if(x+t.width>innerWidth) x=r.left-t.width-10; if(x<6) x=6;
@@ -549,8 +514,6 @@ function pos(el){ var tip=document.getElementById('tip'); var r=el.getBoundingCl
   tip.style.left=x+'px'; tip.style.top=y+'px'; }
 function showTip(e,el){ if(pinned) return; var tip=document.getElementById('tip');
   tip.innerHTML=tipHTML(cellData(el)); tip.style.display='block'; posMouse(e); }
-function showSat(e,el){ if(pinned) return; var tip=document.getElementById('tip');
-  tip.innerHTML=satHTML(el); tip.style.display='block'; pos(el); }
 function posMouse(e){ var tip=document.getElementById('tip');
   var x=e.clientX+14, y=e.clientY+14; var r=tip.getBoundingClientRect();
   if(x+r.width>innerWidth) x=e.clientX-r.width-14; if(x<6) x=6;
