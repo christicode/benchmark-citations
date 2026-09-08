@@ -152,7 +152,7 @@ input[type="text"]:focus, input[type="date"]:focus {
   <span><span class=sw style=background:var(--t1)></span>System card (1)</span>
   <span><span class=sw style=background:var(--empty)></span>not cited</span>
   <span><span class=h>(H)</span> Harbor-compatible</span>
-  <div class=more id=more-wrap><button type=button id=more-button onclick="toggleMulti()" aria-controls=hm aria-expanded=false>Expand to see more</button></div>
+  <div class=more id=more-wrap><button type=button id=more-button onclick="toggleMulti()" aria-controls=hm aria-expanded=false>See more</button></div>
 </div>
 </div>
 
@@ -324,7 +324,7 @@ function render(){
   t.innerHTML=H.join('');
   document.getElementById('more-wrap').hidden=singleCount===0;
   var more=document.getElementById('more-button');
-  more.textContent=state.multi?'Expand to see more':'Show only 2+ citations';
+  more.textContent=state.multi?'See more':'Show only 2+ citations';
   more.setAttribute('aria-expanded',String(!state.multi));
 }
 
