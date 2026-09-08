@@ -339,7 +339,7 @@ benchmarks:
   - canonical: livecodebench
     type: chat
     domain: coding
-    aliases: ["LiveCodeBench", "LiveCodeBench Pro"]
+    aliases: ["LiveCodeBench", "LiveCodeBench Pro", "LiveCodeBench v6"]
     collision: "Base livecodebench (v6) is in Harbor. 'LiveCodeBench Pro' is a distinct harder benchmark — NOT this. Confirm split."
   - canonical: longvideobench
     type: chat
@@ -429,7 +429,7 @@ benchmarks:
   - canonical: omnidocbench
     type: chat
     domain: multimodal
-    aliases: ["OmniDocBench"]
+    aliases: ["OmniDocBench", "OmniDocBench 1.5"]
   - canonical: online-mind2web
     type: agentic
     domain: computer-use
@@ -539,7 +539,7 @@ benchmarks:
   - canonical: swe-bench-multimodal
     type: agentic
     domain: coding
-    aliases: ["SWE-bench Multimodal"]
+    aliases: ["SWE-bench Multimodal", "SWE-MM"]
   - canonical: swe-bench-pro
     type: agentic
     domain: coding
@@ -574,7 +574,7 @@ benchmarks:
     display: "Terminal-Bench 1.0, 2.0, 2.1"
     aliases: ["Terminal Bench", "Terminal Bench 2.0-Terminus", "Terminal-Bench", "Terminal-Bench 1.0", "Terminal Bench 1.0", "Terminal-Bench 1", "Terminal Bench 1",
               "Terminal-Bench 2", "Terminal Bench 2", "Terminal-Bench 2.0", "Terminal Bench 2.0",
-              "Terminal-Bench 2.1", "Terminal Bench 2.1", "Terminal-bench 2.1", "Terminal-Bench v2.1", "Terminal Bench v2.1", "TerminalBench 2.1"]
+              "Terminal-Bench 2.1", "Terminal Bench 2.1", "Terminal-bench 2.1", "Terminal-Bench v2.1", "Terminal Bench v2.1", "TerminalBench 2.1", "Terminal Bench 2.1 (Terminus)"]
     collision: "Bucket = Terminal-Bench <= 2.1 (bare/original 'Terminal-Bench' + 1.x + 2.0 + 2.1); the
       display label enumerates the covered versions (1, 2, 2.1) so the row isn't mistaken for only the
       original. Harbor registry.json holds terminal-bench@2.0 (its official NATIVE harness); the canonical
@@ -1711,3 +1711,24 @@ benchmarks:
     aliases: ["Agentic IF Index", "Agentic IF Index (Internal)"]
     vendor_proprietary: true
     notes: "Meta internal agentic instruction-following index. Muse Spark 1.3 scorecard. Single-vendor."
+  - canonical: recreationbench
+    type: agentic
+    domain: computer-use
+    vendor_proprietary: true
+    aliases:
+    - RecreationBench
+    notes: Qwen in-house long-horizon application recreation across desktop, Android and web; Qwen3.8-27B README.
+  - canonical: claweval-mm
+    type: agentic
+    domain: multimodal
+    aliases:
+    - ClawEval-MM
+    notes: Multimodal tool-use evaluation in Qwen3.8-27B README. Preserve Pass@3 versus average score; do not merge
+      with an unspecified ClawEval variant.
+  - canonical: vision2web
+    type: agentic
+    domain: coding
+    aliases:
+    - Vision2Web
+    notes: Visual web development across frontend, webpage and website categories; Qwen3.8-27B README uses Claude
+      Code and GPT-5.4 judging.

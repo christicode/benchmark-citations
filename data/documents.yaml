@@ -689,3 +689,19 @@ documents:
     default_weight_class: model_card    # one benchmark scorecard image (vision-read); no per-benchmark solo charts
     url: "https://research.meta.ai/blog/introducing-muse-spark-1-3"
     pub_date: "2026-09-02"
+  - id: gemini-3-7-flash__blog_headliner
+    lab: google_deepmind
+    model: Gemini 3.7 Flash
+    container: blog
+    default_weight_class: model_card
+    url: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/
+    pub_date: '2026-08-13'
+  - id: qwen3-8-27b__model_card
+    lab: qwen
+    model: Qwen3.8-27B
+    container: hf_readme
+    default_weight_class: model_card
+    url: https://huggingface.co/Qwen/Qwen3.8-27B
+    pub_date: '2026-08-14'
+    pub_date_note: Public availability announced in the Qwen team release log.
+    pub_date_source: https://github.com/QwenLM/Qwen3.8#news

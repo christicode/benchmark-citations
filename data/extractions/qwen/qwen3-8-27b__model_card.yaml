@@ -1,0 +1,220 @@
+# User promoted this source on 2026-09-08 in the Codex migration task.
+# HF README revision: 1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0
+# Public release: 2026-08-14, https://github.com/QwenLM/Qwen3.8#news.
+doc: qwen3-8-27b__model_card
+mentions:
+- raw: Terminal Bench 2.1 (Terminus)
+  value: 73.0
+  unit: percent
+  model_config: Qwen3.8-27B; text performance; Terminus harness
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+  - Harness is labeled Terminus in the source; no Terminus version is specified.
+- raw: SWE-bench Pro
+  value: 61.7
+  unit: percent
+  model_config: Qwen3.8-27B; text performance
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+  - Claude Code harness, temperature=1.0, top_p=0.95, 256K context. Problematic tasks corrected and baselines
+    re-evaluated on the refined benchmark; Opus4.6 Max uses its official reported score.
+- raw: NL2Repo-Bench
+  value: 42.3
+  unit: percent
+  model_config: Qwen3.8-27B; text performance
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+  - Claude Code harness; Bash commands accessing the specific repository, including pip download, pip
+    install and git clone, disabled to prevent reward hacking.
+- raw: DeepSWE 1.1
+  value: 42.2
+  unit: percent
+  model_config: Qwen3.8-27B; text performance
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+  - Claude Code harness, temperature=1.0, top_p=0.95, 256K context.
+- raw: QwenSWEBench
+  value: 79.0
+  unit: percent
+  model_config: Qwen3.8-27B; text performance
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+  - In-house software-engineering benchmark; Claude Code, avg@3, 8-hour timeout, max_tokens=32768, temperature=1.0,
+    256K context.
+- raw: CoWorkBench
+  value: 70.7
+  unit: percent
+  model_config: Qwen3.8-27B; text performance
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+  - In-house long-horizon cowork tasks in computer science, finance, law, medicine and other productivity
+    domains.
+- raw: JobBench
+  value: 33.4
+  unit: percent
+  model_config: Qwen3.8-27B; text performance
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+- raw: Agents' Last Exam
+  value: 20.4
+  unit: percent
+  model_config: Qwen3.8-27B; text performance; Pass@1
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+- raw: Agents' Last Exam
+  value: 42.9
+  unit: score
+  model_config: Qwen3.8-27B; text performance; Score
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+- raw: IFBench
+  value: 79.5
+  unit: percent
+  model_config: Qwen3.8-27B; text performance
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+- raw: GPQA Diamond
+  value: 89.2
+  unit: percent
+  model_config: Qwen3.8-27B; text performance
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+- raw: HLE
+  value: 30.8
+  unit: percent
+  model_config: Qwen3.8-27B; text performance
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+  - Judged by GPT-4o; tool setting is not specified in this card.
+- raw: LiveCodeBench v6
+  value: 90.3
+  unit: percent
+  model_config: Qwen3.8-27B; text performance; v6
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+  - Version 6; preserve this version in model_config.
+- raw: OSWorld-Verified
+  value: 84.3
+  unit: percent
+  model_config: Qwen3.8-27B; multimodal performance
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+- raw: WebArena-Verified
+  value: 64.8
+  unit: percent
+  model_config: Qwen3.8-27B; multimodal performance
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+  - Official WebArena-Verified grader under the OSWorld scaffold.
+- raw: AndroidWorld
+  value: 81.9
+  unit: percent
+  model_config: Qwen3.8-27B; multimodal performance
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+- raw: RecreationBench
+  value: 47.1
+  unit: percent
+  model_config: Qwen3.8-27B; multimodal performance
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+  - In-house long-horizon application recreation across Ubuntu, macOS, Windows, mobile Android and web.
+- raw: ClawEval-MM
+  value: 57.4
+  unit: percent
+  model_config: Qwen3.8-27B; multimodal performance; Pass@3
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+  - Pass@3 is the proportion passed in at least one of three trials; Average is the mean benchmark score
+    across the three trials.
+- raw: ClawEval-MM
+  value: 56.9
+  unit: score
+  model_config: Qwen3.8-27B; multimodal performance; Average
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+  - Pass@3 is the proportion passed in at least one of three trials; Average is the mean benchmark score
+    across the three trials.
+- raw: SWE-MM
+  value: 38.6
+  unit: percent
+  model_config: Qwen3.8-27B; multimodal performance
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+  - Claude Code harness; public dev split of SWE-bench Multimodal with modifications described in Appendix
+    8.3 of the Claude Opus 4.7 system card.
+- raw: Vision2Web
+  value: 62.9
+  unit: percent
+  model_config: Qwen3.8-27B; multimodal performance
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+  - Average across frontend, webpage and website categories; Claude Code harness, judged by gpt-5.4-2026-03-05.
+- raw: MathVision
+  value: 90.0
+  unit: percent
+  model_config: Qwen3.8-27B; multimodal performance; Without CI
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+  - Some incorrect ground-truth annotations manually corrected; all reported scores use the corrected
+    annotations.
+  - Qwen3.8-27B uses a fixed step-by-step prompt requiring the final answer inside \boxed{}; other models
+    use the higher result from prompts with and without that formatting constraint.
+- raw: MathVision
+  value: 94.6
+  unit: percent
+  model_config: Qwen3.8-27B; multimodal performance; With CI
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+  - Some incorrect ground-truth annotations manually corrected; all reported scores use the corrected
+    annotations.
+  - Qwen3.8-27B uses a fixed step-by-step prompt requiring the final answer inside \boxed{}; other models
+    use the higher result from prompts with and without that formatting constraint.
+- raw: BabyVision
+  value: 65.7
+  unit: percent
+  model_config: Qwen3.8-27B; multimodal performance; Without CI
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+- raw: BabyVision
+  value: 85.6
+  unit: percent
+  model_config: Qwen3.8-27B; multimodal performance; With CI
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+- raw: CharXiv (RQ)
+  value: 83.7
+  unit: percent
+  model_config: Qwen3.8-27B; multimodal performance; Without CI
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+  - Some incorrect ground-truth annotations manually corrected; all reported scores use the corrected
+    annotations.
+- raw: CharXiv (RQ)
+  value: 90.2
+  unit: percent
+  model_config: Qwen3.8-27B; multimodal performance; With CI
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+  - Some incorrect ground-truth annotations manually corrected; all reported scores use the corrected
+    annotations.
+- raw: OmniDocBench 1.5
+  value: 91.1
+  unit: score
+  model_config: Qwen3.8-27B; multimodal performance; v1.5, metric unspecified
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+  - Version 1.5. The table supplies a score but does not name the metric or its direction; do not assume
+    percentage accuracy or edit-distance semantics.
+- raw: RealWorldQA
+  value: 85.9
+  unit: percent
+  model_config: Qwen3.8-27B; multimodal performance
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'
+- raw: ERQA
+  value: 65.5
+  unit: percent
+  model_config: Qwen3.8-27B; multimodal performance
+  methodology:
+  - 'Source table first model column: Qwen3.8-27B; competitor columns excluded.'

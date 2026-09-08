@@ -4,7 +4,9 @@
 #   Gemini 3.7 Flash | Gemini 3.6 Flash | Claude Sonnet 5 | GPT-5.6 Terra | Muse Spark 1.2
 # Citing model = Gemini 3.7 Flash (first column). default weight_class = model_card (one card table;
 # the separate Gemini-3-7-Flash PDF is a Frontier-Safety report with NO capability scores; the
-# release blog carries no benchmark numbers). Methodology: deepmind.com/models/evals-methodology/gemini-3-7-flash.
+# release blog is separately extracted in gemini-3-7-flash__blog_headliner.yaml, including its
+# detailed-benchmarks model-card table and five headline charts).
+# Methodology: deepmind.google/models/evals-methodology/gemini-3-7-flash.
 # NB: reports BOTH Terminal-bench 2.1 (85.8) AND Terminal-bench 3.0 (14.9) => TWO separate citations
 # (distinct canonicals). Surfaced NEW competitor labels: GPT-5.6 Terra, Muse Spark 1.2.
 doc: gemini-3-7-flash__model_card

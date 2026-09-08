@@ -1,0 +1,299 @@
+# User promoted this source on 2026-09-08 in the Codex migration task.
+# Detailed benchmarks = model_card; five separate headline charts = blog_headliner.
+# Multiple mentions retain source/configuration evidence; aggregators take MAX per document/model.
+doc: gemini-3-7-flash__blog_headliner
+mentions:
+- raw: Artificial Analysis Intelligence Index
+  value: 56
+  unit: score
+  model_config: Gemini 3.7 Flash; composite model intelligence
+  methodology:
+  - 'Detailed benchmarks image: first model column (Gemini 3.7 Flash).'
+  - 'Google methodology: Gemini API gemini-3.7-flash, default sampling and pass@1 unless otherwise stated;
+    smaller benchmarks averaged over multiple trials; no majority voting or parallel test-time compute
+    in single-attempt settings.'
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-3-7-flash'
+- raw: FrontierCode 1.1 Main
+  value: 43.6
+  unit: percent
+  model_config: Gemini 3.7 Flash; production code quality
+  methodology:
+  - 'Detailed benchmarks image: first model column (Gemini 3.7 Flash).'
+  - 'Google methodology: Gemini API gemini-3.7-flash, default sampling and pass@1 unless otherwise stated;
+    smaller benchmarks averaged over multiple trials; no majority voting or parallel test-time compute
+    in single-attempt settings.'
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-3-7-flash'
+  - Results sourced by Google from the official public leaderboard.
+- raw: DeepSWE v1.1
+  value: 65.3
+  unit: percent
+  model_config: Gemini 3.7 Flash; high thinking; mini-SWE-agent; LiteLLM 1.96
+  methodology:
+  - 'Detailed benchmarks image: first model column (Gemini 3.7 Flash).'
+  - 'Google methodology: Gemini API gemini-3.7-flash, default sampling and pass@1 unless otherwise stated;
+    smaller benchmarks averaged over multiple trials; no majority voting or parallel test-time compute
+    in single-attempt settings.'
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-3-7-flash'
+  - Gemini 3.7 Flash results self-computed with mini-SWE-agent, LiteLLM 1.96, high thinking.
+  - The prose gives Gemini 3.6 Flash as 49.0, while both chart and table show 48.6; the citing-model value
+    is consistently 65.3.
+- raw: Code Arena
+  value: 1588
+  unit: elo
+  model_config: Gemini 3.7 Flash; Web Dev leaderboard
+  methodology:
+  - 'Detailed benchmarks image: first model column (Gemini 3.7 Flash).'
+  - 'Google methodology: Gemini API gemini-3.7-flash, default sampling and pass@1 unless otherwise stated;
+    smaller benchmarks averaged over multiple trials; no majority voting or parallel test-time compute
+    in single-attempt settings.'
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-3-7-flash'
+  - The chart and table label this Code Arena; the prose calls it WebDev Arena. Google methodology identifies
+    the official public Web Dev leaderboard. Retain the existing Code Arena canonical without changing
+    historical identities.
+- raw: Terminal-bench 2.1
+  value: 85.8
+  unit: percent
+  model_config: Gemini 3.7 Flash; Terminus 2 harness
+  methodology:
+  - 'Detailed benchmarks image: first model column (Gemini 3.7 Flash).'
+  - 'Google methodology: Gemini API gemini-3.7-flash, default sampling and pass@1 unless otherwise stated;
+    smaller benchmarks averaged over multiple trials; no majority voting or parallel test-time compute
+    in single-attempt settings.'
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-3-7-flash'
+  - Gemini results self-computed with the default Terminus 2 harness; other models taken from public leaderboard
+    and Artificial Analysis.
+- raw: Terminal-bench 3.0
+  value: 14.9
+  unit: percent
+  model_config: Gemini 3.7 Flash; mini-SWE-agent; LiteLLM 1.96
+  methodology:
+  - 'Detailed benchmarks image: first model column (Gemini 3.7 Flash).'
+  - 'Google methodology: Gemini API gemini-3.7-flash, default sampling and pass@1 unless otherwise stated;
+    smaller benchmarks averaged over multiple trials; no majority voting or parallel test-time compute
+    in single-attempt settings.'
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-3-7-flash'
+  - Minor changes to cli-2ph-simplex and vpp-loss-divergence for compatibility with the containerized
+    environment.
+- raw: AutomationBench
+  value: 30.4
+  unit: percent
+  model_config: Gemini 3.7 Flash; private set
+  methodology:
+  - 'Detailed benchmarks image: first model column (Gemini 3.7 Flash).'
+  - 'Google methodology: Gemini API gemini-3.7-flash, default sampling and pass@1 unless otherwise stated;
+    smaller benchmarks averaged over multiple trials; no majority voting or parallel test-time compute
+    in single-attempt settings.'
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-3-7-flash'
+  - Private set; results sourced by Google from the official public leaderboard.
+- raw: GDPVal-AA v2
+  value: 1525
+  unit: elo
+  model_config: Gemini 3.7 Flash; knowledge work
+  methodology:
+  - 'Detailed benchmarks image: first model column (Gemini 3.7 Flash).'
+  - 'Google methodology: Gemini API gemini-3.7-flash, default sampling and pass@1 unless otherwise stated;
+    smaller benchmarks averaged over multiple trials; no majority voting or parallel test-time compute
+    in single-attempt settings.'
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-3-7-flash'
+  - Results sourced by Google from the Artificial Analysis public leaderboard.
+- raw: Harvey LAB-AA
+  value: 90.7
+  unit: percent
+  model_config: Gemini 3.7 Flash; complex legal workflows
+  methodology:
+  - 'Detailed benchmarks image: first model column (Gemini 3.7 Flash).'
+  - 'Google methodology: Gemini API gemini-3.7-flash, default sampling and pass@1 unless otherwise stated;
+    smaller benchmarks averaged over multiple trials; no majority voting or parallel test-time compute
+    in single-attempt settings.'
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-3-7-flash'
+  - Results sourced by Google from the Artificial Analysis public leaderboard.
+- raw: GDP.pdf
+  value: 34.0
+  unit: percent
+  model_config: Gemini 3.7 Flash; expert PDF document comprehension
+  methodology:
+  - 'Detailed benchmarks image: first model column (Gemini 3.7 Flash).'
+  - 'Google methodology: Gemini API gemini-3.7-flash, default sampling and pass@1 unless otherwise stated;
+    smaller benchmarks averaged over multiple trials; no majority voting or parallel test-time compute
+    in single-attempt settings.'
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-3-7-flash'
+  - Gemini results self-computed.
+- raw: CharXiv Reasoning
+  value: 84.5
+  unit: percent
+  model_config: Gemini 3.7 Flash; no tools
+  methodology:
+  - 'Detailed benchmarks image: first model column (Gemini 3.7 Flash).'
+  - 'Google methodology: Gemini API gemini-3.7-flash, default sampling and pass@1 unless otherwise stated;
+    smaller benchmarks averaged over multiple trials; no majority voting or parallel test-time compute
+    in single-attempt settings.'
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-3-7-flash'
+  - Gemini results self-computed; tool-assisted score uses search and code execution.
+- raw: CharXiv Reasoning
+  value: 88.7
+  unit: percent
+  model_config: 'Gemini 3.7 Flash; with tools: search and code execution'
+  methodology:
+  - 'Detailed benchmarks image: first model column (Gemini 3.7 Flash).'
+  - 'Google methodology: Gemini API gemini-3.7-flash, default sampling and pass@1 unless otherwise stated;
+    smaller benchmarks averaged over multiple trials; no majority voting or parallel test-time compute
+    in single-attempt settings.'
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-3-7-flash'
+  - Gemini results self-computed; tool-assisted score uses search and code execution.
+- raw: LVBench
+  value: 85.4
+  unit: percent
+  model_config: Gemini 3.7 Flash; 1024 frames; no tools
+  methodology:
+  - 'Detailed benchmarks image: first model column (Gemini 3.7 Flash).'
+  - 'Google methodology: Gemini API gemini-3.7-flash, default sampling and pass@1 unless otherwise stated;
+    smaller benchmarks averaged over multiple trials; no majority voting or parallel test-time compute
+    in single-attempt settings.'
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-3-7-flash'
+  - Self-computed; Gemini and GPT-5.6 Terra use 1024 frames, Sonnet uses 300 due to API limits. No tools.
+- raw: GDM-MRCR v2 (8-needle)
+  value: 97.0
+  unit: percent
+  model_config: Gemini 3.7 Flash; 128k average; cumulative score
+  methodology:
+  - 'Detailed benchmarks image: first model column (Gemini 3.7 Flash).'
+  - 'Google methodology: Gemini API gemini-3.7-flash, default sampling and pass@1 unless otherwise stated;
+    smaller benchmarks averaged over multiple trials; no majority voting or parallel test-time compute
+    in single-attempt settings.'
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-3-7-flash'
+  - Self-computed 128k cumulative score, 8 needles.
+- raw: OSWorld-2.0
+  value: 47.9
+  unit: percent
+  model_config: Gemini 3.7 Flash; partial score; maximum of 3 runs
+  methodology:
+  - 'Detailed benchmarks image: first model column (Gemini 3.7 Flash).'
+  - 'Google methodology: Gemini API gemini-3.7-flash, default sampling and pass@1 unless otherwise stated;
+    smaller benchmarks averaged over multiple trials; no majority voting or parallel test-time compute
+    in single-attempt settings.'
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-3-7-flash'
+  - Self-computed partial score, maximum over three single-attempt runs; official evaluator, 1080p, maximum
+    500 steps, repository CUA harness, pyautogui and screenshot-only observations.
+  - Runs predate the OSWorld 2.0 August 8 patch for compatibility with competitor self-reports.
+- raw: Agent's Last Exam
+  value: 26.3
+  unit: percent
+  model_config: Gemini 3.7 Flash; pass rate; default ALE-Claw harness
+  methodology:
+  - 'Detailed benchmarks image: first model column (Gemini 3.7 Flash).'
+  - 'Google methodology: Gemini API gemini-3.7-flash, default sampling and pass@1 unless otherwise stated;
+    smaller benchmarks averaged over multiple trials; no majority voting or parallel test-time compute
+    in single-attempt settings.'
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-3-7-flash'
+  - Gemini results self-computed using the default ALE-Claw harness.
+- raw: HLE-Verified
+  value: 53.6
+  unit: percent
+  model_config: Gemini 3.7 Flash; full 1811-item verified set
+  methodology:
+  - 'Detailed benchmarks image: first model column (Gemini 3.7 Flash).'
+  - 'Google methodology: Gemini API gemini-3.7-flash, default sampling and pass@1 unless otherwise stated;
+    smaller benchmarks averaged over multiple trials; no majority voting or parallel test-time compute
+    in single-attempt settings.'
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-3-7-flash'
+  - 'Accuracy on 1811 verified items: 668 original verified items and 1143 revised items; excludes 689
+    uncertain original HLE items.'
+- raw: BioMysteryBench
+  value: 87.1
+  unit: percent
+  model_config: Gemini 3.7 Flash; human-solvable split
+  methodology:
+  - 'Detailed benchmarks image: first model column (Gemini 3.7 Flash).'
+  - 'Google methodology: Gemini API gemini-3.7-flash, default sampling and pass@1 unless otherwise stated;
+    smaller benchmarks averaged over multiple trials; no majority voting or parallel test-time compute
+    in single-attempt settings.'
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-3-7-flash'
+  - Linux terminal with bioinformatics tools, Python and R; internet restricted to the benchmark authors'
+    domain allowlist.
+- raw: BioMysteryBench
+  value: 43.5
+  unit: percent
+  model_config: Gemini 3.7 Flash; human-difficult split
+  methodology:
+  - 'Detailed benchmarks image: first model column (Gemini 3.7 Flash).'
+  - 'Google methodology: Gemini API gemini-3.7-flash, default sampling and pass@1 unless otherwise stated;
+    smaller benchmarks averaged over multiple trials; no majority voting or parallel test-time compute
+    in single-attempt settings.'
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-3-7-flash'
+  - Linux terminal with bioinformatics tools, Python and R; internet restricted to the benchmark authors'
+    domain allowlist.
+- raw: LABBench2
+  value: 82.1
+  unit: percent
+  model_config: Gemini 3.7 Flash; biology real-world research tasks
+  methodology:
+  - 'Detailed benchmarks image: first model column (Gemini 3.7 Flash).'
+  - 'Google methodology: Gemini API gemini-3.7-flash, default sampling and pass@1 unless otherwise stated;
+    smaller benchmarks averaged over multiple trials; no majority voting or parallel test-time compute
+    in single-attempt settings.'
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-3-7-flash'
+  - Linux terminal with bioinformatics tools, Python and R, plus internet access.
+- raw: FrontierCode 1.1 Main
+  value: 43.6
+  unit: percent
+  model_config: Gemini 3.7 Flash; production code quality
+  methodology:
+  - Separately featured single-benchmark headline chart and prose; exact value visually verified.
+  - 'Google methodology: Gemini API gemini-3.7-flash, default sampling and pass@1 unless otherwise stated;
+    smaller benchmarks averaged over multiple trials; no majority voting or parallel test-time compute
+    in single-attempt settings.'
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-3-7-flash'
+  - Results sourced by Google from the official public leaderboard.
+  weight_class: blog_headliner
+- raw: DeepSWE v1.1
+  value: 65.3
+  unit: percent
+  model_config: Gemini 3.7 Flash; high thinking; mini-SWE-agent; LiteLLM 1.96
+  methodology:
+  - Separately featured single-benchmark headline chart and prose; exact value visually verified.
+  - 'Google methodology: Gemini API gemini-3.7-flash, default sampling and pass@1 unless otherwise stated;
+    smaller benchmarks averaged over multiple trials; no majority voting or parallel test-time compute
+    in single-attempt settings.'
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-3-7-flash'
+  - Gemini 3.7 Flash results self-computed with mini-SWE-agent, LiteLLM 1.96, high thinking.
+  - The prose gives Gemini 3.6 Flash as 49.0, while both chart and table show 48.6; the citing-model value
+    is consistently 65.3.
+  weight_class: blog_headliner
+- raw: Code Arena
+  value: 1588
+  unit: elo
+  model_config: Gemini 3.7 Flash; Web Dev leaderboard
+  methodology:
+  - Separately featured single-benchmark headline chart and prose; exact value visually verified.
+  - 'Google methodology: Gemini API gemini-3.7-flash, default sampling and pass@1 unless otherwise stated;
+    smaller benchmarks averaged over multiple trials; no majority voting or parallel test-time compute
+    in single-attempt settings.'
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-3-7-flash'
+  - The chart and table label this Code Arena; the prose calls it WebDev Arena. Google methodology identifies
+    the official public Web Dev leaderboard. Retain the existing Code Arena canonical without changing
+    historical identities.
+  weight_class: blog_headliner
+- raw: GDP.pdf
+  value: 34.0
+  unit: percent
+  model_config: Gemini 3.7 Flash; expert PDF document comprehension
+  methodology:
+  - Separately featured single-benchmark headline chart and prose; exact value visually verified.
+  - 'Google methodology: Gemini API gemini-3.7-flash, default sampling and pass@1 unless otherwise stated;
+    smaller benchmarks averaged over multiple trials; no majority voting or parallel test-time compute
+    in single-attempt settings.'
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-3-7-flash'
+  - Gemini results self-computed.
+  weight_class: blog_headliner
+- raw: AutomationBench
+  value: 30.4
+  unit: percent
+  model_config: Gemini 3.7 Flash; private set
+  methodology:
+  - Separately featured single-benchmark headline chart and prose; exact value visually verified.
+  - 'Google methodology: Gemini API gemini-3.7-flash, default sampling and pass@1 unless otherwise stated;
+    smaller benchmarks averaged over multiple trials; no majority voting or parallel test-time compute
+    in single-attempt settings.'
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-3-7-flash'
+  - Private set; results sourced by Google from the official public leaderboard.
+  weight_class: blog_headliner
