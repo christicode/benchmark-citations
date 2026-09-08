@@ -46,9 +46,11 @@ BRIDGE = {
     # Terminal-Bench is a Harbor-NATIVE benchmark (Harbor is its official harness). Harbor's
     # registry.json name is version-agnostic ("terminal-bench", currently pinned at 2.0), so the
     # version/variant canonicals we split for CITATION COUNTING don't normalize-match it. Bridge the
-    # whole family to the native terminal-bench so Harbor-COVERAGE is correct (all TB = native/on-Harbor);
-    # the split only affects usage counts, not Harbor status. Add future TB majors (3.1/4.0/...) here.
-    "terminal-bench-3": "terminal-bench",
+    # general-TB family to the native terminal-bench so Harbor-COVERAGE is correct (all general TB =
+    # native/on-Harbor); the split only affects usage counts, not Harbor status. NB terminal-bench-3-plus
+    # already spans TB 3.0/3.x/4.0+, so no per-major entries are needed. Terminal-Bench-Science is NOT
+    # bridged here — it is a DISTINCT benchmark in its own Harbor repo, flagged harbor_native in registry.yaml.
+    "terminal-bench-3-plus": "terminal-bench",
     "terminal-bench-hard": "terminal-bench",
 }
 

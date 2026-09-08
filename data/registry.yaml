@@ -553,13 +553,20 @@ benchmarks:
     domain: computer-use
     aliases: ["Tau2-Bench", "tau2", "tau2-bench", "tau2-bench telecom", "τ2-bench", "τ²-Bench"]
     notes: "NB: Harbor has adapters/tau3-bench (tau3), which is a DIFFERENT version."
-  # Terminal-Bench is bucketed into TWO canonicals (Terminal-Bench is a Harbor-NATIVE benchmark —
-  # Harbor is its official harness — so BOTH buckets are on Harbor / native):
-  #   * terminal-bench    = everything UP TO AND INCLUDING 2.1 (bare 'Terminal-Bench' + TB 2.0 + TB 2.1).
-  #   * terminal-bench-3  = "Terminal-Bench 3": TB 3.0 and newer 3.x. 3.0 was a materially different
-  #     rebuild (task set + harness + a big solve-rate drop), tracked separately for CITATION COUNTS.
-  # Harbor-COVERAGE (native/adapter) is resolved in sync_harbor.py's BRIDGE (both -> native terminal-bench);
-  # the count split never changes Harbor status. FrontierBench v0.1 == Terminal-Bench 3.0 (renamed) -> here.
+  # Terminal-Bench is bucketed into THREE canonicals for CITATION COUNTING. All are Harbor-NATIVE
+  # (the Terminal-Bench / Harbor franchise is run BY Harbor), so every bucket is on Harbor:
+  #   * terminal-bench         = everything UP TO AND INCLUDING 2.1 (bare 'Terminal-Bench' + 2.0 + 2.1).
+  #   * terminal-bench-3-plus  = "Terminal-Bench 3 and higher": TB 3.0, 3.x AND 4.0+ — the harder
+  #     rebuilt generation (task-set/harness change + big solve-rate drop). FrontierBench v0.1 (later
+  #     RENAMED to TB 3.0) folds in here, as does TB 4.0.
+  #   * terminal-bench-science = Terminal-Bench-Science (TB-Science): the science-workflow sibling in
+  #     the same franchise (Stanford/Laude + the Terminal-Bench/Harbor team). DISTINCT tasks (research
+  #     workflows, not SWE) — its OWN line item; never merge into either general-TB bucket.
+  # Harbor-COVERAGE: terminal-bench + terminal-bench-3-plus bridge -> native `terminal-bench` in
+  # sync_harbor.py (registry.json pins the version-agnostic name at 2.0). TB-Science lives in its OWN
+  # Harbor repo (harbor-framework/terminal-bench-science, NOT the harbor monorepo registry.json), so it
+  # carries harbor_native here (same external-native pattern as deepswe). The count split never changes
+  # Harbor status; a doc citing >1 TB variant yields SEPARATE citations, one per bucket.
   - canonical: terminal-bench
     type: agentic
     domain: coding
@@ -568,22 +575,45 @@ benchmarks:
     collision: "Bucket = Terminal-Bench <= 2.1 (bare + 2.0 + 2.1). Harbor registry.json holds
       terminal-bench@2.0 (its official NATIVE harness), so this bucket matches Harbor (native). NB
       harness/version still vary WITHIN the bucket (2.0 vs 2.1; Terminus-2 / Claude Code / Codex) —
-      cross-lab scores are not directly comparable; capture harness in model_config. TB 3+ is separate."
-  - canonical: terminal-bench-3
+      cross-lab scores are not directly comparable; capture harness in model_config. TB >=3
+      (terminal-bench-3-plus) and TB-Science (terminal-bench-science) are SEPARATE buckets."
+  - canonical: terminal-bench-3-plus
     type: agentic
     domain: coding
     aliases: ["Terminal-Bench 3", "Terminal-Bench 3.0", "Terminal-Bench v3.0", "Terminal Bench 3.0", "Terminal-bench 3.0", "Terminal Bench v3.0", "Terminal-Bench v3", "TerminalBench 3.0", "TerminalBench 3",
+              "Terminal-Bench 3.1", "Terminal Bench 3.1", "Terminal-bench 3.1",
+              "Terminal-Bench 4", "Terminal-Bench 4.0", "Terminal Bench 4.0", "Terminal-bench 4.0", "Terminal Bench 4", "Terminal-Bench v4.0", "Terminal Bench v4.0", "Terminal-Bench v4", "TerminalBench 4.0", "TerminalBench 4",
               "FrontierBench", "FrontierBench v0.1", "Frontier-Bench", "Frontier-Bench v0.1", "FrontierBench 0.1"]
-    collision: "'Terminal-Bench 3' bucket = TB 3.0 and newer 3.x. Terminal-Bench is Harbor-NATIVE
-      (Harbor is its harness), so this is on Harbor / native too (bridged to terminal-bench in
-      sync_harbor.py) even though registry.json currently pins the terminal-bench name at 2.0. First
-      cited 2026-08 (Grok 4.6, Gemini 3.7 Flash). Much harder / broader than <=2.1 — solve rates drop
-      sharply (~15-35% vs ~80%+). A doc citing BOTH a <=2.1 version AND 3.x yields TWO separate citations."
+    collision: "'Terminal-Bench 3 and higher' bucket = TB 3.0, 3.x AND 4.0+. Terminal-Bench is
+      Harbor-NATIVE (Harbor is its harness), so this is on Harbor / native too (bridged to
+      terminal-bench in sync_harbor.py) even though registry.json pins the terminal-bench name at 2.0.
+      First cited 2026-08 (Grok 4.6, Gemini 3.7 Flash); TB 4.0 first cited 2026-09 (Claude Fable 5.1
+      55.8 / Mythos 5.1 60.9; GPT-6 Astra 57.9). Much harder / broader than <=2.1 — solve rates drop
+      sharply (3.x ~15-35% vs ~80%+; 4.0 ~55-60%). A doc citing BOTH a <=2.1 version AND a >=3 version
+      yields TWO separate citations."
     notes: "IDENTITY: 'FrontierBench v0.1' (the Terminal-Bench-team successor to TB 2.1) was RENAMED to
-      Terminal-Bench 3.0 — same benchmark, folded here 2026-08-13. Opus 5 blog ('Frontier-Bench v0.1')
-      + system card ('FrontierBench v0.1') therefore count as Terminal-Bench 3 citations. Opus 5's
-      43.3% is on the mini-SWE-agent harness (GKE, mean reward/5) — score is harness/model dependent;
-      != Cognition's FrontierCode (frontiercode)."
+      Terminal-Bench 3.0 — same benchmark, folded here. Opus 5 blog ('Frontier-Bench v0.1') + system
+      card ('FrontierBench v0.1') therefore count here. TB 4.0 (a further major rebuild, e.g. Anthropic's
+      66-task agentic-coding run) folds in as '3 and higher' per the 2026-09 bucketing decision. Renamed
+      from canonical `terminal-bench-3` -> `terminal-bench-3-plus` on 2026-09-08 to reflect 4.0+ inclusion.
+      Scores are harness/model dependent; != Cognition's FrontierCode (frontiercode)."
+  - canonical: terminal-bench-science
+    type: agentic
+    domain: science
+    harbor_native: true
+    harbor_native_source: "https://github.com/harbor-framework/terminal-bench-science"
+    aliases: ["Terminal-Bench-Science", "Terminal-Bench Science", "Terminal Bench Science", "TerminalBench-Science", "TB-Science", "TB Science",
+              "Terminal-Bench-Science 0.1", "Terminal-Bench Science 0.1", "Terminal Bench Science 0.1", "Terminal-Bench-Science 0.2", "Terminal-Bench-Science v0.1"]
+    collision: "DISTINCT benchmark from terminal-bench / terminal-bench-3-plus — science research
+      workflows (70 tasks across life/physical/earth/math/engineering sciences), NOT software
+      engineering. Its OWN line item; never merge into a general-TB bucket. Standard error is large
+      (~3.5-4.5 pts); harness/effort dependent (e.g. Claude Code, reasoning_effort=max)."
+    notes: "Terminal-Bench-Science 0.1 (first public release ~2026-09-03), Stanford University + the
+      Laude Institute + the Terminal-Bench & Harbor Framework team. Harbor-NATIVE but lives in its OWN
+      repo (harbor-framework/terminal-bench-science, run via `harbor run -d terminal-bench-science/...`),
+      NOT harbor-framework/harbor's registry.json — hence harbor_native (same external-native pattern as
+      deepswe). First cited 2026-09 (Claude Fable 5.1 52.6; public leaderboard Opus 5 30.0 / Fable 5 21.4;
+      GPT-6 Astra 0.646). Continuous benchmark (0.2 accepting tasks through 2026-10-05)."
   - canonical: toolathlon
     type: agentic
     domain: computer-use
