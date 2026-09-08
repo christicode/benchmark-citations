@@ -555,28 +555,32 @@ benchmarks:
     notes: "NB: Harbor has adapters/tau3-bench (tau3), which is a DIFFERENT version."
   # Terminal-Bench is bucketed into THREE canonicals for CITATION COUNTING. All are Harbor-NATIVE
   # (the Terminal-Bench / Harbor franchise is run BY Harbor), so every bucket is on Harbor:
-  #   * terminal-bench         = everything UP TO AND INCLUDING 2.1 (bare 'Terminal-Bench' + 2.0 + 2.1).
+  #   * terminal-bench-1-2-2.1 = everything UP TO AND INCLUDING 2.1 (bare 'Terminal-Bench' + 1.x + 2.0 + 2.1).
   #   * terminal-bench-3-plus  = "Terminal-Bench 3 and higher": TB 3.0, 3.x AND 4.0+ — the harder
   #     rebuilt generation (task-set/harness change + big solve-rate drop). FrontierBench v0.1 (later
   #     RENAMED to TB 3.0) folds in here, as does TB 4.0.
   #   * terminal-bench-science = Terminal-Bench-Science (TB-Science): the science-workflow sibling in
   #     the same franchise (Stanford/Laude + the Terminal-Bench/Harbor team). DISTINCT tasks (research
   #     workflows, not SWE) — its OWN line item; never merge into either general-TB bucket.
-  # Harbor-COVERAGE: terminal-bench + terminal-bench-3-plus bridge -> native `terminal-bench` in
+  # Harbor-COVERAGE: terminal-bench-1-2-2.1 + terminal-bench-3-plus bridge -> native `terminal-bench` in
   # sync_harbor.py (registry.json pins the version-agnostic name at 2.0). TB-Science lives in its OWN
   # Harbor repo (harbor-framework/terminal-bench-science, NOT the harbor monorepo registry.json), so it
   # carries harbor_native here (same external-native pattern as deepswe). The count split never changes
   # Harbor status; a doc citing >1 TB variant yields SEPARATE citations, one per bucket.
-  - canonical: terminal-bench
+  - canonical: terminal-bench-1-2-2.1
     type: agentic
     domain: coding
-    aliases: ["Terminal Bench", "Terminal Bench 2.0-Terminus", "Terminal-Bench", "Terminal-Bench 2.0", "Terminal Bench 2.0",
+    aliases: ["Terminal Bench", "Terminal Bench 2.0-Terminus", "Terminal-Bench", "Terminal-Bench 1.0", "Terminal Bench 1.0", "Terminal-Bench 1", "Terminal Bench 1",
+              "Terminal-Bench 2", "Terminal Bench 2", "Terminal-Bench 2.0", "Terminal Bench 2.0",
               "Terminal-Bench 2.1", "Terminal Bench 2.1", "Terminal-bench 2.1", "Terminal-Bench v2.1", "Terminal Bench v2.1", "TerminalBench 2.1"]
-    collision: "Bucket = Terminal-Bench <= 2.1 (bare + 2.0 + 2.1). Harbor registry.json holds
-      terminal-bench@2.0 (its official NATIVE harness), so this bucket matches Harbor (native). NB
-      harness/version still vary WITHIN the bucket (2.0 vs 2.1; Terminus-2 / Claude Code / Codex) —
-      cross-lab scores are not directly comparable; capture harness in model_config. TB >=3
-      (terminal-bench-3-plus) and TB-Science (terminal-bench-science) are SEPARATE buckets."
+    collision: "Bucket = Terminal-Bench <= 2.1 (bare/original 'Terminal-Bench' + 1.x + 2.0 + 2.1); the
+      display label enumerates the covered versions (1, 2, 2.1) so the row isn't mistaken for only the
+      original. Harbor registry.json holds terminal-bench@2.0 (its official NATIVE harness); the canonical
+      was renamed terminal-bench -> terminal-bench-1-2-2.1 on 2026-09-08, so it no longer normalize-matches
+      the Harbor name and is bridged to native terminal-bench in sync_harbor.py. NB harness/version still
+      vary WITHIN the bucket (2.0 vs 2.1; Terminus-2 / Claude Code / Codex) — cross-lab scores are not
+      directly comparable; capture harness in model_config. TB >=3 (terminal-bench-3-plus) and TB-Science
+      (terminal-bench-science) are SEPARATE buckets."
   - canonical: terminal-bench-3-plus
     type: agentic
     domain: coding

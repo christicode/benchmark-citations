@@ -47,9 +47,13 @@ BRIDGE = {
     # registry.json name is version-agnostic ("terminal-bench", currently pinned at 2.0), so the
     # version/variant canonicals we split for CITATION COUNTING don't normalize-match it. Bridge the
     # general-TB family to the native terminal-bench so Harbor-COVERAGE is correct (all general TB =
-    # native/on-Harbor); the split only affects usage counts, not Harbor status. NB terminal-bench-3-plus
-    # already spans TB 3.0/3.x/4.0+, so no per-major entries are needed. Terminal-Bench-Science is NOT
-    # bridged here — it is a DISTINCT benchmark in its own Harbor repo, flagged harbor_native in registry.yaml.
+    # native/on-Harbor); the split only affects usage counts, not Harbor status. Both the <=2.1 bucket
+    # (renamed terminal-bench -> terminal-bench-1-2-2.1 for a clearer heatmap label) and the >=3 bucket
+    # need a bridge entry since neither normalize-matches the Harbor "terminal-bench" name anymore.
+    # terminal-bench-3-plus already spans TB 3.0/3.x/4.0+, so no per-major entries are needed.
+    # Terminal-Bench-Science is NOT bridged here — it is a DISTINCT benchmark in its own Harbor repo,
+    # flagged harbor_native in registry.yaml.
+    "terminal-bench-1-2-2.1": "terminal-bench",
     "terminal-bench-3-plus": "terminal-bench",
     "terminal-bench-hard": "terminal-bench",
 }
