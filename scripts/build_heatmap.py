@@ -56,12 +56,13 @@ def main() -> int:
     models = mdoc.get("models", [])
     model_meta = {m["id"]: m for m in models}
 
-    # Optional per-benchmark render label (registry.yaml `display:`). Keeps canonical IDs/keys stable
-    # (used for search-links + citation joins) while the heatmap shows a human label — e.g. the
-    # Terminal-Bench buckets render "Terminal-Bench 1.0, 2.0, 2.1" / "Terminal-Bench 3.0+" instead of
-    # the hyphenated slug. Render-only; nothing downstream depends on it.
+    # Display groups combine rows without changing canonical citation identities.
     reg = yaml.safe_load((ROOT / "data" / "registry.yaml").read_text()) or {}
-    disp = {b["canonical"]: b["display"] for b in reg.get("benchmarks", []) if b.get("display")}
+    entries = reg.get("benchmarks", [])
+    groups = {b["canonical"]: b["heatmap_group"] for b in entries if b.get("heatmap_group")}
+    disp = {b["canonical"]: b["display"] for b in entries if b.get("display")}
+    disp.update({b["heatmap_group"]: b["heatmap_group_display"]
+                 for b in entries if b.get("heatmap_group")})
 
     companies = []
     seen = set()
@@ -76,7 +77,7 @@ def main() -> int:
                 # model_id -> doc_id -> {p, wc, url, container, val, unit, cfg, dev}
                 "m": collections.defaultdict(lambda: collections.defaultdict(
                     lambda: {"p": 0, "wc": None, "url": None, "container": None,
-                             "val": None, "unit": None, "cfg": None, "dev": False}))}
+                             "val": None, "unit": None, "cfg": None, "dev": False, "mentions": []}))}
     B = collections.defaultdict(newbench)
 
     for r in rows:
@@ -89,7 +90,7 @@ def main() -> int:
         did = r["source_doc"].get("id") or r["source_doc"]["url"]
         wc = r.get("weight_class")
         p = points(wc)
-        b = B[c]
+        b = B[groups.get(c, c)]
         b["type"] = b["type"] or r.get("type")
         b["domain"] = b["domain"] or r.get("domain")
         b["on_harbor"] = b["on_harbor"] or bool(r.get("on_harbor"))
@@ -104,6 +105,11 @@ def main() -> int:
         d["container"] = r["source_doc"].get("container")
         rep = r.get("reported") or {}
         val = rep.get("value")
+        if c in groups:
+            mention = {"name": r.get("benchmark_raw") or disp.get(c, c),
+                       "val": val, "unit": rep.get("unit"), "cfg": rep.get("model_config")}
+            if mention not in d["mentions"]:
+                d["mentions"].append(mention)
         if rep.get("unit") == "percent" and isinstance(val, (int, float)):
             if d["val"] is None or (isinstance(d["val"], (int, float)) and val > d["val"]):
                 d["val"], d["unit"] = val, "percent"
@@ -127,7 +133,8 @@ def main() -> int:
                     score = dd["val"] if score is None else max(score, dd["val"])
             doclist = sorted(
                 [{"wc": dd["wc"], "url": dd["url"], "container": dd["container"],
-                  "val": dd["val"], "unit": dd["unit"], "cfg": dd["cfg"], "dev": dd["dev"]}
+                  "val": dd["val"], "unit": dd["unit"], "cfg": dd["cfg"], "dev": dd["dev"],
+                  "mentions": dd["mentions"]}
                  for dd in docmax],
                 key=lambda x: -points(x["wc"]))
             cells[mid] = {"tier": tier, "pts": pts, "score": score, "docs": doclist}
@@ -497,12 +504,18 @@ function tipHTML(d){
   var s='<h4>'+esc(d.bdisp)+' × '+esc(d.mm.display)+'</h4>';
   d.c.docs.forEach(function(doc){
     var lab=DATA.wc_label[doc.wc]||doc.wc||'cited';
-    var v=(doc.val!=null)?(' — '+esc(String(doc.val))+(doc.unit==='percent'?'%':(doc.unit&&doc.unit!=='other'?(' '+doc.unit):''))):'';
+    var v=(!doc.mentions.length && doc.val!=null)?(' — '+esc(String(doc.val))+(doc.unit==='percent'?'%':(doc.unit&&doc.unit!=='other'?(' '+doc.unit):''))):'';
     var ct=doc.container?(' <span class=cl>['+esc(doc.container)+']</span>'):'';
     s+='<div class=r><span class=dt>'+esc(lab)+'</span>'+v+
        (doc.dev?' <span class=g title="methodology deviation on record">⚙</span>':'')+ct+
        '<br><a href="'+esc(doc.url)+'" target=_blank rel=noopener>source ↗</a>'+
-       (doc.cfg?(' <span class=cl>'+esc(doc.cfg)+'</span>'):'')+'</div>';
+       (!doc.mentions.length && doc.cfg?(' <span class=cl>'+esc(doc.cfg)+'</span>'):'');
+    doc.mentions.forEach(function(m){
+      s+='<div class=cl>'+esc(m.name)+
+        (m.val!=null?' — '+esc(String(m.val))+(m.unit==='percent'?'%':(m.unit&&m.unit!=='other'?' '+esc(m.unit):'')):'')+
+        (m.cfg?' ('+esc(m.cfg)+')':'')+'</div>';
+    });
+    s+='</div>';
   });
   return s;
 }

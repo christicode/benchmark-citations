@@ -568,10 +568,14 @@ benchmarks:
   # Harbor repo (harbor-framework/terminal-bench-science, NOT the harbor monorepo registry.json), so it
   # carries harbor_native here (same external-native pattern as deepswe). The count split never changes
   # Harbor status; a doc citing >1 TB variant yields SEPARATE citations, one per bucket.
+  # Heatmap combines the two general-TB buckets below; Science stays separate.
+  # Canonical citations retain their version identities for source-level review.
   - canonical: terminal-bench-1-2-2.1
     type: agentic
     domain: coding
     display: "Terminal-Bench 1.0, 2.0, 2.1"
+    heatmap_group: terminal-bench
+    heatmap_group_display: "Terminal-Bench"
     aliases: ["Terminal Bench", "Terminal Bench 2.0-Terminus", "Terminal-Bench", "Terminal-Bench 1.0", "Terminal Bench 1.0", "Terminal-Bench 1", "Terminal Bench 1",
               "Terminal-Bench 2", "Terminal Bench 2", "Terminal-Bench 2.0", "Terminal Bench 2.0",
               "Terminal-Bench 2.1", "Terminal Bench 2.1", "Terminal-bench 2.1", "Terminal-Bench v2.1", "Terminal Bench v2.1", "TerminalBench 2.1", "Terminal Bench 2.1 (Terminus)"]
@@ -587,6 +591,8 @@ benchmarks:
     type: agentic
     domain: coding
     display: "Terminal-Bench 3.0+"
+    heatmap_group: terminal-bench
+    heatmap_group_display: "Terminal-Bench"
     aliases: ["Terminal-Bench 3", "Terminal-Bench 3.0", "Terminal-Bench v3.0", "Terminal Bench 3.0", "Terminal-bench 3.0", "Terminal Bench v3.0", "Terminal-Bench v3", "TerminalBench 3.0", "TerminalBench 3",
               "Terminal-Bench 3.1", "Terminal Bench 3.1", "Terminal-bench 3.1",
               "Terminal-Bench 4", "Terminal-Bench 4.0", "Terminal Bench 4.0", "Terminal-bench 4.0", "Terminal Bench 4", "Terminal-Bench v4.0", "Terminal Bench v4.0", "Terminal-Bench v4", "TerminalBench 4.0", "TerminalBench 4",
