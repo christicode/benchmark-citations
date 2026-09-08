@@ -233,7 +233,7 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 .legend{color:var(--mut);font-size:12px;margin:12px 2px 0;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .sw{display:inline-block;width:12px;height:12px;border:1px solid var(--b);vertical-align:-2px;margin-right:4px;border-radius:3px}
 .grid-scroll{overflow:auto;max-height:80vh;border:1px solid var(--b);border-radius:0}
-.more{position:sticky;left:0;width:fit-content;padding:12px}
+.more{margin-left:auto}
 .more button{font-family:var(--mono);font-size:12px;font-weight:400;color:var(--emph);background:var(--bg);border:1px solid var(--b);border-radius:0;padding:7px 12px;cursor:pointer}
 .more button:hover{background:var(--seghov)}
 table.hm{border-collapse:separate;border-spacing:0;margin-right:110px}
@@ -247,7 +247,7 @@ th.mh .lab{position:absolute;z-index:1;bottom:12px;left:50%;transform:rotate(-55
 td.yl{position:sticky;left:0;z-index:2;background:var(--bg);border-right:1px solid var(--b);
   padding:0 14px 0 10px;white-space:nowrap;font-size:12.5px;color:var(--emph);border-bottom:1px solid var(--b);transition:background-color 0.15s}
 td.yl.active-row{background:var(--panel)!important;color:var(--accent)!important}
-td.yl .rank{color:var(--mut);display:inline-block;min-width:22px;font-variant-numeric:tabular-nums}
+td.yl .rank{color:var(--mut);display:inline-block;min-width:22px;margin-right:8px;font-variant-numeric:tabular-nums}
 td.yl .nm{cursor:pointer;font-weight:500;color:var(--emph)}
 td.yl .nm:hover{color:var(--accent);text-decoration:underline}
 td.yl .h{color:var(--acc-harbor);font-weight:700}
@@ -316,7 +316,6 @@ input[type="text"]:focus, input[type="date"]:focus {
 
 <div class=grid-scroll>
   <table class=hm id=hm></table>
-  <div class=more id=more-wrap><button type=button id=more-button onclick="toggleMulti()" aria-controls=hm aria-expanded=false>Expand to see more</button></div>
 </div>
 
 <div class=legend>
@@ -324,6 +323,7 @@ input[type="text"]:focus, input[type="date"]:focus {
   <span><span class=sw style=background:var(--t2)></span>Model card (2)</span>
   <span><span class=sw style=background:var(--t1)></span>System card (1)</span>
   <span><span class=sw style=background:var(--empty)></span>not cited</span>
+  <div class=more id=more-wrap><button type=button id=more-button onclick="toggleMulti()" aria-controls=hm aria-expanded=false>Expand to see more</button></div>
 </div>
 </div>
 
