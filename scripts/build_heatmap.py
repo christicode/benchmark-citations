@@ -170,14 +170,14 @@ PAGE = r"""<!doctype html><html lang=en><head><meta charset=utf-8>
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel=stylesheet>
 <style>
 :root{--bg:#ffffff;--panel:#f6f7f8;--b:#e6e7ea;--fg:#40454e;--emph:#0a0c10;--mut:#969ca6;
-  --accent:#0a0c10;--amber:#d97706;
+  --accent:#0a0c10;--amber:#d97706;--segon:#eceef1;--seghov:#f4f5f7;
   /* two reserved accents: agentic (deep blue) + Harbor (deep indigo, native = deeper) */
   --acc-agentic:#1d4ed8;--acc-harbor:#4338ca;--acc-harbor-native:#312e81;
   /* GRAYSCALE citation ramp: System card (lightest grey) -> Model card (mid) -> Headliner (near-black) */
   --t1:#d8dbdf;--t2:#8b9198;--t3:#16181d;--empty:#fafbfc;
   --mono:"Google Sans Code",ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace}
 body.dark{--bg:#0c0d10;--panel:#15171c;--b:#262a31;--fg:#9aa1ac;--emph:#f2f4f7;--mut:#6b7280;
-  --accent:#f2f4f7;--amber:#f59e0b;
+  --accent:#f2f4f7;--amber:#f59e0b;--segon:#262b34;--seghov:#1b1e24;
   --acc-agentic:#60a5fa;--acc-harbor:#a5b4fc;--acc-harbor-native:#c7d2fe;
   /* inverted grayscale: Headliner (near-white, strongest) -> Model card (mid) -> System card (dark grey) */
   --t1:#3a3f47;--t2:#8b9198;--t3:#f2f4f7;--empty:#141619}
@@ -191,16 +191,36 @@ h1{font-family:var(--mono);font-size:23px;font-weight:700;letter-spacing:-.01em;
 .theme-btn{cursor:pointer;border:1px solid var(--b);background:var(--panel);color:var(--emph);padding:6px 12px;border-radius:8px;font-family:var(--mono);font-size:14px;transition:.12s;user-select:none}
 .theme-btn:hover{border-color:var(--accent);color:var(--accent)}
 a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
-.bar{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin:0 0 14px;font-family:var(--mono);
-  background:var(--panel);border:1px solid var(--b);border-radius:12px;padding:10px 14px}
-.bar .grp{display:flex;gap:6px;align-items:center}
-.bar b{color:var(--mut);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-right:2px}
-.chip{font-size:12px;font-weight:500;padding:4px 11px;border:1px solid var(--b);
-  background:var(--bg);color:var(--fg);border-radius:999px;cursor:pointer;user-select:none;transition:.12s}
-.chip:hover{border-color:var(--accent);color:var(--accent)}
-.chip.on{background:var(--accent);color:var(--bg);border-color:var(--accent)}
-.chip.co.on{background:var(--emph);color:var(--bg);border-color:var(--emph)}
-body.dark .chip.co.on{background:var(--emph);color:var(--bg);border-color:var(--emph)}
+.bar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:0 0 14px;font-family:var(--mono);
+  background:var(--bg);border:1px solid var(--b);border-radius:8px;padding:9px 12px}
+.bar .grp{display:flex;gap:8px;align-items:center}
+.bar b{color:var(--mut);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-right:1px}
+/* segmented control (Harbor-Hub style): squared group, hairline dividers, subtle grey active */
+.seg{display:inline-flex;border:1px solid var(--b);border-radius:6px;overflow:hidden}
+.chip{font-size:12px;font-weight:500;padding:5px 11px;border:0;border-right:1px solid var(--b);
+  background:transparent;color:var(--mut);cursor:pointer;user-select:none;transition:.12s;white-space:nowrap}
+.chip:last-child{border-right:0}
+.chip:hover{background:var(--seghov);color:var(--emph)}
+.chip.on{background:var(--segon);color:var(--emph);font-weight:600}
+.chip.co.on{background:var(--segon);color:var(--emph);font-weight:600}
+.co-btn{font-size:12px;color:var(--accent);cursor:pointer;user-select:none}
+.co-btn:hover{text-decoration:underline}
+.co-sep{color:var(--mut);margin:0 3px}
+/* dual-handle range slider (Google-Flights style) for the release-date window */
+.range{position:relative;width:230px;height:22px;margin:0 2px}
+.range-track{position:absolute;left:0;right:0;top:9px;height:4px;background:var(--b);border-radius:3px}
+.range-fill{position:absolute;top:9px;height:4px;background:var(--accent);border-radius:3px}
+.range-input{position:absolute;top:4px;left:0;width:100%;height:14px;margin:0;background:transparent;
+  -webkit-appearance:none;appearance:none;pointer-events:none}
+.range-input:focus{outline:none}
+.range-input::-webkit-slider-runnable-track{height:14px;background:transparent;border:none}
+.range-input::-moz-range-track{height:14px;background:transparent;border:none}
+.range-input::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;pointer-events:auto;
+  width:13px;height:13px;border-radius:50%;background:var(--bg);border:2px solid var(--accent);
+  cursor:ew-resize;box-shadow:0 1px 2px rgba(0,0,0,.18)}
+.range-input::-moz-range-thumb{pointer-events:auto;width:13px;height:13px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--accent);cursor:ew-resize;box-shadow:0 1px 2px rgba(0,0,0,.18)}
+.range-lbl{font-size:11px;color:var(--emph);font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:.01em}
 .legend{color:var(--mut);font-size:12px;margin:12px 2px 0;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .sw{display:inline-block;width:12px;height:12px;border:1px solid var(--b);vertical-align:-2px;margin-right:4px;border-radius:3px}
 .grid-scroll{overflow:auto;max-height:80vh;border:1px solid var(--b);border-radius:12px}
@@ -212,7 +232,7 @@ th.mh.active-col{background:var(--panel)!important}
 th.mh .lab{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;
   font-size:11.5px;font-weight:600;color:var(--emph);max-height:104px;overflow:hidden}
 td.yl{position:sticky;left:0;z-index:2;background:var(--bg);border-right:1px solid var(--b);
-  padding:0 10px;white-space:nowrap;font-size:12.5px;color:var(--emph);border-bottom:1px solid var(--b);transition:background-color 0.15s}
+  padding:0 14px 0 10px;white-space:nowrap;font-size:12.5px;color:var(--emph);border-bottom:1px solid var(--b);transition:background-color 0.15s}
 td.yl.active-row{background:var(--panel)!important;color:var(--accent)!important}
 td.yl .rank{color:var(--mut);display:inline-block;min-width:22px;font-variant-numeric:tabular-nums}
 td.yl .nm{cursor:pointer;font-weight:500;color:var(--emph)}
@@ -222,7 +242,7 @@ td.yl .h.hn{color:var(--acc-harbor-native)}
 td.yl .ty{font-size:10px;color:var(--mut);margin-left:6px}
 td.yl .ty.ag{color:var(--acc-agentic);font-weight:600}
 th.corner{left:0;z-index:6;background:var(--bg);border-right:1px solid var(--b)}
-td.cell{width:22px;height:22px;text-align:center;border-right:1px solid var(--b);
+td.cell{width:23px;height:30px;text-align:center;border-right:1px solid var(--b);
   border-bottom:1px solid var(--b);cursor:default;background:var(--empty)}
 td.cell.f{cursor:pointer}
 td.cell.t1{background:var(--t1)}td.cell.t2{background:var(--t2)}td.cell.t3{background:var(--t3)}
@@ -239,10 +259,10 @@ td.cell.pin{outline:2px solid var(--acc-agentic);outline-offset:-2px}
 .foot{color:var(--mut);font-size:12px;margin:16px 0 0}
 input[type="text"], input[type="date"] {
   border: 1px solid var(--b);
-  border-radius: 6px;
-  padding: 3px 8px;
-  font-family: inherit;
-  font-size: 12.5px;
+  border-radius: 5px;
+  padding: 5px 9px;
+  font-family: var(--mono);
+  font-size: 12px;
   background: var(--bg);
   color: var(--fg);
   transition: border-color 0.12s;
@@ -250,16 +270,6 @@ input[type="text"], input[type="date"] {
 input[type="text"]:focus, input[type="date"]:focus {
   outline: none;
   border-color: var(--accent);
-}
-.co-btn {
-  font-size:12px;
-  color:var(--accent);
-  cursor:pointer;
-  margin: 0 4px;
-  user-select:none;
-}
-.co-btn:hover {
-  text-decoration:underline;
 }
 </style></head><body><div class=wrap>
 <div class=hdr>
@@ -269,24 +279,30 @@ input[type="text"]:focus, input[type="date"]:focus {
 
 <div class=bar>
   <div class=grp><b>benchmarks</b>
-    <span class=chip data-ty=all onclick='setTy(this)'>all</span>
-    <span class=chip data-ty=agentic onclick='setTy(this)'>agentic</span>
-    <span class=chip data-ty=chat onclick='setTy(this)'>chat</span>
-    <span class=chip id=harb onclick='toggleHarb(this)'>Harbor</span>
-    <input type=text id=search-input placeholder="Search..." oninput="setSearch(this.value)" style="border-radius:999px;width:150px;margin-left:4px;">
+    <div class=seg>
+      <span class=chip data-ty=all onclick='setTy(this)'>all</span>
+      <span class=chip data-ty=agentic onclick='setTy(this)'>agentic</span>
+      <span class=chip data-ty=chat onclick='setTy(this)'>chat</span>
+    </div>
+    <div class=seg>
+      <span class=chip id=harb onclick='toggleHarb(this)'>Harbor</span>
+      <span class=chip id=multi onclick='toggleMulti(this)'>2+ cites</span>
+    </div>
+    <input type=text id=search-input placeholder="Search…" oninput="setSearch(this.value)" style="width:150px;">
   </div>
   <div class=grp><b>timeframe</b>
-    <span class=chip data-tf=all onclick='setTf(this)'>all time</span>
-    <span class=chip data-tf=3m onclick='setTf(this)'>3 months</span>
-    <span class=chip data-tf=6m onclick='setTf(this)'>6 months</span>
-    <span class=chip data-tf=1y onclick='setTf(this)'>1 year</span>
-    <span class=chip data-tf=custom onclick='setTf(this)'>custom</span>
-    <div id=custom-dates style="display:none;gap:6px;align-items:center;font-size:12.5px;border-left:1px solid var(--b);padding-left:10px;margin-left:4px;">
-      from <input type=date id=date-start onchange="setCustomDates()">
-      to <input type=date id=date-end onchange="setCustomDates()">
+    <div class=range id=range title="drag the handles to set the release-date window">
+      <div class=range-track></div>
+      <div class=range-fill id=range-fill></div>
+      <input type=range id=range-lo class=range-input oninput="onRange(this)">
+      <input type=range id=range-hi class=range-input oninput="onRange(this)">
     </div>
+    <span class=range-lbl id=range-lbl>all time</span>
   </div>
-  <div class=grp id=cos><b>company</b><span class=co-btn onclick="setAllCos(true)">all</span>/<span class=co-btn onclick="setAllCos(false)">none</span></div>
+  <div class=grp><b>company</b>
+    <span class=co-btn onclick="setAllCos(true)">all</span><span class=co-sep>/</span><span class=co-btn onclick="setAllCos(false)">none</span>
+    <div class=seg id=cos-seg></div>
+  </div>
 </div>
 
 <div class=grid-scroll><table class=hm id=hm></table></div>
@@ -311,15 +327,15 @@ var DATA = /*__DATA__*/;
 var state = {
   ty: 'all',
   harb: false,
-  timeframe: 'all',
-  customStart: '',
-  customEnd: '',
+  multi: true,          // "2+ cites" ON by default -> hide single-citation benchmarks
+  rangeStart: null,     // release-date window as day-numbers (set in initRange)
+  rangeEnd: null,
   search: '',
   cos: {}
 };
 DATA.companies.forEach(function(c){ state.cos[c.id]=true; });
 
-var cos=document.getElementById('cos');
+var cos=document.getElementById('cos-seg');
 DATA.companies.forEach(function(c){
   var s=document.createElement('span'); s.className='chip co on'; s.textContent=c.display;
   s.id = 'co-' + c.id;
@@ -327,7 +343,7 @@ DATA.companies.forEach(function(c){
   cos.appendChild(s);
 });
 document.querySelector('.chip[data-ty=all]').classList.add('on');
-document.querySelector('.chip[data-tf=all]').classList.add('on');
+document.getElementById('multi').classList.add('on');
 
 // Theme init & handler
 function toggleTheme() {
@@ -345,24 +361,33 @@ function setTy(el){ state.ty=el.dataset.ty;
   document.querySelectorAll('.chip[data-ty]').forEach(function(x){x.classList.remove('on')});
   el.classList.add('on'); render(); }
 function toggleHarb(el){ state.harb=!state.harb; el.classList.toggle('on'); render(); }
+function toggleMulti(el){ state.multi=!state.multi; el.classList.toggle('on'); render(); }
 
-function setTf(el) {
-  state.timeframe = el.dataset.tf;
-  document.querySelectorAll('.chip[data-tf]').forEach(function(x){x.classList.remove('on')});
-  el.classList.add('on');
-  var div = document.getElementById('custom-dates');
-  if (state.timeframe === 'custom') {
-    div.style.display = 'flex';
-  } else {
-    div.style.display = 'none';
-  }
-  render();
+// ---- release-date range slider (dual handle, Google-Flights style) ----
+function dayNum(d){ return Math.floor(new Date(d+'T00:00:00Z').getTime()/86400000); }
+var DATED=DATA.models.filter(function(m){return m.release_date;}).map(function(m){return dayNum(m.release_date);});
+var MIND=DATED.length?Math.min.apply(null,DATED):0, MAXD=DATED.length?Math.max.apply(null,DATED):0;
+function fmtDay(n){ return new Date(n*86400000).toLocaleString('en-US',{month:'short',year:'numeric',timeZone:'UTC'}); }
+function initRange(){
+  state.rangeStart=MIND; state.rangeEnd=MAXD;
+  var lo=document.getElementById('range-lo'), hi=document.getElementById('range-hi');
+  [lo,hi].forEach(function(s){ s.min=MIND; s.max=MAXD; s.step=1; });
+  lo.value=MIND; hi.value=MAXD; updateRangeUI();
 }
-
-function setCustomDates() {
-  state.customStart = document.getElementById('date-start').value;
-  state.customEnd = document.getElementById('date-end').value;
-  render();
+function onRange(el){
+  var lo=document.getElementById('range-lo'), hi=document.getElementById('range-hi');
+  var a=+lo.value, b=+hi.value;
+  if(a>b){ if(el.id==='range-lo'){ hi.value=a; b=a; } else { lo.value=b; a=b; } }
+  state.rangeStart=a; state.rangeEnd=b; updateRangeUI(); render();
+}
+function updateRangeUI(){
+  var span=(MAXD-MIND)||1;
+  var f=document.getElementById('range-fill');
+  f.style.left=((state.rangeStart-MIND)/span*100)+'%';
+  f.style.width=((state.rangeEnd-state.rangeStart)/span*100)+'%';
+  document.getElementById('range-lbl').textContent=
+    (state.rangeStart<=MIND && state.rangeEnd>=MAXD)?'all time'
+      :(fmtDay(state.rangeStart)+' – '+fmtDay(state.rangeEnd));
 }
 
 function setSearch(val) {
@@ -383,37 +408,9 @@ function setAllCos(val) {
 }
 
 function inTimeframe(dateStr) {
-  if (!dateStr) {
-    return true;
-  }
-  if (state.timeframe === 'all') return true;
-  
-  var date = new Date(dateStr);
-  var refDate = new Date(DATA.as_of);
-  
-  if (state.timeframe === '3m') {
-    var limit = new Date(refDate);
-    limit.setMonth(limit.getMonth() - 3);
-    return date >= limit && date <= refDate;
-  }
-  if (state.timeframe === '6m') {
-    var limit = new Date(refDate);
-    limit.setMonth(limit.getMonth() - 6);
-    return date >= limit && date <= refDate;
-  }
-  if (state.timeframe === '1y') {
-    var limit = new Date(refDate);
-    limit.setFullYear(limit.getFullYear() - 1);
-    return date >= limit && date <= refDate;
-  }
-  if (state.timeframe === 'custom') {
-    var start = state.customStart ? new Date(state.customStart) : null;
-    var end = state.customEnd ? new Date(state.customEnd) : null;
-    if (start && date < start) return false;
-    if (end && date > end) return false;
-    return true;
-  }
-  return true;
+  if (!dateStr) return true;   // undated models can't be range-filtered -> always shown
+  var d = dayNum(dateStr);
+  return d >= state.rangeStart && d <= state.rangeEnd;
 }
 
 function visibleModels(){
@@ -448,9 +445,11 @@ function render(){
   var rows=[];
   DATA.benchmarks.forEach(function(b){
     if(!rowVisible(b)) return;
-    var pts=0, nm=0;
-    vmids.forEach(function(id){ var c=b.cells[id]; if(c){ pts+=c.pts; nm++; } });
+    var pts=0, nm=0, nc=0;
+    vmids.forEach(function(id){ var c=b.cells[id]; if(c){ pts+=c.pts; nm++;
+      nc+=(c.docs?c.docs.length:1); } });
     if(nm===0) return;                          // no citation in visible columns
+    if(state.multi && nc<=1) return;            // hide single-citation benchmarks ("2+ cites")
     rows.push({b:b, pts:pts, nm:nm});
   });
   rows.sort(function(x,y){ return (y.pts-x.pts) || (y.nm-x.nm) || (x.b.canon<y.b.canon?-1:1); });
@@ -545,6 +544,7 @@ function openRec(canon){
 function esc(s){ return String(s).replace(/[&<>"']/g,function(c){
   return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
 
+initRange();
 render();
 </script>
 </body></html>"""
