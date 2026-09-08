@@ -4,7 +4,7 @@ _note: 'MODEL axis for the heatmap. Derived from data/citations.jsonl; release_d
   pub_date (proxy). Override display/release_date in data/models.overrides.yaml. X-axis order: most recent
   on the LEFT; undated models are grouped at the end until a real date is backfilled.'
 schema_version: 1
-count: 54
+count: 57
 undated_needs_backfill: []
 models:
 - id: gpt-6-astra
@@ -31,6 +31,17 @@ models:
   docs:
   - https://deepmind.google/models/gemini/flash/
   - https://deepmind.google/models/model-cards/gemini-3-8-flash
+- id: muse-spark-1-3
+  model: Muse Spark 1.3
+  display: Muse Spark 1.3
+  company: meta
+  company_display: Meta
+  company_category: big5
+  release_date: '2026-09-02'
+  release_date_source: derived:min_pub_date
+  citations: 12
+  docs:
+  - https://research.meta.ai/blog/introducing-muse-spark-1-3
 - id: claude-fable-5-1
   model: Claude Fable 5.1 / Mythos 5.1
   display: Fable 5.1
@@ -333,6 +344,17 @@ models:
   citations: 22
   docs:
   - https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash
+- id: qwen3-6-27b
+  model: Qwen3.6-27B
+  display: Qwen3.6-27B
+  company: qwen
+  company_display: Alibaba
+  company_category: open_weight_leader
+  release_date: '2026-04-21'
+  release_date_source: derived:min_pub_date
+  citations: 22
+  docs:
+  - https://huggingface.co/Qwen/Qwen3.6-27B
 - id: kimi-k2-6
   model: Kimi K2.6
   display: Kimi K2.6
@@ -520,6 +542,17 @@ models:
   docs:
   - https://huggingface.co/mistralai/Mistral-Large-3-675B-Instruct-2512
   - https://mistral.ai/news/mistral-3
+- id: deepseek-v3-2-speciale
+  model: DeepSeek-V3.2-Speciale
+  display: DeepSeek-V3.2-Speciale
+  company: deepseek
+  company_display: DeepSeek
+  company_category: open_weight_leader
+  release_date: '2025-12-01'
+  release_date_source: derived:min_pub_date
+  citations: 4
+  docs:
+  - https://huggingface.co/deepseek-ai/DeepSeek-V3.2-Speciale
 - id: claude-opus-4-5
   model: Claude Opus 4.5
   display: Opus 4.5
@@ -610,11 +643,12 @@ models:
   company_category: open_weight_leader
   release_date: '2025-09-29'
   release_date_source: derived:min_pub_date
-  citations: 34
+  citations: 38
   docs:
   - https://api-docs.deepseek.com/news/news250929
   - https://arxiv.org/abs/2512.02556
   - https://huggingface.co/deepseek-ai/DeepSeek-V3.2
+  - https://huggingface.co/deepseek-ai/DeepSeek-V3.2-Speciale
 - id: qwen3-max
   model: Qwen3-Max
   display: Qwen3-Max

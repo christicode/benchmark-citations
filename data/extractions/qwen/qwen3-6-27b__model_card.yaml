@@ -1,0 +1,121 @@
+# qwen3-6-27b__model_card
+# Source: https://huggingface.co/Qwen/Qwen3.6-27B (HF README = card; repo created 2026-04-21). Clean
+# HTML comparison table. Columns: Qwen3.5-27B | Qwen3.5-397B-A17B | Gemma4-31B | Claude 4.5 Opus |
+# Qwen3.6-35B-A3B | Qwen3.6-27B. Citing model = Qwen3.6-27B (last column). Open-weight 27B dense
+# model (NOT the Qwen3.6 flagship). SWE-Bench series: internal agent scaffold (bash + file-edit),
+# temp=1.0, top_p=0.95, 200K context. default weight_class = model_card.
+doc: qwen3-6-27b__model_card
+mentions:
+  # ===== Coding Agent =====
+  - raw: "SWE-bench Verified"
+    value: 77.2
+    unit: percent
+    model_config: "Qwen3.6-27B; internal agent scaffold (bash + file-edit), 200K ctx"
+    methodology: ["Claude 4.5 Opus 80.9 (row winner); Qwen3.6-35B-A3B 73.4 / Qwen3.5-397B-A17B 76.2 / Gemma4-31B 52.0"]
+  - raw: "SWE-bench Pro"
+    value: 53.5
+    unit: percent
+    model_config: "Qwen3.6-27B; refined public set"
+    methodology: ["Claude 4.5 Opus 57.1 (row winner); Qwen3.6-35B-A3B 49.5"]
+  - raw: "SWE-bench Multilingual"
+    value: 71.3
+    unit: percent
+    model_config: "Qwen3.6-27B"
+    methodology: ["Claude 4.5 Opus 77.5 (row winner); Qwen3.6-35B-A3B 67.2"]
+  - raw: "Terminal-Bench 2.0"
+    value: 59.3
+    unit: percent
+    model_config: "Qwen3.6-27B"
+    methodology: ["tie row winner with Claude 4.5 Opus 59.3; Qwen3.6-35B-A3B 51.5"]
+  - raw: "SkillsBench"
+    value: 48.2
+    unit: percent
+    model_config: "Qwen3.6-27B; Avg5"
+    methodology: ["row winner; Claude 4.5 Opus 45.3 / Qwen3.6-35B-A3B 28.7"]
+  - raw: "QwenWebBench"
+    value: 1487
+    unit: elo
+    model_config: "Qwen3.6-27B; in-house web-dev Elo (vendor_proprietary)"
+    methodology: ["Claude 4.5 Opus 1536 (row winner); Qwen3.6-35B-A3B 1397"]
+  - raw: "NL2Repo"
+    value: 36.2
+    unit: percent
+    model_config: "Qwen3.6-27B"
+    methodology: ["Claude 4.5 Opus 43.2 (row winner); Qwen3.6-35B-A3B 29.4"]
+  - raw: "Claw-Eval"
+    value: 72.4
+    unit: percent
+    model_config: "Qwen3.6-27B; Avg"
+    methodology: ["Claude 4.5 Opus 76.6 (row winner); Qwen3.6-35B-A3B 68.7"]
+  - raw: "Claw-Eval"
+    value: 60.6
+    unit: percent
+    model_config: "Qwen3.6-27B; Pass^3"
+    methodology: ["row winner; Claude 4.5 Opus 59.6 / Qwen3.6-35B-A3B 50.0"]
+  - raw: "QwenClawBench"
+    value: 53.4
+    unit: percent
+    model_config: "Qwen3.6-27B (vendor_proprietary)"
+    methodology: ["row winner; Claude 4.5 Opus 52.3 / Qwen3.6-35B-A3B 52.6"]
+  # ===== Knowledge =====
+  - raw: "MMLU-Pro"
+    value: 86.2
+    unit: percent
+    model_config: "Qwen3.6-27B"
+    methodology: ["Claude 4.5 Opus 89.5 (row winner)"]
+  - raw: "MMLU-Redux"
+    value: 93.5
+    unit: percent
+    model_config: "Qwen3.6-27B"
+    methodology: ["Claude 4.5 Opus 95.6 (row winner)"]
+  - raw: "SuperGPQA"
+    value: 66.0
+    unit: percent
+    model_config: "Qwen3.6-27B"
+    methodology: ["Claude 4.5 Opus 70.6 (row winner)"]
+  - raw: "C-Eval"
+    value: 91.4
+    unit: percent
+    model_config: "Qwen3.6-27B"
+    methodology: ["Qwen3.5-397B-A17B 93.0 (row winner)"]
+  # ===== STEM & Reasoning =====
+  - raw: "GPQA Diamond"
+    value: 87.8
+    unit: percent
+    model_config: "Qwen3.6-27B"
+    methodology: ["Qwen3.5-397B-A17B 88.4 (row winner); Claude 4.5 Opus 87.0"]
+  - raw: "HLE"
+    value: 24.0
+    unit: percent
+    model_config: "Qwen3.6-27B"
+    methodology: ["Claude 4.5 Opus 30.8 (row winner)"]
+  - raw: "LiveCodeBench"
+    value: 83.9
+    unit: percent
+    model_config: "Qwen3.6-27B; v6"
+    methodology: ["Claude 4.5 Opus 84.8 (row winner)"]
+  - raw: "HMMT"
+    value: 93.8
+    unit: percent
+    model_config: "Qwen3.6-27B; Feb 25"
+    methodology: ["Qwen3.5-397B-A17B 94.8 (row winner)"]
+  - raw: "HMMT"
+    value: 90.7
+    unit: percent
+    model_config: "Qwen3.6-27B; Nov 25"
+    methodology: ["Claude 4.5 Opus 93.3 (row winner)"]
+  - raw: "HMMT"
+    value: 84.3
+    unit: percent
+    model_config: "Qwen3.6-27B; Feb 26"
+    methodology: ["Qwen3.5-397B-A17B 87.9 (row winner)"]
+  - raw: "IMOAnswerBench"
+    value: 80.8
+    unit: percent
+    model_config: "Qwen3.6-27B"
+    methodology: ["Claude 4.5 Opus 84.0 (row winner)"]
+  - raw: "AIME"
+    value: 94.1
+    unit: percent
+    model_config: "Qwen3.6-27B; AIME26 (2026)"
+    methodology: ["Claude 4.5 Opus 95.1 (row winner); Qwen3.6-35B-A3B 92.7"]

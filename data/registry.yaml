@@ -1126,7 +1126,7 @@ benchmarks:
   - canonical: swe-atlas
     type: agentic
     domain: coding
-    aliases: ["SWE Atlas", "SWE Atlas – Codebase QnA", "SWE Atlas - Codebase QnA", "SWE Atlas Codebase QnA"]
+    aliases: ["SWE Atlas", "SWE Atlas – Codebase QnA", "SWE Atlas - Codebase QnA", "SWE Atlas Codebase QnA", "SWEAtlas CodeBase QnA"]
     notes: "Meta agentic SWE/codebase-QA benchmark (Codebase QnA split cited); Muse Spark 1.1 blog headliner."
   - canonical: meta-internal-coding-bench
     type: agentic
@@ -1688,3 +1688,22 @@ benchmarks:
     domain: cyber
     aliases: ["SecureCodeReview", "Secure Code Review"]
     notes: "Defensive security-code-review benchmark (Grok Build harness). Grok 4.6 card §7.3."
+  # --- 2026-09-08: Batch 3 (Qwen3.6-27B card) — Qwen in-house evals ---
+  - canonical: qwenwebbench
+    type: agentic
+    domain: coding
+    aliases: ["QwenWebBench"]
+    vendor_proprietary: true
+    notes: "Qwen in-house web-development eval, reported as an Elo (unit=elo). Qwen3.6-27B card. Single-vendor."
+  - canonical: qwenclawbench
+    type: agentic
+    domain: computer-use
+    aliases: ["QwenClawBench"]
+    vendor_proprietary: true
+    notes: "Qwen in-house agentic tool-use ('Claw') eval. Qwen3.6-27B card. Single-vendor."
+  - canonical: agentic-if-index
+    type: agentic
+    domain: knowledge
+    aliases: ["Agentic IF Index", "Agentic IF Index (Internal)"]
+    vendor_proprietary: true
+    notes: "Meta internal agentic instruction-following index. Muse Spark 1.3 scorecard. Single-vendor."

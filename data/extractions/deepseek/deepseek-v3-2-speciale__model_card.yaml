@@ -1,0 +1,56 @@
+# deepseek-v3-2-speciale__model_card
+# Source: https://huggingface.co/deepseek-ai/DeepSeek-V3.2-Speciale (HF README = card; repo created
+# 2025-11-28 / lastMod 2025-12-01 — a V3.2-series model, in-window but previously un-extracted).
+# Benchmarks are a chart IMAGE (assets/benchmark.png), vision-read. Bars: DeepSeek-V3.2-Speciale |
+# DeepSeek-V3.2-Thinking | GPT-5-High | Claude-4.5-Sonnet | Gemini-3.0-Pro. Speciale is a high-compute
+# REASONING variant with NO tool-calling, so it has bars ONLY in the "Reasoning Capabilities" group;
+# the "Agentic Capabilities" bars belong to DeepSeek-V3.2 (Thinking) and are attributed to that model
+# via a per-mention `model:` override. default weight_class = model_card.
+doc: deepseek-v3-2-speciale__model_card
+mentions:
+  # --- Reasoning group: DeepSeek-V3.2-Speciale's own bars (doc model) ---
+  - raw: "AIME 2025"
+    value: 96.0
+    unit: percent
+    model_config: "DeepSeek-V3.2-Speciale; Pass@1"
+    methodology: ["V3.2-Thinking 93.1 / GPT-5-High 94.6 / Claude-4.5-Sonnet 87.0 / Gemini-3.0-Pro 95.0"]
+  - raw: "HMMT"
+    value: 99.2
+    unit: percent
+    model_config: "DeepSeek-V3.2-Speciale; HMMT 2025, Pass@1"
+    methodology: ["V3.2-Thinking 90.2 / GPT-5-High 88.3 / Sonnet 79.2 / Gemini-3.0-Pro 97.5"]
+  - raw: "HLE"
+    value: 30.6
+    unit: percent
+    model_config: "DeepSeek-V3.2-Speciale; Pass@1"
+    methodology: ["V3.2-Thinking 25.1 / GPT-5-High 26.3 / Sonnet 13.7 / Gemini-3.0-Pro 37.7 (row winner)"]
+  - raw: "Codeforces"
+    value: 2701
+    unit: other
+    model_config: "DeepSeek-V3.2-Speciale; Codeforces rating"
+    methodology: ["V3.2-Thinking 2386 / GPT-5-High 2537 / Sonnet 1480 / Gemini-3.0-Pro 2708 (row winner)"]
+  # --- Agentic group: DeepSeek-V3.2 (Thinking) — Speciale has no tool-calling ---
+  - raw: "SWE Verified"
+    model: "DeepSeek-V3.2"
+    value: 73.1
+    unit: percent
+    model_config: "DeepSeek-V3.2-Thinking; Resolved (Speciale has no tool-calling)"
+    methodology: ["GPT-5-High 74.9 / Sonnet 77.2 (row winner) / Gemini-3.0-Pro 76.2"]
+  - raw: "Terminal Bench 2.0"
+    model: "DeepSeek-V3.2"
+    value: 46.4
+    unit: percent
+    model_config: "DeepSeek-V3.2-Thinking; Acc"
+    methodology: ["GPT-5-High 35.2 / Sonnet 42.8 / Gemini-3.0-Pro 54.2 (row winner)"]
+  - raw: "tau2-bench"
+    model: "DeepSeek-V3.2"
+    value: 80.3
+    unit: percent
+    model_config: "DeepSeek-V3.2-Thinking; Pass@1 (tau-squared bench)"
+    methodology: ["GPT-5-High 80.2 / Sonnet 84.7 / Gemini-3.0-Pro 85.4 (row winner)"]
+  - raw: "Tool-Decathlon"
+    model: "DeepSeek-V3.2"
+    value: 35.2
+    unit: percent
+    model_config: "DeepSeek-V3.2-Thinking; Pass@1"
+    methodology: ["GPT-5-High 29.0 / Sonnet 38.6 (row winner) / Gemini-3.0-Pro 36.4"]
