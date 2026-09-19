@@ -1,0 +1,186 @@
+# Source: https://thinkingmachines.ai/news/introducing-inkling/
+# Only the named released model is attributed; competitor and Inkling-Small preview columns are excluded.
+# Table mentions default to model_card; dedicated benchmark charts/discussion override to blog_headliner.
+doc: inkling__blog_headliner
+mentions:
+- raw: HLE text only
+  value: 29.7
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0; text only; no tools
+  weight_class: blog_headliner
+  methodology:
+  - Release blog attributes this evaluation to Artificial Analysis.
+  - Dedicated effort-sweep chart and discussion; numeric value here is the final-model comparison-table result,
+    not a digitized curve point.
+  - Blog explicitly says the HLE effort-sweep chart uses an earlier checkpoint; its curve is not the final result
+    above.
+- raw: HLE with tools
+  value: 46.0
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0; with tools
+  weight_class: blog_headliner
+  methodology:
+  - Release blog attributes this evaluation to Artificial Analysis.
+  - Dedicated effort-sweep chart and discussion; numeric value here is the final-model comparison-table result,
+    not a digitized curve point.
+  - Blog explicitly says the HLE effort-sweep chart uses an earlier checkpoint; its curve is not the final result
+    above.
+- raw: AIME 2026
+  value: 97.1
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0; 2026
+- raw: GPQA Diamond
+  value: 87.2
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0
+  methodology:
+  - Release blog attributes this evaluation to Artificial Analysis.
+- raw: SWEBench Verified
+  value: 77.6
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0; 256K max-token trajectory limit; bash-only harness
+- raw: SWEBench Pro Public
+  value: 54.3
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0; 256K max-token trajectory limit; public dataset
+- raw: Terminal Bench 2.1 Best Harness
+  value: 63.8
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0; 256K max-token trajectory limit; internal coding harness
+  weight_class: blog_headliner
+  methodology:
+  - Web-search-contaminated solutions were assigned score 0; external-model harnesses vary.
+  - Dedicated effort-sweep chart and discussion; numeric value here is the final-model comparison-table result,
+    not a digitized curve point.
+- raw: GDPVal-AA v2
+  value: 1238.0
+  unit: elo
+  model_config: Inkling; effort=0.99; temperature=1.0
+  methodology:
+  - Release blog attributes this evaluation to Artificial Analysis.
+- raw: MCP Atlas
+  value: 76.0
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0
+- raw: Tau 3 Banking
+  value: 23.7
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0; Banking
+  methodology:
+  - Release blog attributes this evaluation to Artificial Analysis.
+- raw: Toolathlon Verified
+  value: 45.5
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0
+- raw: BrowseComp w/ ctx management
+  value: 77.1
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0; context management
+- raw: SimpleQA Verified
+  value: 43.9
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0
+- raw: AA Omniscience
+  value: 2.1
+  unit: score
+  model_config: Inkling; effort=0.99; temperature=1.0; index; not accuracy
+  methodology:
+  - Release blog attributes this evaluation to Artificial Analysis.
+- raw: IFBench
+  value: 79.8
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0
+  weight_class: blog_headliner
+  methodology:
+  - Dedicated effort-sweep chart and discussion; numeric value here is the final-model comparison-table result,
+    not a digitized curve point.
+- raw: Global-MMLU-Lite
+  value: 88.7
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0
+- raw: MMMU Pro Standard 10
+  value: 73.5
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0; Standard 10
+  methodology:
+  - Images with long edge below 2048 px are resized to min(2048 px, 2x original long edge).
+  - Release blog attributes this evaluation to Artificial Analysis.
+- raw: Charxiv RQ
+  value: 78.1
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0; original; no Python
+  methodology:
+  - Images with long edge below 2048 px are resized to min(2048 px, 2x original long edge).
+- raw: Charxiv RQ with python
+  value: 82.0
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0; with Python
+  methodology:
+  - Images with long edge below 2048 px are resized to min(2048 px, 2x original long edge).
+- raw: Audio MC
+  value: 56.6
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0
+- raw: MMAU
+  value: 77.2
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0
+- raw: VoiceBench
+  value: 91.4
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0
+  methodology:
+  - A system message specifies the expected answer format because grading is sensitive to output formatting.
+- raw: FORTRESS Adversarial
+  value: 78.0
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0; adversarial refusal rate
+  weight_class: blog_headliner
+  methodology:
+  - Higher is better; benign and adversarial are separate configurations of FORTRESS.
+- raw: FORTRESS Benign
+  value: 95.9
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0; benign answering rate
+  weight_class: blog_headliner
+  methodology:
+  - Higher is better; benign and adversarial are separate configurations of FORTRESS.
+- raw: StrongREJECT
+  value: 98.6
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0
+  weight_class: blog_headliner
+- raw: ForecastBench Brier Index ↑ · no search
+  value: 61.1
+  unit: score
+  model_config: Inkling; Brier Index; no search
+  methodology:
+  - 'Reported table cell: 61.1 ± 0.79'
+  - Brier Index is higher-is-better; Brier score is lower-is-better.
+- raw: ForecastBench Brier Index ↑ · with search
+  value: 63.7
+  unit: score
+  model_config: Inkling; Brier Index; with search
+  methodology:
+  - 'Reported table cell: 63.7 ± 0.82'
+  - Brier Index is higher-is-better; Brier score is lower-is-better.
+- raw: Prophet Arena Brier Score ↓
+  value: 0.1617
+  unit: score
+  model_config: Inkling; Brier score
+  methodology:
+  - 'Reported table cell: 0.1617'
+  - Brier Index is higher-is-better; Brier score is lower-is-better.
+- raw: AA Omniscience (acc)
+  value: 40
+  unit: percent
+  model_config: Inkling; accuracy; not index
+  methodology:
+  - Value from the interactive comparison radar, distinct from the main table configuration.
+- raw: Design Arena
+  value: 1257
+  unit: score
+  weight_class: blog_headliner
+  model_config: Inkling; Agentic Web Dev leaderboard
+  methodology:
+  - Blinded human pairwise evaluation of generated web apps; dedicated leaderboard figure.

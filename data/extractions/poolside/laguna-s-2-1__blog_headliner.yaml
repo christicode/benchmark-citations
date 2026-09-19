@@ -1,0 +1,47 @@
+doc: laguna-s-2-1__blog_headliner
+mentions:
+- raw: Terminal-Bench 2.1
+  value: 70.2
+  unit: percent
+  model_config: Laguna S 2.1; pool harness; thinking enabled
+  methodology:
+  - Vendor-reported; pass@1 averaged over 4 attempts per task.
+  - 'Evaluation trajectories: https://trajectories.poolside.ai'
+  - Dedicated benchmark chart and comparison table in the release blog.
+- raw: SWE-bench Multilingual
+  value: 78.5
+  unit: percent
+  model_config: Laguna S 2.1
+  methodology:
+  - Vendor-reported; pass@1 averaged over 4 attempts per task.
+  - Dedicated benchmark chart and comparison table in the release blog.
+- raw: SWE-Bench Pro (Public Dataset)
+  value: 59.4
+  unit: percent
+  model_config: Laguna S 2.1; public dataset
+  methodology:
+  - Vendor-reported; public dataset, not the private or commercial split.
+  - pass@1 averaged over 4 attempts per task.
+  - Dedicated benchmark chart and comparison table in the release blog.
+- raw: DeepSWE
+  value: 40.4
+  unit: percent
+  model_config: Laguna S 2.1; pool harness; thinking enabled; DeepSWE v1.1
+  methodology:
+  - Vendor-reported; pass@1 averaged over 3 attempts per task.
+  - Poolside uses pool rather than the official leaderboard's mini-swe-agent; cross-model harnesses differ.
+  - Dedicated benchmark chart and comparison table in the release blog.
+- raw: SWE Atlas (Codebase QnA)
+  value: 46.2
+  unit: percent
+  model_config: Laguna S 2.1; Codebase QnA
+  methodology:
+  - Vendor-reported; pass@1 averaged over 3 attempts per task.
+  - Dedicated benchmark chart and comparison table in the release blog.
+- raw: Toolathlon Verified
+  value: 49.7
+  unit: percent
+  model_config: Laguna S 2.1; Verified
+  methodology:
+  - Vendor-reported; pass@1 averaged over 3 attempts per task.
+  - Dedicated benchmark chart and comparison table in the release blog.

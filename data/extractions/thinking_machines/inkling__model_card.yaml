@@ -1,0 +1,169 @@
+# Source: https://thinkingmachines.ai/model-card/inkling/
+# Only the named released model is attributed; competitor and Inkling-Small preview columns are excluded.
+# Table mentions default to model_card; dedicated benchmark charts/discussion override to blog_headliner.
+doc: inkling__model_card
+mentions:
+- raw: HLE text only
+  value: 29.7
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0; text only; no tools
+  methodology:
+  - 'Evaluation settings and detailed harness notes: https://thinkingmachines.ai/news/introducing-inkling/'
+  - Release blog attributes this evaluation to Artificial Analysis.
+- raw: HLE with tools
+  value: 46.0
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0; with tools
+  methodology:
+  - 'Evaluation settings and detailed harness notes: https://thinkingmachines.ai/news/introducing-inkling/'
+  - Release blog attributes this evaluation to Artificial Analysis.
+- raw: AIME 2026
+  value: 97.1
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0; 2026
+  methodology:
+  - 'Evaluation settings and detailed harness notes: https://thinkingmachines.ai/news/introducing-inkling/'
+- raw: GPQA Diamond
+  value: 87.2
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0
+  methodology:
+  - 'Evaluation settings and detailed harness notes: https://thinkingmachines.ai/news/introducing-inkling/'
+  - Release blog attributes this evaluation to Artificial Analysis.
+- raw: SWEBench Verified
+  value: 77.6
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0; 256K max-token trajectory limit; bash-only harness
+  methodology:
+  - 'Evaluation settings and detailed harness notes: https://thinkingmachines.ai/news/introducing-inkling/'
+- raw: SWEBench Pro Public
+  value: 54.3
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0; 256K max-token trajectory limit; public dataset
+  methodology:
+  - 'Evaluation settings and detailed harness notes: https://thinkingmachines.ai/news/introducing-inkling/'
+- raw: Terminal Bench 2.1 Best Harness
+  value: 63.8
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0; 256K max-token trajectory limit; internal coding harness
+  methodology:
+  - 'Evaluation settings and detailed harness notes: https://thinkingmachines.ai/news/introducing-inkling/'
+  - Web-search-contaminated solutions were assigned score 0; external-model harnesses vary.
+- raw: GDPVal-AA v2
+  value: 1238.0
+  unit: elo
+  model_config: Inkling; effort=0.99; temperature=1.0
+  methodology:
+  - 'Evaluation settings and detailed harness notes: https://thinkingmachines.ai/news/introducing-inkling/'
+  - Release blog attributes this evaluation to Artificial Analysis.
+- raw: MCP Atlas
+  value: 76.0
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0
+  methodology:
+  - 'Evaluation settings and detailed harness notes: https://thinkingmachines.ai/news/introducing-inkling/'
+- raw: Tau 3 Banking
+  value: 23.7
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0; Banking
+  methodology:
+  - 'Evaluation settings and detailed harness notes: https://thinkingmachines.ai/news/introducing-inkling/'
+  - Release blog attributes this evaluation to Artificial Analysis.
+- raw: Toolathlon Verified
+  value: 45.5
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0
+  methodology:
+  - 'Evaluation settings and detailed harness notes: https://thinkingmachines.ai/news/introducing-inkling/'
+- raw: BrowseComp w/ ctx management
+  value: 77.1
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0; context management
+  methodology:
+  - 'Evaluation settings and detailed harness notes: https://thinkingmachines.ai/news/introducing-inkling/'
+- raw: SimpleQA Verified
+  value: 43.9
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0
+  methodology:
+  - 'Evaluation settings and detailed harness notes: https://thinkingmachines.ai/news/introducing-inkling/'
+- raw: AA Omniscience
+  value: 2.1
+  unit: score
+  model_config: Inkling; effort=0.99; temperature=1.0; index; not accuracy
+  methodology:
+  - 'Evaluation settings and detailed harness notes: https://thinkingmachines.ai/news/introducing-inkling/'
+  - Release blog attributes this evaluation to Artificial Analysis.
+- raw: IFBench
+  value: 79.8
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0
+  methodology:
+  - 'Evaluation settings and detailed harness notes: https://thinkingmachines.ai/news/introducing-inkling/'
+- raw: Global-MMLU-Lite
+  value: 88.7
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0
+  methodology:
+  - 'Evaluation settings and detailed harness notes: https://thinkingmachines.ai/news/introducing-inkling/'
+- raw: MMMU Pro Standard 10
+  value: 73.5
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0; Standard 10
+  methodology:
+  - 'Evaluation settings and detailed harness notes: https://thinkingmachines.ai/news/introducing-inkling/'
+  - Images with long edge below 2048 px are resized to min(2048 px, 2x original long edge).
+  - Release blog attributes this evaluation to Artificial Analysis.
+- raw: Charxiv RQ
+  value: 78.1
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0; original; no Python
+  methodology:
+  - 'Evaluation settings and detailed harness notes: https://thinkingmachines.ai/news/introducing-inkling/'
+  - Images with long edge below 2048 px are resized to min(2048 px, 2x original long edge).
+- raw: Charxiv RQ with python
+  value: 82.0
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0; with Python
+  methodology:
+  - 'Evaluation settings and detailed harness notes: https://thinkingmachines.ai/news/introducing-inkling/'
+  - Images with long edge below 2048 px are resized to min(2048 px, 2x original long edge).
+- raw: Audio MC
+  value: 56.6
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0
+  methodology:
+  - 'Evaluation settings and detailed harness notes: https://thinkingmachines.ai/news/introducing-inkling/'
+- raw: MMAU
+  value: 77.2
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0
+  methodology:
+  - 'Evaluation settings and detailed harness notes: https://thinkingmachines.ai/news/introducing-inkling/'
+- raw: VoiceBench
+  value: 91.4
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0
+  methodology:
+  - 'Evaluation settings and detailed harness notes: https://thinkingmachines.ai/news/introducing-inkling/'
+  - A system message specifies the expected answer format because grading is sensitive to output formatting.
+- raw: FORTRESS Adversarial
+  value: 78.0
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0; adversarial refusal rate
+  methodology:
+  - 'Evaluation settings and detailed harness notes: https://thinkingmachines.ai/news/introducing-inkling/'
+  - Higher is better; benign and adversarial are separate configurations of FORTRESS.
+- raw: FORTRESS Benign
+  value: 95.9
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0; benign answering rate
+  methodology:
+  - 'Evaluation settings and detailed harness notes: https://thinkingmachines.ai/news/introducing-inkling/'
+  - Higher is better; benign and adversarial are separate configurations of FORTRESS.
+- raw: StrongREJECT
+  value: 98.6
+  unit: percent
+  model_config: Inkling; effort=0.99; temperature=1.0
+  methodology:
+  - 'Evaluation settings and detailed harness notes: https://thinkingmachines.ai/news/introducing-inkling/'

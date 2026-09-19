@@ -6,8 +6,6 @@ This replaces the retired tables dashboard. Grid:
     (scripts/scoring.py): blog_headliner 3 / model_card 2 / system_card 1, counted as
     MAX per (benchmark, document, model) then SUMMED across documents (same as rank.py) —
     a benchmark headlined + tabled in one blog counts 3, headlined in 3 blogs counts 9.
-    (H) suffix = currently Harbor-compatible (live-synced by sync_harbor.py),
-    with the same marker for native and adapter-backed benchmarks.
   * X axis = citing model, MOST RECENT ON THE LEFT (models.yaml release_date; undated last).
   * cell (benchmark × model) = increasing DARKNESS OF GREY for the highest source class in
     which that model cites it: Headliner (near-black) > Model card (mid-grey) > System card
@@ -17,7 +15,7 @@ This replaces the retired tables dashboard. Grid:
 
 Filters (agentic/chat · Harbor-only · company) re-rank live over the VISIBLE columns.
 Self-contained (embeds a compact JSON blob). Muted, Terminal-Bench-style monochrome UI:
-grayscale citation ramp, two reserved blue accents (agentic label + Harbor (H) marks), and
+grayscale citation ramp, a blue accent for agentic labels, and
 Google Sans Code for the top toggles/selectors (body copy stays Inter). Reads
 data/citations.jsonl (built by build.py, Harbor-synced by sync_harbor.py) + data/models.yaml.
 """
@@ -58,6 +56,8 @@ def main() -> int:
     # Display groups combine rows without changing canonical citation identities.
     reg = yaml.safe_load((ROOT / "data" / "registry.yaml").read_text()) or {}
     entries = reg.get("benchmarks", [])
+    # Internal/vendor-proprietary evaluations stay archived but are excluded from the dashboard.
+    excluded = {b["canonical"] for b in entries if b.get("vendor_proprietary")}
     groups = {b["canonical"]: b["heatmap_group"] for b in entries if b.get("heatmap_group")}
     disp = {b["canonical"]: b["display"] for b in entries if b.get("display")}
     disp.update({b["heatmap_group"]: b["heatmap_group_display"]
@@ -81,8 +81,8 @@ def main() -> int:
 
     for r in rows:
         c = r.get("benchmark_canonical")
-        if not c:
-            continue                                   # unresolved -> review queue, not the grid
+        if not c or c in excluded:
+            continue                                   # unresolved or internal -> not the grid
         mid = model_id(r.get("citing_model"))
         if mid not in model_meta:
             continue
@@ -177,14 +177,14 @@ PAGE = r"""<!doctype html><html lang=en><head><meta charset=utf-8>
 <style>
 :root{--bg:#ffffff;--panel:#f6f7f8;--b:#e6e7ea;--fg:#40454e;--emph:#0a0c10;--mut:#969ca6;
   --accent:#0a0c10;--amber:#d97706;--segon:#eceef1;--seghov:#f4f5f7;
-  /* two reserved accents: agentic (deep blue) + Harbor (deep indigo, native = deeper) */
-  --acc-agentic:#1d4ed8;--acc-harbor:#4338ca;
+  /* agentic label accent */
+  --acc-agentic:#1d4ed8;
   /* GRAYSCALE citation ramp: System card (lightest grey) -> Model card (mid) -> Headliner (near-black) */
   --t1:#d8dbdf;--t2:#8b9198;--t3:#16181d;--empty:#fafbfc;
   --mono:"Google Sans Code",ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace}
 body.dark{--bg:#0c0d10;--panel:#15171c;--b:#262a31;--fg:#9aa1ac;--emph:#f2f4f7;--mut:#6b7280;
   --accent:#f2f4f7;--amber:#f59e0b;--segon:#262b34;--seghov:#1b1e24;
-  --acc-agentic:#60a5fa;--acc-harbor:#a5b4fc;
+  --acc-agentic:#60a5fa;
   /* inverted grayscale: Headliner (near-white, strongest) -> Model card (mid) -> System card (dark grey) */
   --t1:#3a3f47;--t2:#8b9198;--t3:#f2f4f7;--empty:#141619}
 *{box-sizing:border-box}
@@ -249,7 +249,6 @@ td.yl.active-row{background:var(--panel)!important;color:var(--accent)!important
 td.yl .rank{color:var(--mut);display:inline-block;min-width:22px;margin-right:8px;font-variant-numeric:tabular-nums}
 td.yl .nm{cursor:pointer;font-weight:500;color:var(--emph)}
 td.yl .nm:hover{color:var(--accent);text-decoration:underline}
-.h{color:var(--acc-harbor);font-weight:700}
 td.yl .ty{font-size:10px;color:var(--mut);margin-left:6px}
 td.yl .ty.ag{color:var(--acc-agentic);font-weight:600}
 th.corner{position:sticky;left:0;z-index:6;background:var(--bg);border-right:1px solid var(--b)}
@@ -321,7 +320,6 @@ input[type="text"]:focus, input[type="date"]:focus {
   <span><span class=sw style=background:var(--t2)></span>Model card (2)</span>
   <span><span class=sw style=background:var(--t1)></span>System card (1)</span>
   <span><span class=sw style=background:var(--empty)></span>not cited</span>
-  <span><span class=h>(H)</span> Harbor-compatible</span>
   <div class=more id=more-wrap><button type=button id=more-button onclick="toggleMulti()" aria-controls=hm aria-expanded=false>See more</button></div>
 </div>
 </div>
@@ -424,7 +422,6 @@ function visibleModels(){
 }
 
 function rowVisible(b){
-  if(/internal/i.test(b.canon+' '+(b.display||''))) return false;
   if(state.ty==='harbor'){ if(!b.on_harbor) return false; }
   else if(state.ty!=='all' && b.type!==state.ty) return false;
   if(state.search) {
@@ -473,10 +470,9 @@ function render(){
     var b=r.b;
     var ty = b.type==='agentic'?'<span class="ty ag">agentic</span>'
             : b.type==='chat'?'<span class=ty>chat</span>':'';
-    var h = b.on_harbor? ' <span class=h title="Harbor-compatible">(H)</span>':'';
     H.push('<tr><td class=yl><span class=rank>'+(i+1)+'</span>'+
       '<span class=nm onclick="openRec(\''+esc(b.canon)+'\')" title="see citation records on GitHub">'+
-      esc(b.display||b.canon)+'</span>'+h+ty+'</td>');
+      esc(b.display||b.canon)+'</span>'+ty+'</td>');
     vm.forEach(function(m){
       var c=b.cells[m.id];
       if(!c){ H.push('<td class=cell></td>'); return; }

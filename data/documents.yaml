@@ -3,6 +3,49 @@
 # unless the mention overrides it (e.g. a solo headline chart -> blog_headliner).
 schema_version: 1
 documents:
+  - id: inkling__model_card
+    lab: thinking_machines
+    model: Inkling
+    container: blog
+    default_weight_class: model_card
+    url: https://thinkingmachines.ai/model-card/inkling/
+    pub_date: '2026-07-15'
+  - id: inkling__blog_headliner
+    lab: thinking_machines
+    model: Inkling
+    container: blog
+    default_weight_class: model_card
+    url: https://thinkingmachines.ai/news/introducing-inkling/
+    pub_date: '2026-07-15'
+  - id: inkling-small__model_card
+    lab: thinking_machines
+    model: Inkling-Small
+    container: blog
+    default_weight_class: model_card
+    url: https://thinkingmachines.ai/model-card/inkling-small/
+    pub_date: '2026-07-30'
+  - id: inkling-small__blog_headliner
+    lab: thinking_machines
+    model: Inkling-Small
+    container: blog
+    default_weight_class: model_card
+    url: https://thinkingmachines.ai/news/inkling-small/
+    pub_date: '2026-07-30'
+  - id: laguna-s-2-1__blog_headliner
+    lab: poolside
+    model: Laguna S 2.1
+    container: blog
+    default_weight_class: blog_headliner
+    url: https://poolside.ai/blog/introducing-laguna-s-2-1
+    pub_date: '2026-07-21'
+  - id: laguna-s-2-1__model_card
+    lab: poolside
+    model: "Laguna S 2.1"
+    container: hf_readme
+    default_weight_class: model_card
+    url: "https://huggingface.co/poolside/Laguna-S-2.1"
+    # Release date confirmed by the card's linked Poolside release announcement.
+    pub_date: "2026-07-21"
   - id: claude-fable-5-mythos-5__system_card
     lab: anthropic
     model: "Claude Fable 5 / Mythos 5"
