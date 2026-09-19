@@ -1,10 +1,10 @@
 _generated_by: scripts/gen_models.py
-_generated_at: '2026-09-08'
+_generated_at: '2026-09-19'
 _note: 'MODEL axis for the heatmap. Derived from data/citations.jsonl; release_date is the earliest source-doc
   pub_date (proxy). Override display/release_date in data/models.overrides.yaml. X-axis order: most recent
   on the LEFT; undated models are grouped at the end until a real date is backfilled.'
 schema_version: 1
-count: 58
+count: 61
 undated_needs_backfill: []
 models:
 - id: gpt-6-astra
@@ -144,6 +144,18 @@ models:
   citations: 4
   docs:
   - https://developer.meta.com/ai/models/muse-spark/
+- id: inkling-small
+  model: Inkling-Small
+  display: Inkling-Small
+  company: thinking_machines
+  company_display: Thinking Machines Lab
+  company_category: open_weight_leader
+  release_date: '2026-07-30'
+  release_date_source: derived:min_pub_date
+  citations: 70
+  docs:
+  - https://thinkingmachines.ai/model-card/inkling-small/
+  - https://thinkingmachines.ai/news/inkling-small/
 - id: claude-opus-5
   model: Claude Opus 5
   display: Opus 5
@@ -168,6 +180,18 @@ models:
   docs:
   - https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/
   - https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-3-6-Flash-Model-Card.pdf
+- id: laguna-s-2-1
+  model: Laguna S 2.1
+  display: Laguna S 2.1
+  company: poolside
+  company_display: Poolside
+  company_category: open_weight_leader
+  release_date: '2026-07-21'
+  release_date_source: derived:min_pub_date
+  citations: 12
+  docs:
+  - https://huggingface.co/poolside/Laguna-S-2.1
+  - https://poolside.ai/blog/introducing-laguna-s-2-1
 - id: kimi-k3
   model: Kimi K3
   display: Kimi K3
@@ -179,6 +203,18 @@ models:
   citations: 35
   docs:
   - https://www.kimi.com/blog/kimi-k3
+- id: inkling
+  model: Inkling
+  display: Inkling
+  company: thinking_machines
+  company_display: Thinking Machines Lab
+  company_category: open_weight_leader
+  release_date: '2026-07-15'
+  release_date_source: derived:min_pub_date
+  citations: 55
+  docs:
+  - https://thinkingmachines.ai/model-card/inkling/
+  - https://thinkingmachines.ai/news/introducing-inkling/
 - id: gpt-5-6-sol
   model: GPT-5.6 Sol
   display: GPT-5.6 Sol
