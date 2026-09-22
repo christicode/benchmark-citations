@@ -1,0 +1,125 @@
+# Capability benchmarks; internal safeguard/refusal metrics excluded under existing Grok convention.
+doc: grok-4-7__model_card
+mentions:
+- raw: CursorBench 4.0
+  value: 46.3
+  unit: percent
+  model_config: Grok 4.7; xhigh; section 2.1
+  methodology:
+  - New longer-horizon tasks; not comparable with CursorBench 3.2. High effort 43.9%.
+- raw: DeepSWE v1.1
+  value: 71.0
+  unit: percent
+  model_config: Grok 4.7; high; mini-SWE-agent; section 2.2
+  methodology:
+  - Datacurve evaluation; 113 original tasks across 91 repositories and five languages.
+- raw: Terminal-Bench 4.0
+  value: 38.0
+  unit: percent
+  model_config: Grok 4.7; xhigh; Grok Build; section 2.3
+  methodology:
+  - PDF p.9 reports 38.0%; current launch HTML reports 37.6%. Source discrepancy unresolved.
+- raw: FrontierSWE v2
+  value: 29.0
+  unit: percent
+  model_config: Grok 4.7; xhigh; Proximus; section 2.4
+  methodology:
+  - Proximal Labs evaluation; 34 tasks, mean@5 partial-credit reward, not binary resolution rate.
+- raw: SWE-Marathon
+  value: 46.0
+  unit: percent
+  model_config: Grok 4.7; high; native provider harness; v1.1; section 2.5
+  methodology:
+  - Abundant AI evaluation; eight trials per task; resolution requires all verifiers pass.
+- raw: Legal Agent Benchmark
+  value: 19.6
+  unit: percent
+  model_config: Grok 4.7; xhigh; Valkyrie; section 3.1
+  methodology:
+  - Vals AI held-out 120 tasks, internet disabled; mean of two judges task pass rates, all criteria required.
+- raw: EEBench
+  value: 66.0
+  unit: percent
+  model_config: Grok 4.7; xhigh; Grok Build; section 4.1
+  methodology:
+  - Atopile evaluation, V1 core corpus; PDF p.13 reports 66.0% vs 64.0% in launch HTML. Source discrepancy
+    unresolved.
+- raw: CADGenBench
+  value: 44.4
+  unit: percent
+  model_config: Grok 4.7; high; Grok Build; generation split; section 4.2
+  methodology:
+  - Mecado evaluation; executability/geometric correctness reward.
+- raw: HealthBench Professional
+  value: 56.7
+  unit: percent
+  model_config: Grok 4.7; xhigh; section 5.1
+  methodology:
+  - Grok 4.6 high as grader; safety-filter rejections scored zero.
+- raw: LatchBio Capabilities v1.0
+  value: 44.5
+  unit: percent
+  model_config: Grok 4.7; xhigh; section 5.2
+  methodology:
+  - Equally weighted mean across 11 capability benchmarks; live suite snapshot not specified. Surveillance
+    and Function also appear in BioSecBench; not independent evidence.
+- raw: CyberGym
+  value: 80.3
+  unit: percent
+  model_config: Grok 4.7; high; Grok Build; unrestricted; section 6.1
+  methodology:
+  - Capability evaluation without production safeguards.
+- raw: CVE-Bench
+  value: 36.6
+  unit: percent
+  model_config: Grok 4.7; xhigh; Grok Build; unrestricted; section 6.2
+  methodology:
+  - Hardened egress-controlled evaluation; high effort separately scores 37.7%.
+- raw: CathedralBench
+  value: 29.0
+  unit: percent
+  model_config: Grok 4.7; xhigh; unrestricted; hard subset; section 6.4
+  methodology:
+  - Independent third-party cyber evaluation; accuracy on hard tasks.
+- raw: VCT
+  value: 63.0
+  unit: percent
+  model_config: Grok 4.7; high; section 7.2
+  methodology:
+  - Capability accuracy, not refusal rate; section 7 generally evaluated without production safeguards.
+- raw: WMDP-Bio
+  value: 88.1
+  unit: percent
+  model_config: Grok 4.7; high; section 7.5
+  methodology:
+  - MCQ capability accuracy; production safeguards disabled.
+- raw: WMDP-Chem
+  value: 84.9
+  unit: percent
+  model_config: Grok 4.7; high; section 7.5
+  methodology:
+  - MCQ capability accuracy; production safeguards disabled.
+- raw: WMDP-Cyber
+  value: 88.1
+  unit: percent
+  model_config: Grok 4.7; high; section 7.5
+  methodology:
+  - MCQ capability accuracy; production safeguards disabled.
+- raw: LAB-Bench
+  value: 76.8
+  unit: percent
+  model_config: Grok 4.7; high; practical MCQ; section 7.6
+  methodology:
+  - Protocol, sequence and cloning skills aggregate; capability accuracy, not refusal rate.
+- raw: ProtocolQA Open-Ended
+  value: 70.4
+  unit: percent
+  model_config: Grok 4.7; high; section 7.7
+  methodology:
+  - Free-text protocol troubleshooting, not multiple choice.
+- raw: BixBench
+  value: 88.4
+  unit: percent
+  model_config: Grok 4.7; high; zero-shot MCQ; Grok Build default tools; section 7.8
+  methodology:
+  - Computational-biology capability accuracy.

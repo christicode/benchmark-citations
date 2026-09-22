@@ -1,0 +1,82 @@
+# Launch comparison table and per-benchmark charts; score attribution is only to Opus 5.5.
+doc: claude-opus-5-5__blog_headliner
+mentions:
+- raw: Terminal-Bench 4.0
+  value: 66.4
+  unit: percent
+  model_config: Claude Opus 5.5; adaptive thinking; xhigh
+  methodology:
+  - Production safeguards enabled; cyber fallback to Opus 4.8; biology/frontier-LLM-development fallback to
+    Opus 5.
+  - Standard error ±2.6 percentage points; five trials per task.
+  weight_class: blog_headliner
+- raw: FrontierCode v1.1 (Main)
+  value: 54.4
+  unit: percent
+  model_config: Claude Opus 5.5; adaptive thinking; max
+  methodology:
+  - Production safeguards enabled; cyber fallback to Opus 4.8; biology/frontier-LLM-development fallback to
+    Opus 5.
+  - Comparison table at max; the separate medium-effort result is 54.6%.
+  weight_class: blog_headliner
+- raw: CursorBench 4.0
+  value: 57.8
+  unit: percent
+  model_config: Claude Opus 5.5; adaptive thinking; max
+  methodology:
+  - Production safeguards enabled; cyber fallback to Opus 4.8; biology/frontier-LLM-development fallback to
+    Opus 5.
+  - Independently measured by Cursor; medium effort scores 52.5%.
+  weight_class: blog_headliner
+- raw: GDPval-AA v2.1
+  value: 1846
+  unit: elo
+  model_config: Claude Opus 5.5; adaptive thinking; max
+  methodology:
+  - Production safeguards enabled; cyber fallback to Opus 4.8; biology/frontier-LLM-development fallback to
+    Opus 5.
+  weight_class: blog_headliner
+- raw: AutomationBench
+  value: 40.0
+  unit: percent
+  model_config: Claude Opus 5.5; adaptive thinking; max
+  methodology:
+  - Zapier evaluation; no fallback models, safeguard interventions scored as failures.
+  weight_class: blog_headliner
+- raw: Humanity's Last Exam
+  value: 67.7
+  unit: percent
+  model_config: Claude Opus 5.5; adaptive thinking; max; with tools
+  methodology:
+  - Production safeguards enabled; cyber fallback to Opus 4.8; biology/frontier-LLM-development fallback to
+    Opus 5.
+- raw: Terminal-Bench-Science 0.1
+  value: 58.7
+  unit: percent
+  model_config: Claude Opus 5.5; adaptive thinking; max
+  methodology:
+  - Production safeguards enabled; cyber fallback to Opus 4.8; biology/frontier-LLM-development fallback to
+    Opus 5.
+  - Standard error ±3.5–5 points per model.
+- raw: OSWorld 2.0
+  value: 81.8
+  unit: percent
+  model_config: Claude Opus 5.5; adaptive thinking; max; partial credit
+  methodology:
+  - Production safeguards enabled; cyber fallback to Opus 4.8; biology/frontier-LLM-development fallback to
+    Opus 5.
+- raw: Chartography
+  value: 89.0
+  unit: percent
+  model_config: Claude Opus 5.5; adaptive thinking; max; with tools
+  methodology:
+  - Production safeguards enabled; cyber fallback to Opus 4.8; biology/frontier-LLM-development fallback to
+    Opus 5.
+- raw: WANDR
+  value: 72.3
+  unit: percent
+  model_config: Claude Opus 5.5; adaptive thinking; max; offline web; 980k-token task budget
+  methodology:
+  - Exact soft-F1 value from embedded chart data. Offline search/fetch, programmatic tool calling and code
+    execution differ from Perplexity published setup; scores not directly comparable.
+  weight_class: blog_headliner

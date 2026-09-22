@@ -1,0 +1,47 @@
+# Comparison table plus headline charts. Internal safeguard/refusal metrics omitted, consistent with existing Grok extraction convention.
+doc: grok-4-7__blog_headliner
+mentions:
+- raw: CursorBench 4.0
+  value: 46.3
+  unit: percent
+  model_config: Grok 4.7; xhigh
+  weight_class: blog_headliner
+- raw: DeepSWE v1.1
+  value: 71.0
+  unit: percent
+  model_config: Grok 4.7; high
+- raw: EEBench
+  value: 64.0
+  unit: percent
+  model_config: Grok 4.7; xhigh
+  methodology:
+  - Launch HTML reports 64.0%; model-card PDF reports 66.0%. Retained separately by source; discrepancy unresolved.
+  weight_class: blog_headliner
+- raw: AA-Briefcase v1.1
+  value: 1657
+  unit: elo
+  model_config: Grok 4.7; xhigh
+  weight_class: blog_headliner
+- raw: Terminal-Bench 4.0
+  value: 37.6
+  unit: percent
+  model_config: Grok 4.7; xhigh
+  methodology:
+  - Current archived launch HTML reports 37.6%; model-card PDF reports 38.0%. Retained separately by source;
+    discrepancy unresolved.
+- raw: Legal Agent Benchmark
+  value: 19.6
+  unit: percent
+  model_config: Grok 4.7; xhigh
+- raw: HealthBench Professional
+  value: 56.7
+  unit: percent
+  model_config: Grok 4.7; xhigh
+- raw: GDPval-AA v2.1
+  value: 1695
+  unit: elo
+  model_config: Grok 4.7; xhigh
+  methodology:
+  - Blog chart labels this GDPval and uses Elo; comparison values 1735 Fable 5.1 and 1542 GPT-6 Astra identify
+    the GDPval-AA v2.1 series, not OpenAI GDPval gold win rate.
+  weight_class: blog_headliner

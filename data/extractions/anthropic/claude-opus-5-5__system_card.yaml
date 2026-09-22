@@ -1,0 +1,130 @@
+# Capability summary Table 8.1.A, consistent with prior Opus system-card extraction scope; not an exhaustive extraction of all 230 pages.
+doc: claude-opus-5-5__system_card
+mentions:
+- raw: SWE-bench Pro
+  value: 89.9
+  unit: percent
+  model_config: Claude Opus 5.5; adaptive thinking; max
+  methodology:
+  - Table 8.1.A, PDF p.174; default sampling, average of five trials, evaluation-dependent context up to 1M
+    tokens.
+  - Production safeguards enabled; cyber fallback to Opus 4.8; biology/frontier-LLM-development fallback to
+    Opus 5.
+- raw: SWE-bench Multilingual
+  value: 93.9
+  unit: percent
+  model_config: Claude Opus 5.5; adaptive thinking; max
+  methodology:
+  - Table 8.1.A, PDF p.174; default sampling, average of five trials, evaluation-dependent context up to 1M
+    tokens.
+  - Production safeguards enabled; cyber fallback to Opus 4.8; biology/frontier-LLM-development fallback to
+    Opus 5.
+- raw: SWE-bench Multimodal
+  value: 61.4
+  unit: percent
+  model_config: Claude Opus 5.5; adaptive thinking; max
+  methodology:
+  - Table 8.1.A, PDF p.174; default sampling, average of five trials, evaluation-dependent context up to 1M
+    tokens.
+  - Production safeguards enabled; cyber fallback to Opus 4.8; biology/frontier-LLM-development fallback to
+    Opus 5.
+- raw: FrontierCode v1.1 (Main)
+  value: 54.4
+  unit: percent
+  model_config: Claude Opus 5.5; adaptive thinking; max
+  methodology:
+  - Table 8.1.A, PDF p.174; default sampling, average of five trials, evaluation-dependent context up to 1M
+    tokens.
+  - Production safeguards enabled; cyber fallback to Opus 4.8; biology/frontier-LLM-development fallback to
+    Opus 5.
+- raw: Terminal-Bench 4.0
+  value: 66.4
+  unit: percent
+  model_config: Claude Opus 5.5; adaptive thinking; xhigh
+  methodology:
+  - Table 8.1.A, PDF p.174; default sampling, average of five trials, evaluation-dependent context up to 1M
+    tokens.
+  - Production safeguards enabled; cyber fallback to Opus 4.8; biology/frontier-LLM-development fallback to
+    Opus 5.
+- raw: Terminal-Bench-Science 0.1
+  value: 58.7
+  unit: percent
+  model_config: Claude Opus 5.5; adaptive thinking; max
+  methodology:
+  - Table 8.1.A, PDF p.174; default sampling, average of five trials, evaluation-dependent context up to 1M
+    tokens.
+  - Production safeguards enabled; cyber fallback to Opus 4.8; biology/frontier-LLM-development fallback to
+    Opus 5.
+- raw: Humanity's Last Exam
+  value: 64.4
+  unit: percent
+  model_config: Claude Opus 5.5; adaptive thinking; max; no tools
+  methodology:
+  - Table 8.1.A, PDF p.174; default sampling, average of five trials, evaluation-dependent context up to 1M
+    tokens.
+  - Production safeguards enabled; cyber fallback to Opus 4.8; biology/frontier-LLM-development fallback to
+    Opus 5.
+- raw: Humanity's Last Exam
+  value: 67.7
+  unit: percent
+  model_config: Claude Opus 5.5; adaptive thinking; max; with tools
+  methodology:
+  - Table 8.1.A, PDF p.174; default sampling, average of five trials, evaluation-dependent context up to 1M
+    tokens.
+  - Production safeguards enabled; cyber fallback to Opus 4.8; biology/frontier-LLM-development fallback to
+    Opus 5.
+- raw: OSWorld 2.0
+  value: 81.8
+  unit: percent
+  model_config: Claude Opus 5.5; adaptive thinking; max; partial credit
+  methodology:
+  - Table 8.1.A, PDF p.174; default sampling, average of five trials, evaluation-dependent context up to 1M
+    tokens.
+  - Production safeguards enabled; cyber fallback to Opus 4.8; biology/frontier-LLM-development fallback to
+    Opus 5.
+- raw: OSWorld 2.0
+  value: 48.7
+  unit: percent
+  model_config: Claude Opus 5.5; adaptive thinking; max; strict
+  methodology:
+  - Table 8.1.A, PDF p.174; default sampling, average of five trials, evaluation-dependent context up to 1M
+    tokens.
+  - Production safeguards enabled; cyber fallback to Opus 4.8; biology/frontier-LLM-development fallback to
+    Opus 5.
+- raw: HealthBench Professional
+  value: 65.6
+  unit: percent
+  model_config: Claude Opus 5.5; adaptive thinking; max; summary-table score
+  methodology:
+  - Table 8.1.A, PDF p.174; default sampling, average of five trials, evaluation-dependent context up to 1M
+    tokens.
+  - Summary score retained as printed; section 8.15.2 separately reports raw score 77.1%, so do not conflate
+    raw and adjusted results.
+  - Production safeguards enabled; cyber fallback to Opus 4.8; biology/frontier-LLM-development fallback to
+    Opus 5.
+- raw: GDPval-AA v2.1
+  value: 1846
+  unit: percent
+  model_config: Claude Opus 5.5; adaptive thinking; max
+  methodology:
+  - Table 8.1.A, PDF p.174; default sampling, average of five trials, evaluation-dependent context up to 1M
+    tokens.
+  - Production safeguards enabled; cyber fallback to Opus 4.8; biology/frontier-LLM-development fallback to
+    Opus 5.
+- raw: AA-Briefcase v1.1
+  value: 1822
+  unit: percent
+  model_config: Claude Opus 5.5; adaptive thinking; max
+  methodology:
+  - Table 8.1.A, PDF p.174; default sampling, average of five trials, evaluation-dependent context up to 1M
+    tokens.
+  - Production safeguards enabled; cyber fallback to Opus 4.8; biology/frontier-LLM-development fallback to
+    Opus 5.
+- raw: AutomationBench
+  value: 40.0
+  unit: percent
+  model_config: Claude Opus 5.5; adaptive thinking; max; no fallback
+  methodology:
+  - Table 8.1.A, PDF p.174; default sampling, average of five trials, evaluation-dependent context up to 1M
+    tokens.
+  - Zapier evaluation; safeguard interventions scored as failures, no fallback.

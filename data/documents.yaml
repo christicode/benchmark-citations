@@ -748,3 +748,51 @@ documents:
     pub_date: '2026-08-14'
     pub_date_note: Public availability announced in the Qwen team release log.
     pub_date_source: https://github.com/QwenLM/Qwen3.8#news
+
+  # September 22 releases and September 21 Grok release
+  - id: claude-opus-5-5__blog_headliner
+    lab: anthropic
+    model: Claude Opus 5.5
+    container: blog
+    default_weight_class: model_card
+    url: https://www.anthropic.com/claude-opus-5-5
+    pub_date: '2026-09-22'
+  - id: claude-opus-5-5__system_card
+    lab: anthropic
+    model: Claude Opus 5.5
+    container: pdf
+    default_weight_class: system_card
+    url: https://anthropic.com/claude-opus-5-5-system-card
+    pub_date: '2026-09-22'
+  - id: grok-4-7__blog_headliner
+    lab: xai
+    model: Grok 4.7
+    container: blog
+    default_weight_class: model_card
+    url: https://x.ai/news/grok-4-7
+    pub_date: '2026-09-21'
+  - id: grok-4-7__model_card
+    lab: xai
+    model: Grok 4.7
+    container: pdf
+    default_weight_class: model_card
+    url: https://media.x.ai/v1/website/card4p7-3a96f40b.pdf
+    pub_date: '2026-09-21'
+  - id: gpt-6-sol__model_card
+    lab: openai
+    model: GPT-6 Sol
+    container: blog
+    default_weight_class: model_card
+    url: https://developers.openai.com/api/docs/models/gpt-6-sol
+    pub_date: '2026-09-22'
+    notes: Release confirmed by https://learn.chatgpt.com/docs/changelog on 2026-09-22. API model page has no benchmark
+      table; awaiting a benchmark-bearing launch post or card. No citation or score inferred from predecessor models.
+  - id: gpt-6-luna__model_card
+    lab: openai
+    model: GPT-6 Luna
+    container: blog
+    default_weight_class: model_card
+    url: https://developers.openai.com/api/docs/models/gpt-6-luna
+    pub_date: '2026-09-22'
+    notes: Release confirmed by https://learn.chatgpt.com/docs/changelog on 2026-09-22. API model page has no benchmark
+      table; awaiting a benchmark-bearing launch post or card. No citation or score inferred from predecessor models.

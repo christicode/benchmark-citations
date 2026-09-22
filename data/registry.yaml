@@ -12,7 +12,7 @@ benchmarks:
   - canonical: aa-briefcase
     type: agentic
     domain: professional
-    aliases: ["AA-Briefcase", "Artificial Analysis Briefcase"]
+    aliases: ["AA-Briefcase", "Artificial Analysis Briefcase", "AA-Briefcase v1.1"]
     notes: "Artificial Analysis 'Briefcase' agentic knowledge-work eval, reported as an Elo score
       (unit=other). First cited on the Kimi K3 blog comparison table (scores cited from
       artificialanalysis.ai, alongside GDPval-AA v2). No Harbor adapter known."
@@ -254,7 +254,7 @@ benchmarks:
   - canonical: gdpval-aa
     type: agentic
     domain: professional
-    aliases: ["GDPval AA", "GDPval-AA", "GDPval-AA v2", "AA GDPVal"]
+    aliases: ["GDPval AA", "GDPval-AA", "GDPval-AA v2", "AA GDPVal", "GDPval-AA v2.1"]
     notes: "Distinct from OpenAI's GDPval gold (gdpval-gold). v1 vs v2 versions."
   - canonical: gdpval-gold
     type: agentic
@@ -670,7 +670,7 @@ benchmarks:
   - canonical: wmdp
     type: chat
     domain: safety
-    aliases: ["WMDP", "WMDP-Bio", "WMDP-Chem"]
+    aliases: ["WMDP", "WMDP-Bio", "WMDP-Chem", "WMDP-Cyber"]
   - canonical: worldvqa
     type: chat
     domain: multimodal
@@ -1797,3 +1797,33 @@ benchmarks:
     - Design Arena
     notes: Design Arena Agentic Web Dev leaderboard, blinded human comparison of generated web apps. Do not merge
       with non-agentic web design or game leaderboards. https://www.designarena.ai/about
+
+  - canonical: cursorbench-4
+    type: agentic
+    domain: coding
+    aliases:
+    - CursorBench 4.0
+    - CursorBench v4.0
+    notes: Long-horizon Cursor tasks; Grok 4.7 card section 2.1 and Opus 5.5 card section 8.8 explicitly say results
+      are not comparable with CursorBench 3.2.
+  - canonical: wandr
+    type: agentic
+    domain: knowledge
+    aliases:
+    - WANDR
+    notes: Perplexity Wide ANd Deep Research. Record tools, judge and task budget; Anthropic offline soft-F1 setup
+      differs from the published live-web evaluation.
+  - canonical: latchbio-capabilities-v1
+    type: agentic
+    domain: science
+    aliases:
+    - LatchBio Capabilities v1.0
+    notes: 'Grok 4.7 card section 5.2: equally weighted mean over 11 agentic biological-data-analysis benchmarks;
+      not BioSecBench refusal. Snapshot unspecified.'
+  - canonical: cathedralbench
+    type: agentic
+    domain: cyber
+    aliases:
+    - CathedralBench
+    notes: 'Grok 4.7 card section 6.4: independent third-party multi-exploit cybersecurity evaluation; reported accuracy
+      on hard subset, unrestricted configuration.'
