@@ -1,12 +1,36 @@
 _generated_by: scripts/gen_models.py
-_generated_at: '2026-09-19'
+_generated_at: '2026-09-22'
 _note: 'MODEL axis for the heatmap. Derived from data/citations.jsonl; release_date is the earliest source-doc
   pub_date (proxy). Override display/release_date in data/models.overrides.yaml. X-axis order: most recent
   on the LEFT; undated models are grouped at the end until a real date is backfilled.'
 schema_version: 1
-count: 61
+count: 63
 undated_needs_backfill: []
 models:
+- id: claude-opus-5-5
+  model: Claude Opus 5.5
+  display: Opus 5.5
+  company: anthropic
+  company_display: Anthropic
+  company_category: big5
+  release_date: '2026-09-22'
+  release_date_source: derived:min_pub_date
+  citations: 24
+  docs:
+  - https://anthropic.com/claude-opus-5-5-system-card
+  - https://www.anthropic.com/claude-opus-5-5
+- id: grok-4-7
+  model: Grok 4.7
+  display: Grok 4.7
+  company: xai
+  company_display: xAI
+  company_category: big5
+  release_date: '2026-09-21'
+  release_date_source: derived:min_pub_date
+  citations: 28
+  docs:
+  - https://media.x.ai/v1/website/card4p7-3a96f40b.pdf
+  - https://x.ai/news/grok-4-7
 - id: gpt-6-astra
   model: GPT-6 Astra
   display: GPT-6 Astra
