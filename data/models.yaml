@@ -4,7 +4,7 @@ _note: 'MODEL axis for the heatmap. Derived from data/citations.jsonl; release_d
   pub_date (proxy). Override display/release_date in data/models.overrides.yaml. X-axis order: most recent
   on the LEFT; undated models are grouped at the end until a real date is backfilled.'
 schema_version: 1
-count: 63
+count: 62
 undated_needs_backfill: []
 models:
 - id: claude-opus-5-5
@@ -346,17 +346,6 @@ models:
   docs:
   - https://www-cdn.anthropic.com/d00db56fa754a1b115b6dd7cb2e3c342ee809620.pdf
   - https://www.anthropic.com/news/claude-fable-5-mythos-5
-- id: gpt-rosalind-5-5
-  model: GPT-Rosalind-5.5
-  display: GPT-Rosalind-5.5
-  company: openai
-  company_display: OpenAI
-  company_category: big5
-  release_date: '2026-06-03'
-  release_date_source: derived:min_pub_date
-  citations: 10
-  docs:
-  - https://deploymentsafety.openai.com/gpt-rosalind-5-5/gpt-rosalind-5-5.pdf
 - id: claude-opus-4-8
   model: Claude Opus 4.8
   display: Opus 4.8
@@ -470,7 +459,7 @@ models:
   company_category: big5
   release_date: '2026-04-07'
   release_date_source: derived:min_pub_date
-  citations: 33
+  citations: 34
   docs:
   - https://www-cdn.anthropic.com/53566bf5440a10affd749724787c8913a2ae0841.pdf
   - https://www.anthropic.com/glasswing
@@ -598,7 +587,7 @@ models:
   company_category: big5
   release_date: '2025-12-11'
   release_date_source: derived:min_pub_date
-  citations: 33
+  citations: 34
   docs:
   - https://cdn.openai.com/pdf/3a4153c8-c748-4b71-8e31-aecbde944f8d/oai_5_2_system-card.pdf
   - https://openai.com/index/introducing-gpt-5-2/
