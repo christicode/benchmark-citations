@@ -133,3 +133,11 @@ mentions:
     value: 94.0
     unit: percent
     model_config: "GPT-5.2 Thinking; BFS <128k"
+  - raw: "Terminal-Bench 2.0"
+    weight_class: blog_headliner
+    value: 61.14
+    unit: percent
+    model_config: "GPT-5.2 with Warp"
+    methodology:
+      - "Partner-reported result in Warp's launch-page quotation; reasoning variant not specified."
+      - "Verified in OpenAI's localized launch page: https://openai.com/es-419/index/introducing-gpt-5-2/"

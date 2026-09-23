@@ -23,6 +23,13 @@ mentions:
     model_config: "Terminus-2 harness, adaptive thinking max, 1M token budget, avg@5"
     methodology:
       - "Opus 4.6 = 65.4; 92.1 with TB2.1 updates + 4h timeout"
+  - raw: "Terminal-Bench 2.1"
+    weight_class: blog_headliner
+    value: 92.1
+    unit: percent
+    model_config: "Terminus-2 harness; Terminal-Bench 2.1 updates; 4-hour timeout"
+    methodology:
+      - "Separate evaluation reported in the Terminal-Bench methodology footnote; standard Terminal-Bench 2.0 result is 82.0%."
   - raw: "SWE-bench Multimodal"
     weight_class: blog_headliner
     value: 59.0

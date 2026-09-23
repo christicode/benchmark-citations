@@ -311,7 +311,7 @@ input[type="text"]:focus, input[type="date"]:focus {
   <span><span class=sw style=background:var(--t3)></span>Headliner (3)</span>
   <span><span class=sw style=background:var(--t2)></span>Model card (2)</span>
   <span><span class=sw style=background:var(--t1)></span>System card (1)</span>
-  <span><span class=sw style=background:var(--empty)></span>not cited</span>
+  <span><span class=sw style=background:var(--empty)></span>No citation recorded</span>
   <div class=more id=more-wrap><button type=button id=more-button onclick="toggleMulti()" aria-controls=hm aria-expanded=false>See more</button></div>
 </div>
 </div>
