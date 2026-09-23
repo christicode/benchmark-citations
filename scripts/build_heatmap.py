@@ -9,7 +9,7 @@ This replaces the retired tables dashboard. Grid:
   * X axis = citing model, MOST RECENT ON THE LEFT (models.yaml release_date; undated last).
   * cell (benchmark × model) = increasing DARKNESS OF GREY for the highest source class in
     which that model cites it: Headliner (near-black) > Model card (mid-grey) > System card
-    (light-grey). In dark mode the ramp inverts (Headliner near-white, strongest).
+    (light-grey).
   * hover / click-to-pin a cell → the source link(s) (headliner / model card / system card)
     with the reported score, for verifiability.
 
@@ -182,22 +182,15 @@ PAGE = r"""<!doctype html><html lang=en><head><meta charset=utf-8>
   /* GRAYSCALE citation ramp: System card (lightest grey) -> Model card (mid) -> Headliner (near-black) */
   --t1:#d8dbdf;--t2:#8b9198;--t3:#16181d;--empty:#fafbfc;
   --mono:"Google Sans Code",ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace}
-body.dark{--bg:#0c0d10;--panel:#15171c;--b:#262a31;--fg:#9aa1ac;--emph:#f2f4f7;--mut:#6b7280;
-  --accent:#f2f4f7;--amber:#f59e0b;--segon:#262b34;--seghov:#1b1e24;
-  --acc-agentic:#60a5fa;
-  /* inverted grayscale: Headliner (near-white, strongest) -> Model card (mid) -> System card (dark grey) */
-  --t1:#3a3f47;--t2:#8b9198;--t3:#f2f4f7;--empty:#141619}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);
   font:14px/1.55 "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;transition:background-color 0.2s, color 0.2s}
-.wrap{max-width:1400px;margin:0 auto;padding:26px 22px 40px}
+.wrap{width:100%;margin:0 auto;padding:26px 22px 40px}
 .hdr{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;margin:0 0 14px}
 .hdr-tools{display:flex;gap:8px;align-items:center;margin-left:auto}
 .hdr-tools input{width:180px;height:34px}
 h1{font-family:var(--mono);font-size:23px;font-weight:700;letter-spacing:-.01em;color:var(--emph);margin:0}
-.theme-btn{cursor:pointer;border:1px solid var(--b);background:var(--panel);color:var(--emph);width:34px;height:34px;padding:0;border-radius:0;font-family:var(--mono);font-size:14px;transition:.12s;user-select:none}
-.theme-btn:hover{border-color:var(--accent);color:var(--accent)}
 a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 .bar{display:flex;flex-direction:column;gap:10px;align-items:stretch;margin:0 0 14px;font-family:var(--mono);
   background:var(--bg);border:1px solid var(--b);border-radius:0;padding:9px 12px}
@@ -284,7 +277,6 @@ input[type="text"]:focus, input[type="date"]:focus {
   <h1>Benchmark-Bench</h1>
   <div class=hdr-tools>
     <input type=text id=search-input placeholder="Search…" aria-label="Search benchmarks" oninput="setSearch(this.value)">
-    <button id=theme-toggle class=theme-btn onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
   </div>
 </div>
 
@@ -346,18 +338,6 @@ DATA.companies.forEach(function(c){
   cos.appendChild(s);
 });
 document.querySelector('.chip[data-ty=all]').classList.add('on');
-
-// Theme init & handler
-function toggleTheme() {
-  document.body.classList.toggle('dark');
-  var isDark = document.body.classList.contains('dark');
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  document.getElementById('theme-toggle').textContent = isDark ? '☀️' : '🌙';
-}
-if (localStorage.getItem('theme') === 'dark') {
-  document.body.classList.add('dark');
-  document.getElementById('theme-toggle').textContent = '☀️';
-}
 
 function setTy(el){ state.ty=el.dataset.ty;
   document.querySelectorAll('.chip[data-ty]').forEach(function(x){x.classList.remove('on')});
