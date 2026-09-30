@@ -202,7 +202,7 @@ body{margin:0;background:var(--bg);color:var(--fg);
 .hdr{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;margin:0 0 14px}
 .hdr-tools{display:flex;gap:8px;align-items:center;margin-left:auto}
 .hdr-tools input{width:180px;height:34px}
-.theme-toggle{width:44px;height:44px;flex-shrink:0;padding:0;border:1px solid var(--b);border-radius:0;background:var(--bg);
+.theme-toggle{width:34px;height:34px;flex-shrink:0;padding:0;border:1px solid var(--b);border-radius:0;background:var(--bg);
   color:var(--emph);font:400 12px/1.55 var(--mono);cursor:pointer}
 .theme-toggle:hover{background:var(--seghov)}
 .theme-toggle:focus-visible{outline:2px solid var(--acc-agentic);outline-offset:2px}
