@@ -77,7 +77,7 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 .more button:hover{background:var(--seghov)}
 table.hm{border-collapse:separate;border-spacing:0}
 table.hm th,table.hm td{padding:0;margin:0}
-thead{position:sticky;top:0;z-index:3;background:var(--bg)}
+thead{position:relative;z-index:3;background:var(--bg)}
 thead th{position:relative;border-bottom:1px solid var(--b)}
 th.mh{height:110px;min-width:28px;vertical-align:bottom}
 th.mh.active-col{background:var(--panel)!important}
@@ -334,11 +334,24 @@ function render(){
        '</td></tr></tbody>'];
   }
   t.innerHTML=H.join('');
+  freezeModelHeader();
   document.getElementById('more-wrap').hidden=singleCount===0;
   var more=document.getElementById('more-button');
   more.textContent=state.multi?'See more':'Show only 2+ citations';
   more.setAttribute('aria-expanded',String(!state.multi));
 }
+
+// Keep the header at the viewport top while the table scrolls with the page.
+// Translating within the table preserves horizontal alignment and column widths.
+function freezeModelHeader(){
+  var table=document.getElementById('hm'), head=table.tHead;
+  if(!head) return;
+  var bounds=table.getBoundingClientRect();
+  var offset=Math.max(0,Math.min(-bounds.top,bounds.height-head.offsetHeight));
+  head.style.transform='translateY('+offset+'px)';
+}
+window.addEventListener('scroll',freezeModelHeader,{passive:true});
+window.addEventListener('resize',freezeModelHeader);
 
 // model header tooltip text
 DATA.models.forEach(function(m){ m.model_title=function(){ return m.display+
