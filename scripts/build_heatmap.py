@@ -244,7 +244,8 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 .range-lbl{font-size:11px;color:var(--emph);font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:.01em}
 .legend{color:var(--mut);font-size:12px;margin:12px 2px 0;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .sw{display:inline-block;width:12px;height:12px;border:1px solid var(--b);vertical-align:-2px;margin-right:4px;border-radius:3px}
-.model-header{position:sticky;top:0;z-index:6;overflow:hidden;background:var(--bg);border:0}
+.sticky-top{position:sticky;top:0;z-index:6;background:var(--bg)}
+.model-header{position:relative;overflow:hidden;background:var(--bg);border:0}
 .grid-scroll{overflow:auto;border:0;border-radius:0}
 .grid-scroll,.bar .grp{scrollbar-width:thin;scrollbar-color:var(--b) transparent}
 .grid-scroll::-webkit-scrollbar,.bar .grp::-webkit-scrollbar{width:6px;height:6px}
@@ -303,6 +304,7 @@ input[type="text"]:focus, input[type="date"]:focus {
   border-color: var(--accent);
 }
 </style></head><body><div class=wrap>
+<div class=sticky-top>
 <div class=hdr>
   <h1>Benchmark-Bench</h1>
   <div class=hdr-tools>
@@ -333,8 +335,10 @@ input[type="text"]:focus, input[type="date"]:focus {
   </div>
 </div>
 
+<div class=model-header id=model-header></div>
+</div>
+
 <div class=heatmap>
-  <div class=model-header id=model-header></div>
   <div class=grid-scroll>
     <table class=hm id=hm></table>
   </div>
