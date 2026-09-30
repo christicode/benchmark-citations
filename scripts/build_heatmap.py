@@ -379,7 +379,7 @@ applyTheme(themeOverride || (themeMedia.matches?'dark':'light'));
 
 var state = {
   ty: 'all',
-  multi: true,          // "2+ cites" ON by default -> hide single-citation benchmarks
+  multi: true,          // Show 3+ citations by default
   rangeStart: null,     // release-date window as month-numbers (set in initRange)
   rangeEnd: null,
   search: '',
@@ -482,15 +482,15 @@ function render(){
   document.getElementById('select-all-cos').classList.toggle('on',allSelected);
   var vm = visibleModels();
   var vmids = vm.map(function(m){return m.id;});
-  var rows=[], singleCount=0;
+  var rows=[], hiddenCount=0;
   DATA.benchmarks.forEach(function(b){
     if(!rowVisible(b)) return;
     var pts=0, nm=0, nc=0;
     vmids.forEach(function(id){ var c=b.cells[id]; if(c){ pts+=c.pts; nm++;
       nc+=(c.docs?c.docs.length:1); } });
     if(nm===0) return;                          // no citation in visible columns
-    if(nc<=1) singleCount++;
-    if(state.multi && nc<=1) return;            // hide single-citation benchmarks ("2+ cites")
+    if(nc<=2) hiddenCount++;
+    if(state.multi && nc<=2) return;            // hide benchmarks with two or fewer citations
     rows.push({b:b, pts:pts, nm:nm});
   });
   rows.sort(function(x,y){ return (y.pts-x.pts) || (y.nm-x.nm) || (x.b.canon<y.b.canon?-1:1); });
@@ -526,9 +526,9 @@ function render(){
   }
   t.innerHTML=H.join('');
   buildModelHeader();
-  document.getElementById('more-wrap').hidden=singleCount===0;
+  document.getElementById('more-wrap').hidden=hiddenCount===0;
   var more=document.getElementById('more-button');
-  more.textContent=state.multi?'See more':'Show only 2+ citations';
+  more.textContent=state.multi?'See more':'Show only 3+ citations';
   more.setAttribute('aria-expanded',String(!state.multi));
 }
 
