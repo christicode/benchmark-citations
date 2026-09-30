@@ -104,17 +104,16 @@ def main() -> int:
         d["container"] = r["source_doc"].get("container")
         rep = r.get("reported") or {}
         val = rep.get("value")
-        if c in groups:
-            mention = {"name": r.get("benchmark_raw") or disp.get(c, c),
-                       "val": val, "unit": rep.get("unit"), "cfg": rep.get("model_config")}
-            if mention not in d["mentions"]:
-                d["mentions"].append(mention)
+        mention = {"name": r.get("benchmark_raw") or disp.get(c, c),
+                   "val": val, "unit": rep.get("unit"), "cfg": rep.get("model_config")}
+        if mention not in d["mentions"]:
+            d["mentions"].append(mention)
         if rep.get("unit") == "percent" and isinstance(val, (int, float)):
             if d["val"] is None or (isinstance(d["val"], (int, float)) and val > d["val"]):
-                d["val"], d["unit"] = val, "percent"
+                d["val"], d["unit"], d["cfg"] = val, "percent", rep.get("model_config")
         elif d["val"] is None and val is not None:
-            d["val"], d["unit"] = val, rep.get("unit")
-        if rep.get("model_config"):
+            d["val"], d["unit"], d["cfg"] = val, rep.get("unit"), rep.get("model_config")
+        if val is None and d["val"] is None and rep.get("model_config"):
             d["cfg"] = rep["model_config"]
         if r.get("methodology_deviations"):
             d["dev"] = True
@@ -133,7 +132,7 @@ def main() -> int:
             doclist = sorted(
                 [{"wc": dd["wc"], "url": dd["url"], "container": dd["container"],
                   "val": dd["val"], "unit": dd["unit"], "cfg": dd["cfg"], "dev": dd["dev"],
-                  "mentions": dd["mentions"]}
+                  "mentions": dd["mentions"] if len(dd["mentions"]) > 1 or canon in groups.values() else []}
                  for dd in docmax],
                 key=lambda x: -points(x["wc"]))
             cells[mid] = {"tier": tier, "pts": pts, "score": score, "docs": doclist}
@@ -268,7 +267,7 @@ td.cell.f{cursor:pointer}
 td.cell.t1{background:var(--t1)}td.cell.t2{background:var(--t2)}td.cell.t3{background:var(--t3)}
 td.cell.pin{outline:2px solid var(--acc-agentic);outline-offset:-2px}
 #tip{position:fixed;z-index:20;max-width:360px;background:var(--bg);color:var(--fg);border:1px solid var(--b);
-  border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.2);padding:11px 13px;display:none;font-size:12.5px}
+  border-radius:0;padding:11px 13px;display:none;font-size:12.5px}
 #tip h4{margin:0 0 5px;font-size:13px;font-weight:600;color:var(--emph)}
 #tip .r{margin:3px 0;color:var(--fg)}
 #tip .dt{font-weight:600;color:var(--emph)}
@@ -359,7 +358,7 @@ applyTheme(themeOverride || (themeMedia.matches?'dark':'light'));
 var state = {
   ty: 'all',
   multi: true,          // "2+ cites" ON by default -> hide single-citation benchmarks
-  rangeStart: null,     // release-date window as day-numbers (set in initRange)
+  rangeStart: null,     // release-date window as month-numbers (set in initRange)
   rangeEnd: null,
   search: '',
   cos: {}
@@ -381,10 +380,10 @@ function setTy(el){ state.ty=el.dataset.ty;
 function toggleMulti(){ state.multi=!state.multi; render(); }
 
 // ---- release-date range slider (dual handle, Google-Flights style) ----
-function dayNum(d){ return Math.floor(new Date(d+'T00:00:00Z').getTime()/86400000); }
-var DATED=DATA.models.filter(function(m){return m.release_date;}).map(function(m){return dayNum(m.release_date);});
+function monthNum(d){ return Number(d.slice(0,4))*12+Number(d.slice(5,7))-1; }
+var DATED=DATA.models.filter(function(m){return m.release_date;}).map(function(m){return monthNum(m.release_date);});
 var MIND=DATED.length?Math.min.apply(null,DATED):0, MAXD=DATED.length?Math.max.apply(null,DATED):0;
-function fmtDay(n){ return new Date(n*86400000).toLocaleString('en-US',{month:'short',year:'numeric',timeZone:'UTC'}); }
+function fmtMonth(n){ return new Date(Date.UTC(Math.floor(n/12),n%12,1)).toLocaleString('en-US',{month:'short',year:'numeric',timeZone:'UTC'}); }
 function initRange(){
   state.rangeStart=MIND; state.rangeEnd=MAXD;
   var lo=document.getElementById('range-lo'), hi=document.getElementById('range-hi');
@@ -404,7 +403,7 @@ function updateRangeUI(){
   f.style.width=((state.rangeEnd-state.rangeStart)/span*100)+'%';
   document.getElementById('range-lbl').textContent=
     (state.rangeStart<=MIND && state.rangeEnd>=MAXD)?'all time'
-      :(fmtDay(state.rangeStart)+' – '+fmtDay(state.rangeEnd));
+      :(fmtMonth(state.rangeStart)+' – '+fmtMonth(state.rangeEnd));
 }
 
 function setSearch(val) {
@@ -426,7 +425,7 @@ function setAllCos(val) {
 
 function inTimeframe(dateStr) {
   if (!dateStr) return true;   // undated models can't be range-filtered -> always shown
-  var d = dayNum(dateStr);
+  var d = monthNum(dateStr);
   return d >= state.rangeStart && d <= state.rangeEnd;
 }
 
