@@ -836,12 +836,3 @@ documents:
     pub_date: '2026-09-30'
     notes: 'Benchmark comparison table read from the first-party September 30 launch.
       Methodology: https://deepmind.google/models/evals-methodology/gemini-4-argon.'
-  - id: gemini-4-argon__model_card
-    lab: google_deepmind
-    model: Gemini 4 Argon
-    container: blog
-    default_weight_class: model_card
-    url: https://deepmind.google/models/gemini/
-    pub_date: '2026-09-30'
-    notes: 'Benchmark comparison table read from the first-party September 30 launch.
-      Methodology: https://deepmind.google/models/evals-methodology/gemini-4-argon.'
