@@ -1,12 +1,47 @@
 _generated_by: scripts/gen_models.py
-_generated_at: '2026-09-23'
+_generated_at: '2026-09-30'
 _note: 'MODEL axis for the heatmap. Derived from data/citations.jsonl; release_date is the earliest source-doc
   pub_date (proxy). Override display/release_date in data/models.overrides.yaml. X-axis order: most recent
   on the LEFT; undated models are grouped at the end until a real date is backfilled.'
 schema_version: 1
-count: 62
+count: 66
 undated_needs_backfill: []
 models:
+- id: gemini-4-argon
+  model: Gemini 4 Argon
+  display: Gemini 4 Argon
+  company: google_deepmind
+  company_display: Google
+  company_category: big5
+  release_date: '2026-09-30'
+  release_date_source: derived:min_pub_date
+  citations: 41
+  docs:
+  - https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/
+  - https://deepmind.google/models/gemini/
+- id: gpt-6-1-sol
+  model: GPT-6.1 Sol
+  display: GPT-6.1 Sol
+  company: openai
+  company_display: OpenAI
+  company_category: big5
+  release_date: '2026-09-29'
+  release_date_source: derived:min_pub_date
+  citations: 23
+  docs:
+  - https://deploymentsafety.openai.com/gpt-6-1-sol/gpt-6-1-sol.pdf
+  - https://openai.com/index/introducing-gpt-6-1-sol/
+- id: claude-sonnet-5-5
+  model: Claude Sonnet 5.5
+  display: Sonnet 5.5
+  company: anthropic
+  company_display: Anthropic
+  company_category: big5
+  release_date: '2026-09-28'
+  release_date_source: derived:min_pub_date
+  citations: 9
+  docs:
+  - https://www.anthropic.com/claude-sonnet-5-5
 - id: claude-opus-5-5
   model: Claude Opus 5.5
   display: Opus 5.5
@@ -31,6 +66,17 @@ models:
   docs:
   - https://media.x.ai/v1/website/card4p7-3a96f40b.pdf
   - https://x.ai/news/grok-4-7
+- id: deepseek-v4-1-flash
+  model: DeepSeek-V4.1-Flash
+  display: DeepSeek-V4.1-Flash
+  company: deepseek
+  company_display: DeepSeek
+  company_category: open_weight_leader
+  release_date: '2026-09-10'
+  release_date_source: derived:min_pub_date
+  citations: 36
+  docs:
+  - https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash
 - id: gpt-6-astra
   model: GPT-6 Astra
   display: GPT-6 Astra
