@@ -62,11 +62,13 @@ def known_urls() -> set[str]:
 
 
 def links_from(page: str, base: str, index_url: str) -> set[str]:
-    """Absolute, same-host links that look like documents (not nav/boilerplate).
-    Heuristic: keep links that share a path segment with the index (e.g. /news/, /model-cards/)."""
+    """Absolute same-host leaf links; the lab's candidate_patterns select documents.
+
+    Launches may sit outside the index path: Anthropic /news links to /claude-…,
+    and OpenAI /news links to /index/introducing-…. Requiring the index path
+    would discard those releases before the configured patterns can see them.
+    """
     host = urllib.parse.urlparse(base).netloc
-    hint = [seg for seg in urllib.parse.urlparse(index_url).path.split("/") if seg]
-    hint = hint[0] if hint else ""
     out = set()
     for m in re.finditer(r'href=["\']([^"\']+)["\']', page, re.I):
         href = html.unescape(m.group(1))
@@ -76,9 +78,8 @@ def links_from(page: str, base: str, index_url: str) -> set[str]:
             continue
         if JUNK.search(absu) or norm_url(absu) == norm_url(index_url):
             continue
-        # must look like a leaf doc: hint segment present AND at least one path segment beyond it
         segs = [s for s in p.path.split("/") if s]
-        if hint and hint in segs and segs[-1] != hint:
+        if segs:
             out.add(norm_url(absu))
     return out
 

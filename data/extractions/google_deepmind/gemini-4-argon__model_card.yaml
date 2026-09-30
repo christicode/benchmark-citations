@@ -1,0 +1,141 @@
+doc: gemini-4-argon__model_card
+mentions:
+- raw: Vals Index
+  value: 68.9
+  unit: percent
+  model_config: Gemini 4 Argon; GDP-weighted finance, coding, legal and tax; sourced
+    from Vals AI
+  methodology:
+  - Highest thinking setting via Gemini API; pass@1 unless otherwise stated.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-argon'
+- raw: AutomationBench
+  value: 51.3
+  unit: percent
+  model_config: Gemini 4 Argon; private set; official Zapier leaderboard
+  methodology:
+  - Highest thinking setting via Gemini API; pass@1 unless otherwise stated.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-argon'
+- raw: Vals Finance Agent v2
+  value: 65.4
+  unit: percent
+  model_config: Gemini 4 Argon; Vals AI
+  methodology:
+  - Highest thinking setting via Gemini API; pass@1 unless otherwise stated.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-argon'
+- raw: Harvey's Legal Agent Benchmark
+  value: 19.6
+  unit: percent
+  model_config: Gemini 4 Argon; Vals AI
+  methodology:
+  - Highest thinking setting via Gemini API; pass@1 unless otherwise stated.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-argon'
+- raw: DeepSWE v1.1
+  value: 77.9
+  unit: percent
+  model_config: Gemini 4 Argon; self-computed; mini-swe-agent harness
+  methodology:
+  - Highest thinking setting via Gemini API; pass@1 unless otherwise stated.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-argon'
+- raw: FrontierSWE v2
+  value: 55.0
+  unit: percent
+  model_config: Gemini 4 Argon; official Proximal leaderboard
+  methodology:
+  - Highest thinking setting via Gemini API; pass@1 unless otherwise stated.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-argon'
+- raw: Vibe Code Bench
+  value: 91.9
+  unit: percent
+  model_config: Gemini 4 Argon; official Vals AI leaderboard
+  methodology:
+  - Highest thinking setting via Gemini API; pass@1 unless otherwise stated.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-argon'
+- raw: Terminal-bench 4.0
+  value: 57.4
+  unit: percent
+  model_config: Gemini 4 Argon; self-computed; highest thinking setting
+  methodology:
+  - Highest thinking setting via Gemini API; pass@1 unless otherwise stated.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-argon'
+- raw: PostTrainBench
+  value: 45.3
+  unit: percent
+  model_config: Gemini 4 Argon; v1.1; OpenCode harness; 10 hours; single NVIDIA H100;
+    weighted aggregate across four base models and seven benchmarks
+  methodology:
+  - Highest thinking setting via Gemini API; pass@1 unless otherwise stated.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-argon'
+- raw: Terminal-Bench Science 0.1
+  value: 57.6
+  unit: percent
+  model_config: Gemini 4 Argon; self-computed; 6x verifier timeout
+  methodology:
+  - Highest thinking setting via Gemini API; pass@1 unless otherwise stated.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-argon'
+- raw: LABBench2
+  value: 88.8
+  unit: percent
+  model_config: Gemini 4 Argon; self-computed; Linux terminal, bioinformatics tools,
+    Python, R and internet
+  methodology:
+  - Highest thinking setting via Gemini API; pass@1 unless otherwise stated.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-argon'
+- raw: RiemannBench
+  value: 76.0
+  unit: percent
+  model_config: Gemini 4 Argon; official Surge leaderboard
+  methodology:
+  - Highest thinking setting via Gemini API; pass@1 unless otherwise stated.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-argon'
+- raw: GraphWalks
+  value: 99.7
+  unit: percent
+  model_config: Gemini 4 Argon; BFS F1; up to 128k; 650 items
+  methodology:
+  - Highest thinking setting via Gemini API; pass@1 unless otherwise stated.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-argon'
+- raw: GraphWalks
+  value: 84.2
+  unit: percent
+  model_config: Gemini 4 Argon; BFS F1; 256k to 1M; 200 items
+  methodology:
+  - Highest thinking setting via Gemini API; pass@1 unless otherwise stated.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-argon'
+- raw: Agent's Last Exam
+  value: 39.5
+  unit: percent
+  model_config: Gemini 4 Argon; binary pass rate; ALE-Claw; five-hour window; safety
+    filters enabled
+  methodology:
+  - Highest thinking setting via Gemini API; pass@1 unless otherwise stated.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-argon'
+- raw: OSWorld-2.0
+  value: 69.2
+  unit: percent
+  model_config: Gemini 4 Argon; offline partial score; maximum over three single-attempt
+    runs; Gemini CUA; parallel batch tool calls; 1080p; 500 steps; official 08.08
+    patch; compaction; screenshot observations; safety-filtered responses empty
+  methodology:
+  - Highest thinking setting via Gemini API; pass@1 unless otherwise stated.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-argon'
+- raw: Chartography
+  value: 71.6
+  unit: percent
+  model_config: Gemini 4 Argon; without tools; official Surge leaderboard
+  methodology:
+  - Highest thinking setting via Gemini API; pass@1 unless otherwise stated.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-argon'
+- raw: LVBench
+  value: 91.7
+  unit: percent
+  model_config: Gemini 4 Argon; self-computed; without tools; video at 1 FPS
+  methodology:
+  - Highest thinking setting via Gemini API; pass@1 unless otherwise stated.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-argon'
+- raw: CWE-bench v1
+  value: 68.0
+  unit: percent
+  model_config: Gemini 4 Argon; official leaderboard; pass@1; ties broken by pass@4
+  methodology:
+  - Highest thinking setting via Gemini API; pass@1 unless otherwise stated.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-argon'

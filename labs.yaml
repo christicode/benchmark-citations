@@ -53,6 +53,7 @@ labs:
       - https://www.anthropic.com/transparency     # system/model cards index
     candidate_patterns:
       - "anthropic\\.com/news/claude-[a-z0-9-]+$"   # model launch blogs (claude-sonnet-5, claude-fable-5-mythos-5)
+      - "anthropic\\.com/claude-(sonnet|opus|haiku|fable|mythos)-[0-9][a-z0-9-]*$"  # root-level launch pages and system-card redirects
     notes: >-
       Model lines observed in-window: Claude Sonnet 4.5/4.6/5, Opus 4.5/4.6/4.7/4.8,
       Haiku 4.5, and the new Mythos-class (Mythos 5 / Fable 5). DISCOVER BY INDEX —
@@ -69,6 +70,7 @@ labs:
     candidate_patterns:
       - "openai\\.com/index/(introducing|previewing)-gpt"   # model launch blogs
       - "openai\\.com/index/gpt-[0-9].*(system-card|sol)"   # system cards
+      - "deploymentsafety\\.openai\\.com/gpt-[0-9][a-z0-9-]*$"  # per-model system-card hub
     notes: >-
       GPT-5 (anchor), 5.1, 5.2, 5.4, 5.5, 5.6 Sol + Codex variants. NOTE: openai.com/news is
       JS-rendered and mostly yields category links; the discoverable posts live under /index/.

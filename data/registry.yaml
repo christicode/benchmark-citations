@@ -575,7 +575,7 @@ benchmarks:
     domain: coding
     display: "Terminal-Bench 1.0, 2.0, 2.1"
     heatmap_group: terminal-bench
-    heatmap_group_display: "Terminal-Bench"
+    heatmap_group_display: "terminal-bench"
     aliases: ["Terminal Bench", "Terminal Bench 2.0-Terminus", "Terminal-Bench", "Terminal-Bench 1.0", "Terminal Bench 1.0", "Terminal-Bench 1", "Terminal Bench 1", "Terminal-Bench 2", "Terminal Bench 2", "Terminal-Bench 2.0", "Terminal Bench 2.0", "Terminal-Bench 2.1", "Terminal Bench 2.1", "Terminal-bench 2.1", "Terminal-Bench v2.1", "Terminal Bench v2.1", "TerminalBench 2.1", "Terminal Bench 2.1 (Terminus)", "Terminal Bench 2.1 Best Harness"]
     collision: "Bucket = Terminal-Bench <= 2.1 (bare/original 'Terminal-Bench' + 1.x + 2.0 + 2.1); the
       display label enumerates the covered versions (1, 2, 2.1) so the row isn't mistaken for only the
@@ -590,7 +590,7 @@ benchmarks:
     domain: coding
     display: "Terminal-Bench 3.0+"
     heatmap_group: terminal-bench
-    heatmap_group_display: "Terminal-Bench"
+    heatmap_group_display: "terminal-bench"
     aliases: ["Terminal-Bench 3", "Terminal-Bench 3.0", "Terminal-Bench v3.0", "Terminal Bench 3.0", "Terminal-bench 3.0", "Terminal Bench v3.0", "Terminal-Bench v3", "TerminalBench 3.0", "TerminalBench 3",
               "Terminal-Bench 3.1", "Terminal Bench 3.1", "Terminal-bench 3.1",
               "Terminal-Bench 4", "Terminal-Bench 4.0", "Terminal Bench 4.0", "Terminal-bench 4.0", "Terminal Bench 4", "Terminal-Bench v4.0", "Terminal Bench v4.0", "Terminal-Bench v4", "TerminalBench 4.0", "TerminalBench 4",
@@ -1827,3 +1827,46 @@ benchmarks:
     - CathedralBench
     notes: 'Grok 4.7 card section 6.4: independent third-party multi-exploit cybersecurity evaluation; reported accuracy
       on hard subset, unrestricted configuration.'
+  - canonical: osworld-2-1
+    type: agentic
+    domain: computer-use
+    display: "OSWorld 2.1"
+    aliases: ["OSWorld 2.1", "OSWorld-2.1"]
+    notes: "Version explicitly named in the Sonnet 5.5 launch table; partial credit. Kept distinct from OSWorld 2.0 and OSWorld-Verified until version equivalence is reviewed."
+  - canonical: vals-index
+    type: agentic
+    domain: knowledge-work
+    aliases:
+    - Vals Index
+    notes: Vals AI composite index; sectors weighted by contribution to US GDP. Gemini
+      4 Argon launch.
+  - canonical: cwe-bench-v1
+    type: agentic
+    domain: cyber
+    aliases:
+    - CWE-bench v1
+    notes: Security vulnerability remediation; pass@1 with pass@4 tie-break. Version
+      1 kept explicit.
+  - canonical: google-real-world-vulnerability-discovery
+    vendor_proprietary: true
+    type: agentic
+    domain: cyber
+    aliases:
+    - Real-world Vulnerability Discovery
+    notes: Google internal historical vulnerability recall across open-source projects
+      in 20 languages. Gemini 4 Argon launch.
+  - canonical: wiz-penetration-test-benchmark
+    vendor_proprietary: true
+    type: agentic
+    domain: cyber
+    aliases:
+    - Wiz Penetration Test Benchmark
+    notes: Wiz internal black-box web application exploitation benchmark; no source
+      code.
+  - canonical: gray-swan-ipi
+    type: agentic
+    domain: cyber
+    aliases:
+    - Gray Swan IPI
+    notes: Indirect prompt injection attack success rate; lower is better. Gemini 4
+      Argon launch reports k=15 attempts.

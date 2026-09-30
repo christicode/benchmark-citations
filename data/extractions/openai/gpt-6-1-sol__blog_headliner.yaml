@@ -1,0 +1,24 @@
+# First-party launch benchmark mentions. Scores remain pending where interactive charts are inaccessible; no secondary-source numbers imported.
+doc: gpt-6-1-sol__blog_headliner
+mentions:
+- raw: DeepSWE v1.1
+  model_config: launch cost/accuracy chart
+  methodology:
+  - No absolute score in accessible first-party text; interactive chart values could
+    not be retrieved.
+- raw: GDP.pdf
+  model_config: launch cost/accuracy chart
+  methodology:
+  - Interactive chart values could not be retrieved.
+- raw: AutomationBench
+  model_config: v1.0.6; medium effort
+  methodology:
+  - Text reports relative improvements only; chart values could not be retrieved.
+- raw: OSWorld 2.0
+  model_config: max effort; partial reward; offline set; v2026.08.08
+  methodology:
+  - Text reports relative improvements only; chart values could not be retrieved.
+- raw: Terminal-Bench Science 0.1
+  model_config: max effort
+  methodology:
+  - Text reports relative improvement only; chart values could not be retrieved.

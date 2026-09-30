@@ -1,0 +1,256 @@
+# Instruct comparison table (rightmost DS-V4.1-Flash column) and scaffold comparison. Base-model scores are excluded; no competitor scores imported.
+doc: deepseek-v4-1-flash__model_card
+mentions:
+- raw: GPQA Diamond
+  value: 90.9
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; pass@1
+  methodology:
+  - temperature=1.0; top_p=0.95.
+- raw: HLE
+  value: 36.8
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; no tools; full multimodal
+    set; pass@1
+  methodology:
+  - temperature=1.0; top_p=0.95.
+- raw: HLE text only
+  value: 39.1
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; no tools; text-only subset;
+    pass@1
+  methodology:
+  - temperature=1.0; top_p=0.95.
+- raw: Codeforces
+  value: 3471
+  unit: elo
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; rating
+  methodology:
+  - temperature=1.0; top_p=0.95.
+- raw: MathArena Apex
+  value: 65.6
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; pass@1
+  methodology:
+  - temperature=1.0; top_p=0.95.
+- raw: Terminal-Bench 2.1
+  value: 90.6
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; DSH Minimal; pass@1; 1M
+    context
+  methodology:
+  - temperature=1.0; top_p=0.95.
+- raw: Terminal-Bench 3.0
+  value: 30.0
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; DSH Minimal; pass@1; 1M
+    context
+  methodology:
+  - temperature=1.0; top_p=0.95.
+- raw: Terminal-Bench 4.0
+  value: 31.2
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; DSH Minimal; pass@1; 1M
+    context
+  methodology:
+  - temperature=1.0; top_p=0.95.
+- raw: DeepSWE v1.1
+  value: 74.2
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; mini-SWE; resolved; 1M
+    context
+  methodology:
+  - temperature=1.0; top_p=0.95.
+- raw: ProgramBench
+  value: 20.3
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; DSH Minimal; Almost@1;
+    1M context
+  methodology:
+  - temperature=1.0; top_p=0.95.
+- raw: NL2Repo-Bench
+  value: 64.0
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; DSH Minimal; score; 1M
+    context
+  methodology:
+  - temperature=1.0; top_p=0.95.
+  - HF card reports 64.0; the September 10 API change log reports 65.4. This record preserves
+    the cited card's value; the discrepancy needs source review.
+- raw: CyberGym
+  value: 88.1
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; pass@1
+  methodology:
+  - temperature=1.0; top_p=0.95.
+- raw: SEC-Bench Pro
+  value: 62.8
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; Claude Code; pass@1
+  methodology:
+  - temperature=1.0; top_p=0.95.
+- raw: ExploitGym
+  value: 15.3
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; pass@1
+  methodology:
+  - temperature=1.0; top_p=0.95.
+- raw: HLE with tools
+  value: 63.9
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; with tools; pass@1
+  methodology:
+  - temperature=1.0; top_p=0.95.
+- raw: AutomationBench
+  value: 54.8
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; official scaffold; pass@1
+  methodology:
+  - temperature=1.0; top_p=0.95.
+- raw: Agent's Last Exam
+  value: 31.8
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; official scaffold; pass@1
+  methodology:
+  - temperature=1.0; top_p=0.95.
+- raw: Chartography
+  value: 78.9
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; Claude Code; with tools;
+    pass@1; 512k context
+  methodology:
+  - temperature=1.0; top_p=0.95.
+- raw: BabyVision
+  value: 89.6
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; Claude Code; with tools;
+    pass@1; 512k context
+  methodology:
+  - temperature=1.0; top_p=0.95.
+- raw: ZeroBench main
+  value: 49.0
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; Claude Code; with tools;
+    pass@5; 512k context
+  methodology:
+  - temperature=1.0; top_p=0.95.
+- raw: DeepSWE v1.1
+  value: 69.8
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; Claude Code; N=8
+  methodology:
+  - 'Scaffold comparison: Linux containers; 1M context; max_steps=500; temperature=1.0;
+    top_p=0.95.'
+- raw: DeepSWE v1.1
+  value: 65.6
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; Codex; N=8
+  methodology:
+  - 'Scaffold comparison: Linux containers; 1M context; max_steps=500; temperature=1.0;
+    top_p=0.95.'
+- raw: DeepSWE v1.1
+  value: 65.5
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; OpenCode; N=8
+  methodology:
+  - 'Scaffold comparison: Linux containers; 1M context; max_steps=500; temperature=1.0;
+    top_p=0.95.'
+- raw: DeepSWE v1.1
+  value: 66.2
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; Pi; N=8
+  methodology:
+  - 'Scaffold comparison: Linux containers; 1M context; max_steps=500; temperature=1.0;
+    top_p=0.95.'
+- raw: DeepSWE v1.1
+  value: 74.2
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; mini-SWE; N=8
+  methodology:
+  - 'Scaffold comparison: Linux containers; 1M context; max_steps=500; temperature=1.0;
+    top_p=0.95.'
+- raw: DeepSWE v1.1
+  value: 72.6
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; DSH Minimal; N=8
+  methodology:
+  - 'Scaffold comparison: Linux containers; 1M context; max_steps=500; temperature=1.0;
+    top_p=0.95.'
+- raw: DeepSWE v1.1
+  value: 70.5
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; DSH Standard; N=8
+  methodology:
+  - 'Scaffold comparison: Linux containers; 1M context; max_steps=500; temperature=1.0;
+    top_p=0.95.'
+- raw: DeepSWE v1.1
+  value: 67.6
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; DSH PTC; N=8
+  methodology:
+  - 'Scaffold comparison: Linux containers; 1M context; max_steps=500; temperature=1.0;
+    top_p=0.95.'
+- raw: Terminal-Bench 2.1
+  value: 88.0
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; Claude Code; N=3
+  methodology:
+  - 'Scaffold comparison: Linux containers; 1M context; max_steps=500; temperature=1.0;
+    top_p=0.95.'
+  - Network disabled.
+- raw: Terminal-Bench 2.1
+  value: 84.1
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; Codex; N=3
+  methodology:
+  - 'Scaffold comparison: Linux containers; 1M context; max_steps=500; temperature=1.0;
+    top_p=0.95.'
+  - Network disabled.
+- raw: Terminal-Bench 2.1
+  value: 85.0
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; OpenCode; N=3
+  methodology:
+  - 'Scaffold comparison: Linux containers; 1M context; max_steps=500; temperature=1.0;
+    top_p=0.95.'
+  - Network disabled.
+- raw: Terminal-Bench 2.1
+  value: 86.1
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; Pi; N=3
+  methodology:
+  - 'Scaffold comparison: Linux containers; 1M context; max_steps=500; temperature=1.0;
+    top_p=0.95.'
+  - Network disabled.
+- raw: Terminal-Bench 2.1
+  value: 90.3
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; mini-SWE; N=3
+  methodology:
+  - 'Scaffold comparison: Linux containers; 1M context; max_steps=500; temperature=1.0;
+    top_p=0.95.'
+  - Network disabled.
+- raw: Terminal-Bench 2.1
+  value: 90.6
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; DSH Minimal; N=3
+  methodology:
+  - 'Scaffold comparison: Linux containers; 1M context; max_steps=500; temperature=1.0;
+    top_p=0.95.'
+  - Network disabled.
+- raw: Terminal-Bench 2.1
+  value: 85.8
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; DSH Standard; N=3
+  methodology:
+  - 'Scaffold comparison: Linux containers; 1M context; max_steps=500; temperature=1.0;
+    top_p=0.95.'
+  - Network disabled.
+- raw: Terminal-Bench 2.1
+  value: 85.8
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash; reasoning_effort=100; DSH PTC; N=3
+  methodology:
+  - 'Scaffold comparison: Linux containers; 1M context; max_steps=500; temperature=1.0;
+    top_p=0.95.'
+  - Network disabled.

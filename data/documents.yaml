@@ -784,3 +784,64 @@ documents:
     pub_date: '2026-09-22'
     notes: Release confirmed by https://learn.chatgpt.com/docs/changelog on 2026-09-22. API model page has no benchmark
       table; awaiting a benchmark-bearing launch post or card. No citation or score inferred from predecessor models.
+
+  # September 30 citation refresh
+  - id: gpt-6-1-sol__blog_headliner
+    lab: openai
+    model: GPT-6.1 Sol
+    container: blog
+    default_weight_class: blog_headliner
+    url: https://openai.com/index/introducing-gpt-6-1-sol/
+    pub_date: '2026-09-29'
+  - id: gpt-6-1-sol__system_card
+    lab: openai
+    model: GPT-6.1 Sol
+    container: pdf
+    default_weight_class: system_card
+    url: https://deploymentsafety.openai.com/gpt-6-1-sol/gpt-6-1-sol.pdf
+    pub_date: '2026-09-29'
+  - id: claude-sonnet-5-5__blog_headliner
+    lab: anthropic
+    model: Claude Sonnet 5.5
+    container: blog
+    default_weight_class: model_card
+    url: https://www.anthropic.com/claude-sonnet-5-5
+    pub_date: '2026-09-28'
+  - id: claude-sonnet-5-5__system_card
+    lab: anthropic
+    model: Claude Sonnet 5.5
+    container: pdf
+    default_weight_class: system_card
+    url: https://www.anthropic.com/claude-sonnet-5-5-system-card
+    pub_date: '2026-09-28'
+    notes: Linked from the launch page; PDF redirect could not be retrieved during the
+      September 30 update. Extraction remains open; no results inferred from other cards.
+  - id: deepseek-v4-1-flash__model_card
+    lab: deepseek
+    model: DeepSeek-V4.1-Flash
+    container: hf_readme
+    default_weight_class: model_card
+    url: https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash
+    pub_date: '2026-09-10'
+    pub_date_source: https://api-docs.deepseek.com/updates/
+    notes: Promoted from the September 29 discovery queue; release date confirmed by
+      the first-party API change log.
+
+  - id: gemini-4-argon__blog_headliner
+    lab: google_deepmind
+    model: Gemini 4 Argon
+    container: blog
+    default_weight_class: model_card
+    url: https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/
+    pub_date: '2026-09-30'
+    notes: 'Benchmark comparison table read from the first-party September 30 launch.
+      Methodology: https://deepmind.google/models/evals-methodology/gemini-4-argon.'
+  - id: gemini-4-argon__model_card
+    lab: google_deepmind
+    model: Gemini 4 Argon
+    container: blog
+    default_weight_class: model_card
+    url: https://deepmind.google/models/gemini/
+    pub_date: '2026-09-30'
+    notes: 'Benchmark comparison table read from the first-party September 30 launch.
+      Methodology: https://deepmind.google/models/evals-methodology/gemini-4-argon.'

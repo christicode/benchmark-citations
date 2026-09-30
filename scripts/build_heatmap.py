@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the benchmark × model HEATMAP — the autobenchmark.ai landing page (docs/index.html).
+"""Build the benchmark × model HEATMAP — the benchmarkbench.ai landing page (docs/index.html).
 
 This replaces the retired tables dashboard. Grid:
   * Y axis = benchmark. Higher = more cumulative points. Points use the SHARED scoring
@@ -171,17 +171,29 @@ def main() -> int:
 PAGE = r"""<!doctype html><html lang=en><head><meta charset=utf-8>
 <meta name=viewport content='width=device-width,initial-scale=1'>
 <title>Benchmark-Bench</title>
+<script>
+(function(){
+  var theme;
+  try { theme=localStorage.getItem('benchmark-theme'); } catch(e) {}
+  if(theme!=='light' && theme!=='dark') theme=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+  document.documentElement.dataset.theme=theme;
+})();
+</script>
 <link rel=preconnect href="https://fonts.googleapis.com">
 <link rel=preconnect href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel=stylesheet>
 <style>
-:root{--bg:#ffffff;--panel:#f6f7f8;--b:#e6e7ea;--fg:#40454e;--emph:#0a0c10;--mut:#969ca6;
+:root{color-scheme:light;--bg:#ffffff;--panel:#f6f7f8;--b:#e6e7ea;--fg:#40454e;--emph:#0a0c10;--mut:#969ca6;
   --accent:#0a0c10;--amber:#d97706;--segon:#eceef1;--seghov:#f4f5f7;
   /* agentic label accent */
   --acc-agentic:#1d4ed8;
   /* GRAYSCALE citation ramp: System card (lightest grey) -> Model card (mid) -> Headliner (near-black) */
   --t1:#d8dbdf;--t2:#8b9198;--t3:#16181d;--empty:#fafbfc;
   --mono:"Google Sans Code",ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace}
+:root[data-theme=dark]{color-scheme:dark;--bg:#111318;--panel:#1d2027;--b:#30343d;
+  --fg:#c3c8d1;--emph:#f0f2f5;--mut:#9aa3b2;--accent:#f0f2f5;--amber:#fbbf24;
+  --segon:#2b3039;--seghov:#22262e;--acc-agentic:#82aaff;
+  --t1:#444b58;--t2:#929baa;--t3:#e1e6ef;--empty:#171a20}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);
   font:14px/1.55 "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
@@ -190,6 +202,10 @@ body{margin:0;background:var(--bg);color:var(--fg);
 .hdr{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;margin:0 0 14px}
 .hdr-tools{display:flex;gap:8px;align-items:center;margin-left:auto}
 .hdr-tools input{width:180px;height:34px}
+.theme-toggle{width:44px;height:44px;flex-shrink:0;padding:0;border:1px solid var(--b);border-radius:0;background:var(--bg);
+  color:var(--emph);font:400 12px/1.55 var(--mono);cursor:pointer}
+.theme-toggle:hover{background:var(--seghov)}
+.theme-toggle:focus-visible{outline:2px solid var(--acc-agentic);outline-offset:2px}
 h1{font-family:var(--mono);font-size:23px;font-weight:700;letter-spacing:-.01em;color:var(--emph);margin:0}
 a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 .bar{display:flex;flex-direction:column;gap:10px;align-items:stretch;margin:0 0 14px;font-family:var(--mono);
@@ -277,6 +293,7 @@ input[type="text"]:focus, input[type="date"]:focus {
   <h1>Benchmark-Bench</h1>
   <div class=hdr-tools>
     <input type=text id=search-input placeholder="Search…" aria-label="Search benchmarks" oninput="setSearch(this.value)">
+    <button type=button class=theme-toggle id=theme-toggle onclick="toggleTheme()" aria-label="Switch to dark mode">Dark</button>
   </div>
 </div>
 
@@ -319,6 +336,26 @@ input[type="text"]:focus, input[type="date"]:focus {
 <div id=tip></div>
 <script>
 var DATA = /*__DATA__*/;
+
+var themeMedia=matchMedia('(prefers-color-scheme: dark)');
+var themeOverride=null;
+try { themeOverride=localStorage.getItem('benchmark-theme'); } catch(e) {}
+if(themeOverride!=='light' && themeOverride!=='dark') themeOverride=null;
+function applyTheme(theme){
+  document.documentElement.dataset.theme=theme;
+  var button=document.getElementById('theme-toggle');
+  button.textContent=theme==='dark'?'Light':'Dark';
+  button.setAttribute('aria-label',theme==='dark'?'Switch to light mode':'Switch to dark mode');
+}
+function toggleTheme(){
+  themeOverride=document.documentElement.dataset.theme==='dark'?'light':'dark';
+  try { localStorage.setItem('benchmark-theme',themeOverride); } catch(e) {}
+  applyTheme(themeOverride);
+}
+themeMedia.addEventListener('change',function(e){
+  if(!themeOverride) applyTheme(e.matches?'dark':'light');
+});
+applyTheme(themeOverride || (themeMedia.matches?'dark':'light'));
 
 var state = {
   ty: 'all',

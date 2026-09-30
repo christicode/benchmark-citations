@@ -1,0 +1,57 @@
+# Launch comparison table plus single-benchmark sections. Competitor columns are not attributed to Sonnet 5.5; effort is only recorded when explicitly reported.
+doc: claude-sonnet-5-5__blog_headliner
+mentions:
+- raw: Terminal-Bench 4.0
+  value: 70.6
+  unit: percent
+  model_config: Claude Sonnet 5.5; launch comparison table
+  weight_class: blog_headliner
+- raw: FrontierCode 1.1 (Main)
+  value: 46.2
+  unit: percent
+  model_config: Claude Sonnet 5.5; max effort
+  methodology:
+  - 'Footnote 2: max effort sometimes triggered extra code-review work, timeouts or
+    out-of-scope edits; retain xhigh and max as separate measurements.'
+  weight_class: blog_headliner
+- raw: FrontierCode 1.1 (Main)
+  value: 52.1
+  unit: percent
+  model_config: Claude Sonnet 5.5; xhigh effort
+  methodology:
+  - 'Footnote 2: max effort sometimes triggered extra code-review work, timeouts or
+    out-of-scope edits; retain xhigh and max as separate measurements.'
+  weight_class: blog_headliner
+- raw: CursorBench 4.0
+  value: 55.5
+  unit: percent
+  model_config: Claude Sonnet 5.5; launch comparison table
+  weight_class: blog_headliner
+- raw: GDPval-AA v2.1
+  value: 1844
+  unit: elo
+  model_config: Claude Sonnet 5.5; Artificial Analysis
+  methodology:
+  - 'Footnote 3: pre-release structured-output bug may slightly understate performance;
+    fixed after evaluation.'
+  weight_class: blog_headliner
+- raw: AA-Briefcase v1.1
+  value: 1811
+  unit: elo
+  model_config: Claude Sonnet 5.5; Artificial Analysis
+  methodology:
+  - 'Footnote 3: pre-release structured-output bug may slightly understate performance;
+    fixed after evaluation.'
+  weight_class: blog_headliner
+- raw: Humanity's Last Exam
+  value: 64.5
+  unit: percent
+  model_config: Claude Sonnet 5.5; with tools
+- raw: OSWorld 2.1
+  value: 80.1
+  unit: percent
+  model_config: Claude Sonnet 5.5; partial credit
+- raw: Chartography
+  value: 61.6
+  unit: percent
+  model_config: Claude Sonnet 5.5; no tools
