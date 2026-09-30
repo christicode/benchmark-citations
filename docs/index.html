@@ -32,8 +32,9 @@ body{margin:0;background:var(--bg);color:var(--fg);
 .hdr{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;margin:0 0 14px}
 .hdr-tools{display:flex;gap:8px;align-items:center;margin-left:auto}
 .hdr-tools input{width:180px;height:38px}
+.hdr-tools input::placeholder{color:var(--mut);opacity:1}
 .theme-toggle{width:38px;height:38px;flex-shrink:0;padding:0;border:1px solid var(--b);border-radius:0;background:var(--bg);
-  color:var(--emph);font:400 12px/1.55 var(--mono);cursor:pointer}
+  color:var(--mut);font:400 12px/1.55 var(--mono);cursor:pointer}
 .theme-toggle:hover{background:var(--seghov)}
 .theme-toggle:focus-visible{outline:2px solid var(--acc-agentic);outline-offset:2px}
 h1{font-family:var(--mono);font-size:23px;font-weight:700;letter-spacing:-.01em;color:var(--emph);margin:0}
