@@ -15,10 +15,9 @@ models:
   company_category: big5
   release_date: '2026-09-30'
   release_date_source: derived:min_pub_date
-  citations: 41
+  citations: 22
   docs:
   - https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/
-  - https://deepmind.google/models/gemini/
 - id: gpt-6-1-sol
   model: GPT-6.1 Sol
   display: GPT-6.1 Sol
