@@ -97,6 +97,24 @@ Action on push to the scripts OR the flat-file inputs (`data/registry.yaml`, `da
 - **Never fabricate** a citation or methodology detail. If a doc is ambiguous or a card is
   image-only, **flag for review** (GitHub issue) — don't guess.
 
+## UI consistency and simplicity
+Consistency is the default; differences need a clear purpose.
+
+- Reuse existing styles and components before introducing new ones.
+- Controls beside each other must share height, alignment, font, text color, border, and
+  spacing unless the user requests a difference. Square buttons match the adjacent control's height.
+- Use shared design tokens for dimensions, colors, typography, and motion. Avoid isolated
+  values for equivalent elements.
+- Theme changes happen instantly across the entire page. Do not animate theme colors.
+- Introduce animation only when it helps explain an interaction. Related elements use one
+  shared duration and easing.
+- Choose the simplest implementation that satisfies the request. Avoid extra options,
+  decorative effects, or special cases.
+- Check every label and state—including "Dark" and "Light"—for fit and consistency.
+- Before publishing UI changes, inspect the affected group in the browser in both themes.
+  Verify rendered dimensions and colors, and test the actual interaction.
+- Keep changes within the requested scope. Report any necessary additional changes explicitly.
+
 ## Writing GitHub issues (review queue) — house style
 Terse, human, actionable — NOT AI-prose. Use these sections in order; omit any that don't
 apply (use judgment). Prefer bullets over paragraphs.
