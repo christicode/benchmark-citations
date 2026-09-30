@@ -77,6 +77,14 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 .sw{display:inline-block;width:12px;height:12px;border:1px solid var(--b);vertical-align:-2px;margin-right:4px;border-radius:3px}
 .model-header{position:sticky;top:0;z-index:6;overflow:hidden;background:var(--bg);border:0}
 .grid-scroll{overflow:auto;border:0;border-radius:0}
+.grid-scroll,.bar .grp{scrollbar-width:thin;scrollbar-color:var(--b) transparent}
+.grid-scroll::-webkit-scrollbar,.bar .grp::-webkit-scrollbar{width:6px;height:6px}
+.grid-scroll::-webkit-scrollbar-track,.bar .grp::-webkit-scrollbar-track{background:transparent}
+.grid-scroll::-webkit-scrollbar-thumb,.bar .grp::-webkit-scrollbar-thumb{background:var(--b);border-radius:3px}
+.grid-scroll::-webkit-scrollbar-thumb:hover,.bar .grp::-webkit-scrollbar-thumb:hover{background:var(--mut)}
+.grid-scroll::-webkit-scrollbar-button,.bar .grp::-webkit-scrollbar-button{display:none;width:0;height:0}
+.grid-scroll::-webkit-scrollbar-corner,.bar .grp::-webkit-scrollbar-corner{background:transparent}
+
 #model-header th.corner{border-right:0}
 tbody td.yl{border-left:1px solid var(--b)}
 .more{margin-left:auto}
