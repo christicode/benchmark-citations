@@ -27,7 +27,7 @@
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);
   font:14px/1.55 "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;transition:background-color 0.2s, color 0.2s}
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
 .wrap{width:100%;margin:0 auto;padding:26px 22px 40px}
 .hdr{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;margin:0 0 14px}
 .hdr-tools{display:flex;gap:8px;align-items:center;margin-left:auto}
@@ -48,7 +48,7 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 /* segmented control (Harbor-Hub style): squared group, hairline dividers, subtle grey active */
 .seg{display:inline-flex;border:1px solid var(--b);border-radius:0;overflow:hidden}
 .chip{font-size:12px;font-weight:400;padding:5px 11px;border:0;border-right:1px solid var(--b);
-  background:transparent;color:var(--mut);cursor:pointer;user-select:none;transition:.12s;white-space:nowrap}
+  background:transparent;color:var(--mut);cursor:pointer;user-select:none;white-space:nowrap}
 .chip:last-child{border-right:0}
 .chip:hover{background:var(--seghov);color:var(--emph)}
 .chip.on{background:var(--segon);color:var(--emph);font-weight:400}
@@ -79,12 +79,12 @@ table.hm{border-collapse:separate;border-spacing:0;margin-right:110px}
 table.hm th,table.hm td{padding:0;margin:0}
 thead{position:sticky;top:0;z-index:3;background:var(--bg)}
 thead th{position:relative;border-bottom:1px solid var(--b)}
-th.mh{height:130px;min-width:28px;vertical-align:bottom;transition:background-color 0.15s}
+th.mh{height:130px;min-width:28px;vertical-align:bottom}
 th.mh.active-col{background:var(--panel)!important}
 th.mh .lab{position:absolute;z-index:1;bottom:12px;left:50%;transform:rotate(-55deg);transform-origin:0 50%;white-space:nowrap;
   font-size:11.5px;font-weight:500;color:var(--emph)}
 td.yl{position:sticky;left:0;z-index:2;background:var(--bg);border-right:1px solid var(--b);
-  padding:0 14px 0 10px;white-space:nowrap;font-size:12.5px;color:var(--emph);border-bottom:1px solid var(--b);transition:background-color 0.15s}
+  padding:0 14px 0 10px;white-space:nowrap;font-size:12.5px;color:var(--emph);border-bottom:1px solid var(--b)}
 td.yl.active-row{background:var(--panel)!important;color:var(--accent)!important}
 td.yl .rank{color:var(--mut);display:inline-block;min-width:22px;margin-right:8px;font-variant-numeric:tabular-nums}
 td.yl .nm{cursor:pointer;font-weight:500;color:var(--emph)}
@@ -113,7 +113,6 @@ input[type="text"], input[type="date"] {
   font-size: 12px;
   background: var(--bg);
   color: var(--fg);
-  transition: border-color 0.12s;
 }
 input[type="text"]:focus, input[type="date"]:focus {
   outline: none;
