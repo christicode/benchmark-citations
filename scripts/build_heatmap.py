@@ -539,7 +539,10 @@ function buildModelHeader(){
   var copy=document.createElement('table');
   copy.className='hm';
   copy.setAttribute('aria-hidden','true');
-  copy.style.width=table.getBoundingClientRect().width+'px';
+  var tableWidth=table.getBoundingClientRect().width;
+  viewport.style.maxWidth=tableWidth+'px';
+  viewport.style.overflow=tableWidth<=document.querySelector('.grid-scroll').clientWidth?'visible':'hidden';
+  copy.style.width=tableWidth+'px';
   copy.style.tableLayout='fixed';
   var cols=document.createElement('colgroup');
   Array.from(head.rows[0].cells).forEach(function(cell){
