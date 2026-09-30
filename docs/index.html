@@ -75,6 +75,7 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 .range-lbl{font-size:11px;color:var(--emph);font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:.01em}
 .legend{color:var(--mut);font-size:12px;margin:12px 2px 0;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .sw{display:inline-block;width:12px;height:12px;border:1px solid var(--b);vertical-align:-2px;margin-right:4px;border-radius:3px}
+.model-header{position:sticky;top:0;z-index:6;overflow:hidden;background:var(--bg);border:1px solid var(--b);border-bottom:0}
 .grid-scroll{overflow:auto;border:1px solid var(--b);border-radius:0}
 .more{margin-left:auto}
 .more button{font-family:var(--mono);font-size:12px;font-weight:400;color:var(--emph);background:var(--bg);border:1px solid var(--b);border-radius:0;padding:7px 12px;cursor:pointer}
@@ -153,8 +154,11 @@ input[type="text"]:focus, input[type="date"]:focus {
   </div>
 </div>
 
-<div class=grid-scroll>
-  <table class=hm id=hm></table>
+<div class=heatmap>
+  <div class=model-header id=model-header></div>
+  <div class=grid-scroll>
+    <table class=hm id=hm></table>
+  </div>
 </div>
 
 <div class=legend>
@@ -338,24 +342,44 @@ function render(){
        '</td></tr></tbody>'];
   }
   t.innerHTML=H.join('');
-  freezeModelHeader();
+  buildModelHeader();
   document.getElementById('more-wrap').hidden=singleCount===0;
   var more=document.getElementById('more-button');
   more.textContent=state.multi?'See more':'Show only 2+ citations';
   more.setAttribute('aria-expanded',String(!state.multi));
 }
 
-// Keep the header at the viewport top while the table scrolls with the page.
-// Translating within the table preserves horizontal alignment and column widths.
-function freezeModelHeader(){
+// Native sticky header outside the horizontally scrolling table.
+function buildModelHeader(){
   var table=document.getElementById('hm'), head=table.tHead;
+  var viewport=document.getElementById('model-header');
+  viewport.replaceChildren();
+  viewport.hidden=!head;
   if(!head) return;
-  var bounds=table.getBoundingClientRect();
-  var offset=Math.max(0,Math.min(-bounds.top,bounds.height-head.offsetHeight));
-  head.style.transform='translateY('+offset+'px)';
+  head.style.opacity='1';
+  var copy=document.createElement('table');
+  copy.className='hm';
+  copy.setAttribute('aria-hidden','true');
+  copy.style.width=table.getBoundingClientRect().width+'px';
+  copy.style.tableLayout='fixed';
+  var cols=document.createElement('colgroup');
+  Array.from(head.rows[0].cells).forEach(function(cell){
+    var col=document.createElement('col');
+    col.style.width=cell.getBoundingClientRect().width+'px';
+    cols.appendChild(col);
+  });
+  copy.appendChild(cols);
+  copy.appendChild(head.cloneNode(true));
+  viewport.appendChild(copy);
+  viewport.style.marginBottom=-head.offsetHeight+'px';
+  head.style.opacity='0';
+  syncModelHeader();
 }
-window.addEventListener('scroll',freezeModelHeader,{passive:true});
-window.addEventListener('resize',freezeModelHeader);
+function syncModelHeader(){
+  document.getElementById('model-header').scrollLeft=document.querySelector('.grid-scroll').scrollLeft;
+}
+document.querySelector('.grid-scroll').addEventListener('scroll',syncModelHeader,{passive:true});
+window.addEventListener('resize',buildModelHeader);
 
 // model header tooltip text
 DATA.models.forEach(function(m){ m.model_title=function(){ return m.display+
