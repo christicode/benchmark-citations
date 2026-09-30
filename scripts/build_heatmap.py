@@ -234,9 +234,13 @@ a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
 .range-input::-moz-range-track{height:14px;background:transparent;border:none}
 .range-input::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;pointer-events:auto;
   width:13px;height:13px;border-radius:50%;background:var(--bg);border:2px solid var(--accent);
-  cursor:ew-resize;box-shadow:0 1px 2px rgba(0,0,0,.18)}
+  cursor:grab;box-shadow:0 1px 2px rgba(0,0,0,.18)}
 .range-input::-moz-range-thumb{pointer-events:auto;width:13px;height:13px;border-radius:50%;
-  background:var(--bg);border:2px solid var(--accent);cursor:ew-resize;box-shadow:0 1px 2px rgba(0,0,0,.18)}
+  background:var(--bg);border:2px solid var(--accent);cursor:grab;box-shadow:0 1px 2px rgba(0,0,0,.18)}
+.range-input::-webkit-slider-thumb:active{cursor:grabbing;box-shadow:0 0 0 5px var(--b)}
+.range-input::-moz-range-thumb:active{cursor:grabbing;box-shadow:0 0 0 5px var(--b)}
+.range-input:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 5px var(--b)}
+.range-input:focus-visible::-moz-range-thumb{box-shadow:0 0 0 5px var(--b)}
 .range-lbl{font-size:11px;color:var(--emph);font-variant-numeric:tabular-nums;white-space:nowrap;letter-spacing:.01em}
 .legend{color:var(--mut);font-size:12px;margin:12px 2px 0;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .sw{display:inline-block;width:12px;height:12px;border:1px solid var(--b);vertical-align:-2px;margin-right:4px;border-radius:3px}
