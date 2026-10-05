@@ -4,9 +4,20 @@ _note: 'MODEL axis for the heatmap. Derived from data/citations.jsonl; release_d
   pub_date (proxy). Override display/release_date in data/models.overrides.yaml. X-axis order: most recent
   on the LEFT; undated models are grouped at the end until a real date is backfilled.'
 schema_version: 1
-count: 67
+count: 68
 undated_needs_backfill: []
 models:
+- id: beam
+  model: Beam
+  display: Beam
+  company: reflection_ai
+  company_display: Reflection AI
+  company_category: open_weight_leader
+  release_date: '2026-10-05'
+  release_date_source: derived:min_pub_date
+  citations: 21
+  docs:
+  - https://reflection.ai/blog/introducing-beam
 - id: kolibri-1
   model: Kolibri-1
   display: Kolibri-1
