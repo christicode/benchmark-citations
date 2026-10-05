@@ -3,6 +3,13 @@
 # unless the mention overrides it (e.g. a solo headline chart -> blog_headliner).
 schema_version: 1
 documents:
+  - id: beam__blog_headliner
+    lab: reflection_ai
+    model: "Beam"
+    container: blog
+    default_weight_class: model_card
+    url: "https://reflection.ai/blog/introducing-beam"
+    pub_date: "2026-10-05"
   - id: inkling__model_card
     lab: thinking_machines
     model: Inkling

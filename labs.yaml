@@ -135,6 +135,16 @@ labs:
     notes: "Grok 4.1 (safety-focused card), 4.1 Fast. Cards lean safety; blogs carry capability evals."
 
   # ---------- Open-weight leaders (HF org listing is the primary discovery feed) ----------
+  - id: reflection_ai
+    display_name: Reflection AI
+    category: open_weight_leader
+    in_scope: true
+    source_index_urls:
+      - https://reflection.ai/blog
+    candidate_patterns:
+      - "reflection\\.ai/blog/introducing-beam"
+    notes: "Beam launched 2026-10-05. Weights, technical report, and model card announced for later October."
+
   - id: deepseek
     display_name: DeepSeek
     category: open_weight_leader

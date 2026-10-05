@@ -1,0 +1,93 @@
+# Source: https://reflection.ai/blog/introducing-beam
+# Reflection AI launch post, 2026-10-05. Scores are provider-reported.
+doc: beam__blog_headliner
+mentions:
+  - raw: "DeepSWE (v1.1)"
+    value: 44.4
+    unit: percent
+
+  - raw: "SWE Bench Pro v2-Hard"
+    value: 77.2
+    unit: percent
+
+  - raw: "SWEBench Pro Public"
+    value: 65.5
+    unit: percent
+    model_config: "SWE Bench Pro v1"
+
+  - raw: "Terminal Bench 2.1"
+    value: 80.1
+    unit: percent
+
+  - raw: "SWE Atlas Codebase QnA"
+    value: 34.6
+    unit: percent
+
+  - raw: "SWEBench Multilingual"
+    value: 78.0
+    unit: percent
+
+  - raw: "SWEBench Verified"
+    value: 80.9
+    unit: percent
+
+  - raw: "AIME 2026"
+    value: 97.8
+    unit: percent
+
+  - raw: "HLE text only"
+    value: 36.2
+    unit: percent
+    model_config: "no tools"
+
+  - raw: "SciCode"
+    value: 49.7
+    unit: percent
+
+  - raw: "CriPT AA"
+    value: 16.3
+    unit: percent
+
+  - raw: "GPQA Diamond"
+    value: 90.5
+    unit: percent
+
+  - raw: "AutomationBench"
+    value: 37.0
+    unit: percent
+    model_config: "public"
+
+  - raw: "MCP Atlas"
+    value: 78.7
+    unit: percent
+
+  - raw: "Tau 3 Banking"
+    value: 38.0
+    unit: percent
+
+  - raw: "BrowseComp w/ ctx management"
+    value: 77.4
+    unit: percent
+    model_config: "context management"
+
+  - raw: "DeepSearchQA"
+    value: 80.1
+    unit: percent
+    model_config: "context management"
+
+  - raw: "AA-LCR"
+    value: 79.3
+    unit: percent
+
+  - raw: "LongBench v2"
+    value: 65.5
+    unit: percent
+
+  - raw: "IFBench"
+    value: 79.7
+    unit: percent
+
+  - raw: "AA Omniscience"
+    value: 13.0
+    unit: score
+    model_config: "index; public split only"
