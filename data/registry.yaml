@@ -153,7 +153,7 @@ benchmarks:
   - canonical: critpt
     type: chat
     domain: science
-    aliases: ["CritPt", "CritPt-Corrected"]
+    aliases: ["CritPt", "CritPt-Corrected", "CriPT AA"]
   - canonical: cursorbench
     type: agentic
     domain: coding
@@ -535,7 +535,7 @@ benchmarks:
   - canonical: swe-bench-multilingual
     type: agentic
     domain: coding
-    aliases: ["SWE-Multilingual", "SWE-bench Multilingual"]
+    aliases: ["SWE-Multilingual", "SWE-bench Multilingual", "SWEBench Multilingual"]
   - canonical: swe-bench-multimodal
     type: agentic
     domain: coding
@@ -544,6 +544,11 @@ benchmarks:
     type: agentic
     domain: coding
     aliases: ["SWE-Bench Pro", "SWE-Pro", "SWE-bench Pro", "SWE-Bench Pro (Public Dataset)", "SWEBench Pro Public"]
+  - canonical: swe-bench-pro-v2-hard
+    type: agentic
+    domain: coding
+    aliases: ["SWE Bench Pro v2-Hard"]
+    notes: "Distinct from SWE Bench Pro v1/Public (swe-bench-pro)."
   - canonical: swe-bench-verified
     type: agentic
     domain: coding

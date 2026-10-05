@@ -6,7 +6,8 @@ Tracks **benchmark citations** across the LLM ecosystem - a heatmap sorted by be
 ## Scope
 - Backfilled to 2025-09, then forward continuously.
 - Labs: Big-5 (Anthropic, OpenAI, Google DeepMind, Meta, xAI) + open-weight leaders
-  (DeepSeek, Qwen, Mistral, Moonshot, Z.ai). Onboard a lab by editing [`labs.yaml`](labs.yaml).
+  (DeepSeek, Qwen, Mistral, Moonshot, Z.ai, Aleph Alpha, Thinking Machines Lab, Poolside,
+  Reflection AI). Onboard a lab by editing [`labs.yaml`](labs.yaml).
 - Sources: primary sources only — release blogs, model cards, system cards. For open-weight
   models the Hugging Face README is accepted.
 
@@ -27,7 +28,7 @@ can carry both a headliner chart **and** a model-card comparison table):
 | class | points | what it is |
 |---|---|---|
 | `blog_headliner` | 3 | a chart or paragraph about a single benchmark in a release blog |
-| `model_card` | 2 | a multi-benchmark comparison table in a standalone card or a table in a blog) |
+| `model_card` | 2 | a multi-benchmark comparison table in a standalone card or a table in a blog |
 | `system_card` | 1 | a reference in the long-form system-card paper |
 
 ## Pipeline
