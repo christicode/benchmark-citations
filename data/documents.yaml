@@ -836,3 +836,11 @@ documents:
     pub_date: '2026-09-30'
     notes: 'Benchmark comparison table read from the first-party September 30 launch.
       Methodology: https://deepmind.google/models/evals-methodology/gemini-4-argon.'
+
+  - id: kolibri-1__model_card
+    lab: aleph_alpha
+    model: Kolibri-1
+    container: hf_readme
+    default_weight_class: model_card
+    url: https://huggingface.co/Aleph-Alpha/Kolibri-1
+    pub_date: '2026-10-03'

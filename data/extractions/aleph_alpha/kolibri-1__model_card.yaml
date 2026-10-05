@@ -1,0 +1,468 @@
+doc: kolibri-1__model_card
+mentions:
+- raw: GPQA Diamond
+  value: 84.3
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; GPQA Diamond (EN)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: GPQA Diamond
+  value: 81.3
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; GPQA Diamond (DE)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: Humanity's Last Exam
+  value: 21.5
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; Humanity's Last Exam (EN)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: Humanity's Last Exam
+  value: 15.9
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; Humanity's Last Exam (DE)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: AA-Omniscience
+  value: 14.8
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; AA-Omniscience Accuracy (public
+    set)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: AA-Omniscience
+  value: -32.8
+  unit: other
+  model_config: Kolibri-1; reasoning effort high; AA-Omniscience Index (public set)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: MMLU-Pro
+  value: 80.0
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; MMLU-Pro CoT (EN)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: AIME 2025
+  value: 96.9
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; AIME 2025 (EN)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: AIME 2025
+  value: 87.5
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; AIME 2025 (DE)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: AIME 2026
+  value: 96.0
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; AIME 2026 (EN)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: AIME 2026
+  value: 90.0
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; AIME 2026 (DE)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: TerminalBench 2.1
+  value: 27.7
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; TerminalBench 2.1
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: Tau2-Bench
+  value: 94.7
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; Tau2-Bench (Telecom)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: Tau2-Bench
+  value: 69.9
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; Tau2-Bench (Retail)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: Tau2-Bench
+  value: 76.7
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; Tau2-Bench (Airline)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: Tau3-Banking
+  value: 38.1
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; Tau3-Bench (Banking)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: BFCL
+  value: 39.8
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; BFCL v3 (multi-turn)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: BFCL
+  value: 61.4
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; BFCL v4 (overall)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: BFCL
+  value: 79.1
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; BFCL v4 (non-live AST)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: BFCL
+  value: 78.9
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; BFCL v4 (live)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: BFCL
+  value: 47.5
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; BFCL v4 (multi-turn)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: BFCL
+  value: 62.8
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; BFCL v4 (memory)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: BFCL
+  value: 62.5
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; BFCL v4 (web search)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: BrowseComp
+  value: 29.4
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; BrowseComp
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: LiveCodeBench
+  value: 85.9
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; LiveCodeBench v6
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: HumanEval Plus
+  value: 92.7
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; HumanEval+
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: SWE-Bench Verified
+  value: 66.4
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; SWE-Bench Verified
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: IFBench
+  value: 78.1
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; IFBench (loose-prompt)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: AA-Omniscience
+  value: 44.0
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; AA-Omniscience Non-Hallucination
+    Rate (1 − Hallucination Rate, public set)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: AA-LCR
+  value: 68.3
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; AA-LCR
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: MMLU-ProX
+  value: 75.5
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; MMLU-ProX CoT (DE)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: Frames
+  value: 71.2
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; FRAMES (<24k)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: Frames
+  value: 73.0
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; FRAMES (>24k)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: SQuAD
+  value: 23.4
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; SQuAD (M/A Grounding Score)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: SQuAD
+  value: 83.4
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; SQuAD (Utility Accuracy)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: RGB
+  value: 51.0
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; RGB Closed-Book
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: RGB
+  value: 85.6
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; RGB Negative (Abstention)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: RGB
+  value: 34.0
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; RGB Fact-Check (Error Correction)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: SealQA
+  value: 80.7
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; SealQA (no distractors, <24k)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: SealQA
+  value: 61.0
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; SealQA (12 distractors, <24k)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: SealQA
+  value: 100.0
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; SealQA (no distractors, >24k)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: SealQA
+  value: 65.1
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; SealQA (12 distractors, >24k)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: MuSiQue
+  value: 77.3
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; MuSiQue (EN)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: Aleph Alpha Honeypot
+  value: 80.8
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; Honeypot
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: Aleph Alpha Agentic Wiki QA
+  value: 69.4
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; Agentic Wiki QA (DE)
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+- raw: Aleph Alpha Semiconductors
+  value: 80.4
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; Semiconductors
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+  - Internal customer-proxy Industry RAG evaluation; not a public standardized benchmark.
+- raw: Aleph Alpha German Public Sector
+  value: 75.0
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; German Public Sector
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+  - Internal customer-proxy Industry RAG evaluation; not a public standardized benchmark.
+- raw: Aleph Alpha Aerospace
+  value: 58.9
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; Aerospace
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+  - Internal customer-proxy Industry RAG evaluation; not a public standardized benchmark.
+- raw: Aleph Alpha Automotive Supplier
+  value: 99.0
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; Automotive Supplier
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+  - Internal customer-proxy Industry RAG evaluation; not a public standardized benchmark.
+- raw: Aleph Alpha Industrial Drive Technology
+  value: 60.0
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; Industrial Drive Technology
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.
+  - Internal customer-proxy Industry RAG evaluation; not a public standardized benchmark.
+- raw: LongBench Pro
+  value: 64.5
+  unit: percent
+  model_config: Kolibri-1; reasoning effort high; LongBench Pro
+  methodology:
+  - Vendor-reported post-training evaluation; eval-framework for most benchmarks,
+    Harbor for TerminalBench and SWE-Bench.
+  - Models use their documented context window and sampling parameters; overlength
+    long-context prompts score 0.

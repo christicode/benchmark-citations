@@ -29,6 +29,13 @@ hf_deny_suffixes: ["-Base", "-base", "Base", "-FP8", "-BF16", "-NVFP4", "-Int4",
                    "-ONNX", "-GGUF", "_gguf", "-Eagle", "-eagle", "-DSpark", "-DSpark", "-hf"]
 
 labs:
+  - id: aleph_alpha
+    display_name: Aleph Alpha
+    category: open_weight_leader
+    in_scope: true
+    source_index_urls: []
+    candidate_patterns: []
+    notes: "Kolibri-1 manually promoted; ongoing discovery is not enabled."
   - id: thinking_machines
     display_name: Thinking Machines Lab
     category: open_weight_leader

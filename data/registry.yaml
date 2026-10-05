@@ -1870,3 +1870,94 @@ benchmarks:
     - Gray Swan IPI
     notes: Indirect prompt injection attack success rate; lower is better. Gemini 4
       Argon launch reports k=15 attempts.
+
+  - canonical: humaneval-plus
+    type: chat
+    domain: coding
+    aliases:
+    - HumanEval Plus
+    - HumanEvalPlus
+    notes: EvalPlus extended HumanEval tests; distinct from HumanEval. Literal HumanEval+
+      normalizes to HumanEval in the existing matcher, so extraction uses HumanEval
+      Plus and preserves the source label in model_config.
+  - canonical: longbench-pro
+    type: chat
+    domain: knowledge
+    aliases:
+    - LongBench Pro
+    notes: Distinct from LongBench v2.
+  - canonical: squad
+    type: chat
+    domain: knowledge
+    aliases:
+    - SQuAD
+    notes: Kolibri reports M/A Grounding Score and Utility Accuracy separately; retain
+      the metric in model_config.
+  - canonical: rgb
+    type: chat
+    domain: knowledge
+    aliases:
+    - RGB
+    notes: Retrieval-Augmented Generation Benchmark; distinct from SUN RGB-D. Closed-book,
+      negative/abstention, and fact-check/error-correction configurations are retained
+      separately.
+  - canonical: sealqa
+    type: chat
+    domain: knowledge
+    aliases:
+    - SealQA
+    notes: Distractor count and context-length split are retained in model_config.
+  - canonical: musique
+    type: agentic
+    domain: knowledge
+    aliases:
+    - MuSiQue
+    notes: Kolibri evaluates MuSiQue under agentic retrieval, not a closed-book setting.
+  - canonical: aleph-alpha-honeypot
+    type: agentic
+    domain: knowledge
+    aliases:
+    - Aleph Alpha Honeypot
+    notes: Vendor-reported agentic-retrieval evaluation in the Kolibri model card.
+  - canonical: aleph-alpha-agentic-wiki-qa
+    type: agentic
+    domain: knowledge
+    aliases:
+    - Aleph Alpha Agentic Wiki QA
+    notes: Vendor-reported German agentic-retrieval evaluation in the Kolibri model
+      card.
+  - canonical: aleph-alpha-semiconductors
+    type: chat
+    domain: professional
+    aliases:
+    - Aleph Alpha Semiconductors
+    notes: Internal customer-proxy Industry RAG evaluation; not a public standardized
+      benchmark.
+  - canonical: aleph-alpha-german-public-sector
+    type: chat
+    domain: professional
+    aliases:
+    - Aleph Alpha German Public Sector
+    notes: Internal customer-proxy Industry RAG evaluation; not a public standardized
+      benchmark.
+  - canonical: aleph-alpha-aerospace
+    type: chat
+    domain: professional
+    aliases:
+    - Aleph Alpha Aerospace
+    notes: Internal customer-proxy Industry RAG evaluation; not a public standardized
+      benchmark.
+  - canonical: aleph-alpha-automotive-supplier
+    type: chat
+    domain: professional
+    aliases:
+    - Aleph Alpha Automotive Supplier
+    notes: Internal customer-proxy Industry RAG evaluation; not a public standardized
+      benchmark.
+  - canonical: aleph-alpha-industrial-drive-technology
+    type: chat
+    domain: professional
+    aliases:
+    - Aleph Alpha Industrial Drive Technology
+    notes: Internal customer-proxy Industry RAG evaluation; not a public standardized
+      benchmark.
