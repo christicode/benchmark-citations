@@ -1,0 +1,278 @@
+doc: beam__model_card
+mentions:
+- raw: DeepSWE v1.1
+  value: 43.3
+  unit: percent
+  model_config: Beam; BF16; DeepSWE v1.1
+- raw: DeepSWE v1.1
+  value: 43.0
+  unit: percent
+  model_config: Beam; FP8; DeepSWE v1.1
+- raw: DeepSWE v1.1
+  value: 42.7
+  unit: percent
+  model_config: Beam; NVFP4; DeepSWE v1.1
+- raw: SWE Bench Pro v2-Hard
+  value: 76.5
+  unit: percent
+  model_config: Beam; BF16; SWE Bench Pro v2-Hard
+- raw: SWE Bench Pro v2-Hard
+  value: 78.4
+  unit: percent
+  model_config: Beam; FP8; SWE Bench Pro v2-Hard
+- raw: SWE Bench Pro v2-Hard
+  value: 78.6
+  unit: percent
+  model_config: Beam; NVFP4; SWE Bench Pro v2-Hard
+- raw: SWE Bench Pro v1
+  value: 66.1
+  unit: percent
+  model_config: Beam; BF16; SWE Bench Pro v1
+- raw: SWE Bench Pro v1
+  value: 65.9
+  unit: percent
+  model_config: Beam; FP8; SWE Bench Pro v1
+- raw: SWE Bench Pro v1
+  value: 65.6
+  unit: percent
+  model_config: Beam; NVFP4; SWE Bench Pro v1
+- raw: Terminal Bench v2.1
+  value: 80.1
+  unit: percent
+  model_config: Beam; BF16; Terminal Bench v2.1
+- raw: Terminal Bench v2.1
+  value: 78.9
+  unit: percent
+  model_config: Beam; FP8; Terminal Bench v2.1
+- raw: Terminal Bench v2.1
+  value: 78.4
+  unit: percent
+  model_config: Beam; NVFP4; Terminal Bench v2.1
+- raw: SWE Atlas Codebase QnA
+  value: 31.8
+  unit: percent
+  model_config: Beam; BF16; SWE Atlas Codebase QnA
+- raw: SWE Atlas Codebase QnA
+  value: 32.2
+  unit: percent
+  model_config: Beam; FP8; SWE Atlas Codebase QnA
+- raw: SWE Atlas Codebase QnA
+  value: 31.4
+  unit: percent
+  model_config: Beam; NVFP4; SWE Atlas Codebase QnA
+- raw: SWEBench Multilingual
+  value: 78.3
+  unit: percent
+  model_config: Beam; BF16; SWEBench Multilingual
+- raw: SWEBench Multilingual
+  value: 78.1
+  unit: percent
+  model_config: Beam; FP8; SWEBench Multilingual
+- raw: SWEBench Multilingual
+  value: 77.5
+  unit: percent
+  model_config: Beam; NVFP4; SWEBench Multilingual
+- raw: SWEBench Verified
+  value: 81.6
+  unit: percent
+  model_config: Beam; BF16; SWEBench Verified
+- raw: SWEBench Verified
+  value: 80.2
+  unit: percent
+  model_config: Beam; FP8; SWEBench Verified
+- raw: SWEBench Verified
+  value: 80.7
+  unit: percent
+  model_config: Beam; NVFP4; SWEBench Verified
+- raw: AIME 2026
+  value: 97.7
+  unit: percent
+  model_config: Beam; BF16; AIME 2026
+- raw: AIME 2026
+  value: 98.0
+  unit: percent
+  model_config: Beam; FP8; AIME 2026
+- raw: AIME 2026
+  value: 97.5
+  unit: percent
+  model_config: Beam; NVFP4; AIME 2026
+- raw: HLE (no tools)
+  value: 36.0
+  unit: percent
+  model_config: Beam; BF16; HLE (no tools)
+- raw: HLE (no tools)
+  value: 36.0
+  unit: percent
+  model_config: Beam; FP8; HLE (no tools)
+- raw: HLE (no tools)
+  value: 34.8
+  unit: percent
+  model_config: Beam; NVFP4; HLE (no tools)
+- raw: HLE (with tools)
+  value: 51.1
+  unit: percent
+  model_config: Beam; BF16; HLE (with tools)
+- raw: HLE (with tools)
+  value: 51.1
+  unit: percent
+  model_config: Beam; FP8; HLE (with tools)
+- raw: HLE (with tools)
+  value: 51.1
+  unit: percent
+  model_config: Beam; NVFP4; HLE (with tools)
+- raw: SciCode
+  value: 49.2
+  unit: percent
+  model_config: Beam; BF16; SciCode
+- raw: SciCode
+  value: 48.3
+  unit: percent
+  model_config: Beam; FP8; SciCode
+- raw: SciCode
+  value: 46.9
+  unit: percent
+  model_config: Beam; NVFP4; SciCode
+- raw: CriPT AA
+  value: 16.3
+  unit: percent
+  model_config: Beam; BF16; CriPT AA
+- raw: CriPT AA
+  value: 17.4
+  unit: percent
+  model_config: Beam; FP8; CriPT AA
+- raw: CriPT AA
+  value: 15.4
+  unit: percent
+  model_config: Beam; NVFP4; CriPT AA
+- raw: GPQA Diamond
+  value: 90.6
+  unit: percent
+  model_config: Beam; BF16; GPQA Diamond
+- raw: GPQA Diamond
+  value: 90.3
+  unit: percent
+  model_config: Beam; FP8; GPQA Diamond
+- raw: GPQA Diamond
+  value: 89.3
+  unit: percent
+  model_config: Beam; NVFP4; GPQA Diamond
+- raw: LiveCodeBench
+  value: 88.3
+  unit: percent
+  model_config: Beam; BF16; LiveCodeBench
+- raw: LiveCodeBench
+  value: 88.1
+  unit: percent
+  model_config: Beam; FP8; LiveCodeBench
+- raw: LiveCodeBench
+  value: 88.3
+  unit: percent
+  model_config: Beam; NVFP4; LiveCodeBench
+- raw: AutomationBench - public split only
+  value: 39.3
+  unit: percent
+  model_config: Beam; BF16; AutomationBench - public split only
+- raw: AutomationBench - public split only
+  value: 38.2
+  unit: percent
+  model_config: Beam; FP8; AutomationBench - public split only
+- raw: AutomationBench - public split only
+  value: 39.8
+  unit: percent
+  model_config: Beam; NVFP4; AutomationBench - public split only
+- raw: MCP Atlas
+  value: 80.8
+  unit: percent
+  model_config: Beam; BF16; MCP Atlas
+- raw: MCP Atlas
+  value: 81.5
+  unit: percent
+  model_config: Beam; FP8; MCP Atlas
+- raw: MCP Atlas
+  value: 80.5
+  unit: percent
+  model_config: Beam; NVFP4; MCP Atlas
+- raw: Tau3 Banking
+  value: 36.1
+  unit: percent
+  model_config: Beam; BF16; Tau3 Banking
+- raw: Tau3 Banking
+  value: 36.8
+  unit: percent
+  model_config: Beam; FP8; Tau3 Banking
+- raw: Tau3 Banking
+  value: 35.4
+  unit: percent
+  model_config: Beam; NVFP4; Tau3 Banking
+- raw: BrowseComp w/ context management
+  value: 76.8
+  unit: percent
+  model_config: Beam; BF16; BrowseComp w/ context management
+- raw: BrowseComp w/ context management
+  value: 76.7
+  unit: percent
+  model_config: Beam; FP8; BrowseComp w/ context management
+- raw: BrowseComp w/ context management
+  value: 75.6
+  unit: percent
+  model_config: Beam; NVFP4; BrowseComp w/ context management
+- raw: DeepSearchQA w/ context management
+  value: 80.5
+  unit: percent
+  model_config: Beam; BF16; DeepSearchQA w/ context management
+- raw: DeepSearchQA w/ context management
+  value: 79.6
+  unit: percent
+  model_config: Beam; FP8; DeepSearchQA w/ context management
+- raw: DeepSearchQA w/ context management
+  value: 81.1
+  unit: percent
+  model_config: Beam; NVFP4; DeepSearchQA w/ context management
+- raw: AA-LCR
+  value: 78.2
+  unit: percent
+  model_config: Beam; BF16; AA-LCR
+- raw: AA-LCR
+  value: 79.4
+  unit: percent
+  model_config: Beam; FP8; AA-LCR
+- raw: AA-LCR
+  value: 78.7
+  unit: percent
+  model_config: Beam; NVFP4; AA-LCR
+- raw: LongBench v2
+  value: 67.5
+  unit: percent
+  model_config: Beam; BF16; LongBench v2
+- raw: LongBench v2
+  value: 67.6
+  unit: percent
+  model_config: Beam; FP8; LongBench v2
+- raw: LongBench v2
+  value: 67.2
+  unit: percent
+  model_config: Beam; NVFP4; LongBench v2
+- raw: IFBench
+  value: 79.6
+  unit: percent
+  model_config: Beam; BF16; IFBench
+- raw: IFBench
+  value: 80.7
+  unit: percent
+  model_config: Beam; FP8; IFBench
+- raw: IFBench
+  value: 79.2
+  unit: percent
+  model_config: Beam; NVFP4; IFBench
+- raw: AA Omniscience (index) - public split only
+  value: 10.8
+  unit: other
+  model_config: Beam; BF16; AA Omniscience (index) - public split only
+- raw: AA Omniscience (index) - public split only
+  value: 8.8
+  unit: other
+  model_config: Beam; FP8; AA Omniscience (index) - public split only
+- raw: AA Omniscience (index) - public split only
+  value: 9.8
+  unit: other
+  model_config: Beam; NVFP4; AA Omniscience (index) - public split only

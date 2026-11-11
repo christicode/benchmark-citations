@@ -1,0 +1,314 @@
+doc: inkling-2-small__model_card
+mentions:
+- raw: AA Index (v5.0)
+  value: 30.6
+  unit: other
+  model_config: Inkling 2 Small; AA Index (v5.0)
+- raw: Vals Index (v2.2)
+  value: 56.1
+  unit: percent
+  model_config: Inkling 2 Small; Vals Index (v2.2)
+- raw: FrontierCode v2.0
+  value: 25.4
+  unit: percent
+  model_config: Inkling 2 Small; FrontierCode v2.0
+- raw: DeepSWE v1.1
+  value: 72.1
+  unit: percent
+  model_config: Inkling 2 Small; DeepSWE v1.1
+- raw: Terminal Bench Science v0.1
+  value: 5.7
+  unit: percent
+  model_config: Inkling 2 Small; Terminal Bench Science v0.1
+- raw: Terminal Bench v4.0
+  value: 13.1
+  unit: percent
+  model_config: Inkling 2 Small; Terminal Bench v4.0
+- raw: 'Terminal Bench 2.1 Inkling 2 Small: Pi harness'
+  value: 85.1
+  unit: percent
+  model_config: 'Inkling 2 Small; Terminal Bench 2.1 Inkling 2 Small: Pi harness'
+- raw: Terminal Bench v2.1 (Terminus)
+  value: 81.3
+  unit: percent
+  model_config: Inkling 2 Small; Terminal Bench v2.1 (Terminus)
+- raw: Vibe Code Bench v1.1
+  value: 81.6
+  unit: percent
+  model_config: Inkling 2 Small; Vibe Code Bench v1.1
+- raw: Sudo L7
+  value: 14.1
+  unit: percent
+  model_config: Inkling 2 Small; Sudo L7
+- raw: SWE-Marathon v1.1
+  value: 38.8
+  unit: percent
+  model_config: Inkling 2 Small; SWE-Marathon v1.1
+- raw: SWEBench Multilingual
+  value: 81.2
+  unit: percent
+  model_config: Inkling 2 Small; SWEBench Multilingual
+- raw: SWEBench Multimodal v2
+  value: 43.1
+  unit: percent
+  model_config: Inkling 2 Small; SWEBench Multimodal v2
+- raw: SWEBench Pro v2 (Hard)
+  value: 86.3
+  unit: percent
+  model_config: Inkling 2 Small; SWEBench Pro v2 (Hard)
+- raw: SWEBench Pro v2 (Full)
+  value: 97.7
+  unit: percent
+  model_config: Inkling 2 Small; SWEBench Pro v2 (Full)
+- raw: SWEBench Verified
+  value: 82.2
+  unit: percent
+  model_config: Inkling 2 Small; SWEBench Verified
+- raw: PostTrainBench v1.2
+  value: 31.9
+  unit: percent
+  model_config: Inkling 2 Small; PostTrainBench v1.2
+- raw: PMPP-Hard AUC (task-hours, 0–10h)
+  value: 494.27
+  unit: other
+  model_config: Inkling 2 Small; PMPP-Hard AUC (task-hours, 0–10h)
+- raw: BioMysteryBench
+  value: 70.0
+  unit: percent
+  model_config: Inkling 2 Small; BioMysteryBench
+- raw: BrowseComp with context management
+  value: 90.2
+  unit: percent
+  model_config: Inkling 2 Small; BrowseComp with context management
+- raw: DeepSearchQA
+  value: 90.9
+  unit: percent
+  model_config: Inkling 2 Small; DeepSearchQA
+- raw: MCP Atlas Full / Public
+  value: 85.4
+  unit: percent
+  model_config: Inkling 2 Small; MCP Atlas Full / Public; Full
+- raw: MCP Atlas Full / Public
+  value: 85.0
+  unit: percent
+  model_config: Inkling 2 Small; MCP Atlas Full / Public; Public
+- raw: AA-Briefcase v1.1
+  value: 1527.0
+  unit: other
+  model_config: Inkling 2 Small; AA-Briefcase v1.1
+- raw: GDPVal-AA v2.1
+  value: 1630.0
+  unit: other
+  model_config: Inkling 2 Small; GDPVal-AA v2.1
+- raw: JobBench
+  value: 70.5
+  unit: percent
+  model_config: Inkling 2 Small; JobBench
+- raw: AutomationBench v1.0.6
+  value: 45.6
+  unit: percent
+  model_config: Inkling 2 Small; AutomationBench v1.0.6
+- raw: EnterpriseOps-Gym
+  value: 46.8
+  unit: percent
+  model_config: Inkling 2 Small; EnterpriseOps-Gym
+- raw: EnterpriseBench-CoreCraft
+  value: 71.8
+  unit: percent
+  model_config: Inkling 2 Small; EnterpriseBench-CoreCraft
+- raw: Tau 3 Banking v1.0.1
+  value: 40.4
+  unit: percent
+  model_config: Inkling 2 Small; Tau 3 Banking v1.0.1
+- raw: Finance Agent v2.1
+  value: 67.5
+  unit: percent
+  model_config: Inkling 2 Small; Finance Agent v2.1
+- raw: Excel Modeling Benchmark v1.1
+  value: 69.5
+  unit: percent
+  model_config: Inkling 2 Small; Excel Modeling Benchmark v1.1
+- raw: Tax Agent Bench
+  value: 65.8
+  unit: percent
+  model_config: Inkling 2 Small; Tax Agent Bench
+- raw: DAYJOB (Finance)
+  value: 14.3
+  unit: percent
+  model_config: Inkling 2 Small; DAYJOB (Finance)
+- raw: Apex-Accounting v1.1 pass@1 / mean score
+  value: 14.5
+  unit: percent
+  model_config: Inkling 2 Small; Apex-Accounting v1.1 pass@1 / mean score; pass@1
+- raw: Apex-Accounting v1.1 pass@1 / mean score
+  value: 62.0
+  unit: percent
+  model_config: Inkling 2 Small; Apex-Accounting v1.1 pass@1 / mean score; mean score
+- raw: Diligence Bench Best harness
+  value: 58.1
+  unit: percent
+  model_config: Inkling 2 Small; Diligence Bench Best harness
+- raw: Harvey LAB v1.1
+  value: 21.7
+  unit: percent
+  model_config: Inkling 2 Small; Harvey LAB v1.1
+- raw: Legal Research Bench
+  value: 46.6
+  unit: percent
+  model_config: Inkling 2 Small; Legal Research Bench
+- raw: DesignArena Web Apps
+  value: 1296.0
+  unit: other
+  model_config: Inkling 2 Small; DesignArena Web Apps
+- raw: DesignArena Website
+  value: 1340.0
+  unit: other
+  model_config: Inkling 2 Small; DesignArena Website
+- raw: DesignArena Game Dev
+  value: 1428.0
+  unit: other
+  model_config: Inkling 2 Small; DesignArena Game Dev
+- raw: DesignArena 3D Design
+  value: 1401.0
+  unit: other
+  model_config: Inkling 2 Small; DesignArena 3D Design
+- raw: Code Arena
+  value: 1653.0
+  unit: other
+  model_config: Inkling 2 Small; Code Arena
+- raw: AA-3D
+  value: 1021.0
+  unit: other
+  model_config: Inkling 2 Small; AA-3D
+- raw: Code2Video-AA
+  value: 1020.0
+  unit: other
+  model_config: Inkling 2 Small; Code2Video-AA
+- raw: PerceptionBench
+  value: 64.7
+  unit: percent
+  model_config: Inkling 2 Small; PerceptionBench
+- raw: ScreenSpot Pro original / with Python
+  value: 83.8
+  unit: percent
+  model_config: Inkling 2 Small; ScreenSpot Pro original / with Python; original
+- raw: ScreenSpot Pro original / with Python
+  value: 91.5
+  unit: percent
+  model_config: Inkling 2 Small; ScreenSpot Pro original / with Python; with Python
+- raw: Humanity’s Sixth Sense
+  value: 33.3
+  unit: percent
+  model_config: Inkling 2 Small; Humanity’s Sixth Sense
+- raw: BabyVision original / with Python
+  value: 68.6
+  unit: percent
+  model_config: Inkling 2 Small; BabyVision original / with Python; original
+- raw: BabyVision original / with Python
+  value: 93.7
+  unit: percent
+  model_config: Inkling 2 Small; BabyVision original / with Python; with Python
+- raw: GDP.pdf
+  value: 25.2
+  unit: percent
+  model_config: Inkling 2 Small; GDP.pdf
+- raw: MMMU Pro (Standard 10)
+  value: 81.6
+  unit: percent
+  model_config: Inkling 2 Small; MMMU Pro (Standard 10)
+- raw: Charxiv RQ original / with Python
+  value: 85.6
+  unit: percent
+  model_config: Inkling 2 Small; Charxiv RQ original / with Python; original
+- raw: Charxiv RQ original / with Python
+  value: 87.7
+  unit: percent
+  model_config: Inkling 2 Small; Charxiv RQ original / with Python; with Python
+- raw: Chartography original / with Python
+  value: 36.7
+  unit: percent
+  model_config: Inkling 2 Small; Chartography original / with Python; original
+- raw: Chartography original / with Python
+  value: 80.4
+  unit: percent
+  model_config: Inkling 2 Small; Chartography original / with Python; with Python
+- raw: MathVision
+  value: 92.8
+  unit: percent
+  model_config: Inkling 2 Small; MathVision
+- raw: SAGE v1.1
+  value: 88.6
+  unit: percent
+  model_config: Inkling 2 Small; SAGE v1.1
+- raw: CritPt v2 Full / Hard
+  value: 55.7
+  unit: percent
+  model_config: Inkling 2 Small; CritPt v2 Full / Hard; Full
+- raw: CritPt v2 Full / Hard
+  value: 35.0
+  unit: percent
+  model_config: Inkling 2 Small; CritPt v2 Full / Hard; Hard
+- raw: HLE-Diamond
+  value: 28.7
+  unit: percent
+  model_config: Inkling 2 Small; HLE-Diamond
+- raw: HLE (text only)
+  value: 44.1
+  unit: percent
+  model_config: Inkling 2 Small; HLE (text only)
+- raw: GPQA Diamond
+  value: 93.0
+  unit: percent
+  model_config: Inkling 2 Small; GPQA Diamond
+- raw: Apex 2025
+  value: 63.5
+  unit: percent
+  model_config: Inkling 2 Small; Apex 2025
+- raw: HMMT Feb 2026
+  value: 95.8
+  unit: percent
+  model_config: Inkling 2 Small; HMMT Feb 2026
+- raw: AA-LCR v1.1
+  value: 83.3
+  unit: percent
+  model_config: Inkling 2 Small; AA-LCR v1.1
+- raw: LongBench v2
+  value: 70.6
+  unit: percent
+  model_config: Inkling 2 Small; LongBench v2
+- raw: AA-Omniscience v1.1 score
+  value: 16.1
+  unit: other
+  model_config: Inkling 2 Small; AA-Omniscience v1.1 score
+- raw: AA-Omniscience v1.1 non-hallucination rate
+  value: 73.3
+  unit: percent
+  model_config: Inkling 2 Small; AA-Omniscience v1.1 non-hallucination rate
+- raw: ComplexConstraints v1.0
+  value: 44.5
+  unit: percent
+  model_config: Inkling 2 Small; ComplexConstraints v1.0
+- raw: DistressBench
+  value: 82.0
+  unit: percent
+  model_config: Inkling 2 Small; DistressBench
+- raw: FORTRESS (adversarial)
+  value: 83.8
+  unit: percent
+  model_config: Inkling 2 Small; FORTRESS (adversarial)
+- raw: FORTRESS (benign)
+  value: 79.7
+  unit: percent
+  model_config: Inkling 2 Small; FORTRESS (benign)
+- raw: StrongREJECT (none)
+  value: 97.1
+  unit: percent
+  model_config: Inkling 2 Small; StrongREJECT (none)
+- raw: CyberBench v1.1
+  value: 72.7
+  unit: percent
+  model_config: Inkling 2 Small; CyberBench v1.1
+- raw: PatchEval
+  value: 79.6
+  unit: percent
+  model_config: Inkling 2 Small; PatchEval

@@ -1,0 +1,58 @@
+doc: gpt-6-cyber__system_card
+mentions:
+- raw: CyScenarioBench
+  value: 61
+  unit: percent
+  model_config: GPT-6 Cyber; average success rate; updated tasks; 11/11 solved at least once
+- raw: FrontierCyber
+  value: 90
+  unit: other
+  model_config: GPT-6 Cyber; 90 of 288 tasks solved; updated tasks; count
+- raw: Atomic Challenges
+  value: 97
+  unit: percent
+  model_config: GPT-6 Cyber; vulnerability research and exploitation; average success rate
+- raw: Atomic Challenges
+  value: 98
+  unit: percent
+  model_config: GPT-6 Cyber; network attack simulation; average success rate
+- raw: Atomic Challenges
+  value: 63
+  unit: percent
+  model_config: GPT-6 Cyber; evasion; average success rate
+- raw: ProtocolQA
+  value: 47.2
+  unit: percent
+  model_config: GPT-6 Cyber; standard scoring
+- raw: ProtocolQA
+  value: 50.9
+  unit: percent
+  model_config: GPT-6 Cyber; refusals and safe completions counted correct
+- raw: ExploitBench
+  value: 100
+  unit: percent
+  model_config: GPT-6 Cyber; ACE-normalized mean capability; historical CVEs; potential contamination
+- raw: ExploitBench - Internal Port
+  value: 42
+  unit: percent
+  model_config: GPT-6 Cyber; June–August 2026; mean ACE success rate across V8 and Chrome
+- raw: SEC-Bench Pro
+  value: 87.02
+  unit: percent
+  model_config: GPT-6 Cyber; pass@1
+- raw: SRE-Bench
+  value: 92.84
+  unit: percent
+  model_config: GPT-6 Cyber; pass@1; all six objectives required
+- raw: ExploitGym
+  value: 48.45
+  unit: percent
+  model_config: GPT-6 Cyber; intended vulnerability success rate
+- raw: ExploitGym Hardened
+  value: 36.94
+  unit: percent
+  model_config: GPT-6 Cyber; intended vulnerability success rate; stronger exploit mitigations
+- raw: Expert-SWE
+  value: 82.95
+  unit: percent
+  model_config: GPT-6 Cyber; internal long-horizon software-engineering evaluation

@@ -1,0 +1,22 @@
+doc: mistral-large-4-oss__blog_headliner
+mentions:
+- raw: FrontierCode 2.0
+  value: 19.7
+  unit: percent
+  model_config: Mistral Large 4; Cognition private benchmark
+  weight_class: blog_headliner
+- raw: Artificial Analysis Coding Agent Index
+  value: 48
+  unit: percent
+  model_config: Mistral Large 4; Artificial Analysis
+  weight_class: blog_headliner
+- raw: Terminal-Bench 4.0
+  value: 41
+  unit: percent
+  model_config: Mistral Large 4; open-weight release; 13-point improvement over preview
+  weight_class: blog_headliner
+- raw: Artificial Analysis Cyber Index
+  value: 51
+  unit: percent
+  model_config: Mistral Large 4; defensive security; vulnerability discovery, reproduction and patching
+  weight_class: blog_headliner

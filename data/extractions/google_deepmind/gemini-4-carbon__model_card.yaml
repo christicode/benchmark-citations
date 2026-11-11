@@ -1,0 +1,121 @@
+doc: gemini-4-carbon__model_card
+mentions:
+- raw: AA Index v5.0
+  value: 59.0
+  unit: other
+  model_config: 'Gemini 4 Carbon; highest thinking; AA Index v5.0; '
+  methodology:
+  - Pass@1 unless stated otherwise.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-carbon'
+- raw: Vals Index v2.2
+  value: 70.4
+  unit: percent
+  model_config: 'Gemini 4 Carbon; highest thinking; Vals Index v2.2; '
+  methodology:
+  - Pass@1 unless stated otherwise.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-carbon'
+- raw: SWE-sweep
+  value: 9.6
+  unit: percent
+  model_config: 'Gemini 4 Carbon; highest thinking; SWE-sweep; '
+  methodology:
+  - Pass@1 unless stated otherwise.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-carbon'
+- raw: FrontierSWE 2
+  value: 61.2
+  unit: percent
+  model_config: 'Gemini 4 Carbon; highest thinking; FrontierSWE 2; '
+  methodology:
+  - Pass@1 unless stated otherwise.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-carbon'
+- raw: Terminal-Bench 4.0 (AA)
+  value: 65.2
+  unit: percent
+  model_config: 'Gemini 4 Carbon; highest thinking; Terminal-Bench 4.0 (AA); '
+  methodology:
+  - Pass@1 unless stated otherwise.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-carbon'
+- raw: Agents' Last Exam v1.1
+  value: 77.4
+  unit: percent
+  model_config: Gemini 4 Carbon; highest thinking; Agents' Last Exam v1.1; Score
+  methodology:
+  - Pass@1 unless stated otherwise.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-carbon'
+- raw: OSWorld-2.1
+  value: 81.5
+  unit: percent
+  model_config: Gemini 4 Carbon; highest thinking; OSWorld-2.1; Offline subset
+  methodology:
+  - Pass@1 unless stated otherwise.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-carbon'
+- raw: AutomationBench
+  value: 53.9
+  unit: percent
+  model_config: Gemini 4 Carbon; highest thinking; AutomationBench; Zapier
+  methodology:
+  - Pass@1 unless stated otherwise.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-carbon'
+- raw: Vending-Bench 2
+  value: 16484.0
+  unit: usd
+  model_config: Gemini 4 Carbon; highest thinking; Vending-Bench 2; Bank balance ($)
+  methodology:
+  - Pass@1 unless stated otherwise.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-carbon'
+- raw: Chartography
+  value: 72.5
+  unit: percent
+  model_config: 'Gemini 4 Carbon; highest thinking; Chartography; '
+  methodology:
+  - Pass@1 unless stated otherwise.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-carbon'
+- raw: Blueprint-Bench 2
+  value: 58.6
+  unit: percent
+  model_config: Gemini 4 Carbon; highest thinking; Blueprint-Bench 2; Similarity score
+  methodology:
+  - Pass@1 unless stated otherwise.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-carbon'
+- raw: GraphWalks
+  value: 96.2
+  unit: percent
+  model_config: Gemini 4 Carbon; highest thinking; GraphWalks; 256k to 1M, BFS (F1)
+  methodology:
+  - Pass@1 unless stated otherwise.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-carbon'
+- raw: RiemannBench
+  value: 72.0
+  unit: percent
+  model_config: 'Gemini 4 Carbon; highest thinking; RiemannBench; '
+  methodology:
+  - Pass@1 unless stated otherwise.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-carbon'
+- raw: Terminal-Bench-Science 0.1 (AA)
+  value: 64.8
+  unit: percent
+  model_config: 'Gemini 4 Carbon; highest thinking; Terminal-Bench-Science 0.1 (AA); '
+  methodology:
+  - Pass@1 unless stated otherwise.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-carbon'
+- raw: CWE-bench
+  value: 71.0
+  unit: percent
+  model_config: 'Gemini 4 Carbon; highest thinking; CWE-bench; '
+  methodology:
+  - Pass@1 unless stated otherwise.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-carbon'
+- raw: ExploitGym
+  value: 54.8
+  unit: percent
+  model_config: 'Gemini 4 Carbon; highest thinking; ExploitGym; '
+  methodology:
+  - Pass@1 unless stated otherwise.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-carbon'
+- raw: SEC-bench Pro
+  value: 88.2
+  unit: percent
+  model_config: 'Gemini 4 Carbon; highest thinking; SEC-bench Pro; '
+  methodology:
+  - Pass@1 unless stated otherwise.
+  - 'Methodology: https://deepmind.google/models/evals-methodology/gemini-4-carbon'

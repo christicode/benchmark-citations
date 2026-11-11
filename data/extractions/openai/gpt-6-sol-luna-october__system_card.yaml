@@ -1,0 +1,164 @@
+doc: gpt-6-sol-luna-october__system_card
+mentions:
+- raw: HealthBench Professional
+  value: 55.2
+  unit: percent
+  model_config: 'GPT-6 Sol; October 7 update; HealthBench Professional; length-adjusted score; unadjusted
+    score and length: 55.2 (62.2, 4,360)'
+  model: GPT-6 Sol
+- raw: HealthBench Professional
+  value: 48.2
+  unit: percent
+  model_config: 'GPT-6 Luna; October 7 update; HealthBench Professional; length-adjusted score; unadjusted
+    score and length: 48.2 (57.8, 5,289)'
+  model: GPT-6 Luna
+- raw: HealthBench
+  value: 52.1
+  unit: percent
+  model_config: 'GPT-6 Sol; October 7 update; HealthBench; length-adjusted score; unadjusted score and
+    length: 52.1 (55.7, 2,602)'
+  model: GPT-6 Sol
+- raw: HealthBench
+  value: 50.4
+  unit: percent
+  model_config: 'GPT-6 Luna; October 7 update; HealthBench; length-adjusted score; unadjusted score and
+    length: 50.4 (58.5, 3,361)'
+  model: GPT-6 Luna
+- raw: HealthBench Hard
+  value: 27.8
+  unit: percent
+  model_config: 'GPT-6 Sol; October 7 update; HealthBench Hard; length-adjusted score; unadjusted score
+    and length: 27.8 (30.9, 2,396)'
+  model: GPT-6 Sol
+- raw: HealthBench Hard
+  value: 27.2
+  unit: percent
+  model_config: 'GPT-6 Luna; October 7 update; HealthBench Hard; length-adjusted score; unadjusted score
+    and length: 27.2 (36.1, 3,134)'
+  model: GPT-6 Luna
+- raw: HealthBench Consensus
+  value: 93.8
+  unit: percent
+  model_config: 'GPT-6 Sol; October 7 update; HealthBench Consensus; length-adjusted score; unadjusted
+    score and length: 93.8 (94.0, 2,608)'
+  model: GPT-6 Sol
+- raw: HealthBench Consensus
+  value: 95.0
+  unit: percent
+  model_config: 'GPT-6 Luna; October 7 update; HealthBench Consensus; length-adjusted score; unadjusted
+    score and length: 95.0 (95.5, 3,343)'
+  model: GPT-6 Luna
+- raw: MentalHealthBench (overall)
+  value: 48.81
+  unit: percent
+  model_config: GPT-6 Sol; October 7 update; MentalHealthBench (overall)
+  model: GPT-6 Sol
+- raw: MentalHealthBench (overall)
+  value: 51.73
+  unit: percent
+  model_config: GPT-6 Luna; October 7 update; MentalHealthBench (overall)
+  model: GPT-6 Luna
+- raw: MentalHealthBench (non-acute)
+  value: 47.62
+  unit: percent
+  model_config: GPT-6 Sol; October 7 update; MentalHealthBench (non-acute)
+  model: GPT-6 Sol
+- raw: MentalHealthBench (non-acute)
+  value: 51.68
+  unit: percent
+  model_config: GPT-6 Luna; October 7 update; MentalHealthBench (non-acute)
+  model: GPT-6 Luna
+- raw: MentalHealthBench (high acuity)
+  value: 53.7
+  unit: percent
+  model_config: GPT-6 Sol; October 7 update; MentalHealthBench (high acuity)
+  model: GPT-6 Sol
+- raw: MentalHealthBench (high acuity)
+  value: 56.15
+  unit: percent
+  model_config: GPT-6 Luna; October 7 update; MentalHealthBench (high acuity)
+  model: GPT-6 Luna
+- raw: MentalHealthBench (emergent)
+  value: 47.92
+  unit: percent
+  model_config: GPT-6 Sol; October 7 update; MentalHealthBench (emergent)
+  model: GPT-6 Sol
+- raw: MentalHealthBench (emergent)
+  value: 48.98
+  unit: percent
+  model_config: GPT-6 Luna; October 7 update; MentalHealthBench (emergent)
+  model: GPT-6 Luna
+- raw: Multimodal Troubleshooting Virology
+  value: 51.68
+  unit: percent
+  model_config: GPT-6 Sol; October 7 update; Multimodal Troubleshooting Virology; pass@1
+  model: GPT-6 Sol
+- raw: Multimodal Troubleshooting Virology
+  value: 48.13
+  unit: percent
+  model_config: GPT-6 Luna; October 7 update; Multimodal Troubleshooting Virology; pass@1
+  model: GPT-6 Luna
+- raw: ProtocolQA Open-Ended
+  value: 25.62
+  unit: percent
+  model_config: GPT-6 Sol; October 7 update; ProtocolQA Open-Ended; pass@1
+  model: GPT-6 Sol
+- raw: ProtocolQA Open-Ended
+  value: 34.57
+  unit: percent
+  model_config: GPT-6 Luna; October 7 update; ProtocolQA Open-Ended; pass@1
+  model: GPT-6 Luna
+- raw: Tacit Knowledge and Troubleshooting
+  value: 72.45
+  unit: percent
+  model_config: GPT-6 Sol; October 7 update; Tacit Knowledge and Troubleshooting; cons@32
+  model: GPT-6 Sol
+- raw: Tacit Knowledge and Troubleshooting
+  value: 94.0
+  unit: percent
+  model_config: GPT-6 Luna; October 7 update; Tacit Knowledge and Troubleshooting; cons@32
+  model: GPT-6 Luna
+- raw: TroubleshootingBench
+  value: 41.83
+  unit: percent
+  model_config: GPT-6 Sol; October 7 update; TroubleshootingBench; pass@1
+  model: GPT-6 Sol
+- raw: TroubleshootingBench
+  value: 41.46
+  unit: percent
+  model_config: GPT-6 Luna; October 7 update; TroubleshootingBench; pass@1
+  model: GPT-6 Luna
+- raw: SHP2 Protein Function Prediction
+  value: 0.23
+  unit: other
+  model_config: GPT-6 Sol; October 7 update; SHP2 Protein Function Prediction; Mean R² (higher is better)
+  model: GPT-6 Sol
+- raw: SHP2 Protein Function Prediction
+  value: 0.13
+  unit: other
+  model_config: GPT-6 Luna; October 7 update; SHP2 Protein Function Prediction; Mean R² (higher is better)
+  model: GPT-6 Luna
+- raw: Coronavirus--ACE2 Cell-Entry Screen
+  value: 0.349
+  unit: other
+  model_config: GPT-6 Sol; October 7 update; Coronavirus--ACE2 Cell-Entry Screen; Composite score (higher
+    is better)
+  model: GPT-6 Sol
+- raw: Coronavirus--ACE2 Cell-Entry Screen
+  value: 0.36
+  unit: other
+  model_config: GPT-6 Luna; October 7 update; Coronavirus--ACE2 Cell-Entry Screen; Composite score (higher
+    is better)
+  model: GPT-6 Luna
+- raw: Phage--plasmid Co-evolution
+  value: 12.95
+  unit: other
+  model_config: GPT-6 Sol; October 7 update; Phage--plasmid Co-evolution; Negative log-likelihood (lower
+    is better)
+  model: GPT-6 Sol
+- raw: Phage--plasmid Co-evolution
+  value: 10.7
+  unit: other
+  model_config: GPT-6 Luna; October 7 update; Phage--plasmid Co-evolution; Negative log-likelihood (lower
+    is better)
+  model: GPT-6 Luna

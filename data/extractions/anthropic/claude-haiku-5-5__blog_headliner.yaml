@@ -1,0 +1,39 @@
+doc: claude-haiku-5-5__blog_headliner
+mentions:
+- raw: GDPval-AA v2.1
+  value: 1620
+  unit: other
+  model_config: Haiku 5.5; Elo
+  weight_class: blog_headliner
+- raw: AA-Briefcase v1.1
+  value: 1578
+  unit: other
+  model_config: Haiku 5.5; Elo
+- raw: OSWorld 2.1
+  value: 72.4
+  unit: percent
+  model_config: Haiku 5.5; offline subset
+  weight_class: blog_headliner
+- raw: HLE
+  value: 45.9
+  unit: percent
+  model_config: Haiku 5.5; no tools
+  weight_class: blog_headliner
+- raw: HLE
+  value: 57.4
+  unit: percent
+  model_config: Haiku 5.5; with tools
+  weight_class: blog_headliner
+- raw: Terminal-Bench 4.0
+  value: 39.2
+  unit: percent
+  model_config: Haiku 5.5; Claude Code --bare; max effort; safeguards enabled; no fallback; no internet
+    egress; 10 trials per task
+- raw: FrontierCode 1.1 (Main)
+  value: 46.4
+  unit: percent
+  model_config: Haiku 5.5; max effort; Claude Code
+- raw: Chartography
+  value: 46.4
+  unit: percent
+  model_config: Haiku 5.5; no tools

@@ -1,0 +1,126 @@
+doc: claude-fable-5-2-mythos-5-2__system_card
+mentions:
+- raw: FrontierCode 2.0
+  value: 49.1
+  unit: percent
+  model_config: Fable 5.2; xhigh effort; Claude Code
+  weight_class: model_card
+- raw: FrontierSWE v2
+  value: 69.9
+  unit: percent
+  model_config: Fable 5.2
+  weight_class: model_card
+- raw: AutomationBench
+  value: 51.4
+  unit: percent
+  model_config: Fable 5.2
+  weight_class: model_card
+- raw: Terminal-Bench-Science 0.1
+  value: 74.6
+  unit: percent
+  model_config: Fable 5.2; safeguards on
+- raw: Terminal-Bench-Science 0.1
+  value: 75.3
+  unit: percent
+  model_config: Mythos 5.2
+- raw: CyScenarioBench
+  value: 76.3
+  unit: percent
+  model_config: Mythos 5.2; lab-specific tasks; not directly comparable across labs
+- raw: CVE Rediscovery
+  value: 89.6
+  unit: percent
+  model_config: Mythos 5.2; no safeguards
+  weight_class: model_card
+- raw: De novo binder design
+  value: 85.1
+  unit: other
+  model_config: Mythos 5.2; 24-hour setting; no safeguards
+  weight_class: model_card
+- raw: WANDR
+  value: 82.1
+  unit: percent
+  model_config: Fable 5.2; relaxed score
+  weight_class: model_card
+- raw: OSWorld 2.1
+  value: 89.3
+  unit: percent
+  model_config: Fable 5.2; offline set; partial score
+  weight_class: model_card
+- raw: RoboDojo Sim
+  value: 64.9
+  unit: percent
+  model_config: Fable 5.2; internal run; highest available effort
+- raw: AA-Briefcase v1.1
+  value: 66.1
+  unit: percent
+  model_config: Fable 5.2; rubric score
+  weight_class: model_card
+- raw: AA-Briefcase v1.1
+  value: 1785
+  unit: other
+  model_config: Fable 5.2; Elo
+  weight_class: model_card
+- raw: Remote Labor Index
+  value: 41.3
+  unit: percent
+  model_config: Fable 5.2; high effort
+  weight_class: model_card
+- raw: HLE
+  value: 74.2
+  unit: percent
+  model_config: Fable 5.2; with tools
+  weight_class: model_card
+- raw: Chartography
+  value: 73.4
+  unit: percent
+  model_config: Fable 5.2; no tools
+  weight_class: model_card
+- raw: HLE
+  value: 73.2
+  unit: percent
+  model_config: Fable 5.2; no tools
+  weight_class: model_card
+- raw: GDPval-AA v2.1
+  value: 1831
+  unit: other
+  model_config: Fable 5.2; Elo
+  weight_class: model_card
+- raw: Chartography
+  value: 91.6
+  unit: percent
+  model_config: Fable 5.2; with tools
+  weight_class: model_card
+- raw: SWE-bench Pro
+  value: 93.0
+  unit: percent
+  model_config: Fable 5.2; five trials
+  weight_class: model_card
+- raw: SWE-bench Multilingual
+  value: 96.6
+  unit: percent
+  model_config: Fable 5.2; five trials
+  weight_class: model_card
+- raw: SWE-bench Multimodal
+  value: 74.1
+  unit: percent
+  model_config: Fable 5.2; five trials
+  weight_class: model_card
+- raw: DeepSWE v1.1
+  value: 74.3
+  unit: percent
+  model_config: Fable 5.2; five trials
+- raw: Terminal-Bench 4.0
+  value: 67.6
+  unit: percent
+  model_config: Fable 5.2; safeguards enabled; server-side fallback; no internet; frozen search index;
+    Claude Code --bare; max effort; ten trials per task
+- raw: Terminal-Bench 4.0
+  value: 70.5
+  unit: percent
+  model_config: Mythos 5.2; no safeguards; Claude Code --bare; max effort; ten trials per task
+- raw: CursorBench 4.0
+  value: 60.0
+  unit: percent
+  model_config: Fable 5.2; max effort; Cursor production agent harness; updated prompts and harness may
+    affect comparability

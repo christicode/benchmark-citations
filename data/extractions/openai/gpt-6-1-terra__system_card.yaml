@@ -1,0 +1,87 @@
+doc: gpt-6-1-terra__system_card
+mentions:
+- raw: HealthBench Professional length-adjusted
+  value: 62.7
+  unit: percent
+  model_config: 'GPT-6.1 Terra; HealthBench Professional length-adjusted; length-adjusted score; unadjusted
+    score and length in parentheses: 62.7 (64.2, 2531)'
+- raw: HealthBench length-adjusted
+  value: 55.1
+  unit: percent
+  model_config: 'GPT-6.1 Terra; HealthBench length-adjusted; length-adjusted score; unadjusted score and
+    length in parentheses: 55.1 (51.1, 1331)'
+- raw: HealthBench Hard length-adjusted
+  value: 31.4
+  unit: percent
+  model_config: 'GPT-6.1 Terra; HealthBench Hard length-adjusted; length-adjusted score; unadjusted score
+    and length in parentheses: 31.4 (26.0, 1306)'
+- raw: HealthBench Consensus length-adjusted
+  value: 95.1
+  unit: percent
+  model_config: 'GPT-6.1 Terra; HealthBench Consensus length-adjusted; length-adjusted score; unadjusted
+    score and length in parentheses: 95.1 (94.8, 1312)'
+- raw: MentalHealthBench (overall)
+  value: 55.5
+  unit: percent
+  model_config: GPT-6.1 Terra; MentalHealthBench (overall); mean score; uncertainty as reported in source
+    table
+- raw: MentalHealthBench (non-acute)
+  value: 56.5
+  unit: percent
+  model_config: GPT-6.1 Terra; MentalHealthBench (non-acute); mean score; uncertainty as reported in source
+    table
+- raw: MentalHealthBench (high acuity)
+  value: 56.5
+  unit: percent
+  model_config: GPT-6.1 Terra; MentalHealthBench (high acuity); mean score; uncertainty as reported in
+    source table
+- raw: MentalHealthBench (emergent)
+  value: 52.9
+  unit: percent
+  model_config: GPT-6.1 Terra; MentalHealthBench (emergent); mean score; uncertainty as reported in source
+    table
+- raw: Multimodal Troubleshooting Virology
+  value: 52.54
+  unit: percent
+  model_config: GPT-6.1 Terra; Multimodal Troubleshooting Virology
+- raw: AAV Capsid Packaging Prediction
+  value: 0.5285
+  unit: other
+  model_config: GPT-6.1 Terra; AAV Capsid Packaging Prediction; Spearman rank correlation (higher is better)
+- raw: SHP2 Protein Function Prediction
+  value: 0.3696
+  unit: other
+  model_config: GPT-6.1 Terra; SHP2 Protein Function Prediction; Mean R² (higher is better)
+- raw: Coronavirus--ACE2 Cell-Entry Screen
+  value: 0.4741
+  unit: other
+  model_config: GPT-6.1 Terra; Coronavirus--ACE2 Cell-Entry Screen; Composite score (higher is better)
+- raw: Phage--plasmid Co-evolution
+  value: 10.8229
+  unit: other
+  model_config: GPT-6.1 Terra; Phage--plasmid Co-evolution; Negative log-likelihood (lower is better)
+- raw: ExploitBench
+  value: 97.1
+  unit: percent
+  model_config: GPT-6.1 Terra; max tested solution length; ACE-normalized mean capability; historical
+    CVEs; potential contamination
+- raw: ExploitBench - Internal Port
+  value: 24.5
+  unit: percent
+  model_config: GPT-6.1 Terra; max tested solution length; June–August 2026; ACE success rate
+- raw: SEC-Bench Pro
+  value: 83.33
+  unit: percent
+  model_config: GPT-6.1 Terra; max tested solution length; pass@1
+- raw: Sandbox Bench
+  value: 22.7
+  unit: percent
+  model_config: GPT-6.1 Terra; max tested solution length; 5 of 22 targets
+- raw: Internal Research Debugging
+  value: 76.39
+  unit: percent
+  model_config: GPT-6.1 Terra; max tested solution length; mean rubric score
+- raw: KernelGen 1P
+  value: 45.34
+  unit: percent
+  model_config: GPT-6.1 Terra; max tested solution length; hardware constraints, debugging and performance

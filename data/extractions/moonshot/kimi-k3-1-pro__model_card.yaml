@@ -1,0 +1,194 @@
+doc: kimi-k3-1-pro__model_card
+mentions:
+- raw: Terminal-Bench 4.0
+  value: 65.7
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; Terminal-Bench 4.0
+- raw: Terminal-Bench-Science 0.1
+  value: 38.1
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; Terminal-Bench-Science 0.1
+- raw: SWE Marathon v1.1
+  value: 51.7
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; SWE Marathon v1.1
+- raw: BenchCAD w/o tools
+  value: 72.8
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; BenchCAD w/o tools
+- raw: BenchCAD w/ tools
+  value: 92.7
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; BenchCAD w/ tools
+- raw: Program Bench
+  value: 31.5
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; Program Bench
+- raw: DeepSWE v1.1
+  value: 75.5
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; DeepSWE v1.1
+- raw: PostTrain Bench v1.2
+  value: 36.5
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; PostTrain Bench v1.2
+- raw: Kimi Code Bench 2.0 (Internal)
+  value: 77.1
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; Kimi Code Bench 2.0 (Internal)
+- raw: Kimi Code Bench 3.0 Long-horizon (Internal)
+  value: 61.2
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; Kimi Code Bench 3.0 Long-horizon (Internal)
+- raw: HLE-Full w/ tools
+  value: 70.0
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; HLE-Full w/ tools
+- raw: BrowseComp
+  value: 92.1
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; BrowseComp
+- raw: BioMysteryBench
+  value: 80.6
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; BioMysteryBench
+- raw: CharXiv (RQ) w/ python
+  value: 93.4
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; CharXiv (RQ) w/ python
+- raw: MMMU-Pro w/ python
+  value: 90.0
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; MMMU-Pro w/ python
+- raw: GDP.pdf w/ python
+  value: 85.7
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; GDP.pdf w/ python
+- raw: ChartoGraphy w/ python
+  value: 90.2
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; ChartoGraphy w/ python
+- raw: BabyVision w/ python
+  value: 95.4
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; BabyVision w/ python
+- raw: ZeroBench_main w/ python (pass@5)
+  value: 63.0
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; ZeroBench_main w/ python (pass@5)
+- raw: Agents' Last Exam (ALL)
+  value: 43.2
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; Agents' Last Exam (ALL)
+- raw: Agents' Last Exam (CLI)
+  value: 44.2
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; Agents' Last Exam (CLI)
+- raw: Automation Bench-AA
+  value: 73.3
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; Automation Bench-AA
+- raw: GDPval-AA v2.1 (Elo-score)
+  value: 1846.0
+  unit: other
+  model_config: Kimi K3.1 Pro; max effort; GDPval-AA v2.1 (Elo-score)
+- raw: AA-Briefcase v1.1 (Elo-score)
+  value: 1678.0
+  unit: other
+  model_config: Kimi K3.1 Pro; max effort; AA-Briefcase v1.1 (Elo-score)
+- raw: APEX-Agents
+  value: 69.4
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; APEX-Agents
+- raw: OfficeQA Pro v2
+  value: 64.4
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; OfficeQA Pro v2
+- raw: OfficeQA Pro
+  value: 67.4
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; OfficeQA Pro
+- raw: Frontier Finance
+  value: 58.6
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; Frontier Finance
+- raw: Harvey Legal Agent
+  value: 23.7
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; Harvey Legal Agent
+- raw: HANDBOOK.md
+  value: 44.6
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; HANDBOOK.md
+- raw: OSWorld V2.1
+  value: 79.6
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; OSWorld V2.1
+- raw: Business Operation (Internal)
+  value: 37.8
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; Business Operation (Internal)
+- raw: DECK-Arena (Internal, Elo-score)
+  value: 1456.0
+  unit: other
+  model_config: Kimi K3.1 Pro; max effort; DECK-Arena (Internal, Elo-score)
+- raw: Design Bench (Internal, Elo-score)
+  value: 957.0
+  unit: other
+  model_config: Kimi K3.1 Pro; max effort; Design Bench (Internal, Elo-score)
+- raw: Kimi Hallu Bench Hard w/ tools (Internal, lower is better)
+  value: 8.3
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; Kimi Hallu Bench Hard w/ tools (Internal, lower is better)
+- raw: GDP.pdf
+  value: 34.6
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; GDP.pdf
+- raw: HLE-Full
+  value: 51.1
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; HLE-Full
+- raw: HLE-Diamond
+  value: 39.4
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; HLE-Diamond
+- raw: GPQA-Diamond
+  value: 94.2
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; GPQA-Diamond
+- raw: CharXiv (RQ)
+  value: 89.0
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; CharXiv (RQ)
+- raw: MMMU-Pro
+  value: 84.1
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; MMMU-Pro
+- raw: ZeroBench_main (avg@5 / pass@5)
+  value: 29.8
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; ZeroBench_main (avg@5 / pass@5); avg@5
+- raw: ZeroBench_main (avg@5 / pass@5)
+  value: 39.0
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; ZeroBench_main (avg@5 / pass@5); pass@5
+- raw: PerceptionBench
+  value: 68.3
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; PerceptionBench
+- raw: Kimi Hallu Bench w/o tools (Internal, lower is better)
+  value: 5.4
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; Kimi Hallu Bench w/o tools (Internal, lower is better)
+- raw: ExploitBench
+  value: 74.7
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; ExploitBench
+- raw: ExploitGym
+  value: 20.7
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; ExploitGym
+- raw: xdev-bench-hard (Internal)
+  value: 81.0
+  unit: percent
+  model_config: Kimi K3.1 Pro; max effort; xdev-bench-hard (Internal)

@@ -851,3 +851,142 @@ documents:
     default_weight_class: model_card
     url: https://huggingface.co/Aleph-Alpha/Kolibri-1
     pub_date: '2026-10-03'
+
+  # November 11 model and card refresh
+  -   id: claude-haiku-5-5__blog_headliner
+      lab: anthropic
+      model: Claude Haiku 5.5
+      container: blog
+      default_weight_class: model_card
+      url: https://www.anthropic.com/claude-haiku-5-5
+      pub_date: '2026-10-07'
+  -   id: claude-haiku-5-5__system_card
+      lab: anthropic
+      model: Claude Haiku 5.5
+      container: pdf
+      default_weight_class: system_card
+      url: https://www.anthropic.com/claude-haiku-5-5-system-card
+      pub_date: '2026-10-07'
+  -   id: claude-fable-5-2-mythos-5-2__blog_headliner
+      lab: anthropic
+      model: Claude Fable 5.2 / Mythos 5.2
+      container: blog
+      default_weight_class: model_card
+      url: https://www.anthropic.com/claude-fable-and-mythos-5-2
+      pub_date: '2026-11-09'
+  -   id: claude-fable-5-2-mythos-5-2__system_card
+      lab: anthropic
+      model: Claude Fable 5.2 / Mythos 5.2
+      container: pdf
+      default_weight_class: system_card
+      url: https://www.anthropic.com/document/claude-fable-5-2-mythos-5-2-system-card
+      pub_date: '2026-11-09'
+  -   id: muse-wonder__model_card
+      lab: meta
+      model: Muse Wonder
+      container: pdf
+      default_weight_class: model_card
+      url: https://research.meta.ai/static/muse-wonder-model-card
+      pub_date: '2026-10-12'
+      notes: Includes Muse Wonder and Muse Wonder Full; capability table read visually on page 3. ExploitGym
+          uses the corrected October 23 intended-flag count.
+  -   id: muse-spark-open__model_card
+      lab: meta
+      model: Muse Spark Open
+      container: hf_readme
+      default_weight_class: model_card
+      url: https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B
+      pub_date: '2026-10-15'
+  -   id: muse-ember__blog_headliner
+      lab: meta
+      model: Muse Ember
+      container: blog
+      default_weight_class: model_card
+      url: https://research.meta.ai/blog/muse-ember
+      pub_date: '2026-11-09'
+  -   id: kimi-k3-1-pro__model_card
+      lab: moonshot
+      model: Kimi K3.1 Pro
+      container: hf_readme
+      default_weight_class: model_card
+      url: https://huggingface.co/moonshotai/Kimi-K3.1-Pro
+      pub_date: '2026-10-24'
+      notes: Release date from the linked first-party Kimi K3.1 Pro tech blog. Values are the Kimi K3.1
+          Pro (max) column only; fallback settings in competitor columns are not attributed to Kimi.
+  -   id: deepseek-v4-1-flash-1017__model_card
+      lab: deepseek
+      model: DeepSeek-V4.1-Flash-1017
+      container: hf_readme
+      default_weight_class: model_card
+      url: https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017
+      pub_date: '2026-10-17'
+  -   id: beam__model_card
+      lab: reflection_ai
+      model: Beam
+      container: blog
+      default_weight_class: model_card
+      url: https://reflection.ai/beam-model-card
+      pub_date: '2026-10-16'
+      notes: Release availability October 16; numeric variants retained in model_config.
+  -   id: gemini-4-carbon__model_card
+      lab: google_deepmind
+      model: Gemini 4 Carbon
+      container: blog
+      default_weight_class: model_card
+      url: https://deepmind.google/models/gemini/
+      pub_date: '2026-11-10'
+      notes: 'Current Gemini 4 Carbon comparison table; public release date from the linked November 10
+          announcement. Methodology: https://deepmind.google/models/evals-methodology/gemini-4-carbon'
+  -   id: inkling-2-small__model_card
+      lab: thinking_machines
+      model: Inkling 2 Small
+      container: blog
+      default_weight_class: model_card
+      url: https://thinkingmachines.ai/model-card/inkling-2-small/
+      pub_date: '2026-11-05'
+  -   id: gpt-6-1-terra__system_card
+      lab: openai
+      model: GPT-6.1 Terra
+      container: blog
+      default_weight_class: system_card
+      url: https://deploymentsafety.openai.com/gpt-6-1-terra
+      pub_date: '2026-10-26'
+  -   id: gpt-6-sol-luna-october__system_card
+      lab: openai
+      model: GPT-6 Sol
+      container: blog
+      default_weight_class: system_card
+      url: https://deploymentsafety.openai.com/gpt-6-october
+      pub_date: '2026-10-07'
+      notes: October model update. Scores separately attributed to GPT-6 Sol and GPT-6 Luna.
+  -   id: gpt-6-luna-october-29__system_card
+      lab: openai
+      model: GPT-6 Luna
+      container: blog
+      default_weight_class: system_card
+      url: https://deploymentsafety.openai.com/gpt-6-luna-october-28-2026-addendum
+      pub_date: '2026-10-29'
+      notes: Title and publication date say October 29; URL retains October 28.
+  -   id: gpt-6-cyber__system_card
+      lab: openai
+      model: GPT-6 Cyber
+      container: pdf
+      default_weight_class: system_card
+      url: https://deploymentsafety.openai.com/gpt-6-cyber/gpt-6-cyber.pdf
+      pub_date: '2026-11-05'
+  -   id: mistral-large-4-oss__blog_headliner
+      lab: mistral
+      model: Mistral Large 4
+      container: blog
+      default_weight_class: model_card
+      url: https://mistral.ai/news/mistral-large-4-oss/
+      pub_date: '2026-10-29'
+      notes: Open-weight release after additional RL; distinct from October 6 public-preview results.
+
+  -   id: mistral-large-4__model_card
+      lab: mistral
+      model: Mistral Large 4
+      container: hf_readme
+      default_weight_class: model_card
+      url: https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B
+      pub_date: '2026-10-29'

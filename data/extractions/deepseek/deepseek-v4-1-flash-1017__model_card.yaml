@@ -1,0 +1,50 @@
+doc: deepseek-v4-1-flash-1017__model_card
+mentions:
+- raw: HLE w/o tools
+  value: 42.6
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash-1017; HLE w/o tools
+- raw: HLE text only
+  value: 44.0
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash-1017; text-only HLE subset; no tools
+- raw: Terminal-Bench 4.0
+  value: 42.3
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash-1017; Terminal-Bench 4.0; Claude Code harness
+- raw: DeepSWE v1.1
+  value: 77.0
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash-1017; DeepSWE v1.1; Mini-SWE-V2 harness
+- raw: ProgramBench
+  value: 29.1
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash-1017; ProgramBench
+- raw: NL2Repo-Bench
+  value: 68.2
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash-1017; NL2Repo-Bench
+- raw: Automation-Bench v1.0.6
+  value: 60.5
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash-1017; Automation-Bench v1.0.6
+- raw: Agents’ Last Exam
+  value: 35.4
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash-1017; Agents’ Last Exam
+- raw: Apex Bench v1.1
+  value: 72.1
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash-1017; Apex Bench v1.1
+- raw: Chartography (w/tools)
+  value: 83.0
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash-1017; Chartography (w/tools)
+- raw: BabyVision (w/tools)
+  value: 92.5
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash-1017; BabyVision (w/tools)
+- raw: ZeroBench-main (w/tools)
+  value: 51.0
+  unit: percent
+  model_config: DeepSeek-V4.1-Flash-1017; ZeroBench-main (w/tools)

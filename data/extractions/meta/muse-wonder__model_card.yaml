@@ -1,0 +1,170 @@
+doc: muse-wonder__model_card
+mentions:
+- raw: Personal Superintelligence Index
+  value: 59.1
+  unit: other
+  model_config: Muse Wonder Full; max effort unless noted; internal seven-evaluation composite
+  model: Muse Wonder Full
+- raw: Personal Superintelligence Index
+  value: 54.3
+  unit: other
+  model_config: Muse Wonder; max effort unless noted; internal seven-evaluation composite
+  model: Muse Wonder
+- raw: Harvey LAB-AA
+  value: 13.1
+  unit: percent
+  model_config: Muse Wonder Full; max effort unless noted; v1.1; Artificial Analysis
+  model: Muse Wonder Full
+- raw: Harvey LAB-AA
+  value: 10.0
+  unit: percent
+  model_config: Muse Wonder; max effort unless noted; v1.1; Artificial Analysis
+  model: Muse Wonder
+- raw: Vals Finance Agent v2
+  value: 59.1
+  unit: percent
+  model_config: Muse Wonder Full; max effort unless noted; Vals AI private test set
+  model: Muse Wonder Full
+- raw: Vals Finance Agent v2
+  value: 56.6
+  unit: percent
+  model_config: Muse Wonder; max effort unless noted; Vals AI private test set
+  model: Muse Wonder
+- raw: HealthBench Professional
+  value: 62.3
+  unit: percent
+  model_config: Muse Wonder Full; max effort unless noted; length-normalized rubric score; no tools
+  model: Muse Wonder Full
+- raw: HealthBench Professional
+  value: 60.5
+  unit: percent
+  model_config: Muse Wonder; max effort unless noted; length-normalized rubric score; no tools
+  model: Muse Wonder
+- raw: AutomationBench-AA
+  value: 45.4
+  unit: percent
+  model_config: Muse Wonder Full; max effort unless noted; strict pass@1
+  model: Muse Wonder Full
+- raw: AutomationBench-AA
+  value: 39.1
+  unit: percent
+  model_config: Muse Wonder; max effort unless noted; strict pass@1
+  model: Muse Wonder
+- raw: GDP.pdf
+  value: 33.2
+  unit: percent
+  model_config: Muse Wonder Full; max effort unless noted; Surge reported score
+  model: Muse Wonder Full
+- raw: GDP.pdf
+  value: 30.8
+  unit: percent
+  model_config: Muse Wonder; max effort unless noted; Surge reported score
+  model: Muse Wonder
+- raw: JobBench
+  value: 75.3
+  unit: percent
+  model_config: Muse Wonder Full; max effort unless noted; mean reward; 65 tasks
+  model: Muse Wonder Full
+- raw: JobBench
+  value: 70.5
+  unit: percent
+  model_config: Muse Wonder; max effort unless noted; mean reward; 65 tasks
+  model: Muse Wonder
+- raw: OSWorld 2.1
+  value: 78.4
+  unit: percent
+  model_config: Muse Wonder Full; max effort unless noted; partial score; common internal framework; 108
+    workflows
+  model: Muse Wonder Full
+- raw: OSWorld 2.1
+  value: 72.6
+  unit: percent
+  model_config: Muse Wonder; max effort unless noted; partial score; common internal framework; 108 workflows
+  model: Muse Wonder
+- raw: OSWorld 2.1
+  value: 39.4
+  unit: percent
+  model_config: Muse Wonder Full; max effort unless noted; binary completion; common internal framework
+  model: Muse Wonder Full
+- raw: OSWorld 2.1
+  value: 34.3
+  unit: percent
+  model_config: Muse Wonder; max effort unless noted; binary completion; common internal framework
+  model: Muse Wonder
+- raw: MemoryBench
+  value: 85.5
+  unit: percent
+  model_config: Muse Wonder Full; max effort unless noted; internal memory evaluation
+  model: Muse Wonder Full
+- raw: MemoryBench
+  value: 85.6
+  unit: percent
+  model_config: Muse Wonder; max effort unless noted; internal memory evaluation
+  model: Muse Wonder
+- raw: Terminal-Bench 4.0
+  value: 57.1
+  unit: percent
+  model_config: Muse Wonder Full; max effort unless noted; Artificial Analysis
+  model: Muse Wonder Full
+- raw: Terminal-Bench 4.0
+  value: 52.0
+  unit: percent
+  model_config: Muse Wonder; max effort unless noted; Artificial Analysis
+  model: Muse Wonder
+- raw: DeepSWE v1.1
+  value: 79.0
+  unit: percent
+  model_config: Muse Wonder Full; max effort unless noted; Datacurve reported result
+  model: Muse Wonder Full
+- raw: DeepSWE v1.1
+  value: 78.8
+  unit: percent
+  model_config: Muse Wonder; max effort unless noted; Datacurve reported result
+  model: Muse Wonder
+- raw: SWE-Marathon
+  value: 57.5
+  unit: percent
+  model_config: Muse Wonder Full; max effort unless noted; Abundant AI; Full at xhigh effort
+  model: Muse Wonder Full
+- raw: SWE-Marathon
+  value: 53.1
+  unit: percent
+  model_config: Muse Wonder; max effort unless noted; Abundant AI; Full at xhigh effort
+  model: Muse Wonder
+- raw: ProgramBench
+  value: 59.0
+  unit: percent
+  model_config: Muse Wonder Full; max effort unless noted; mini-swe-agent; rollouts passing at least 95%
+    of tests
+  model: Muse Wonder Full
+- raw: ProgramBench
+  value: 50.0
+  unit: percent
+  model_config: Muse Wonder; max effort unless noted; mini-swe-agent; rollouts passing at least 95% of
+    tests
+  model: Muse Wonder
+- raw: Artificial Analysis Index
+  value: 56
+  unit: other
+  model_config: Muse Wonder Full; max effort unless noted; v4.3
+  model: Muse Wonder Full
+- raw: Artificial Analysis Index
+  value: 52
+  unit: other
+  model_config: Muse Wonder; max effort unless noted; v4.3
+  model: Muse Wonder
+- raw: CyberGym
+  value: 88.4
+  unit: percent
+  model_config: 'Muse Wonder Full; '
+  model: Muse Wonder Full
+- raw: ExploitBench
+  value: 58.9
+  unit: percent
+  model_config: 'Muse Wonder Full; '
+  model: Muse Wonder Full
+- raw: ExploitGym
+  value: 20
+  unit: other
+  model_config: Muse Wonder Full; intended flags; corrected October 23, 2026; excludes unintended flags
+  model: Muse Wonder Full

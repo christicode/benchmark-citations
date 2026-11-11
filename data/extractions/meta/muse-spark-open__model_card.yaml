@@ -1,0 +1,86 @@
+doc: muse-spark-open__model_card
+mentions:
+- raw: Artificial Analysis Intelligence Index
+  value: 39.0
+  unit: other
+  model_config: Muse Spark Open; xhigh; Artificial Analysis Intelligence Index
+- raw: JobBench
+  value: 61.8
+  unit: percent
+  model_config: Muse Spark Open; xhigh; JobBench
+- raw: MCP-Atlas
+  value: 89.2
+  unit: percent
+  model_config: Muse Spark Open; xhigh; MCP-Atlas
+- raw: GDPVal-AA v2
+  value: 1401.0
+  unit: other
+  model_config: Muse Spark Open; xhigh; GDPVal-AA v2
+- raw: OSWorld Verified
+  value: 80.4
+  unit: percent
+  model_config: Muse Spark Open; xhigh; OSWorld Verified
+- raw: Toolathlon Verified
+  value: 72.8
+  unit: percent
+  model_config: Muse Spark Open; xhigh; Toolathlon Verified
+- raw: HLE-Diamond (no tools)
+  value: 26.1
+  unit: percent
+  model_config: Muse Spark Open; xhigh; HLE-Diamond (no tools)
+- raw: AA Omniscience
+  value: 25.0
+  unit: other
+  model_config: Muse Spark Open; xhigh; AA Omniscience
+- raw: SciCode
+  value: 58.5
+  unit: percent
+  model_config: Muse Spark Open; xhigh; SciCode
+- raw: HLE (w/ tools)
+  value: 61.0
+  unit: percent
+  model_config: Muse Spark Open; xhigh; HLE (w/ tools)
+- raw: GPQA Diamond
+  value: 89.0
+  unit: percent
+  model_config: Muse Spark Open; xhigh; GPQA Diamond
+- raw: DeepSWE 1.1 Preferred harness
+  value: 60.0
+  unit: percent
+  model_config: Muse Spark Open; xhigh; DeepSWE 1.1 Preferred harness
+- raw: SWE-Atlas-QnA Preferred harness
+  value: 58.0
+  unit: percent
+  model_config: Muse Spark Open; xhigh; SWE-Atlas-QnA Preferred harness
+- raw: Terminal-Bench 2.1 Terminus 2 agent
+  value: 76.4
+  unit: percent
+  model_config: Muse Spark Open; xhigh; Terminal-Bench 2.1 Terminus 2 agent
+- raw: ZeroBench (w/ tools)
+  value: 50.0
+  unit: percent
+  model_config: Muse Spark Open; xhigh; ZeroBench (w/ tools)
+- raw: BabyVision (w/ tools)
+  value: 80.2
+  unit: percent
+  model_config: Muse Spark Open; xhigh; BabyVision (w/ tools)
+- raw: SimpleVQA (w/ tools)
+  value: 73.6
+  unit: percent
+  model_config: Muse Spark Open; xhigh; SimpleVQA (w/ tools)
+- raw: WorldVQA (w/ tools)
+  value: 49.4
+  unit: percent
+  model_config: Muse Spark Open; xhigh; WorldVQA (w/ tools)
+- raw: IntPhys2
+  value: 68.3
+  unit: percent
+  model_config: Muse Spark Open; xhigh; IntPhys2
+- raw: VideoMMEv2
+  value: 61.5
+  unit: percent
+  model_config: Muse Spark Open; xhigh; VideoMMEv2
+- raw: StrongREJECT v2 (adaptive) lower is better
+  value: 0.5
+  unit: percent
+  model_config: Muse Spark Open; xhigh; StrongREJECT v2 (adaptive) lower is better

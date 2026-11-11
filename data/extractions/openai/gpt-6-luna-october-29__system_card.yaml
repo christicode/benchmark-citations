@@ -1,0 +1,73 @@
+doc: gpt-6-luna-october-29__system_card
+mentions:
+- raw: HealthBench Professional
+  value: 47.4
+  unit: percent
+  model_config: 'GPT-6 Luna; October 29 update; HealthBench Professional; length-adjusted score; unadjusted
+    score and length: 47.4 (56.2, 4,969)'
+- raw: HealthBench
+  value: 48.2
+  unit: percent
+  model_config: 'GPT-6 Luna; October 29 update; HealthBench; length-adjusted score; unadjusted score and
+    length: 48.2 (54.0, 2,970)'
+- raw: HealthBench Hard
+  value: 22.8
+  unit: percent
+  model_config: 'GPT-6 Luna; October 29 update; HealthBench Hard; length-adjusted score; unadjusted score
+    and length: 22.8 (28.5, 2,725)'
+- raw: HealthBench Consensus
+  value: 93.3
+  unit: percent
+  model_config: 'GPT-6 Luna; October 29 update; HealthBench Consensus; length-adjusted score; unadjusted
+    score and length: 93.3 (93.7, 2,978)'
+- raw: MentalHealthBench (overall)
+  value: 48.68
+  unit: percent
+  model_config: GPT-6 Luna; October 29 update; MentalHealthBench (overall)
+- raw: MentalHealthBench (non-acute)
+  value: 46.39
+  unit: percent
+  model_config: GPT-6 Luna; October 29 update; MentalHealthBench (non-acute)
+- raw: MentalHealthBench (high acuity)
+  value: 53.92
+  unit: percent
+  model_config: GPT-6 Luna; October 29 update; MentalHealthBench (high acuity)
+- raw: MentalHealthBench (emergent)
+  value: 49.64
+  unit: percent
+  model_config: GPT-6 Luna; October 29 update; MentalHealthBench (emergent)
+- raw: Multimodal Troubleshooting Virology
+  value: 45.85
+  unit: percent
+  model_config: GPT-6 Luna; October 29 update; Multimodal Troubleshooting Virology; pass@1
+- raw: ProtocolQA Open-Ended
+  value: 31.8
+  unit: percent
+  model_config: GPT-6 Luna; October 29 update; ProtocolQA Open-Ended; pass@1
+- raw: Tacit Knowledge and Troubleshooting
+  value: 90.8
+  unit: percent
+  model_config: GPT-6 Luna; October 29 update; Tacit Knowledge and Troubleshooting; cons@32
+- raw: TroubleshootingBench
+  value: 37.9
+  unit: percent
+  model_config: GPT-6 Luna; October 29 update; TroubleshootingBench; pass@1
+- raw: AAV Capsid Packaging Prediction
+  value: 0.53
+  unit: other
+  model_config: GPT-6 Luna; October 29 update; AAV Capsid Packaging Prediction; Spearman rank correlation
+    (higher is better)
+- raw: SHP2 Protein Function Prediction
+  value: 0.21
+  unit: other
+  model_config: GPT-6 Luna; October 29 update; SHP2 Protein Function Prediction; Mean R² (higher is better)
+- raw: Coronavirus--ACE2 Cell-Entry Screen
+  value: 0.37
+  unit: other
+  model_config: GPT-6 Luna; October 29 update; Coronavirus--ACE2 Cell-Entry Screen; Composite score (higher
+    is better)
+- raw: Phage--plasmid Co-evolution
+  value: 11.84
+  unit: other
+  model_config: GPT-6 Luna; October 29 update; Phage--plasmid Co-evolution; Negative log-likelihood (lower
+    is better)

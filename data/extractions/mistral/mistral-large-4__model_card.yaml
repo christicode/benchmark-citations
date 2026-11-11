@@ -1,0 +1,10 @@
+doc: mistral-large-4__model_card
+mentions:
+- raw: Artificial Analysis Intelligence Index
+  value: 26
+  unit: other
+  model_config: Mistral Large 4; open-weight release; v5
+- raw: Artificial Analysis Coding Agent Index
+  value: 48
+  unit: percent
+  model_config: Mistral Large 4; open-weight release; 47% fewer tokens per task than GLM-5.3

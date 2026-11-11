@@ -8,3 +8,12 @@ models:
     release_date: '2026-08-05'
   qwen3-max:
     release_date: '2025-09-23'
+  gpt-6-sol:
+    # September 22 release; first scored source here is the October 7 update.
+    release_date: '2026-09-22'
+  gpt-6-luna:
+    # September 22 release; later cards describe October updates.
+    release_date: '2026-09-22'
+  mistral-large-4:
+    # Public preview launched October 6; the improved open-weight release followed October 29.
+    release_date: '2026-10-06'

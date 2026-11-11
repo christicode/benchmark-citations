@@ -1,6 +1,4 @@
 {"lab": "anthropic", "url": "https://www.anthropic.com/claude-fable-5-1-mythos-5-1-system-card", "discovered_from": "https://www.anthropic.com/transparency", "first_seen": "2026-11-11", "status": "candidate"}
-{"lab": "anthropic", "url": "https://www.anthropic.com/claude-haiku-5-5", "discovered_from": "https://www.anthropic.com/news", "first_seen": "2026-11-11", "status": "candidate"}
-{"lab": "anthropic", "url": "https://www.anthropic.com/claude-haiku-5-5-system-card", "discovered_from": "https://www.anthropic.com/transparency", "first_seen": "2026-11-11", "status": "candidate"}
 {"lab": "anthropic", "url": "https://www.anthropic.com/claude-opus-4-5-system-card", "discovered_from": "https://www.anthropic.com/transparency", "first_seen": "2026-11-11", "status": "candidate"}
 {"lab": "anthropic", "url": "https://www.anthropic.com/claude-opus-4-6-system-card", "discovered_from": "https://www.anthropic.com/transparency", "first_seen": "2026-11-11", "status": "candidate"}
 {"lab": "anthropic", "url": "https://www.anthropic.com/claude-opus-4-7-system-card", "discovered_from": "https://www.anthropic.com/transparency", "first_seen": "2026-11-11", "status": "candidate"}
@@ -28,7 +26,6 @@
 {"lab": "meta", "url": "https://research.meta.ai/blog/introducing-muse-spark-msl", "discovered_from": "https://research.meta.ai/blog/", "first_seen": "2026-11-11", "status": "candidate"}
 {"lab": "meta", "url": "https://research.meta.ai/blog/introducing-muse-voice-transcribe", "discovered_from": "https://research.meta.ai/blog/", "first_seen": "2026-11-11", "status": "candidate"}
 {"lab": "meta", "url": "https://research.meta.ai/blog/multimodal-intelligence-of-muse-spark-1-2", "discovered_from": "https://research.meta.ai/blog/", "first_seen": "2026-11-11", "status": "candidate"}
-{"lab": "meta", "url": "https://research.meta.ai/blog/muse-ember", "discovered_from": "https://research.meta.ai/blog/", "first_seen": "2026-11-11", "status": "candidate"}
 {"lab": "meta", "url": "https://research.meta.ai/blog/muse-spark-open", "discovered_from": "https://research.meta.ai/blog/", "first_seen": "2026-11-11", "status": "candidate"}
 {"lab": "meta", "url": "https://research.meta.ai/blog/muse-wonder", "discovered_from": "https://research.meta.ai/blog/", "first_seen": "2026-11-11", "status": "candidate"}
 {"lab": "meta", "url": "https://research.meta.ai/blog/security-and-safety-for-ai-agents-our-approach-with-muse", "discovered_from": "https://research.meta.ai/blog/", "first_seen": "2026-11-11", "status": "candidate"}
@@ -36,7 +33,6 @@
 {"lab": "mistral", "url": "https://mistral.ai/news/mistral-large", "discovered_from": "https://mistral.ai/news/", "first_seen": "2026-11-11", "status": "candidate"}
 {"lab": "mistral", "url": "https://mistral.ai/news/mistral-large-2407", "discovered_from": "https://mistral.ai/news/", "first_seen": "2026-11-11", "status": "candidate"}
 {"lab": "mistral", "url": "https://mistral.ai/news/mistral-large-4", "discovered_from": "https://mistral.ai/news/", "first_seen": "2026-11-11", "status": "candidate"}
-{"lab": "mistral", "url": "https://mistral.ai/news/mistral-large-4-oss", "discovered_from": "https://mistral.ai/news/", "first_seen": "2026-11-11", "status": "candidate"}
 {"lab": "mistral", "url": "https://mistral.ai/news/mistral-medium-3", "discovered_from": "https://mistral.ai/news/", "first_seen": "2026-11-11", "status": "candidate"}
 {"lab": "mistral", "url": "https://mistral.ai/news/mistral-small-3", "discovered_from": "https://mistral.ai/news/", "first_seen": "2026-11-11", "status": "candidate"}
 {"lab": "mistral", "url": "https://mistral.ai/news/mistral-small-3-1", "discovered_from": "https://mistral.ai/news/", "first_seen": "2026-11-11", "status": "candidate"}
@@ -51,11 +47,8 @@
 {"lab": "openai", "url": "https://deploymentsafety.openai.com/gpt-5-6-august-update", "discovered_from": "https://deploymentsafety.openai.com/", "first_seen": "2026-10-30", "status": "candidate"}
 {"lab": "openai", "url": "https://deploymentsafety.openai.com/gpt-5-6-preview", "discovered_from": "https://deploymentsafety.openai.com/", "first_seen": "2026-10-15", "status": "candidate"}
 {"lab": "openai", "url": "https://deploymentsafety.openai.com/gpt-6-1-sol", "discovered_from": "https://deploymentsafety.openai.com/", "first_seen": "2026-11-11", "status": "candidate"}
-{"lab": "openai", "url": "https://deploymentsafety.openai.com/gpt-6-1-terra", "discovered_from": "https://deploymentsafety.openai.com/", "first_seen": "2026-11-11", "status": "candidate"}
 {"lab": "openai", "url": "https://deploymentsafety.openai.com/gpt-6-astra", "discovered_from": "https://deploymentsafety.openai.com/", "first_seen": "2026-11-04", "status": "candidate"}
 {"lab": "openai", "url": "https://deploymentsafety.openai.com/gpt-6-cyber", "discovered_from": "https://deploymentsafety.openai.com/", "first_seen": "2026-11-11", "status": "candidate"}
-{"lab": "openai", "url": "https://deploymentsafety.openai.com/gpt-6-luna-october-28-2026-addendum", "discovered_from": "https://deploymentsafety.openai.com/", "first_seen": "2026-11-11", "status": "candidate"}
-{"lab": "openai", "url": "https://deploymentsafety.openai.com/gpt-6-october", "discovered_from": "https://deploymentsafety.openai.com/", "first_seen": "2026-11-11", "status": "candidate"}
 {"lab": "qwen", "url": "https://huggingface.co/Qwen/Qwen3.5-0.8B", "discovered_from": "hf:Qwen", "first_seen": "2026-11-11", "status": "candidate"}
 {"lab": "qwen", "url": "https://huggingface.co/Qwen/Qwen3.5-122B-A10B", "discovered_from": "hf:Qwen", "first_seen": "2026-11-11", "status": "candidate"}
 {"lab": "qwen", "url": "https://huggingface.co/Qwen/Qwen3.5-27B", "discovered_from": "hf:Qwen", "first_seen": "2026-09-18", "status": "candidate"}

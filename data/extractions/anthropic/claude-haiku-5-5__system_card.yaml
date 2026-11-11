@@ -1,0 +1,87 @@
+doc: claude-haiku-5-5__system_card
+mentions:
+- raw: GDPval-AA v2.1
+  value: 1620
+  unit: other
+  model_config: Haiku 5.5; Elo
+  weight_class: model_card
+- raw: AA-Briefcase v1.1
+  value: 1578
+  unit: other
+  model_config: Haiku 5.5; Elo
+  weight_class: model_card
+- raw: OSWorld 2.1
+  value: 72.4
+  unit: percent
+  model_config: Haiku 5.5; offline subset
+  weight_class: model_card
+- raw: HLE
+  value: 45.9
+  unit: percent
+  model_config: Haiku 5.5; no tools
+  weight_class: model_card
+- raw: HLE
+  value: 57.4
+  unit: percent
+  model_config: Haiku 5.5; with tools
+  weight_class: model_card
+- raw: Terminal-Bench 4.0
+  value: 39.2
+  unit: percent
+  model_config: Haiku 5.5; Claude Code --bare; max effort; safeguards enabled; no fallback; no internet
+    egress; 10 trials per task
+- raw: FrontierCode 1.1 (Main)
+  value: 46.4
+  unit: percent
+  model_config: Haiku 5.5; max effort; Claude Code
+  weight_class: model_card
+- raw: Chartography
+  value: 46.4
+  unit: percent
+  model_config: Haiku 5.5; no tools
+- raw: SWE-bench Pro
+  value: 64.8
+  unit: percent
+  model_config: Haiku 5.5; adaptive thinking; max effort; five trials
+  weight_class: model_card
+- raw: SWE-bench Multilingual
+  value: 83.7
+  unit: percent
+  model_config: Haiku 5.5; adaptive thinking; max effort; five trials
+  weight_class: model_card
+- raw: SWE-bench Multimodal
+  value: 30.7
+  unit: percent
+  model_config: Haiku 5.5; adaptive thinking; max effort; five trials
+  weight_class: model_card
+- raw: HealthBench Professional
+  value: 64.8
+  unit: percent
+  model_config: Haiku 5.5; adaptive thinking; max effort; length-adjusted
+  weight_class: model_card
+- raw: FrontierCode 1.1 (Extended)
+  value: 58.4
+  unit: percent
+  model_config: Haiku 5.5; max effort; Claude Code
+- raw: Terminal-Bench-Science 0.1
+  value: 20.6
+  unit: percent
+  model_config: Haiku 5.5; Claude Code --bare; max effort; no internet egress; safeguards enabled; no
+    fallback; 10 trials per task
+- raw: FrontierSWE v2
+  value: 43.8
+  unit: percent
+  model_config: Haiku 5.5; Proximal harness; 34 tasks; five trials; 20-hour budget
+- raw: ExploitBench
+  value: 38
+  unit: percent
+  model_config: Haiku 5.5; Cap%; mean 5.15 capability flags across 41 tasks
+- raw: CyScenarioBench
+  value: 3.3
+  unit: percent
+  model_config: Haiku 5.5; pre-release snapshot; ten-challenge subset; overall solve rate
+- raw: ProgramBench
+  value: 82.0
+  unit: percent
+  model_config: Haiku 5.5; 166 retained tasks after excluding 34 with reference score below 0.9; hidden
+    test pass rate; mini-swe-agent; no six-hour time limit
