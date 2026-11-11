@@ -231,7 +231,7 @@ benchmarks:
   - canonical: frontier-swe
     type: agentic
     domain: coding
-    aliases: ["FrontierSWE", "Frontier SWE", "FrontierSWE v2"]
+    aliases: ["FrontierSWE", "Frontier SWE", "FrontierSWE v2", "FrontierSWE 2"]
   # NOTE: 'frontierbench' (FrontierBench v0.1) was FOLDED INTO terminal-bench-3.0 on 2026-08-13 —
   # FrontierBench v0.1 was RENAMED to Terminal-Bench 3.0 (same benchmark, same team; it was the
   # 'successor to Terminal-Bench 2.1'). Its aliases now live on terminal-bench-3.0 so Opus 5's
